@@ -8,7 +8,7 @@ import { useAuth } from "@/users/context/AuthContext";
 import PrivateRoutes from "@/users/context/PrivateRoutes";
 import Dashboard from "@/users/views/Dashboard";
 import ResetPassword from "@/users/views/ResetPassword";
-import useScrollTrigger from "./shared/hooks/useScrollTrigger";
+import useScrollTrigger from "@/shared/hooks/useScrollTrigger";
 
 const App = () => {
   const { isAuthenticated } = useAuth();
@@ -45,7 +45,7 @@ const App = () => {
           />
 
           <Route
-            path={AppRoutes.account}
+            path={AppRoutes.settings}
             element={
               <PrivateRoutes hasAccess={isAuthenticated}>
                 <div className="max-w-xl w-full mx-auto py-5 px-4">

@@ -11,7 +11,7 @@ import BaseCard from "@/shared/ui/components/BaseCard";
 import {
   ResetPasswordData,
   ResetPasswordSchema,
-} from "../schemas/ResetPasswordSchema";
+} from "@/users/schemas/ResetPasswordSchema";
 import { ApiRoutes } from "@/shared/types/Routes";
 import { Button } from "@/lib/components/ui/button";
 import BaseInputGroup from "@/shared/ui/components/BaseInputGroup";

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getRequest } from "../tools/api";
+import { getRequest } from "@/shared/tools/api";
 
 type FetchState<T> = {
   data: T | null;

@@ -1,9 +1,8 @@
 import logoCyna from "@/shared/assets/images/logo-cyna.svg";
-import MenuNavigation from "./MenuNavigation";
 import { ReactNode } from "react";
 import { Link } from "react-router";
 import { AppRoutes } from "@/shared/types/Routes";
-import { ModeToggle } from "@/lib/components/context/mode-toggle";
+import NavigationMenu from "@/shared/ui/components/NavigationMenu";
 
 type BaseLayoutProps = {
   children?: ReactNode;
@@ -15,7 +14,9 @@ const BaseLayout = ({ children, scrolled }: BaseLayoutProps) => {
     <>
       <header
         className={`sticky z-20 grid top-0 w-full text-primary-foreground bg-linear-90 from-primary-150 to-primary transition-[box-shadow,colors] duration-500${
-          scrolled ? " shadow-2xl bg-none bg-primary-150/90" : ""
+          scrolled
+            ? " shadow-2xl dark:shadow-primary-foreground/10 bg-none bg-primary-150/90"
+            : ""
         }`}
       >
         <div className="area-1/1 -z-10 backdrop-blur-md"></div>
@@ -23,10 +24,7 @@ const BaseLayout = ({ children, scrolled }: BaseLayoutProps) => {
           <Link to={AppRoutes.home}>
             <img src={logoCyna} alt="Logo Cyna" />
           </Link>
-          <div className="flex items-center gap-4">
-            <ModeToggle />
-            <MenuNavigation />
-          </div>
+          <NavigationMenu />
         </div>
       </header>
       <main>{children}</main>

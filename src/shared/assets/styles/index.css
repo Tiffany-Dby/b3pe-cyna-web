@@ -274,16 +274,26 @@ header:has(.burger--open) {
   /* padding-right: 15px; */
 }
 
-nav .active {
-  @apply text-secondary-50;
+.sheet-nav {
+  & > div:has(> .sheet-nav-list) {
+    @apply w-full;
+  }
+
+  & button {
+    @apply w-full cursor-pointer;
+  }
 }
+
+/* nav .active {
+  @apply text-secondary-50;
+} */
 
 .button {
   @apply flex justify-around bg-accent;
 }
 
 .burger {
-  @apply bg-transparent shadow-none flex items-center h-9 w-9 p-1 cursor-pointer /*md:hidden*/;
+  @apply bg-transparent shadow-none flex items-center h-9 w-9 p-1 cursor-pointer md:hidden;
 
   span,
   span::before,

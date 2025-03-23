@@ -1,9 +1,11 @@
 export enum AppRoutes {
   home = "/",
-  products = "/produits",
-  account = "/account",
+  products = "/products",
+  settings = "/account/settings",
+  subscriptions = "/account/subscriptions",
   signUp = "/sign-up",
   signIn = "/sign-in",
+  cart = "/cart",
   checkout = "/checkout",
   resetPassword = "/reset-password",
 }
