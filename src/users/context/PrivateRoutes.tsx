@@ -1,4 +1,4 @@
-import { AppRoutes } from "@/shared/types/Routes";
+import { APP_ROUTES } from "@/shared/constants/routes";
 import React from "react";
 import { Navigate, Outlet } from "react-router";
 
@@ -10,7 +10,7 @@ type PrivateRoutesProps = {
 
 const PrivateRoutes = ({
   hasAccess,
-  redirectPath = AppRoutes.signIn,
+  redirectPath = APP_ROUTES.signIn,
   children,
 }: PrivateRoutesProps) => {
   if (!hasAccess) {

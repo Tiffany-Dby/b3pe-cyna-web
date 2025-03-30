@@ -1,9 +1,9 @@
 import logoCyna from "@/shared/assets/images/logo-cyna.svg";
 import { ReactNode } from "react";
 import { Link } from "react-router";
-import { AppRoutes } from "@/shared/types/Routes";
 import NavigationMenu from "@/shared/ui/components/NavigationMenu";
 import useScrollTrigger from "@/shared/hooks/useScrollTrigger";
+import { APP_ROUTES } from "@/shared/constants/routes";
 
 type BaseLayoutProps = {
   children?: ReactNode;
@@ -23,7 +23,7 @@ const BaseLayout = ({ children }: BaseLayoutProps) => {
       >
         <div className="area-1/1 -z-10 backdrop-blur-md"></div>
         <div className="area-1/1 container mx-auto flex-between-center gap-2 py-3 px-4">
-          <Link to={AppRoutes.home}>
+          <Link to={APP_ROUTES.home}>
             <img src={logoCyna} alt="Logo Cyna" />
           </Link>
           <NavigationMenu />

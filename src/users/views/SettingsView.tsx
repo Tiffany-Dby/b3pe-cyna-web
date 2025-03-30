@@ -1,4 +1,3 @@
-import { ApiRoutes } from "@/shared/types/Routes";
 import BaseCard from "@/shared/ui/components/BaseCard";
 import {
   ChangePasswordData,
@@ -12,6 +11,7 @@ import { useAuth } from "@/users/context/AuthContext";
 import CollapsibleForm from "@/users/ui/components/CollapsibleForm";
 import { Separator } from "@/lib/components/ui/separator";
 import { Field } from "@/shared/types/Field";
+import { API_ROUTES } from "@/shared/constants/routes";
 
 type PasswordField = Field & {
   name: keyof ChangePasswordData;
@@ -95,7 +95,7 @@ const SettingsView = () => {
                 formName="Informations personnelles"
                 schema={PersonInfosSchema}
                 inputFields={personalInfoFields}
-                apiUrl={ApiRoutes.signUp}
+                apiUrl={API_ROUTES.signUp}
                 defaultValues={personalDefaultValues}
               />
               <Separator />
@@ -103,7 +103,7 @@ const SettingsView = () => {
                 formName="Changer de mot de passe"
                 schema={ChangePasswordSchema}
                 inputFields={passwordFields}
-                apiUrl={ApiRoutes.signUp}
+                apiUrl={API_ROUTES.signUp}
                 defaultValues={passwordDefaultValues}
               />
             </>

@@ -1,6 +1,6 @@
 import { ModeToggle } from "@/lib/components/context/mode-toggle";
+import { APP_ROUTES } from "@/shared/constants/routes";
 import { MenuItem } from "@/shared/types/NavigationMenu";
-import { AppRoutes } from "@/shared/types/Routes";
 import NavigationInline from "@/shared/ui/components/NavigationInline";
 import NavigationSheet from "@/shared/ui/components/NavigationSheet";
 import { useAuth } from "@/users/context/AuthContext";
@@ -17,12 +17,12 @@ const NavigationMenu = () => {
   const menuItems: MenuItem[] = [
     {
       title: "Accueil",
-      url: AppRoutes.home,
+      url: APP_ROUTES.home,
       icon: HomeIcon,
     },
     {
       title: "Produits",
-      url: AppRoutes.products,
+      url: APP_ROUTES.products,
       icon: ShapesIcon,
     },
     isAuthenticated
@@ -32,13 +32,13 @@ const NavigationMenu = () => {
           subitems: [
             {
               title: "Paramètres",
-              url: AppRoutes.settings,
+              url: APP_ROUTES.accountSettings,
               description:
                 "Gérer mes informations personnelles, mon mot de passe, mes moyens de paiements, etc.",
             },
             {
               title: "Abonnements",
-              url: AppRoutes.subscriptions,
+              url: APP_ROUTES.accountSubscriptions,
               description:
                 "Prologer mes abonnements, effectuer une mise à niveau, etc.",
             },
@@ -52,11 +52,11 @@ const NavigationMenu = () => {
       : {
           title: "Me connecter",
           icon: CircleUserRoundIcon,
-          url: AppRoutes.signIn,
+          url: APP_ROUTES.signIn,
         },
     {
       title: "Panier",
-      url: AppRoutes.cart,
+      url: APP_ROUTES.cart,
       icon: ShoppingCartIcon,
     },
   ];

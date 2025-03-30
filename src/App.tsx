@@ -1,5 +1,4 @@
 import { BrowserRouter, Route, Routes } from "react-router";
-import { AppRoutes } from "@/shared/types/Routes";
 import { useAuth } from "@/users/context/AuthContext";
 import PrivateRoutes from "@/users/context/PrivateRoutes";
 import BaseLayout from "@/shared/ui/components/BaseLayout";
@@ -9,7 +8,8 @@ import SignUpView from "@/users/views/SignUpView";
 import SettingsView from "@/users/views/SettingsView";
 import ResetPasswordView from "@/users/views/ResetPasswordView";
 import ProductView from "@/products/views/ProductView";
-import NotFoundView from "./shared/views/NotFoundView";
+import NotFoundView from "@/shared/views/NotFoundView";
+import { APP_ROUTES } from "@/shared/constants/routes";
 
 const App = () => {
   const { isAuthenticated } = useAuth();
@@ -18,9 +18,9 @@ const App = () => {
     <BrowserRouter>
       <BaseLayout>
         <Routes>
-          <Route path={AppRoutes.home} element={<HomeView />} />
+          <Route path={APP_ROUTES.home} element={<HomeView />} />
           <Route
-            path={AppRoutes.signUp}
+            path={APP_ROUTES.signUp}
             element={
               <div className="max-w-xl w-full mx-auto py-5 px-4">
                 <SignUpView />
@@ -28,7 +28,7 @@ const App = () => {
             }
           />
           <Route
-            path={AppRoutes.signIn}
+            path={APP_ROUTES.signIn}
             element={
               <div className="max-w-xl w-full mx-auto py-5 px-4">
                 <SignInView />
@@ -36,7 +36,7 @@ const App = () => {
             }
           />
           <Route
-            path={AppRoutes.resetPassword}
+            path={APP_ROUTES.resetPassword}
             element={
               <div className="max-w-xl w-full mx-auto py-5 px-4">
                 <ResetPasswordView />
@@ -44,10 +44,10 @@ const App = () => {
             }
           />
 
-          <Route path={AppRoutes.products} element={<ProductView />} />
+          <Route path={APP_ROUTES.products} element={<ProductView />} />
 
           <Route
-            path={AppRoutes.settings}
+            path={APP_ROUTES.accountSettings}
             element={
               <PrivateRoutes hasAccess={isAuthenticated}>
                 <div className="max-w-xl w-full mx-auto py-5 px-4">

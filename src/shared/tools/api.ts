@@ -1,5 +1,5 @@
 import { FetchConfig, FetchMethod } from "@/shared/types/Api";
-import { ApiRoutes } from "@/shared/types/Routes";
+import { API_ROUTES } from "@/shared/constants/routes";
 
 const getRequest = async <T>(
   url: string,
@@ -44,7 +44,7 @@ const request = async <T>(
   let status = -1;
 
   try {
-    const response = await fetch(ApiRoutes.url + url, config);
+    const response = await fetch(API_ROUTES.url + url, config);
 
     status = response.status;
     result = await response.json();

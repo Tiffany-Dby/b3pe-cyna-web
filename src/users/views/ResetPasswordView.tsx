@@ -12,11 +12,11 @@ import {
   ResetPasswordData,
   ResetPasswordSchema,
 } from "@/users/schemas/ResetPasswordSchema";
-import { ApiRoutes } from "@/shared/types/Routes";
 import { Button } from "@/lib/components/ui/button";
 import BaseInputGroup from "@/shared/ui/components/BaseInputGroup";
 import { MailIcon } from "lucide-react";
 import { Field } from "@/shared/types/Field";
+import { API_ROUTES } from "@/shared/constants/routes";
 
 type Input = Field & {
   name: keyof ResetPasswordData;
@@ -26,7 +26,7 @@ type Input = Field & {
 const ResetPasswordView = () => {
   const { form, handleSubmit, isLoading, serverError } = useCustomForm({
     schema: ResetPasswordSchema,
-    apiUrl: ApiRoutes.signIn,
+    apiUrl: API_ROUTES.signIn,
     defaultValues: {
       email: "",
     },

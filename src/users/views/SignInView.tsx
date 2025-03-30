@@ -7,7 +7,6 @@ import {
   FormLabel,
   FormMessage,
 } from "@/lib/components/ui/form";
-import { ApiRoutes, AppRoutes } from "@/shared/types/Routes";
 import BaseCard from "@/shared/ui/components/BaseCard";
 import BaseInputGroup from "@/shared/ui/components/BaseInputGroup";
 import useCustomForm from "@/shared/hooks/useCustomForm";
@@ -19,6 +18,7 @@ import { useAuth } from "@/users/context/AuthContext";
 import { SignInResponse } from "@/users/types/SignIn";
 import { Separator } from "@/lib/components/ui/separator";
 import { Field } from "@/shared/types/Field";
+import { API_ROUTES, APP_ROUTES } from "@/shared/constants/routes";
 
 type SignInField = Field & {
   name: keyof SignInData;
@@ -35,12 +35,12 @@ const SignInView = () => {
 
   const handleSignInSuccess = (userData: SignInResponse) => {
     onSignIn(userData);
-    navigate(AppRoutes.subscriptions);
+    navigate(APP_ROUTES.accountSubscriptions);
   };
 
   const { form, handleSubmit, isLoading, serverError } = useCustomForm({
     schema: SignInSchema,
-    apiUrl: ApiRoutes.signIn,
+    apiUrl: API_ROUTES.signIn,
     defaultValues: {
       email: "",
       password: "",
@@ -115,7 +115,7 @@ const SignInView = () => {
               )
             )}
             <Link
-              to={AppRoutes.resetPassword}
+              to={APP_ROUTES.resetPassword}
               className="underline justify-self-end opacity-75 hover:opacity-100 transition-opacity duration-500"
             >
               Mot de passe oublié ?
@@ -135,7 +135,7 @@ const SignInView = () => {
             <p>Pas encore inscrit(e) ?</p>
             <div className="text-center">
               <Link
-                to={AppRoutes.signUp}
+                to={APP_ROUTES.signUp}
                 className="flex-center-center w-full h-9 border border-primary text-primary text-size-n font-medium bg-background py-2 px-4 hover:bg-primary hover:text-primary-foreground transition-colors duration-500 rounded-md dark:text-primary-foreground dark:border-primary-foreground dark:hover:border-transparent"
               >
                 Je m'inscris

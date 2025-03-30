@@ -1,9 +1,9 @@
 import { Link } from "react-router";
-import { AppRoutes } from "@/shared/types/Routes";
 import imgBanner from "@/shared/assets/images/banner.svg";
 import ProductCard from "@/products/ui/components/ProductCard";
 import BaseCarousel from "@/shared/ui/components/BaseCarousel";
 import { Separator } from "@/lib/components/ui/separator";
+import { APP_ROUTES } from "@/shared/constants/routes";
 
 const HomeView = () => {
   return (
@@ -29,7 +29,7 @@ const HomeView = () => {
               <div className="flex justify-end">
                 <div>
                   <Link
-                    to={AppRoutes.home}
+                    to={APP_ROUTES.products}
                     className="block bg-info py-2 px-4 rounded-sm hover:bg-accent transition-colors duration-500"
                   >
                     Je découvre les produits

@@ -11,8 +11,8 @@ import {
   setToStorage,
 } from "@/shared/utils/localStorage";
 import { SignInResponse, UserResponse } from "@/users/types/SignIn";
-import { ApiRoutes } from "@/shared/types/Routes";
 import useFetch from "@/shared/hooks/useFetch";
+import { API_ROUTES } from "@/shared/constants/routes";
 
 type AuthContextType = {
   token?: SignInResponse["access"];
@@ -33,7 +33,7 @@ const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [user, setUser] = useState<UserResponse | null>(null);
 
   const { data, error, isLoading } = useFetch<UserResponse>(
-    ApiRoutes.me,
+    API_ROUTES.me,
     token
   );
 

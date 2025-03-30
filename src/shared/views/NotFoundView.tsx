@@ -1,6 +1,5 @@
 import { Button } from "@/lib/components/ui/button";
 import { useNavigate } from "react-router";
-import { AppRoutes } from "@/shared/types/Routes";
 import {
   Card,
   CardContent,
@@ -8,6 +7,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/lib/components/ui/card";
+import { APP_ROUTES } from "@/shared/constants/routes";
 
 const NotFoundView = () => {
   const navigate = useNavigate();
@@ -24,7 +24,7 @@ const NotFoundView = () => {
           </CardDescription>
         </CardHeader>
         <CardContent className="pb-6">
-          <Button onClick={() => navigate(AppRoutes.home)} variant="default">
+          <Button onClick={() => navigate(APP_ROUTES.home)} variant="default">
             Retour à l'accueil
           </Button>
         </CardContent>

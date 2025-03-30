@@ -8,9 +8,9 @@ import {
   FormMessage,
 } from "@/lib/components/ui/form";
 import { Separator } from "@/lib/components/ui/separator";
+import { API_ROUTES, APP_ROUTES } from "@/shared/constants/routes";
 import useCustomForm from "@/shared/hooks/useCustomForm";
 import { Field } from "@/shared/types/Field";
-import { ApiRoutes, AppRoutes } from "@/shared/types/Routes";
 import BaseCard from "@/shared/ui/components/BaseCard";
 import BaseInputGroup from "@/shared/ui/components/BaseInputGroup";
 import { SignUpData, SignUpSchema } from "@/users/schemas/SignUpSchema";
@@ -39,7 +39,7 @@ const SignUpView = () => {
 
   const { form, handleSubmit, isLoading, serverError } = useCustomForm({
     schema: SignUpSchema,
-    apiUrl: ApiRoutes.signUp,
+    apiUrl: API_ROUTES.signUp,
     defaultValues: {
       firstName: "",
       lastName: "",
@@ -156,7 +156,7 @@ const SignUpView = () => {
             <p>Déjà inscrit(e) ?</p>
             <div className="text-center">
               <Link
-                to={AppRoutes.signIn}
+                to={APP_ROUTES.signIn}
                 className="flex-center-center w-full h-9 border border-primary text-primary text-size-n font-medium bg-background py-2 px-4 hover:bg-primary hover:text-primary-foreground transition-colors duration-500 rounded-md dark:text-primary-foreground dark:border-primary-foreground dark:hover:border-transparent"
               >
                 Je me connecte
