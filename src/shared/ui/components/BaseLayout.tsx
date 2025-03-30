@@ -3,13 +3,15 @@ import { ReactNode } from "react";
 import { Link } from "react-router";
 import { AppRoutes } from "@/shared/types/Routes";
 import NavigationMenu from "@/shared/ui/components/NavigationMenu";
+import useScrollTrigger from "@/shared/hooks/useScrollTrigger";
 
 type BaseLayoutProps = {
   children?: ReactNode;
-  scrolled: boolean;
 };
 
-const BaseLayout = ({ children, scrolled }: BaseLayoutProps) => {
+const BaseLayout = ({ children }: BaseLayoutProps) => {
+  const scrolled = useScrollTrigger(50);
+
   return (
     <>
       <header
@@ -30,7 +32,7 @@ const BaseLayout = ({ children, scrolled }: BaseLayoutProps) => {
       <main>{children}</main>
       <footer className="bg-primary-150 text-primary-150-foreground">
         <div className="container mx-auto py-3 px-4 flex-center-center">
-          <p className="text-center">
+          <p className="text-center text-size-label">
             &copy;{" "}
             <a href="https://github.com/Tiffany-Dby" target="_blank">
               Tiffany Dby

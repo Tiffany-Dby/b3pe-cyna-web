@@ -7,55 +7,71 @@ import {
   FormLabel,
   FormMessage,
 } from "@/lib/components/ui/form";
+import { Separator } from "@/lib/components/ui/separator";
+import useCustomForm from "@/shared/hooks/useCustomForm";
+import { Field } from "@/shared/types/Field";
 import { ApiRoutes, AppRoutes } from "@/shared/types/Routes";
 import BaseCard from "@/shared/ui/components/BaseCard";
 import BaseInputGroup from "@/shared/ui/components/BaseInputGroup";
-import useCustomForm from "@/shared/hooks/useCustomForm";
-import { SignInSchema, SignInData } from "@/users/schemas/SignInSchema";
-import { MailIcon, EyeIcon, EyeOffIcon } from "lucide-react";
-import { Link, useNavigate } from "react-router";
+import { SignUpData, SignUpSchema } from "@/users/schemas/SignUpSchema";
+import {
+  CircleUserRoundIcon,
+  EyeIcon,
+  EyeOffIcon,
+  MailIcon,
+} from "lucide-react";
 import { useState } from "react";
-import { useAuth } from "@/users/context/AuthContext";
-import { SignInResponse } from "@/users/types/SignIn";
-import { Separator } from "@/lib/components/ui/separator";
+import { Link } from "react-router";
 
-const SignInCard = () => {
-  const navigate = useNavigate();
-  const { onSignIn } = useAuth();
+type SignUpField = Field & {
+  name: keyof SignUpData;
+  icon?: React.ComponentType<{ className?: string; onClick?: () => void }>;
+  toggleType?: () => void;
+};
+
+const SignUpView = () => {
   const [typePassword, setTypePassword] = useState<"text" | "password">(
     "password"
   );
-
-  const handleSignInSuccess = (userData: SignInResponse) => {
-    onSignIn(userData);
-    navigate(AppRoutes.account);
-  };
+  const [typeConfirmPassword, setTypeConfirmPassword] = useState<
+    "text" | "password"
+  >("password");
 
   const { form, handleSubmit, isLoading, serverError } = useCustomForm({
-    schema: SignInSchema,
-    apiUrl: ApiRoutes.signIn,
+    schema: SignUpSchema,
+    apiUrl: ApiRoutes.signUp,
     defaultValues: {
+      firstName: "",
+      lastName: "",
       email: "",
       password: "",
+      confirmPassword: "",
     },
-    onSuccess: handleSignInSuccess,
   });
 
-  const fields: {
-    name: keyof SignInData;
-    label: string;
-    type: string;
-    placeholder: string;
-    autocomplete: string;
-    icon?: React.ComponentType<{ className?: string; onClick?: () => void }>;
-    toggleType?: () => void;
-  }[] = [
+  const fields: SignUpField[] = [
+    {
+      name: "firstName",
+      label: "Prénom",
+      type: "text",
+      placeholder: "Prénom",
+      autoComplete: "name",
+      icon: CircleUserRoundIcon,
+    },
+    {
+      name: "lastName",
+      label: "Nom",
+      type: "text",
+      placeholder: "Nom",
+      autoComplete: "family-name",
+      icon: CircleUserRoundIcon,
+    },
     {
       name: "email",
       label: "Email",
       type: "email",
       placeholder: "Email",
-      autocomplete: "email",
+      autoComplete: "email",
       icon: MailIcon,
     },
     {
@@ -63,29 +79,41 @@ const SignInCard = () => {
       label: "Mot de passe",
       type: typePassword,
       placeholder: "Mot de passe",
-      autocomplete: "current-password",
+      autoComplete: "new-password",
       icon: typePassword === "password" ? EyeIcon : EyeOffIcon,
       toggleType: () =>
         setTypePassword((prev) => (prev === "password" ? "text" : "password")),
+    },
+    {
+      name: "confirmPassword",
+      label: "Confirmer mot de passe",
+      type: typeConfirmPassword,
+      placeholder: "Confirmer mot de passe",
+      autoComplete: "new-password",
+      icon: typeConfirmPassword === "password" ? EyeIcon : EyeOffIcon,
+      toggleType: () =>
+        setTypeConfirmPassword((prev) =>
+          prev === "password" ? "text" : "password"
+        ),
     },
   ];
 
   return (
     <BaseCard
-      title={<h1>Connexion</h1>}
+      title={<h1>Inscription</h1>}
       description={
         <>{serverError && <p className="text-danger">{serverError}</p>}</>
       }
       content={
         <Form {...form}>
-          <form className="grid gap-5" onSubmit={handleSubmit}>
+          <form className="flex flex-col gap-5" onSubmit={handleSubmit}>
             {fields.map(
               ({
                 name,
                 label,
                 type,
                 placeholder,
-                autocomplete,
+                autoComplete,
                 icon: Icon,
                 toggleType,
               }) => (
@@ -104,8 +132,8 @@ const SignInCard = () => {
                           id={name}
                           type={type}
                           placeholder={placeholder}
-                          autoComplete={autocomplete}
                           icon={Icon}
+                          autoComplete={autoComplete}
                           toggleType={toggleType}
                         />
                       </FormControl>
@@ -115,17 +143,9 @@ const SignInCard = () => {
                 />
               )
             )}
-            <Link
-              to={AppRoutes.resetPassword}
-              className="underline justify-self-end opacity-75 hover:opacity-100 transition-opacity duration-500"
-            >
-              Mot de passe oublié ?
-            </Link>
-            <div>
-              <Button type="submit" className="w-full" disabled={isLoading}>
-                {isLoading ? "Connexion en cours..." : "Je me connecte"}
-              </Button>
-            </div>
+            <Button type="submit" className="w-full" disabled={isLoading}>
+              {isLoading ? "Création du compte..." : "Je crée mon compte"}
+            </Button>
           </form>
         </Form>
       }
@@ -133,13 +153,13 @@ const SignInCard = () => {
         <div className="flex flex-col gap-5 w-full">
           <Separator className="max-w-5/6 mx-auto my-2" />
           <div className="flex flex-col gap-1">
-            <p>Pas encore inscrit(e) ?</p>
+            <p>Déjà inscrit(e) ?</p>
             <div className="text-center">
               <Link
-                to={AppRoutes.signUp}
+                to={AppRoutes.signIn}
                 className="flex-center-center w-full h-9 border border-primary text-primary text-size-n font-medium bg-background py-2 px-4 hover:bg-primary hover:text-primary-foreground transition-colors duration-500 rounded-md dark:text-primary-foreground dark:border-primary-foreground dark:hover:border-transparent"
               >
-                Je m'inscris
+                Je me connecte
               </Link>
             </div>
           </div>
@@ -149,4 +169,4 @@ const SignInCard = () => {
   );
 };
 
-export default SignInCard;
+export default SignUpView;

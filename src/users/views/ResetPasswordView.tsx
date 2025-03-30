@@ -16,8 +16,14 @@ import { ApiRoutes } from "@/shared/types/Routes";
 import { Button } from "@/lib/components/ui/button";
 import BaseInputGroup from "@/shared/ui/components/BaseInputGroup";
 import { MailIcon } from "lucide-react";
+import { Field } from "@/shared/types/Field";
 
-const ResetPassword = () => {
+type Input = Field & {
+  name: keyof ResetPasswordData;
+  icon: React.ComponentType;
+};
+
+const ResetPasswordView = () => {
   const { form, handleSubmit, isLoading, serverError } = useCustomForm({
     schema: ResetPasswordSchema,
     apiUrl: ApiRoutes.signIn,
@@ -26,21 +32,15 @@ const ResetPassword = () => {
     },
   });
 
-  const input: {
-    name: keyof ResetPasswordData;
-    label: string;
-    type: string;
-    placeholder: string;
-    autocomplete: string;
-    icon: React.ComponentType;
-  } = {
+  const input: Input = {
     name: "email",
     label: "Email",
     type: "email",
     placeholder: "Email",
-    autocomplete: "email",
+    autoComplete: "email",
     icon: MailIcon,
   };
+
   return (
     <BaseCard
       title={<h1>Réinitialiser mon mot de passe</h1>}
@@ -65,7 +65,7 @@ const ResetPassword = () => {
                       id={input.name}
                       type={input.type}
                       placeholder={input.placeholder}
-                      autoComplete={input.autocomplete}
+                      autoComplete={input.autoComplete}
                       icon={input.icon}
                     />
                   </FormControl>
@@ -85,4 +85,4 @@ const ResetPassword = () => {
   );
 };
 
-export default ResetPassword;
+export default ResetPasswordView;

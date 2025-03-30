@@ -8,8 +8,17 @@ import {
 } from "@/lib/components/ui/card";
 import imgBanner from "@/shared/assets/images/banner.svg";
 import { Link } from "react-router";
+import ProductStatusBadge from "@/products/ui/components/ProductStatusBadge";
+import { ProductStatus } from "@/products/types/ProductStatus";
+import { ProductType } from "@/products/types/ProductType";
 
-const ProductCard = ({ discount }: { discount: boolean }) => {
+type ProductCardProps = {
+  discount: boolean;
+  status: ProductStatus;
+  type: ProductType;
+};
+
+const ProductCard = ({ discount, status, type }: ProductCardProps) => {
   return (
     <Link
       to={"/product"}
@@ -28,14 +37,12 @@ const ProductCard = ({ discount }: { discount: boolean }) => {
             <div>
               <h3>XDR</h3>
             </div>
-            <div className="flex-center-center gap-2">
-              Disponible{" "}
-              <span className="block w-2 h-2 bg-success rounded-full"></span>
-            </div>
+            <ProductStatusBadge status={status} type={type} />
           </CardTitle>
           <CardDescription>
             <p>Catégorie: XDR</p>
           </CardDescription>
+          <div className="justify-self-end"></div>
         </CardHeader>
         <CardContent>
           <p className="line-clamp-3">

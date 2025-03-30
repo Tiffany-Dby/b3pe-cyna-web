@@ -2,9 +2,10 @@ import { Link } from "react-router";
 import { AppRoutes } from "@/shared/types/Routes";
 import imgBanner from "@/shared/assets/images/banner.svg";
 import ProductCard from "@/products/ui/components/ProductCard";
-import ProductCarousel from "@/products/ui/components/ProductCarousel";
+import BaseCarousel from "@/shared/ui/components/BaseCarousel";
+import { Separator } from "@/lib/components/ui/separator";
 
-const Home = () => {
+const HomeView = () => {
   return (
     <>
       <section className="flex flex-col justify-center min-h-[calc(100dvh-54px)] bg-linear-90 from-primary-150 to-primary text-primary-foreground">
@@ -50,7 +51,10 @@ const Home = () => {
         <div className="container mx-auto flex flex-col gap-5 py-10 px-4">
           <h2>Promotions du moment !</h2>
           <div className="flex-center-center">
-            <ProductCarousel />
+            <BaseCarousel
+              slides={[imgBanner, imgBanner, imgBanner]}
+              renderSlide={(url) => <img src={url} alt="" />}
+            />
           </div>
           <p>
             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laudantium
@@ -62,18 +66,19 @@ const Home = () => {
           </p>
         </div>
       </section>
+      <Separator className="max-w-3/6 m-auto my-4 bg-muted" />
       <section>
         <div className="container mx-auto flex flex-col gap-5 py-10 px-4">
           <h2>Produits</h2>
-          <div className="flex flex-col justify-center gap-5 md:flex-row md:flex-wrap">
-            <article className="flex-1 md:min-w-68">
-              <ProductCard discount={false} />
+          <div className="flex flex-col justify-center gap-5 sm:flex-row sm:flex-wrap">
+            <article className="flex-1 sm:min-w-68">
+              <ProductCard discount={false} status={0} type={0} />
             </article>
-            <article className="flex-1 md:min-w-68">
-              <ProductCard discount={true} />
+            <article className="flex-1 sm:min-w-68">
+              <ProductCard discount={true} status={1} type={0} />
             </article>
-            <article className="flex-1 md:min-w-68 md:max-w-[calc((1/2*100%)-0.625rem)]">
-              <ProductCard discount={false} />
+            <article className="flex-1 sm:min-w-68 sm:max-w-[calc((1/2*100%)-0.625rem)]">
+              <ProductCard discount={false} status={2} type={0} />
             </article>
           </div>
         </div>
@@ -82,4 +87,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default HomeView;

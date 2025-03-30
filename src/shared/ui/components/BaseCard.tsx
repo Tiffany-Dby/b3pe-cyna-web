@@ -6,18 +6,26 @@ import {
   CardHeader,
   CardTitle,
 } from "@/lib/components/ui/card";
+import { cn } from "@/lib/utils";
 import { ReactNode } from "react";
 
 type BaseCardProps = {
-  title: ReactNode;
+  title?: ReactNode;
   description?: ReactNode;
   content?: ReactNode;
   footer?: ReactNode;
+  className?: string;
 };
 
-const BaseCard = ({ title, description, content, footer }: BaseCardProps) => {
+const BaseCard = ({
+  title,
+  description,
+  content,
+  footer,
+  className,
+}: BaseCardProps) => {
   return (
-    <Card>
+    <Card className={cn("", className)}>
       <CardHeader>
         <CardTitle>{title}</CardTitle>
         {description && <CardDescription>{description}</CardDescription>}

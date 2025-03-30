@@ -5,7 +5,7 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-size-xs font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-danger/20 dark:aria-invalid:ring-danger/40 aria-invalid:border-danger cursor-pointer",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-size-xs font-medium transition-all  disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-danger/20 dark:aria-invalid:ring-danger/40 aria-invalid:border-danger cursor-pointer disabled:cursor-not-allowed disabled:bg-muted disabled:text-muted-foreground disabled:hover:bg-muted",
   {
     variants: {
       variant: {
@@ -14,9 +14,11 @@ const buttonVariants = cva(
         destructive:
           "bg-danger text-white shadow-xs hover:bg-danger/90 focus-visible:ring-danger/20 dark:focus-visible:ring-danger/40 dark:bg-danger/60",
         outline:
-          "border bg-background shadow-xs text-foreground hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-gray-400 dark:hover:bg-input/50 dark:text-foreground",
+          "border bg-background shadow-xs text-foreground hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-gray-400 dark:hover:bg-input/50 dark:text-foreground dark:disabled:hover:bg-input/30",
         secondary:
           "bg-secondary text-secondary-foreground shadow-xs hover:bg-secondary/80",
+        success:
+          "bg-success text-success-foreground shadow-xs hover:bg-success/80",
         muted:
           "border bg-muted text-muted-foreground shadow-xs opacity-70 hover:opacity-100 dark:border-gray-600",
         ghost:

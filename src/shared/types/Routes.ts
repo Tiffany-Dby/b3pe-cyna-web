@@ -1,4 +1,4 @@
-export enum AppRoutes {
+enum AppRoutes {
   home = "/",
   products = "/products",
   settings = "/account/settings",
@@ -10,9 +10,11 @@ export enum AppRoutes {
   resetPassword = "/reset-password",
 }
 
-export enum ApiRoutes {
+enum ApiRoutes {
   url = "http://localhost:8000",
   signUp = "/api/auth/register",
   signIn = "/api/auth/login",
   me = "/api/auth/me",
 }
+
+export { AppRoutes, ApiRoutes };

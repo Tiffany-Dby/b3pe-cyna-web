@@ -11,8 +11,17 @@ import {
 import { useAuth } from "@/users/context/AuthContext";
 import CollapsibleForm from "@/users/ui/components/CollapsibleForm";
 import { Separator } from "@/lib/components/ui/separator";
+import { Field } from "@/shared/types/Field";
 
-const Dashboard = () => {
+type PasswordField = Field & {
+  name: keyof ChangePasswordData;
+};
+
+type PersonalInfoField = Field & {
+  name: keyof PersonalInfoData;
+};
+
+const SettingsView = () => {
   const { user } = useAuth();
 
   const passwordDefaultValues = {
@@ -20,13 +29,7 @@ const Dashboard = () => {
     newPassword: "",
     confirmPassword: "",
   };
-  const passwordFields: {
-    name: keyof ChangePasswordData;
-    label: string;
-    type: string;
-    placeholder: string;
-    autoComplete: string;
-  }[] = [
+  const passwordFields: PasswordField[] = [
     {
       name: "currentPassword",
       label: "Mot de passe actuel",
@@ -55,13 +58,7 @@ const Dashboard = () => {
     lastName: user?.lastName ?? "",
     email: user?.email ?? "",
   };
-  const personalInfoFields: {
-    name: keyof PersonalInfoData;
-    label: string;
-    type: string;
-    placeholder: string;
-    autoComplete: string;
-  }[] = [
+  const personalInfoFields: PersonalInfoField[] = [
     {
       name: "lastName",
       label: "Nom",
@@ -117,4 +114,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default SettingsView;

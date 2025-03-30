@@ -1,29 +1,29 @@
-import BaseLayout from "@/shared/ui/components/BaseLayout";
 import { BrowserRouter, Route, Routes } from "react-router";
-import SignUp from "@/users/views/SignUp";
 import { AppRoutes } from "@/shared/types/Routes";
-import SignIn from "@/users/views/SignIn";
-import Home from "@/shared/views/Home";
 import { useAuth } from "@/users/context/AuthContext";
 import PrivateRoutes from "@/users/context/PrivateRoutes";
-import Dashboard from "@/users/views/Dashboard";
-import ResetPassword from "@/users/views/ResetPassword";
-import useScrollTrigger from "@/shared/hooks/useScrollTrigger";
+import BaseLayout from "@/shared/ui/components/BaseLayout";
+import HomeView from "@/shared/views/HomeView";
+import SignInView from "@/users/views/SignInView";
+import SignUpView from "@/users/views/SignUpView";
+import SettingsView from "@/users/views/SettingsView";
+import ResetPasswordView from "@/users/views/ResetPasswordView";
+import ProductView from "@/products/views/ProductView";
+import NotFoundView from "./shared/views/NotFoundView";
 
 const App = () => {
   const { isAuthenticated } = useAuth();
-  const scrolled = useScrollTrigger(50);
 
   return (
     <BrowserRouter>
-      <BaseLayout scrolled={scrolled}>
+      <BaseLayout>
         <Routes>
-          <Route path={AppRoutes.home} element={<Home />} />
+          <Route path={AppRoutes.home} element={<HomeView />} />
           <Route
             path={AppRoutes.signUp}
             element={
               <div className="max-w-xl w-full mx-auto py-5 px-4">
-                <SignUp />
+                <SignUpView />
               </div>
             }
           />
@@ -31,7 +31,7 @@ const App = () => {
             path={AppRoutes.signIn}
             element={
               <div className="max-w-xl w-full mx-auto py-5 px-4">
-                <SignIn />
+                <SignInView />
               </div>
             }
           />
@@ -39,19 +39,30 @@ const App = () => {
             path={AppRoutes.resetPassword}
             element={
               <div className="max-w-xl w-full mx-auto py-5 px-4">
-                <ResetPassword />
+                <ResetPasswordView />
               </div>
             }
           />
+
+          <Route path={AppRoutes.products} element={<ProductView />} />
 
           <Route
             path={AppRoutes.settings}
             element={
               <PrivateRoutes hasAccess={isAuthenticated}>
                 <div className="max-w-xl w-full mx-auto py-5 px-4">
-                  <Dashboard />
+                  <SettingsView />
                 </div>
               </PrivateRoutes>
+            }
+          />
+
+          <Route
+            path="*"
+            element={
+              <div className="max-w-xl w-full mx-auto py-5 px-4">
+                <NotFoundView />
+              </div>
             }
           />
         </Routes>
