@@ -2,7 +2,7 @@ import { z } from "zod";
 
 const ChangePasswordSchema = z
   .object({
-    currentPassword: z.string().min(8, "Le mot de passe est requis"),
+    previousPassword: z.string().min(8, "Le mot de passe est requis"),
     newPassword: z
       .string()
       .min(8, "Le mot de passe doit comporter 8 caractères minimum")
@@ -13,9 +13,9 @@ const ChangePasswordSchema = z
         /[!@#$%^&*(),.?":{}|<>]/,
         "Le mot de passe doit comporter 1 caractère spécial minimum"
       ),
-    confirmPassword: z.string(),
+    confirmNewPassword: z.string(),
   })
-  .refine((field) => field.newPassword === field.confirmPassword, {
+  .refine((field) => field.newPassword === field.confirmNewPassword, {
     message: "Les mots de passe ne correspondent pas",
     path: ["confirmPassword"],
   });

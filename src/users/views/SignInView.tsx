@@ -19,6 +19,7 @@ import { SignInResponse } from "@/users/types/SignIn";
 import { Separator } from "@/lib/components/ui/separator";
 import { Field } from "@/shared/types/Field";
 import { API_ROUTES, APP_ROUTES } from "@/shared/constants/routes";
+import { postRequest } from "@/shared/tools/api";
 
 type SignInField = Field & {
   name: keyof SignInData;
@@ -35,7 +36,7 @@ const SignInView = () => {
 
   const handleSignInSuccess = (userData: SignInResponse) => {
     onSignIn(userData);
-    navigate(APP_ROUTES.accountSubscriptions);
+    navigate(APP_ROUTES.accountSettings);
   };
 
   const { form, handleSubmit, isLoading, serverError } = useCustomForm({
@@ -45,6 +46,7 @@ const SignInView = () => {
       email: "",
       password: "",
     },
+    requestFn: postRequest,
     onSuccess: handleSignInSuccess,
   });
 

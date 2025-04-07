@@ -10,6 +10,7 @@ import {
 import { Separator } from "@/lib/components/ui/separator";
 import { API_ROUTES, APP_ROUTES } from "@/shared/constants/routes";
 import useCustomForm from "@/shared/hooks/useCustomForm";
+import { postRequest } from "@/shared/tools/api";
 import { Field } from "@/shared/types/Field";
 import BaseCard from "@/shared/ui/components/BaseCard";
 import BaseInputGroup from "@/shared/ui/components/BaseInputGroup";
@@ -47,6 +48,7 @@ const SignUpView = () => {
       password: "",
       confirmPassword: "",
     },
+    requestFn: postRequest,
   });
 
   const fields: SignUpField[] = [

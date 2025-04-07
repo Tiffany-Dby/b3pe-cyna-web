@@ -58,8 +58,8 @@ const AuthProvider = ({ children }: { children: ReactNode }) => {
     clearStorage();
   };
 
-  // const isAuthenticated = !!token;
-  const isAuthenticated = true;
+  const isAuthenticated = !!token;
+  // const isAuthenticated = true;
 
   return (
     <AuthContext.Provider

@@ -13,6 +13,7 @@ import {
   FormMessage,
 } from "@/lib/components/ui/form";
 import useCustomForm from "@/shared/hooks/useCustomForm";
+import { RequestFn } from "@/shared/types/Api";
 import BaseInputGroup from "@/shared/ui/components/BaseInputGroup";
 import { ChevronDownIcon, SquarePenIcon } from "lucide-react";
 import { useState } from "react";
@@ -34,6 +35,8 @@ type CollapsibleFormProps<T extends FieldValues> = {
   schema: z.ZodSchema<T>;
   apiUrl: string;
   defaultValues: DefaultValues<T>;
+  requestFn: RequestFn;
+  token?: string;
 };
 
 const CollapsibleForm = <T extends FieldValues>({
@@ -42,6 +45,8 @@ const CollapsibleForm = <T extends FieldValues>({
   schema,
   apiUrl,
   defaultValues,
+  requestFn,
+  token,
 }: CollapsibleFormProps<T>) => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -49,6 +54,8 @@ const CollapsibleForm = <T extends FieldValues>({
     schema,
     apiUrl,
     defaultValues,
+    requestFn,
+    token,
   });
 
   return (

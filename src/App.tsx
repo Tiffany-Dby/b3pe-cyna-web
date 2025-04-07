@@ -1,5 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router";
 import { useAuth } from "@/users/context/AuthContext";
+import { APP_ROUTES } from "@/shared/constants/routes";
 import PrivateRoutes from "@/users/context/PrivateRoutes";
 import BaseLayout from "@/shared/ui/components/BaseLayout";
 import HomeView from "@/shared/views/HomeView";
@@ -9,7 +10,7 @@ import SettingsView from "@/users/views/SettingsView";
 import ResetPasswordView from "@/users/views/ResetPasswordView";
 import ProductView from "@/products/views/ProductView";
 import NotFoundView from "@/shared/views/NotFoundView";
-import { APP_ROUTES } from "@/shared/constants/routes";
+import CartView from "@/purchase/views/CartView";
 
 const App = () => {
   const { isAuthenticated } = useAuth();
@@ -44,8 +45,6 @@ const App = () => {
             }
           />
 
-          <Route path={APP_ROUTES.products} element={<ProductView />} />
-
           <Route
             path={APP_ROUTES.accountSettings}
             element={
@@ -56,6 +55,10 @@ const App = () => {
               </PrivateRoutes>
             }
           />
+
+          <Route path={APP_ROUTES.products} element={<ProductView />} />
+
+          <Route path={APP_ROUTES.cart} element={<CartView />} />
 
           <Route
             path="*"
