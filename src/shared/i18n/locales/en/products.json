@@ -1,0 +1,52 @@
+{
+  "status": {
+    "unavailable": "Unavailable",
+    "available": "Available",
+    "maintenance": "Maintenance",
+    "outOfStock": "Out of stock"
+  },
+  "tabs": {
+    "benefits": {
+      "name": "Benefits",
+      "title": "Why"
+    },
+    "functionnalities": {
+      "name": "Functionnalities",
+      "title": "Key Functionnalities"
+    },
+    "specifications": {
+      "name": "Specifications",
+      "title": "Technical specifications",
+      "srOnly": "Technical specifications table",
+      "table": {
+        "criteria": "Criteria",
+        "detail": "Detail"
+      }
+    }
+  },
+  "promotion": "promotion",
+  "tryNow": "Try now",
+  "pricing": {
+    "title": "Pricing",
+    "monthly": {
+      "title": "Monthly",
+      "bill": "Billed monthly",
+      "cta": "Subscribe"
+    },
+    "yearly": {
+      "title": "Yearly",
+      "bill": "Billed yearly",
+      "cta": "Subscribe"
+    },
+    "trial": {
+      "title": "Trial",
+      "bill": "Free during 14 days",
+      "cta": "Try now"
+    },
+    "keys": {
+      "availability": "Available immediately",
+      "commitment": "Commitment-free"
+    },
+    "month": "month"
+  }
+}

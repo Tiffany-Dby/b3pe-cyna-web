@@ -1,0 +1,14 @@
+{
+  "banner": {
+    "title": "<0>Votre <0><0>sécurité</0></0> est notre <1>métier</1></0>",
+    "description": "<0>Une <0>protection 360°</0> pour vos projets et votre sérénité.</0>",
+    "cta": "Je découvre les produits",
+    "imgAlt": "Bannière cybersécurité"
+  },
+  "currentPromotions": {
+    "title": "Promotions du moment"
+  },
+  "topProduct": {
+    "title": "Top produit"
+  }
+}

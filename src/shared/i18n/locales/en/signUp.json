@@ -1,0 +1,9 @@
+{
+  "title": "Sign up",
+  "submit": {
+    "loading": "Creation...",
+    "action": "Sign up"
+  },
+  "signedUp": "Already have an account?",
+  "signIn": "Sign in"
+}

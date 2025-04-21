@@ -1,0 +1,10 @@
+{
+  "title": "Connexion",
+  "submit": {
+    "loading": "Connexion en cours...",
+    "action": "Je me connecte"
+  },
+  "forgetPassword": "Mot de passe oublié ?",
+  "notSignedUp": "Pas encore inscrit(e) ?",
+  "signUp": "Je m'inscris"
+}

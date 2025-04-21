@@ -1,0 +1,15 @@
+{
+  "settings": {
+    "title": "Mon compte",
+    "personalInformations": {
+      "caption": "Informations personnelles"
+    },
+    "changePassword": {
+      "caption": "Changer de mot de passe"
+    },
+    "submit": {
+      "loading": "Mise à jour...",
+      "action": "Mettre à jour"
+    }
+  }
+}

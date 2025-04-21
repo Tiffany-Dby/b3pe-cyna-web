@@ -1,0 +1,28 @@
+{
+  "header": {
+    "logoAlt": "Logo Cyna",
+    "navigation": {
+      "home": "Accueil",
+      "products": "Produits",
+      "account": {
+        "auth": "Mon compte",
+        "notAuth": "Me connecter",
+        "settings": {
+          "title": "Paramètres",
+          "description":
+            "Gérer mes informations personnelles, mon mot de passe, mes moyens de paiements, etc."
+        },
+        "subscriptions": {
+          "title": "Abonnements",
+          "description":
+            "Prologer mes abonnements, effectuer une mise à niveau, etc."
+        },
+        "signOut": "Me déconnecter"
+      },
+      "cart": "Panier"
+    }
+  },
+  "footer": {
+    "rights": "Tous droits réservés"
+  }
+}

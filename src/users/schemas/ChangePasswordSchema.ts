@@ -2,21 +2,25 @@ import { z } from "zod";
 
 const ChangePasswordSchema = z
   .object({
-    currentPassword: z.string().min(8, "Le mot de passe est requis"),
+    currentPassword: z
+      .string()
+      .min(8, "common:inputs.currentPassword.validation.min"),
     newPassword: z
       .string()
-      .min(8, "Le mot de passe doit comporter 8 caractères minimum")
-      .regex(/[A-Z]/, "Le mot de passe doit comporter 1 majuscule minimum")
-      .regex(/[a-z]/, "Le mot de passe doit comporter 1 une minuscule minimum")
-      .regex(/\d/, "Le mot de passe doit comporter 1 un chiffre minimum")
+      .min(8, "common:inputs.password.validation.min")
+      .regex(/[A-Z]/, "common:inputs.password.validation.uppercase")
+      .regex(/[a-z]/, "common:inputs.password.validation.lowercase")
+      .regex(/\d/, "common:inputs.password.validation.number")
       .regex(
         /[!@#$%^&*(),.?":{}|<>]/,
-        "Le mot de passe doit comporter 1 caractère spécial minimum"
+        "common:inputs.password.validation.specialChar"
       ),
-    confirmPassword: z.string(),
+    confirmPassword: z
+      .string()
+      .min(8, "common:inputs.confirmPassword.validation.min"),
   })
   .refine((field) => field.newPassword === field.confirmPassword, {
-    message: "Les mots de passe ne correspondent pas",
+    message: "common:inputs.confirmPassword.validation.match",
     path: ["confirmPassword"],
   });
 

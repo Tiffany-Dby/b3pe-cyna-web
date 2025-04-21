@@ -8,8 +8,10 @@ import {
   CardTitle,
 } from "@/lib/components/ui/card";
 import { APP_ROUTES } from "@/shared/constants/routes";
+import { useTranslation } from "react-i18next";
 
 const NotFoundView = () => {
+  const { t } = useTranslation("notFound");
   const navigate = useNavigate();
 
   return (
@@ -17,15 +19,15 @@ const NotFoundView = () => {
       <Card className="w-full mx-auto my-10 max-w-100 text-center">
         <CardHeader className="py-6">
           <CardTitle>
-            <h1 className="text-size-4xl">404</h1>
+            <h1 className="text-size-4xl">{t("title")}</h1>
           </CardTitle>
           <CardDescription>
-            <p className="text-size-2xl">Oops! Page introuvable.</p>
+            <p className="text-size-2xl">{t("description")}</p>
           </CardDescription>
         </CardHeader>
         <CardContent className="pb-6">
           <Button onClick={() => navigate(APP_ROUTES.home)} variant="default">
-            Retour à l'accueil
+            {t("cta")}
           </Button>
         </CardContent>
       </Card>

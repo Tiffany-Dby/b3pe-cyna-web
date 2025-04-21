@@ -1,0 +1,52 @@
+{
+  "status": {
+    "unavailable": "Indisponible",
+    "available": "Disponible",
+    "maintenance": "Maintenance",
+    "outOfStock": "Rupture de stock"
+  },
+  "tabs": {
+    "benefits": {
+      "name": "Bénéfices",
+      "title": "Pourquoi "
+    },
+    "functionnalities": {
+      "name": "Fonctionnalités",
+      "title": "Fonctionnalités clés"
+    },
+    "specifications": {
+      "name": "Spécificités",
+      "title": "Spécificités technique",
+      "srOnly": "Tableau des spécificités technique",
+      "table": {
+        "criteria": "Critère",
+        "detail": "Détail"
+      }
+    }
+  },
+  "promotion": "promotion",
+  "tryNow": "Essayer maintenant",
+  "pricing": {
+    "title": "Tarification",
+    "monthly": {
+      "title": "Mensuel",
+      "bill": "Facturé mensuellement",
+      "cta": "S'abonner"
+    },
+    "yearly": {
+      "title": "Annuel",
+      "bill": "Facturé à l'année",
+      "cta": "S'abonner"
+    },
+    "trial": {
+      "title": "Essai",
+      "bill": "Gratuit pendant 14 jours",
+      "cta": "Essayer"
+    },
+    "keys": {
+      "availability": "Disponibilité immédiate",
+      "commitment": "Sans engagement"
+    },
+    "month": "mois"
+  }
+}

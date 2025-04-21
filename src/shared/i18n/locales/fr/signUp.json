@@ -1,0 +1,9 @@
+{
+  "title": "Inscription",
+  "submit": {
+    "loading": "Création du compte...",
+    "action": "Je crée mon compte"
+  },
+  "signedUp": "Déjà inscrit(e) ?",
+  "signIn": "Je me connecte"
+}

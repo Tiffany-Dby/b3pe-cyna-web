@@ -4,12 +4,14 @@ import { Link } from "react-router";
 import NavigationMenu from "@/shared/ui/components/NavigationMenu";
 import useScrollTrigger from "@/shared/hooks/useScrollTrigger";
 import { APP_ROUTES } from "@/shared/constants/routes";
+import { useTranslation } from "react-i18next";
 
 type BaseLayoutProps = {
   children?: ReactNode;
 };
 
 const BaseLayout = ({ children }: BaseLayoutProps) => {
+  const { t } = useTranslation("layout");
   const scrolled = useScrollTrigger(50);
 
   return (
@@ -24,7 +26,7 @@ const BaseLayout = ({ children }: BaseLayoutProps) => {
         <div className="area-1/1 -z-10 backdrop-blur-md"></div>
         <div className="area-1/1 container mx-auto flex-between-center gap-2 py-3 px-4">
           <Link to={APP_ROUTES.home}>
-            <img src={logoCyna} alt="Logo Cyna" />
+            <img src={logoCyna} alt={t("header.logoAlt")} />
           </Link>
           <NavigationMenu />
         </div>
@@ -45,7 +47,7 @@ const BaseLayout = ({ children }: BaseLayoutProps) => {
             <a href="https://github.com/matheo-dlvt" target="_blank">
               Mathéo Dlt
             </a>{" "}
-            {new Date().getFullYear()} - All rights reserved
+            {new Date().getFullYear()} - {t("footer.rights")}
           </p>
         </div>
       </footer>

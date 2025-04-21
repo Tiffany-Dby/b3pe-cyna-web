@@ -12,6 +12,7 @@ import CollapsibleForm from "@/users/ui/components/CollapsibleForm";
 import { Separator } from "@/lib/components/ui/separator";
 import { Field } from "@/shared/types/Field";
 import { API_ROUTES } from "@/shared/constants/routes";
+import { useTranslation } from "react-i18next";
 
 type PasswordField = Field & {
   name: keyof ChangePasswordData;
@@ -22,6 +23,7 @@ type PersonalInfoField = Field & {
 };
 
 const SettingsView = () => {
+  const { t } = useTranslation();
   const { user } = useAuth();
 
   const passwordDefaultValues = {
@@ -32,23 +34,23 @@ const SettingsView = () => {
   const passwordFields: PasswordField[] = [
     {
       name: "currentPassword",
-      label: "Mot de passe actuel",
+      label: t("inputs.currentPassword.label"),
       type: "password",
-      placeholder: "Mot de passe actuel",
+      placeholder: t("inputs.currentPassword.placeholder"),
       autoComplete: "current-password",
     },
     {
       name: "newPassword",
-      label: "Nouveau mot de passe",
+      label: t("inputs.newPassword.label"),
       type: "password",
-      placeholder: "Nouveau mot de passe",
+      placeholder: t("inputs.newPassword.placeholder"),
       autoComplete: "new-password",
     },
     {
       name: "confirmPassword",
-      label: "Confirmer nouveau mot de passe",
+      label: t("inputs.confirmNewPassword.label"),
       type: "password",
-      placeholder: "Confirmer nouveau mot de passe",
+      placeholder: t("inputs.confirmNewPassword.placeholder"),
       autoComplete: "new-password",
     },
   ];
@@ -61,38 +63,38 @@ const SettingsView = () => {
   const personalInfoFields: PersonalInfoField[] = [
     {
       name: "lastName",
-      label: "Nom",
+      label: t("inputs.lastName.label"),
       type: "text",
-      placeholder: "Nom",
+      placeholder: t("inputs.lastName.placeholder"),
       autoComplete: "family-name",
     },
     {
       name: "firstName",
-      label: "Prénom",
+      label: t("inputs.firstName.label"),
       type: "text",
-      placeholder: "Prénom",
+      placeholder: t("inputs.firstName.placeholder"),
       autoComplete: "name",
     },
     {
       name: "email",
-      label: "Email",
+      label: t("inputs.email.label"),
       type: "email",
-      placeholder: "Email",
+      placeholder: t("inputs.email.placeholder"),
       autoComplete: "email",
     },
   ];
 
   return (
     <BaseCard
-      title={<h1>Mon compte</h1>}
+      title={<h1>{t("account:settings.title")}</h1>}
       content={
         <div className="flex flex-col gap-4">
           {user ? (
-            <p>Chargement...</p>
+            <p>{t("loading")}</p>
           ) : (
             <>
               <CollapsibleForm
-                formName="Informations personnelles"
+                formName={t("account:settings.personalInformations.caption")}
                 schema={PersonInfosSchema}
                 inputFields={personalInfoFields}
                 apiUrl={API_ROUTES.signUp}
@@ -100,7 +102,7 @@ const SettingsView = () => {
               />
               <Separator />
               <CollapsibleForm
-                formName="Changer de mot de passe"
+                formName={t("account:settings.changePassword.caption")}
                 schema={ChangePasswordSchema}
                 inputFields={passwordFields}
                 apiUrl={API_ROUTES.signUp}
