@@ -22,6 +22,7 @@ import {
   MailIcon,
 } from "lucide-react";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { Link } from "react-router";
 
 type SignUpField = Field & {
@@ -31,6 +32,7 @@ type SignUpField = Field & {
 };
 
 const SignUpView = () => {
+  const { t } = useTranslation();
   const [typePassword, setTypePassword] = useState<"text" | "password">(
     "password"
   );
@@ -54,33 +56,33 @@ const SignUpView = () => {
   const fields: SignUpField[] = [
     {
       name: "firstName",
-      label: "Prénom",
+      label: t("inputs.firstName.label"),
       type: "text",
-      placeholder: "Prénom",
+      placeholder: t("inputs.firstName.placeholder"),
       autoComplete: "name",
       icon: CircleUserRoundIcon,
     },
     {
       name: "lastName",
-      label: "Nom",
+      label: t("inputs.lastName.label"),
       type: "text",
-      placeholder: "Nom",
+      placeholder: t("inputs.lastName.placeholder"),
       autoComplete: "family-name",
       icon: CircleUserRoundIcon,
     },
     {
       name: "email",
-      label: "Email",
+      label: t("inputs.email.label"),
       type: "email",
-      placeholder: "Email",
+      placeholder: t("inputs.email.placeholder"),
       autoComplete: "email",
       icon: MailIcon,
     },
     {
       name: "password",
-      label: "Mot de passe",
+      label: t("inputs.password.label"),
       type: typePassword,
-      placeholder: "Mot de passe",
+      placeholder: t("inputs.password.placeholder"),
       autoComplete: "new-password",
       icon: typePassword === "password" ? EyeIcon : EyeOffIcon,
       toggleType: () =>
@@ -88,9 +90,9 @@ const SignUpView = () => {
     },
     {
       name: "confirmPassword",
-      label: "Confirmer mot de passe",
+      label: t("inputs.confirmPassword.label"),
       type: typeConfirmPassword,
-      placeholder: "Confirmer mot de passe",
+      placeholder: t("inputs.confirmPassword.placeholder"),
       autoComplete: "new-password",
       icon: typeConfirmPassword === "password" ? EyeIcon : EyeOffIcon,
       toggleType: () =>
@@ -102,7 +104,7 @@ const SignUpView = () => {
 
   return (
     <BaseCard
-      title={<h1>Inscription</h1>}
+      title={<h1>{t("signUp:title")}</h1>}
       description={
         <>{serverError && <p className="text-danger">{serverError}</p>}</>
       }
@@ -146,7 +148,9 @@ const SignUpView = () => {
               )
             )}
             <Button type="submit" className="w-full" disabled={isLoading}>
-              {isLoading ? "Création du compte..." : "Je crée mon compte"}
+              {isLoading
+                ? t("signUp:submit.loading")
+                : t("signUp:submit.action")}
             </Button>
           </form>
         </Form>
@@ -155,13 +159,13 @@ const SignUpView = () => {
         <div className="flex flex-col gap-5 w-full">
           <Separator className="max-w-5/6 mx-auto my-2" />
           <div className="flex flex-col gap-1">
-            <p>Déjà inscrit(e) ?</p>
+            <p>{t("signUp:signedUp")}</p>
             <div className="text-center">
               <Link
                 to={APP_ROUTES.signIn}
                 className="flex-center-center w-full h-9 border border-primary text-primary text-size-n font-medium bg-background py-2 px-4 hover:bg-primary hover:text-primary-foreground transition-colors duration-500 rounded-md dark:text-primary-foreground dark:border-primary-foreground dark:hover:border-transparent"
               >
-                Je me connecte
+                {t("signUp:signIn")}
               </Link>
             </div>
           </div>

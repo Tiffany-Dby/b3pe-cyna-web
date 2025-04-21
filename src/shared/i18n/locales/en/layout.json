@@ -1,0 +1,27 @@
+{
+  "header": {
+    "logoAlt": "Cyna logo",
+    "navigation": {
+      "home": "Home",
+      "products": "Products",
+      "account": {
+        "auth": "My account",
+        "notAuth": "Sign in",
+        "settings": {
+          "title": "Settings",
+          "description":
+            "Manage my personal information, password, payment methods, and more."
+        },
+        "subscriptions": {
+          "title": "Subscriptions",
+          "description": "Extend my subscriptions, upgrade, and more."
+        },
+        "signOut": "Sign out"
+      },
+      "cart": "Cart"
+    }
+  },
+  "footer": {
+    "rights": "All rights reserved"
+  }
+}

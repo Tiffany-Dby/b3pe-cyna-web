@@ -10,52 +10,55 @@ import {
   ShapesIcon,
   ShoppingCartIcon,
 } from "lucide-react";
+import LanguageToggle from "./LanguageToggle";
+import { useTranslation } from "react-i18next";
 
 const NavigationMenu = () => {
   const { isAuthenticated, onSignOut } = useAuth();
+  const { t } = useTranslation("layout");
 
   const menuItems: MenuItem[] = [
     {
-      title: "Accueil",
+      title: t("header.navigation.home"),
       url: APP_ROUTES.home,
       icon: HomeIcon,
     },
     {
-      title: "Produits",
+      title: t("header.navigation.products"),
       url: APP_ROUTES.products,
       icon: ShapesIcon,
     },
     isAuthenticated
       ? {
-          title: "Mon compte",
+          title: t("header.navigation.account.auth"),
           icon: CircleUserRoundIcon,
           subitems: [
             {
-              title: "Paramètres",
+              title: t("header.navigation.account.settings.title"),
               url: APP_ROUTES.accountSettings,
-              description:
-                "Gérer mes informations personnelles, mon mot de passe, mes moyens de paiements, etc.",
+              description: t("header.navigation.account.settings.description"),
             },
             {
-              title: "Abonnements",
+              title: t("header.navigation.account.subscriptions.title"),
               url: APP_ROUTES.accountSubscriptions,
-              description:
-                "Prologer mes abonnements, effectuer une mise à niveau, etc.",
+              description: t(
+                "header.navigation.account.subscriptions.description"
+              ),
             },
             {
-              title: "Me déconnecter",
+              title: t("header.navigation.account.signOut"),
               action: onSignOut,
               description: "",
             },
           ],
         }
       : {
-          title: "Me connecter",
+          title: t("header.navigation.account.notAuth"),
           icon: CircleUserRoundIcon,
           url: APP_ROUTES.signIn,
         },
     {
-      title: "Panier",
+      title: t("header.navigation.cart"),
       url: APP_ROUTES.cart,
       icon: ShoppingCartIcon,
     },
@@ -65,6 +68,7 @@ const NavigationMenu = () => {
     <div className="flex items-center gap-3">
       <NavigationInline items={menuItems} />
       <ModeToggle />
+      <LanguageToggle />
       <NavigationSheet items={menuItems} />
     </div>
   );

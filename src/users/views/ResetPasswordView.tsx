@@ -17,6 +17,7 @@ import BaseInputGroup from "@/shared/ui/components/BaseInputGroup";
 import { MailIcon } from "lucide-react";
 import { Field } from "@/shared/types/Field";
 import { API_ROUTES } from "@/shared/constants/routes";
+import { useTranslation } from "react-i18next";
 import { postRequest } from "@/shared/tools/api";
 
 type Input = Field & {
@@ -25,6 +26,7 @@ type Input = Field & {
 };
 
 const ResetPasswordView = () => {
+  const { t } = useTranslation();
   const { form, handleSubmit, isLoading, serverError } = useCustomForm({
     schema: ResetPasswordSchema,
     apiUrl: API_ROUTES.signIn,
@@ -36,16 +38,16 @@ const ResetPasswordView = () => {
 
   const input: Input = {
     name: "email",
-    label: "Email",
+    label: t("inputs.email.label"),
     type: "email",
-    placeholder: "Email",
+    placeholder: t("inputs.email.placeholder"),
     autoComplete: "email",
     icon: MailIcon,
   };
 
   return (
     <BaseCard
-      title={<h1>Réinitialiser mon mot de passe</h1>}
+      title={<h1>{t("resetPassword:title")}</h1>}
       description={
         <>{serverError && <p className="text-danger">{serverError}</p>}</>
       }
@@ -77,7 +79,9 @@ const ResetPasswordView = () => {
             />
             <div>
               <Button type="submit" className="w-full" disabled={isLoading}>
-                {isLoading ? "Envoi en cours..." : "Réinitialiser"}
+                {isLoading
+                  ? t("resetPassword:submit.loading")
+                  : t("resetPassword:submit.action")}
               </Button>
             </div>
           </form>

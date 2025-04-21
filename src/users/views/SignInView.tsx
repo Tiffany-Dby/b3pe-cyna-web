@@ -19,6 +19,7 @@ import { SignInResponse } from "@/users/types/SignIn";
 import { Separator } from "@/lib/components/ui/separator";
 import { Field } from "@/shared/types/Field";
 import { API_ROUTES, APP_ROUTES } from "@/shared/constants/routes";
+import { useTranslation } from "react-i18next";
 import { postRequest } from "@/shared/tools/api";
 
 type SignInField = Field & {
@@ -28,6 +29,7 @@ type SignInField = Field & {
 };
 
 const SignInView = () => {
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const { onSignIn } = useAuth();
   const [typePassword, setTypePassword] = useState<"text" | "password">(
@@ -53,17 +55,17 @@ const SignInView = () => {
   const fields: SignInField[] = [
     {
       name: "email",
-      label: "Email",
+      label: t("inputs.email.label"),
       type: "email",
-      placeholder: "Email",
+      placeholder: t("inputs.email.placeholder"),
       autoComplete: "email",
       icon: MailIcon,
     },
     {
       name: "password",
-      label: "Mot de passe",
+      label: t("inputs.password.label"),
       type: typePassword,
-      placeholder: "Mot de passe",
+      placeholder: t("inputs.password.placeholder"),
       autoComplete: "current-password",
       icon: typePassword === "password" ? EyeIcon : EyeOffIcon,
       toggleType: () =>
@@ -73,7 +75,7 @@ const SignInView = () => {
 
   return (
     <BaseCard
-      title={<h1>Connexion</h1>}
+      title={<h1>{t("signIn:title")}</h1>}
       description={
         <>{serverError && <p className="text-danger">{serverError}</p>}</>
       }
@@ -120,11 +122,13 @@ const SignInView = () => {
               to={APP_ROUTES.resetPassword}
               className="underline justify-self-end opacity-75 hover:opacity-100 transition-opacity duration-500"
             >
-              Mot de passe oublié ?
+              {t("signIn:forgetPassword")}
             </Link>
             <div>
               <Button type="submit" className="w-full" disabled={isLoading}>
-                {isLoading ? "Connexion en cours..." : "Je me connecte"}
+                {isLoading
+                  ? t("signIn:submit.loading")
+                  : t("signIn:submit.action")}
               </Button>
             </div>
           </form>
@@ -134,13 +138,13 @@ const SignInView = () => {
         <div className="flex flex-col gap-5 w-full">
           <Separator className="max-w-5/6 mx-auto my-2" />
           <div className="flex flex-col gap-1">
-            <p>Pas encore inscrit(e) ?</p>
+            <p>{t("signIn:notSignedUp")}</p>
             <div className="text-center">
               <Link
                 to={APP_ROUTES.signUp}
                 className="flex-center-center w-full h-9 border border-primary text-primary text-size-n font-medium bg-background py-2 px-4 hover:bg-primary hover:text-primary-foreground transition-colors duration-500 rounded-md dark:text-primary-foreground dark:border-primary-foreground dark:hover:border-transparent"
               >
-                Je m'inscris
+                {t("signIn:signUp")}
               </Link>
             </div>
           </div>

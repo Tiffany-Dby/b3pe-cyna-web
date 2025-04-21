@@ -1,0 +1,10 @@
+{
+  "title": "Sign in",
+  "submit": {
+    "loading": "Signing in...",
+    "action": "Sign in"
+  },
+  "forgetPassword": "Forgotten password?",
+  "notSignedUp": "Don't have an account?",
+  "signUp": "Sign up"
+}

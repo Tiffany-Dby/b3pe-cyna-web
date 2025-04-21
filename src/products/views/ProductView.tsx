@@ -34,6 +34,7 @@ import ProductStatusBadge from "@/products/ui/components/ProductStatusBadge";
 import { ProductStatus } from "@/products/types/ProductStatus";
 import { EuroIcon, SquareCheckBigIcon } from "lucide-react";
 import { Separator } from "@/lib/components/ui/separator";
+import { useTranslation } from "react-i18next";
 
 const product = {
   name: "Cyna EDR",
@@ -105,6 +106,7 @@ const product = {
 };
 
 const ProductView = () => {
+  const { t } = useTranslation("products");
   const disabled = product.status !== ProductStatus.Available;
 
   return (
@@ -119,7 +121,7 @@ const ProductView = () => {
               </div>
               <div className="flex justify-end">
                 <Button variant="secondary" disabled={disabled}>
-                  Essayez maintenant
+                  {t("tryNow")}
                 </Button>
               </div>
             </div>
@@ -147,12 +149,18 @@ const ProductView = () => {
           <div className="w-full max-w-3xl mx-auto px-4">
             <Tabs defaultValue="one" className="flex flex-col gap-6">
               <TabsList className="w-full">
-                <TabsTrigger value="one">Bénéfices</TabsTrigger>
-                <TabsTrigger value="two">Fonctionnalités</TabsTrigger>
-                <TabsTrigger value="three">Spécificités</TabsTrigger>
+                <TabsTrigger value="one">{t("tabs.benefits.name")}</TabsTrigger>
+                <TabsTrigger value="two">
+                  {t("tabs.functionnalities.name")}
+                </TabsTrigger>
+                <TabsTrigger value="three">
+                  {t("tabs.specifications.name")}
+                </TabsTrigger>
               </TabsList>
               <TabsContent value="one" className="flex flex-col gap-6">
-                <h2>Pourquoi Cyna EDR ?</h2>
+                <h2>
+                  {t("tabs.benefits.title")} {product.name} ?
+                </h2>
                 <ul className="grid sm:grid-cols-2 gap-2">
                   {product.benefits.map((elt, index) => (
                     <li key={index} className="w-full">
@@ -175,7 +183,7 @@ const ProductView = () => {
                 </ul>
               </TabsContent>
               <TabsContent value="two" className="flex flex-col gap-6">
-                <h2>Fonctionnalités clés</h2>
+                <h2>{t("tabs.functionnalities.title")}</h2>
                 <ul className="grid sm:grid-cols-2 gap-2">
                   {product.functionnalities.map((elt, index) => (
                     <li
@@ -188,19 +196,19 @@ const ProductView = () => {
                 </ul>
               </TabsContent>
               <TabsContent value="three" className="flex flex-col gap-6">
-                <h2>Spécifications techniques</h2>
+                <h2>{t("tabs.specifications.title")}</h2>
                 <div className="rounded-xl border dark:border-white/20">
                   <Table>
                     <TableCaption className="sr-only">
-                      Tableau des spécifications techniques
+                      {t("tabs.specifications.srOnly")}
                     </TableCaption>
                     <TableHeader className="bg-muted">
                       <TableRow className="dark:border-white/20">
                         <TableHead className="border-r dark:border-white/20 px-6 rounded-tl-xl">
-                          Critère
+                          {t("tabs.specifications.table.criteria")}
                         </TableHead>
                         <TableHead className="px-6 rounded-tr-xl">
-                          Détail
+                          {t("tabs.specifications.table.detail")}
                         </TableHead>
                       </TableRow>
                     </TableHeader>
@@ -230,13 +238,13 @@ const ProductView = () => {
         </div>
         <section>
           <div className="w-full max-w-3xl mx-auto px-4 flex flex-col gap-6">
-            <h2>Tarification</h2>
+            <h2>{t("pricing.title")}</h2>
             <div className="flex-center-center flex-col gap-4 w-full sm:gap-0 sm:grid sm:grid-cols-3">
               <article className="w-full max-w-sm text-size-label sm:col-1 sm:row-1">
                 <Card className="bg-transparent w-full justify-between sm:min-h-80 sm:pr-2">
                   <CardHeader>
                     <CardTitle className="flex-center-center flex-col">
-                      <h3>Mensuel</h3>
+                      <h3>{t("pricing.monthly.title")}</h3>
                       <p className="w-fit relative">
                         <span className="text-size-4xl">
                           {product.price / 100}
@@ -246,12 +254,12 @@ const ProductView = () => {
                           className="absolute top-0 left-full text-accent"
                         />
                         <span className="absolute bottom-0 left-full text-muted-foreground">
-                          /mois
+                          /{t("pricing.month")}
                         </span>
                       </p>
                     </CardTitle>
                     <CardDescription className="text-center text-size-label">
-                      Facturé mensuellement
+                      {t("pricing.monthly.bill")}
                     </CardDescription>
                   </CardHeader>
                   <CardContent>
@@ -261,7 +269,9 @@ const ProductView = () => {
                           size={16}
                           className="text-success float-left mr-2"
                         />{" "}
-                        <p className="leading-4.5">Disponibilité immédiate</p>
+                        <p className="leading-4.5">
+                          {t("pricing.keys.availability")}
+                        </p>
                         <span className="clear-left"></span>
                       </li>
                       <li>
@@ -269,7 +279,9 @@ const ProductView = () => {
                           size={16}
                           className="text-success float-left mr-2"
                         />{" "}
-                        <p className="leading-4.5">Sans engagement</p>
+                        <p className="leading-4.5">
+                          {t("pricing.keys.commitment")}
+                        </p>
                         <span className="clear-left"></span>
                       </li>
                     </ul>
@@ -280,7 +292,7 @@ const ProductView = () => {
                       variant="outline"
                       disabled={disabled}
                     >
-                      S'abonner
+                      {t("pricing.monthly.cta")}
                     </Button>
                   </CardFooter>
                 </Card>
@@ -289,7 +301,7 @@ const ProductView = () => {
                 <Card className="bg-background w-full border-success/50 justify-between sm:min-h-96 sm:py-10">
                   <CardHeader>
                     <CardTitle className="flex-center-center flex-col">
-                      <h3>Annuel</h3>
+                      <h3>{t("pricing.yearly.title")}</h3>
                       <p className="w-fit relative">
                         <span className="text-size-4xl">
                           {product.price / 100}
@@ -299,13 +311,13 @@ const ProductView = () => {
                           className="absolute top-0 left-full text-accent"
                         />
                         <span className="absolute bottom-0 left-full text-muted-foreground">
-                          /mois
+                          /{t("pricing.month")}
                         </span>
                       </p>
                     </CardTitle>
                     <CardDescription className="relative flex-center-center w-fit mx-auto">
                       <span>
-                        Facturé à l'année {(product.price * 12) / 100}{" "}
+                        {t("pricing.yearly.bill")} {(product.price * 12) / 100}{" "}
                       </span>
                       <EuroIcon
                         size={12}
@@ -320,7 +332,9 @@ const ProductView = () => {
                           size={16}
                           className="text-success float-left mr-2"
                         />{" "}
-                        <p className="leading-4.5">Disponibilité immédiate</p>
+                        <p className="leading-4.5">
+                          {t("pricing.keys.availability")}
+                        </p>
                         <span className="clear-left"></span>
                       </li>
                       <li>
@@ -328,7 +342,9 @@ const ProductView = () => {
                           size={16}
                           className="text-success float-left mr-2"
                         />{" "}
-                        <p className="leading-4.5">Sans engagement</p>
+                        <p className="leading-4.5">
+                          {t("pricing.keys.commitment")}
+                        </p>
                         <span className="clear-left"></span>
                       </li>
                     </ul>
@@ -339,7 +355,7 @@ const ProductView = () => {
                       variant="success"
                       disabled={disabled}
                     >
-                      S'abonner
+                      {t("pricing.yearly.cta")}
                     </Button>
                   </CardFooter>
                 </Card>
@@ -348,7 +364,7 @@ const ProductView = () => {
                 <Card className="bg-transparent w-full justify-between sm:min-h-80 sm:pl-2">
                   <CardHeader>
                     <CardTitle className="flex-center-center flex-col">
-                      <h3>Essai</h3>
+                      <h3>{t("pricing.trial.title")}</h3>
                       <p className="w-fit relative">
                         <span className="text-size-4xl">0</span>{" "}
                         <EuroIcon
@@ -358,7 +374,7 @@ const ProductView = () => {
                       </p>
                     </CardTitle>
                     <CardDescription className="text-center text-size-label">
-                      Gratuit pendant 14 jours
+                      {t("pricing.trial.bill")}
                     </CardDescription>
                   </CardHeader>
                   <CardContent>
@@ -368,7 +384,9 @@ const ProductView = () => {
                           size={16}
                           className="text-success float-left mr-2"
                         />{" "}
-                        <p className="leading-4.5">Disponibilité immédiate</p>
+                        <p className="leading-4.5">
+                          {t("pricing.keys.availability")}
+                        </p>
                         <span className="clear-left"></span>
                       </li>
                       <li>
@@ -376,7 +394,9 @@ const ProductView = () => {
                           size={16}
                           className="text-success float-left mr-2"
                         />{" "}
-                        <p className="leading-4.5">Sans engagement</p>
+                        <p className="leading-4.5">
+                          {t("pricing.keys.commitment")}
+                        </p>
                         <span className="clear-left"></span>
                       </li>
                     </ul>
@@ -387,7 +407,7 @@ const ProductView = () => {
                       variant="outline"
                       disabled={disabled}
                     >
-                      Essayer
+                      {t("pricing.trial.cta")}
                     </Button>
                   </CardFooter>
                 </Card>

@@ -1,0 +1,70 @@
+{
+  "loading": "Loading...",
+  "learnMore": "Learn more",
+  "category": "Category",
+  "inputs": {
+    "email": {
+      "label": "Mail",
+      "placeholder": "Mail",
+      "validation": {
+        "email": "Invalid email format"
+      }
+    },
+    "currentPassword": {
+      "label": "Current password",
+      "placeholder": "Current password",
+      "validation": {
+        "min": "Please enter your current password"
+      }
+    },
+    "password": {
+      "label": "Password",
+      "placeholder": "Password",
+      "validation": {
+        "required": "Please enter your password",
+        "min": "Password must be at least 8 characters",
+        "uppercase": "Password must contain at least one uppercase letter",
+        "lowercase": "Password must contain at least one lowercase letter",
+        "number": "Password must contain at least one number",
+        "specialChar": "Password must contain at least one special character"
+      }
+    },
+    "confirmPassword": {
+      "label": "Confirm password",
+      "placeholder": "Confirm password",
+      "validation": {
+        "min": "Please confirm your password",
+        "match": "Passwords do not match"
+      }
+    },
+    "newPassword": {
+      "label": "New password",
+      "placeholder": "New password"
+    },
+    "confirmNewPassword": {
+      "label": "Confirm new password",
+      "placeholder": "Confirm new password",
+      "validation": {
+        "min": "Please confirm your new password",
+        "match": "Passwords do not match"
+      }
+    },
+    "firstName": {
+      "label": "First Name",
+      "placeholder": "First Name",
+      "validation": {
+        "min": "Please enter your first name"
+      }
+    },
+    "lastName": {
+      "label": "Last Name",
+      "placeholder": "Last Name",
+      "validation": {
+        "min": "Please enter your last name"
+      }
+    }
+  },
+  "light": "Light",
+  "dark": "Dark",
+  "system": "System"
+}

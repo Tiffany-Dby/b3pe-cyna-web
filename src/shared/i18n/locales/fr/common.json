@@ -1,0 +1,66 @@
+{
+  "loading": "Chargement...",
+  "learnMore": "En savoir plus",
+  "category": "Catégorie",
+  "inputs": {
+    "email": {
+      "label": "Email",
+      "placeholder": "Email",
+      "validation": {
+        "email": "Le format de l'email est invalide"
+      }
+    },
+    "currentPassword": {
+      "label": "Mot de passe actuel",
+      "placeholder": "Mot de passe actuel",
+      "validation": {
+        "min": "Veuillez renseigner votre mot de passe actuel"
+      }
+    },
+    "password": {
+      "label": "Mot de passe",
+      "placeholder": "Mot de passe",
+      "validation": {
+        "required": "Veuillez renseigner votre mot de passe",
+        "min": "Le mot de passe doit comporter 8 caractères minimum",
+        "uppercase": "Le mot de passe doit comporter 1 majuscule minimum",
+        "lowercase": "Le mot de passe doit comporter 1 minuscule minimum",
+        "number": "Le mot de passe doit comporter 1 chiffre minimum",
+        "specialChar": "Le mot de passe doit comporter 1 caractère spécial minimum"
+      }
+    },
+    "confirmPassword": {
+      "label": "Confirmer mot de passe",
+      "placeholder": "Confirmer mot de passe",
+      "validation": {
+        "min": "Veuillez confirmer votre nouveau mot de passe",
+        "match": "Les mots de passe ne correspondent pas"
+      }
+    },
+    "newPassword": {
+      "label": "Nouveau mot de passe",
+      "placeholder": "Nouveau mot de passe"
+    },
+    "confirmNewPassword": {
+      "label": "Confirmer nouveau mot de passe",
+      "placeholder": "Confirmer nouveau mot de passe"
+    },
+    "firstName": {
+      "label": "Prénom",
+      "placeholder": "Prénom",
+      "validation": {
+        "min": "Veuillez renseigner votre prénom"
+      }
+    },
+    "lastName": {
+      "label": "Nom",
+      "placeholder": "Nom",
+      "validation": {
+        "min": "Veuillez renseigner votre nom"
+      }
+    }
+  },
+  "light": "Clair",
+  "dark": "Sombre",
+  "system": "Système"
+}

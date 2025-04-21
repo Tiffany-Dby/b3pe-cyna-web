@@ -18,6 +18,7 @@ import BaseInputGroup from "@/shared/ui/components/BaseInputGroup";
 import { ChevronDownIcon, SquarePenIcon } from "lucide-react";
 import { useState } from "react";
 import { DefaultValues, FieldValues, Path } from "react-hook-form";
+import { useTranslation } from "react-i18next";
 import { z } from "zod";
 
 type InputField<T> = {
@@ -48,6 +49,7 @@ const CollapsibleForm = <T extends FieldValues>({
   requestFn,
   token,
 }: CollapsibleFormProps<T>) => {
+  const { t } = useTranslation("account");
   const [isOpen, setIsOpen] = useState(false);
 
   const { form, handleSubmit, isLoading, serverError } = useCustomForm({
@@ -100,7 +102,9 @@ const CollapsibleForm = <T extends FieldValues>({
               />
             ))}
             <Button type="submit" className="w-full" disabled={isLoading}>
-              {isLoading ? "En cours..." : "Mettre à jour"}
+              {isLoading
+                ? t("settings.submit.loading")
+                : t("settings.submit.action")}
             </Button>
           </form>
         </Form>

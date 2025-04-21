@@ -1,7 +1,7 @@
 import { z } from "zod";
 
 const ResetPasswordSchema = z.object({
-  email: z.string().email("L'email est invalide"),
+  email: z.string().email("common:inputs.email.validation.email"),
 });
 
 export { ResetPasswordSchema };
