@@ -58,6 +58,17 @@
       "validation": {
         "min": "Veuillez renseigner votre nom"
       }
+    },
+    "quantity": {
+      "label": "Quantité"
+    }
+  },
+  "selects": {
+    "subType": {
+      "label": "Abonnement",
+      "placeholder": "Choix du type",
+      "monthly": "Mensuel",
+      "yearly": "Annuel"
     }
   },
   "light": "Clair",

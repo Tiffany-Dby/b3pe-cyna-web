@@ -22,6 +22,7 @@ import MasterCard from "@/shared/ui/logos/MasterCard";
 import PayPal from "@/shared/ui/logos/Paypal";
 import { MinusIcon, PlusIcon, Trash2Icon } from "lucide-react";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { FaStripe } from "react-icons/fa6";
 import { RiVisaLine } from "react-icons/ri";
 
@@ -55,6 +56,7 @@ const products = [
 // TODO: discount on CartItem
 
 const CartView = () => {
+  const { t } = useTranslation("cart");
   const [quantities, setQuantities] = useState(products.map(() => 1));
   const totalDiscount = products.reduce(
     (acc, curr) => acc + (curr.price * curr.discount) / 100,
@@ -80,7 +82,7 @@ const CartView = () => {
   return (
     <section>
       <div className="container mx-auto py-5 px-4">
-        <h1>Mon Panier</h1>
+        <h1>{t("title")}</h1>
 
         <div className="flex flex-col md:flex-row w-full gap-6">
           <div className="flex flex-col gap-6 grow">
@@ -127,19 +129,27 @@ const CartView = () => {
                     <CardContent className="row-2 col-span-full px-0 sm:col-2 sm:flex sm:grow sm:w-full">
                       <div className="flex gap-1 w-full justify-between">
                         <div className="flex flex-col w-1/2 justify-end gap-1">
-                          <Label>Abonnement</Label>
+                          <Label>{t("common:selects.subType.label")}</Label>
                           <Select>
                             <SelectTrigger className="w-full border-primary/40">
-                              <SelectValue placeholder="Choix du type" />
+                              <SelectValue
+                                placeholder={t(
+                                  "common:selects.subType.placeholder"
+                                )}
+                              />
                             </SelectTrigger>
                             <SelectContent>
-                              <SelectItem value="0">Mensuel</SelectItem>
-                              <SelectItem value="1">Annuel</SelectItem>
+                              <SelectItem value="0">
+                                {t("common:selects.subType.monthly")}
+                              </SelectItem>
+                              <SelectItem value="1">
+                                {t("common:selects.subType.yearly")}
+                              </SelectItem>
                             </SelectContent>
                           </Select>
                         </div>
                         <div className="flex flex-col gap-1 justify-end">
-                          <Label>Quantité</Label>
+                          <Label>{t("common:inputs.quantity.label")}</Label>
                           <div className="flex">
                             <Button
                               className="w-8 h-8 p-0 rounded-tr-none rounded-br-none"
@@ -187,7 +197,7 @@ const CartView = () => {
               <CardHeader>
                 <CardTitle className="flex flex-col gap-4">
                   <h3 className="flex-between-center">
-                    <span>Total</span>
+                    <span>{t("subTitle")}</span>
                     <span>{totalCart.toLocaleString()}€</span>
                   </h3>
                   <Separator />
@@ -195,15 +205,15 @@ const CartView = () => {
                 <CardDescription>
                   <ul className="px-1">
                     <li className="flex-between-center">
-                      <span>Sous-total</span>
+                      <span>{t("subTotal")}</span>
                       <span>{totalPrice.toLocaleString()}€</span>
                     </li>
                     <li className="flex-between-center">
-                      <span>Livraison</span>
+                      <span>{t("shipping")}</span>
                       <span>0€</span>
                     </li>
                     <li className="flex-between-center">
-                      <span>Promotion</span>
+                      <span>{t("discount")}</span>
                       <span className="flex-center-center bg-success/18 px-1 border border-success rounded-sm text-success h-5.5">
                         -{totalDiscount.toLocaleString()}€
                       </span>
@@ -213,7 +223,7 @@ const CartView = () => {
               </CardHeader>
               <CardContent className="flex flex-col gap-6">
                 <div>
-                  <Button className="w-full">Procéder au paiement</Button>
+                  <Button className="w-full">{t("proceedPayments")}</Button>
                 </div>
                 <div className="px-14">
                   <Separator />
@@ -222,7 +232,7 @@ const CartView = () => {
                 <div className="flex flex-col gap-2">
                   <CardDescription>
                     <p className="text-size-label text-center">
-                      Paiement sécurisé
+                      {t("securedPayments")}
                     </p>
                   </CardDescription>
                   <div className="flex-center-center gap-3">

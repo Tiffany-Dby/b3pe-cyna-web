@@ -62,6 +62,17 @@
       "validation": {
         "min": "Please enter your last name"
       }
+    },
+    "quantity": {
+      "label": "Quantity"
+    }
+  },
+  "selects": {
+    "subType": {
+      "label": "Subscription",
+      "placeholder": "Type choice",
+      "monthly": "Monthly",
+      "yearly": "Yearly"
     }
   },
   "light": "Light",

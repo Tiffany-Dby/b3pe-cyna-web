@@ -7,6 +7,7 @@ import products from "./products.json";
 import resetPassword from "./resetPassword.json";
 import signIn from "./signIn.json";
 import signUp from "./signUp.json";
+import cart from "./cart.json";
 
 const en = {
   account,
@@ -18,6 +19,7 @@ const en = {
   resetPassword,
   signIn,
   signUp,
+  cart,
 } as const;
 
 export { en };
