@@ -20,6 +20,7 @@ import ProductStatusBadge from "@/products/ui/components/ProductStatusBadge";
 import imgBanner from "@/shared/assets/images/banner.svg";
 import MasterCard from "@/shared/ui/logos/MasterCard";
 import PayPal from "@/shared/ui/logos/Paypal";
+import { formatAmount } from "@/shared/utils/number";
 import { MinusIcon, PlusIcon, Trash2Icon } from "lucide-react";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
@@ -56,7 +57,7 @@ const products = [
 // TODO: discount on CartItem
 
 const CartView = () => {
-  const { t } = useTranslation("cart");
+  const { t, i18n } = useTranslation("cart");
   const [quantities, setQuantities] = useState(products.map(() => 1));
   const totalDiscount = products.reduce(
     (acc, curr) => acc + (curr.price * curr.discount) / 100,
@@ -106,14 +107,22 @@ const CartView = () => {
                           <h2>{product.name}</h2>
                           <div className="relative flex flex-col sm:items-end">
                             <p className="text-size-2xl">
-                              {(product.price -
-                                product.price * product.discount) /
-                                100}
-                              €
+                              {formatAmount(
+                                (product.price -
+                                  product.price * product.discount) /
+                                  100,
+                                {
+                                  locale: i18n.resolvedLanguage,
+                                  currency: "EUR",
+                                }
+                              )}
                             </p>
                             {!!product.discount && (
                               <p className="absolute top-full line-through text-size-s text-muted-foreground">
-                                {product.price / 100}€
+                                {formatAmount(product.price / 100, {
+                                  locale: i18n.resolvedLanguage,
+                                  currency: "EUR",
+                                })}
                               </p>
                             )}
                           </div>
@@ -193,12 +202,17 @@ const CartView = () => {
             ))}
           </div>
           <article className="md:col-2 md:row-span-full md:max-w-1/3 grow">
-            <Card className="">
+            <Card className="sticky top-20">
               <CardHeader>
                 <CardTitle className="flex flex-col gap-4">
                   <h3 className="flex-between-center">
                     <span>{t("subTitle")}</span>
-                    <span>{totalCart.toLocaleString()}€</span>
+                    <span>
+                      {formatAmount(totalCart, {
+                        locale: i18n.resolvedLanguage,
+                        currency: "EUR",
+                      })}
+                    </span>
                   </h3>
                   <Separator />
                 </CardTitle>
@@ -206,16 +220,30 @@ const CartView = () => {
                   <ul className="px-1">
                     <li className="flex-between-center">
                       <span>{t("subTotal")}</span>
-                      <span>{totalPrice.toLocaleString()}€</span>
+                      <span>
+                        {formatAmount(totalPrice, {
+                          locale: i18n.resolvedLanguage,
+                          currency: "EUR",
+                        })}
+                      </span>
                     </li>
                     <li className="flex-between-center">
                       <span>{t("shipping")}</span>
-                      <span>0€</span>
+                      <span>
+                        {formatAmount(0, {
+                          locale: i18n.resolvedLanguage,
+                          currency: "EUR",
+                        })}
+                      </span>
                     </li>
                     <li className="flex-between-center">
                       <span>{t("discount")}</span>
                       <span className="flex-center-center bg-success/18 px-1 border border-success rounded-sm text-success h-5.5">
-                        -{totalDiscount.toLocaleString()}€
+                        -{" "}
+                        {formatAmount(totalDiscount, {
+                          locale: i18n.resolvedLanguage,
+                          currency: "EUR",
+                        })}
                       </span>
                     </li>
                   </ul>
@@ -236,16 +264,16 @@ const CartView = () => {
                     </p>
                   </CardDescription>
                   <div className="flex-center-center gap-3">
-                    <div className="flex-center-center min-w-11 bg-white px-1.5 max-h-8 rounded-md">
+                    <div className="flex-center-center min-w-11 bg-white px-1.5 max-h-8 rounded-md border border-input/75">
                       <RiVisaLine className="text-[#1434CB] w-full h-full min-w-full min-h-full object-cover" />
                     </div>
-                    <div className="flex-center-center min-w-11 bg-white px-1.5 max-h-8 rounded-md">
+                    <div className="flex-center-center min-w-11 bg-white px-1.5 max-h-8 rounded-md border border-input/75">
                       <MasterCard className="w-full h-full min-w-full min-h-full object-cover" />
                     </div>
-                    <div className="flex-center-center min-w-11 bg-white px-1.5 max-h-8 rounded-md">
+                    <div className="flex-center-center min-w-11 bg-white px-1.5 max-h-8 rounded-md border border-input/75">
                       <FaStripe className="text-[#635BFF] w-full h-full min-w-full min-h-full object-cover" />
                     </div>
-                    <div className="flex-center-center min-w-11 bg-yellow-300 px-1.5 max-h-8 rounded-md">
+                    <div className="flex-center-center min-w-11 bg-yellow-300 px-1.5 max-h-8 rounded-md border border-input/75">
                       <PayPal className="w-full h-full min-w-full min-h-full object-cover" />
                     </div>
                   </div>

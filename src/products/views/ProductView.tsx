@@ -102,7 +102,7 @@ const product = {
     },
   ],
   price: 3000,
-  status: 2,
+  status: 1,
 };
 
 const ProductView = () => {

@@ -16,7 +16,8 @@ const PRODUCT_STATUS: ProductStatusMap = {
   },
   [ProductStatus.Maintenance]: {
     label: () => "status.maintenance",
-    color: "bg-warning/5 border-warning text-warning",
+    color:
+      "bg-accent/5 border-accent text-accent dark:bg-warning/5 dark:border-warning dark:text-warning",
   },
 };
 

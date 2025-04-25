@@ -14,7 +14,7 @@ const ProductStatusBadge = ({ status, type }: ProductStatusBadgeProps) => {
 
   return (
     <div
-      className={`flex-center-center w-fit h-5.5 px-2 border rounded-full font-light text-size-label ${currentStatus.color}`}
+      className={`flex-center-center w-fit h-5.5 px-2 border rounded-full font-medium text-size-label ${currentStatus.color}`}
     >
       <p>{t(currentStatus.label(type))}</p>
     </div>
