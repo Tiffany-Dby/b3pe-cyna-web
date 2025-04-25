@@ -15,6 +15,8 @@ const API_ROUTES = {
   signUp: "/api/auth/register",
   signIn: "/api/auth/login",
   me: "/api/auth/me",
+  updateInfos: "/api/users/update",
+  updatePassword: "/api/users/updatePassword",
 } as const;
 
 export { APP_ROUTES, API_ROUTES };

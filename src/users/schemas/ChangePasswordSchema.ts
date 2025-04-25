@@ -2,7 +2,7 @@ import { z } from "zod";
 
 const ChangePasswordSchema = z
   .object({
-    currentPassword: z
+    previousPassword: z
       .string()
       .min(8, "common:inputs.currentPassword.validation.min"),
     newPassword: z
@@ -15,11 +15,11 @@ const ChangePasswordSchema = z
         /[!@#$%^&*(),.?":{}|<>]/,
         "common:inputs.password.validation.specialChar"
       ),
-    confirmPassword: z
+    confirmNewPassword: z
       .string()
       .min(8, "common:inputs.confirmPassword.validation.min"),
   })
-  .refine((field) => field.newPassword === field.confirmPassword, {
+  .refine((field) => field.newPassword === field.confirmNewPassword, {
     message: "common:inputs.confirmPassword.validation.match",
     path: ["confirmPassword"],
   });

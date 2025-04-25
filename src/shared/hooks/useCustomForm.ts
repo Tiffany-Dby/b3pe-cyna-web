@@ -2,12 +2,14 @@ import { useForm, UseFormProps, FieldValues } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { ZodSchema } from "zod";
 import { useState } from "react";
-import { postRequest } from "@/shared/tools/api";
+import { RequestFn } from "@/shared/types/Api";
 
 type UseCustomFormProps<T extends FieldValues, R> = UseFormProps<T> & {
   schema: ZodSchema<T>;
   apiUrl: string;
+  requestFn: RequestFn;
   onSuccess?: (data: R) => void;
+  token?: string;
 };
 
 const useCustomForm = <T extends FieldValues, R>({
@@ -15,6 +17,8 @@ const useCustomForm = <T extends FieldValues, R>({
   apiUrl,
   onSuccess,
   defaultValues,
+  requestFn,
+  token,
   ...formOptions
 }: UseCustomFormProps<T, R>) => {
   const [isLoading, setIsLoading] = useState(false);
@@ -30,7 +34,7 @@ const useCustomForm = <T extends FieldValues, R>({
     setServerError(null);
 
     setIsLoading(true);
-    const { result, error } = await postRequest<R, T>(apiUrl, data);
+    const { result, error } = await requestFn<R, T>(apiUrl, data, token);
     setIsLoading(false);
 
     if (error) {

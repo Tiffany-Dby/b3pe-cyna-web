@@ -1,10 +1,15 @@
-import { FetchConfig, FetchMethod } from "@/shared/types/Api";
+import {
+  FetchConfig,
+  FetchMethod,
+  RequestFn,
+  RequestPromise,
+} from "@/shared/types/Api";
 import { API_ROUTES } from "@/shared/constants/routes";
 
 const getRequest = async <T>(
   url: string,
   token?: string
-): Promise<{ result: T; error: string | null; status: number }> => {
+): RequestPromise<T> => {
   const config = {
     method: FetchMethod.GET,
     headers: {
@@ -17,11 +22,11 @@ const getRequest = async <T>(
   return await request<T>(url, config);
 };
 
-const postRequest = async <T, B extends object>(
+const postRequest: RequestFn = async <T, B extends object>(
   url: string,
   body: B,
   token?: string
-): Promise<{ result: T; error: string | null; status: number }> => {
+) => {
   const config: FetchConfig = {
     method: FetchMethod.POST,
     headers: {
@@ -35,10 +40,30 @@ const postRequest = async <T, B extends object>(
   return await request<T>(url, config);
 };
 
+const putRequest: RequestFn = async <T, B extends object>(
+  url: string,
+  body: B,
+  token?: string
+) => {
+  const config: FetchConfig = {
+    method: FetchMethod.PUT,
+    headers: {
+      "Content-type": "application/json",
+      Accept: "application/json",
+      ...(token && { Authorization: `Bearer ${token}` }),
+    },
+    body: JSON.stringify(body),
+  };
+
+  console.log("token", token);
+
+  return await request<T>(url, config);
+};
+
 const request = async <T>(
   url: string,
   config: FetchConfig
-): Promise<{ result: T; error: string | null; status: number }> => {
+): RequestPromise<T> => {
   let result = [];
   let error = null;
   let status = -1;
@@ -61,4 +86,4 @@ const request = async <T>(
   }
 };
 
-export { getRequest, postRequest };
+export { getRequest, postRequest, putRequest };

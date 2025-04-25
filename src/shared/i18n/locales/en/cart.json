@@ -1,0 +1,9 @@
+{
+  "title": "My cart",
+  "subTitle": "Total",
+  "subTotal": "Sub-total",
+  "shipping": "Shipping",
+  "discount": "Discount",
+  "proceedPayments": "Proceed to payment",
+  "securedPayments": "Secure payments"
+}

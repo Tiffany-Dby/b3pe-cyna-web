@@ -1,0 +1,9 @@
+{
+  "title": "Mon panier",
+  "subTitle": "Total",
+  "subTotal": "Sous-total",
+  "shipping": "Livraison",
+  "discount": "Promotion",
+  "proceedPayments": "Procéder au paiement",
+  "securedPayments": "Paiement sécurisé"
+}

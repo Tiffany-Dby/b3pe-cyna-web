@@ -1,3 +1,15 @@
+type RequestPromise<T> = Promise<{
+  result: T;
+  error: string | null;
+  status: number;
+}>;
+
+type RequestFn = <T, B extends object>(
+  url: string,
+  body: B,
+  token?: string
+) => RequestPromise<T>;
+
 type FetchConfig = {
   method: FetchMethod;
   headers: Record<string, string>;
@@ -8,7 +20,8 @@ enum FetchMethod {
   GET = "GET",
   POST = "POST",
   PATCH = "PATCH",
+  PUT = "PUT",
 }
 
-export type { FetchConfig };
+export type { FetchConfig, RequestFn, RequestPromise };
 export { FetchMethod };

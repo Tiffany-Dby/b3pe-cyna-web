@@ -18,6 +18,7 @@ import { MailIcon } from "lucide-react";
 import { Field } from "@/shared/types/Field";
 import { API_ROUTES } from "@/shared/constants/routes";
 import { useTranslation } from "react-i18next";
+import { postRequest } from "@/shared/tools/api";
 
 type Input = Field & {
   name: keyof ResetPasswordData;
@@ -32,6 +33,7 @@ const ResetPasswordView = () => {
     defaultValues: {
       email: "",
     },
+    requestFn: postRequest,
   });
 
   const input: Input = {
