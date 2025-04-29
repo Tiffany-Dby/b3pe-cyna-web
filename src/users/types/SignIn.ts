@@ -1,8 +1,9 @@
 type UserResponse = {
-  id: number;
   firstName: string;
   lastName: string;
   email: string;
+  role: number;
+  registrationDate: string;
 };
 
 type SignInResponse = {

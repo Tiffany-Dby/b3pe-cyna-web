@@ -1,16 +1,11 @@
 import logoCyna from "@/shared/assets/images/logo-cyna.svg";
-import { ReactNode } from "react";
-import { Link } from "react-router";
+import { Link, Outlet } from "react-router";
 import NavigationMenu from "@/shared/ui/components/NavigationMenu";
 import useScrollTrigger from "@/shared/hooks/useScrollTrigger";
 import { APP_ROUTES } from "@/shared/constants/routes";
 import { useTranslation } from "react-i18next";
 
-type BaseLayoutProps = {
-  children?: ReactNode;
-};
-
-const BaseLayout = ({ children }: BaseLayoutProps) => {
+const BaseLayout = () => {
   const { t } = useTranslation("layout");
   const scrolled = useScrollTrigger(50);
 
@@ -31,7 +26,9 @@ const BaseLayout = ({ children }: BaseLayoutProps) => {
           <NavigationMenu />
         </div>
       </header>
-      <main>{children}</main>
+      <main>
+        <Outlet />
+      </main>
       <footer className="bg-primary-150 text-primary-150-foreground">
         <div className="container mx-auto py-3 px-4 flex-center-center">
           <p className="text-center text-size-label">

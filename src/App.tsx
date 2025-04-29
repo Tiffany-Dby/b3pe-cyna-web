@@ -11,14 +11,16 @@ import ResetPasswordView from "@/users/views/ResetPasswordView";
 import ProductView from "@/products/views/ProductView";
 import NotFoundView from "@/shared/views/NotFoundView";
 import CartView from "@/purchase/views/CartView";
+import AdminLayout from "@/shared/ui/components/AdminLayout";
+import { UserRole } from "@/users/types/UserRole";
 
 const App = () => {
-  const { isAuthenticated } = useAuth();
+  const { isAuthenticated, user } = useAuth();
 
   return (
     <BrowserRouter>
-      <BaseLayout>
-        <Routes>
+      <Routes>
+        <Route element={<BaseLayout />}>
           <Route path={APP_ROUTES.home} element={<HomeView />} />
           <Route
             path={APP_ROUTES.signUp}
@@ -68,8 +70,20 @@ const App = () => {
               </div>
             }
           />
-        </Routes>
-      </BaseLayout>
+        </Route>
+        <Route
+          element={<PrivateRoutes hasAccess={user?.role === UserRole.admin} />}
+        >
+          <Route path={APP_ROUTES.ADMIN} element={<AdminLayout />}>
+            <Route index element={<p>Index</p>} />
+            <Route
+              path={APP_ROUTES.ADMIN_DASHBOARD}
+              element={<p>Dashboard</p>}
+            />
+            <Route path={APP_ROUTES.ADMIN_PRODUCT} element={<p>Product</p>} />
+          </Route>
+        </Route>
+      </Routes>
     </BrowserRouter>
   );
 };

@@ -40,7 +40,7 @@ const SettingsView = () => {
 
   const forms: Form[] = [
     {
-      name: "Informations personnelles",
+      name: "account:settings.personalInformations.caption",
       schema: PersonInfosSchema,
       fields: [
         {
@@ -74,7 +74,7 @@ const SettingsView = () => {
       requestFn: putRequest,
     },
     {
-      name: "Changer de mot de passe",
+      name: "account:settings.changePassword.caption",
       schema: ChangePasswordSchema,
       fields: [
         {
@@ -119,9 +119,7 @@ const SettingsView = () => {
               {forms.map((form, index) => (
                 <Fragment key={index}>
                   <CollapsibleForm
-                    formName={t(
-                      "account:settings.personalInformations.caption"
-                    )}
+                    formName={t(form.name)}
                     schema={form.schema}
                     inputFields={form.fields}
                     apiUrl={form.url}
