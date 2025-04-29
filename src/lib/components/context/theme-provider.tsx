@@ -71,3 +71,24 @@ export const useTheme = () => {
 
   return context;
 };
+
+export const useResolvedTheme = () => {
+  const { theme } = useTheme();
+  const [resolved, setResolved] = useState<"light" | "dark">("light");
+
+  const root = window.matchMedia("(prefers-color-scheme: dark)");
+
+  useEffect(() => {
+    const compute = () =>
+      theme === "system"
+        ? setResolved(root.matches ? "dark" : "light")
+        : setResolved(theme);
+
+    compute();
+    root.addEventListener("change", compute);
+
+    return () => root.removeEventListener("change", compute);
+  }, [theme]);
+
+  return resolved;
+};

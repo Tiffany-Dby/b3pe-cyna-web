@@ -5,16 +5,17 @@ import NavigationInline from "@/shared/ui/components/NavigationInline";
 import NavigationSheet from "@/shared/ui/components/NavigationSheet";
 import { useAuth } from "@/users/context/AuthContext";
 import {
+  BoxIcon,
   CircleUserRoundIcon,
   HomeIcon,
-  ShapesIcon,
   ShoppingCartIcon,
 } from "lucide-react";
 import LanguageToggle from "./LanguageToggle";
 import { useTranslation } from "react-i18next";
+import { UserRole } from "@/users/types/UserRole";
 
 const NavigationMenu = () => {
-  const { isAuthenticated, onSignOut } = useAuth();
+  const { isAuthenticated, onSignOut, user } = useAuth();
   const { t } = useTranslation("layout");
 
   const menuItems: MenuItem[] = [
@@ -26,7 +27,7 @@ const NavigationMenu = () => {
     {
       title: t("header.navigation.products"),
       url: APP_ROUTES.products,
-      icon: ShapesIcon,
+      icon: BoxIcon,
     },
     isAuthenticated
       ? {
@@ -45,6 +46,17 @@ const NavigationMenu = () => {
                 "header.navigation.account.subscriptions.description"
               ),
             },
+            ...(user?.role === UserRole.admin
+              ? [
+                  {
+                    title: t("header.navigation.account.admin.title"),
+                    url: APP_ROUTES.ADMIN,
+                    description: t(
+                      "header.navigation.account.admin.description"
+                    ),
+                  },
+                ]
+              : []),
             {
               title: t("header.navigation.account.signOut"),
               action: onSignOut,

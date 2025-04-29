@@ -13,7 +13,7 @@ import { Separator } from "@/lib/components/ui/separator";
 import { Field } from "@/shared/types/Field";
 import { API_ROUTES } from "@/shared/constants/routes";
 import { useTranslation } from "react-i18next";
-import { Fragment } from "react";
+import { Fragment, useId } from "react";
 import { putRequest } from "@/shared/tools/api";
 import { RequestFn } from "@/shared/types/Api";
 
@@ -35,12 +35,13 @@ type Form = {
 };
 
 const SettingsView = () => {
+  const id = useId();
   const { t } = useTranslation();
   const { user, token } = useAuth();
 
   const forms: Form[] = [
     {
-      name: "Informations personnelles",
+      name: "account:settings.personalInformations.caption",
       schema: PersonInfosSchema,
       fields: [
         {
@@ -74,7 +75,7 @@ const SettingsView = () => {
       requestFn: putRequest,
     },
     {
-      name: "Changer de mot de passe",
+      name: "account:settings.changePassword.caption",
       schema: ChangePasswordSchema,
       fields: [
         {
@@ -117,11 +118,9 @@ const SettingsView = () => {
           {user ? (
             <>
               {forms.map((form, index) => (
-                <Fragment key={index}>
+                <Fragment key={id + "-" + form.name}>
                   <CollapsibleForm
-                    formName={t(
-                      "account:settings.personalInformations.caption"
-                    )}
+                    formName={t(form.name)}
                     schema={form.schema}
                     inputFields={form.fields}
                     apiUrl={form.url}

@@ -55,8 +55,6 @@ const putRequest: RequestFn = async <T, B extends object>(
     body: JSON.stringify(body),
   };
 
-  console.log("token", token);
-
   return await request<T>(url, config);
 };
 

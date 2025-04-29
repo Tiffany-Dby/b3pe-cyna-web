@@ -5,7 +5,7 @@ import { Navigate, Outlet } from "react-router";
 type PrivateRoutesProps = {
   hasAccess: boolean;
   redirectPath?: string;
-  children: React.ReactNode;
+  children?: React.ReactNode;
 };
 
 const PrivateRoutes = ({

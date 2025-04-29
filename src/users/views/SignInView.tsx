@@ -12,7 +12,7 @@ import BaseInputGroup from "@/shared/ui/components/BaseInputGroup";
 import useCustomForm from "@/shared/hooks/useCustomForm";
 import { SignInSchema, SignInData } from "@/users/schemas/SignInSchema";
 import { MailIcon, EyeIcon, EyeOffIcon } from "lucide-react";
-import { Link, useNavigate } from "react-router";
+import { Link, Navigate, useNavigate } from "react-router";
 import { useState } from "react";
 import { useAuth } from "@/users/context/AuthContext";
 import { SignInResponse } from "@/users/types/SignIn";
@@ -31,7 +31,7 @@ type SignInField = Field & {
 const SignInView = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
-  const { onSignIn } = useAuth();
+  const { onSignIn, isAuthenticated } = useAuth();
   const [typePassword, setTypePassword] = useState<"text" | "password">(
     "password"
   );
@@ -72,6 +72,10 @@ const SignInView = () => {
         setTypePassword((prev) => (prev === "password" ? "text" : "password")),
     },
   ];
+
+  if (isAuthenticated) {
+    return <Navigate to={APP_ROUTES.accountSettings} replace />;
+  }
 
   return (
     <BaseCard

@@ -8,6 +8,10 @@ const APP_ROUTES = {
   products: "/products",
   product: "/products/:id",
   cart: "/cart",
+  ADMIN: "/admin",
+  ADMIN_DASHBOARD: "dashboard",
+  ADMIN_PRODUCTS: "products",
+  ADMIN_PRODUCT: "product",
 } as const;
 
 const API_ROUTES = {
@@ -16,7 +20,7 @@ const API_ROUTES = {
   signIn: "/api/auth/login",
   me: "/api/auth/me",
   updateInfos: "/api/users/update",
-  updatePassword: "/api/users/updatePassword",
+  updatePassword: "/api/users/update-password",
 } as const;
 
 export { APP_ROUTES, API_ROUTES };
