@@ -67,7 +67,7 @@ const request = async <T>(
   let status = -1;
 
   try {
-    const response = await fetch(API_ROUTES.url + url, config);
+    const response = await fetch(API_ROUTES.URL + url, config);
 
     status = response.status;
     result = await response.json();

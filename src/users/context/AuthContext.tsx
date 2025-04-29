@@ -33,7 +33,7 @@ const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [user, setUser] = useState<UserResponse | null>(null);
 
   const { data, error, isLoading } = useFetch<UserResponse>(
-    API_ROUTES.me,
+    API_ROUTES.ME,
     token
   );
 

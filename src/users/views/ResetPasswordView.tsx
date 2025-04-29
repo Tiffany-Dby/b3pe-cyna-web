@@ -29,7 +29,7 @@ const ResetPasswordView = () => {
   const { t } = useTranslation();
   const { form, handleSubmit, isLoading, serverError } = useCustomForm({
     schema: ResetPasswordSchema,
-    apiUrl: API_ROUTES.signIn,
+    apiUrl: API_ROUTES.SIGN_IN,
     defaultValues: {
       email: "",
     },

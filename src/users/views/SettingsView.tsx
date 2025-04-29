@@ -66,7 +66,7 @@ const SettingsView = () => {
           autoComplete: "email",
         },
       ],
-      url: API_ROUTES.updateInfos,
+      url: API_ROUTES.USER_UPDATE_INFOS,
       defaultValues: {
         firstName: user?.firstName ?? "",
         lastName: user?.lastName ?? "",
@@ -100,7 +100,7 @@ const SettingsView = () => {
           autoComplete: "new-password",
         },
       ],
-      url: API_ROUTES.updatePassword,
+      url: API_ROUTES.USER_UPDATE_PASSWORD,
       defaultValues: {
         previousPassword: "",
         newPassword: "",
