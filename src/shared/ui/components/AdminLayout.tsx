@@ -7,9 +7,11 @@ import { ModeToggle } from "@/lib/components/context/mode-toggle";
 import LanguageToggle from "@/shared/ui/components/LanguageToggle";
 import { SIDEBAR_ITEMS } from "@/shared/constants/sidebar";
 import { APP_ROUTES } from "@/shared/constants/routes";
+import { useTranslation } from "react-i18next";
 
 const AdminLayout = () => {
   const location = useLocation();
+  const { t } = useTranslation("adminSidebar");
   const [open, setOpen] = useState(true);
 
   const currentSubItem = SIDEBAR_ITEMS.flatMap((group) => group.groupItems)
@@ -31,7 +33,7 @@ const AdminLayout = () => {
             <div className="flex items-center gap-2">
               <SidebarTrigger className="-ml-1" />
               <Separator orientation="vertical" className="mr-2 !h-4" />
-              <h1 className="text-size-3xl">{pageTitle}</h1>
+              <h1 className="text-size-3xl">{t(pageTitle)}</h1>
             </div>
             <div className="flex-center-center gap-2">
               <ModeToggle />

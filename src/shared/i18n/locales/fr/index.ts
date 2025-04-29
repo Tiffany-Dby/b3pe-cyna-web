@@ -8,6 +8,7 @@ import resetPassword from "./resetPassword.json";
 import signIn from "./signIn.json";
 import signUp from "./signUp.json";
 import cart from "./cart.json";
+import adminSidebar from "./adminSidebar.json";
 
 const fr = {
   account,
@@ -20,6 +21,7 @@ const fr = {
   signIn,
   signUp,
   cart,
+  adminSidebar,
 } as const;
 
 export { fr };

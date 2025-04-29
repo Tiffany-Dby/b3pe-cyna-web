@@ -9,13 +9,15 @@
         "notAuth": "Me connecter",
         "settings": {
           "title": "Paramètres",
-          "description":
-            "Gérer mes informations personnelles, mon mot de passe, mes moyens de paiements, etc."
+          "description": "Gérer mes informations personnelles, mon mot de passe, mes moyens de paiements, etc."
         },
         "subscriptions": {
           "title": "Abonnements",
-          "description":
-            "Prologer mes abonnements, effectuer une mise à niveau, etc."
+          "description": "Prologer mes abonnements, effectuer une mise à niveau, etc."
+        },
+        "admin": {
+          "title": "Administrateur",
+          "description": "Interface réservée aux administrateurs du site. Gérez les produits, les utilisateurs, etc."
         },
         "signOut": "Me déconnecter"
       },

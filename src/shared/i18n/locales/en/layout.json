@@ -9,12 +9,15 @@
         "notAuth": "Sign in",
         "settings": {
           "title": "Settings",
-          "description":
-            "Manage my personal information, password, payment methods, and more."
+          "description": "Manage my personal information, password, payment methods, and more."
         },
         "subscriptions": {
           "title": "Subscriptions",
           "description": "Extend my subscriptions, upgrade, and more."
+        },
+        "admin": {
+          "title": "Administrator",
+          "description": "Interface reserved for site administrators. Manage products, users, and more."
         },
         "signOut": "Sign out"
       },

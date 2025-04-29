@@ -13,7 +13,7 @@ import { Separator } from "@/lib/components/ui/separator";
 import { Field } from "@/shared/types/Field";
 import { API_ROUTES } from "@/shared/constants/routes";
 import { useTranslation } from "react-i18next";
-import { Fragment } from "react";
+import { Fragment, useId } from "react";
 import { putRequest } from "@/shared/tools/api";
 import { RequestFn } from "@/shared/types/Api";
 
@@ -35,6 +35,7 @@ type Form = {
 };
 
 const SettingsView = () => {
+  const id = useId();
   const { t } = useTranslation();
   const { user, token } = useAuth();
 
@@ -117,7 +118,7 @@ const SettingsView = () => {
           {user ? (
             <>
               {forms.map((form, index) => (
-                <Fragment key={index}>
+                <Fragment key={id + "-" + form.name}>
                   <CollapsibleForm
                     formName={t(form.name)}
                     schema={form.schema}

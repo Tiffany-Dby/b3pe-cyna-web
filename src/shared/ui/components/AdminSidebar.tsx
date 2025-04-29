@@ -25,10 +25,14 @@ import {
 } from "@/lib/components/ui/collapsible";
 import { useResolvedTheme } from "@/lib/components/context/theme-provider";
 import { SIDEBAR_ITEMS } from "@/shared/constants/sidebar";
+import { useTranslation } from "react-i18next";
+import { useId } from "react";
 
 const AdminSidebar = () => {
   const location = useLocation();
   const resolved = useResolvedTheme();
+  const { t } = useTranslation("adminSidebar");
+  const id = useId();
 
   return (
     <Sidebar collapsible="icon">
@@ -43,12 +47,12 @@ const AdminSidebar = () => {
       </SidebarHeader>
       <SidebarContent>
         <SidebarGroup className="flex flex-col gap-4">
-          {SIDEBAR_ITEMS.map((sidebarItem, index) => (
-            <div key={index}>
-              <SidebarGroupLabel>{sidebarItem.groupLabel}</SidebarGroupLabel>
+          {SIDEBAR_ITEMS.map((sidebarItem) => (
+            <div key={id + "-" + sidebarItem.groupLabel}>
+              <SidebarGroupLabel>{t(sidebarItem.groupLabel)}</SidebarGroupLabel>
               <SidebarGroupContent className="flex  flex-col gap-1">
                 {sidebarItem.groupItems.map((item) => (
-                  <SidebarMenu key={item.title}>
+                  <SidebarMenu key={id + "-" + item.title}>
                     <SidebarMenuItem>
                       <Collapsible
                         defaultOpen={item.subItems.some(
@@ -69,7 +73,7 @@ const AdminSidebar = () => {
                               {item.icon && (
                                 <item.icon className="size-4 min-w-4" />
                               )}
-                              {item.title}
+                              {t(item.title)}
                             </span>
 
                             <ChevronDownIcon className="transition-transform duration-300 group-data-[state=open]:-rotate-180" />
@@ -87,7 +91,9 @@ const AdminSidebar = () => {
                                       location.pathname
                                   }
                                 >
-                                  <Link to={subitem.url}>{subitem.title}</Link>
+                                  <Link to={subitem.url}>
+                                    {t(subitem.title)}
+                                  </Link>
                                 </SidebarMenuSubButton>
                               </SidebarMenuSubItem>
                             ))}
@@ -109,7 +115,7 @@ const AdminSidebar = () => {
             to={APP_ROUTES.home}
           >
             <ArrowLeftToLineIcon className="size-4 min-w-4" />
-            Revenir sur le site web
+            {t("backToWebsite")}
           </Link>
         </SidebarMenuButton>
       </SidebarFooter>

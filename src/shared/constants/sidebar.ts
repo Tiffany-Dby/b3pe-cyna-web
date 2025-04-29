@@ -12,68 +12,113 @@ import { SidebarItem } from "../types/Sidebar";
 
 const SIDEBAR_ITEMS: SidebarItem[] = [
   {
-    groupLabel: "Dashboard",
+    groupLabel: "dashboard.groupLabel",
     groupItems: [
       {
-        title: "Analytics",
+        title: "dashboard.analytics.title",
         icon: ChartPieIcon,
         subItems: [
-          { title: "Sales & orders", url: APP_ROUTES.ADMIN },
-          { title: "User activity", url: APP_ROUTES.ADMIN_PRODUCT },
-          { title: "Inventories", url: APP_ROUTES.ADMIN_PRODUCT },
+          {
+            title: "dashboard.analytics.subItems.salesOrders",
+            url: APP_ROUTES.ADMIN,
+          },
+          {
+            title: "dashboard.analytics.subItems.userActivity",
+            url: APP_ROUTES.ADMIN_PRODUCT,
+          },
+          {
+            title: "dashboard.analytics.subItems.inventories",
+            url: APP_ROUTES.ADMIN_PRODUCT,
+          },
         ],
       },
       {
-        title: "Support",
+        title: "dashboard.support.title",
         icon: MessageSquareIcon,
         subItems: [
-          { title: "Tickets", url: APP_ROUTES.ADMIN_PRODUCT },
-          { title: "Chatbot", url: APP_ROUTES.ADMIN_PRODUCT },
+          {
+            title: "dashboard.support.subItems.tickets",
+            url: APP_ROUTES.ADMIN_PRODUCT,
+          },
+          {
+            title: "dashboard.support.subItems.chatbot",
+            url: APP_ROUTES.ADMIN_PRODUCT,
+          },
         ],
       },
       {
-        title: "Settings",
+        title: "dashboard.settings.title",
         icon: SettingsIcon,
         subItems: [
-          { title: "General", url: APP_ROUTES.ADMIN_PRODUCT },
-          { title: "Payments", url: APP_ROUTES.ADMIN_PRODUCT },
-          { title: "Localization", url: APP_ROUTES.ADMIN_PRODUCT },
+          {
+            title: "dashboard.settings.subItems.general",
+            url: APP_ROUTES.ADMIN_PRODUCT,
+          },
+          {
+            title: "dashboard.settings.subItems.payments",
+            url: APP_ROUTES.ADMIN_PRODUCT,
+          },
+          {
+            title: "dashboard.settings.subItems.localization",
+            url: APP_ROUTES.ADMIN_PRODUCT,
+          },
         ],
       },
     ],
   },
   {
-    groupLabel: "Management",
+    groupLabel: "management.groupLabel",
     groupItems: [
       {
-        title: "Contents",
+        title: "management.contents.title",
         icon: ImageIcon,
         subItems: [
-          { title: "Promotions carousel", url: APP_ROUTES.ADMIN_PRODUCT },
+          {
+            title: "management.contents.subItems.promotionsCarousel",
+            url: APP_ROUTES.ADMIN_PRODUCT,
+          },
         ],
       },
       {
-        title: "Products",
+        title: "management.products.title",
         icon: BoxIcon,
         subItems: [
-          { title: "All products", url: APP_ROUTES.ADMIN_PRODUCT },
-          { title: "Add new product", url: APP_ROUTES.ADMIN_PRODUCT },
+          {
+            title: "management.products.subItems.allProducts",
+            url: APP_ROUTES.ADMIN_PRODUCT,
+          },
+          {
+            title: "management.products.subItems.addNewProduct",
+            url: APP_ROUTES.ADMIN_PRODUCT,
+          },
         ],
       },
       {
-        title: "Categories",
+        title: "management.categories.title",
         icon: ShapesIcon,
         subItems: [
-          { title: "All categories", url: APP_ROUTES.ADMIN_PRODUCT },
-          { title: "Add new category", url: APP_ROUTES.ADMIN_PRODUCT },
+          {
+            title: "management.categories.subItems.allCategories",
+            url: APP_ROUTES.ADMIN_PRODUCT,
+          },
+          {
+            title: "management.categories.subItems.addNewCategory",
+            url: APP_ROUTES.ADMIN_PRODUCT,
+          },
         ],
       },
       {
-        title: "Users",
+        title: "management.users.title",
         icon: UsersIcon,
         subItems: [
-          { title: "All clients", url: APP_ROUTES.ADMIN_PRODUCT },
-          { title: "All admins", url: APP_ROUTES.ADMIN_PRODUCT },
+          {
+            title: "management.users.subItems.allClients",
+            url: APP_ROUTES.ADMIN_PRODUCT,
+          },
+          {
+            title: "management.users.subItems.allAdmins",
+            url: APP_ROUTES.ADMIN_PRODUCT,
+          },
         ],
       },
     ],

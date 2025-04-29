@@ -1,0 +1,59 @@
+{
+  "dashboard": {
+    "groupLabel": "Dashboard",
+    "analytics": {
+      "title": "Analytics",
+      "subItems": {
+        "salesOrders": "Sales & orders",
+        "userActivity": "User activity",
+        "inventories": "Inventories"
+      }
+    },
+    "support": {
+      "title": "Support",
+      "subItems": {
+        "tickets": "Tickets",
+        "chatbot": "Chatbot"
+      }
+    },
+    "settings": {
+      "title": "Settings",
+      "subItems": {
+        "general": "General",
+        "payments": "Payments",
+        "localization": "Localization"
+      }
+    }
+  },
+  "management": {
+    "groupLabel": "Management",
+    "contents": {
+      "title": "Contents",
+      "subItems": {
+        "promotionsCarousel": "Promotions carousel"
+      }
+    },
+    "products": {
+      "title": "Products",
+      "subItems": {
+        "allProducts": "All products",
+        "addNewProduct": "Add new product"
+      }
+    },
+    "categories": {
+      "title": "Categories",
+      "subItems": {
+        "allCategories": "All categories",
+        "addNewCategory": "Add new category"
+      }
+    },
+    "users": {
+      "title": "Users",
+      "subItems": {
+        "allClients": "All clients",
+        "allAdmins": "All admins"
+      }
+    }
+  },
+  "backToWebsite": "Back to the website"
+}

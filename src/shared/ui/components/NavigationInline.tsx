@@ -7,16 +7,18 @@ import {
   navigationMenuTriggerStyle,
 } from "@/lib/components/ui/navigation-menu";
 import { NavLink } from "react-router";
-import { Fragment } from "react";
+import { Fragment, useId } from "react";
 import { Button } from "@/lib/components/ui/button";
 import { MenuItem } from "@/shared/types/NavigationMenu";
 
 const NavigationInline = ({ items }: { items: MenuItem[] }) => {
+  const id = useId();
+
   return (
     <NavigationMenu className="hidden md:block">
       <NavigationMenuList>
-        {items.map((item, index) => (
-          <Fragment key={index}>
+        {items.map((item) => (
+          <Fragment key={id + "-" + item.title}>
             {!item.subitems ? (
               <NavigationMenuItem>
                 <NavLink
@@ -34,8 +36,8 @@ const NavigationInline = ({ items }: { items: MenuItem[] }) => {
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
                   <ul className="grid gap-3 md:w-[375px]">
-                    {item.subitems.map((subitem, index) => (
-                      <Fragment key={index + subitem.title}>
+                    {item.subitems.map((subitem) => (
+                      <Fragment key={id + "-" + subitem.title}>
                         {subitem.url ? (
                           <li className="block select-none space-y-1 rounded-md leading-none no-underline outline-none transition-colors hover:bg-primary hover:text-primary-foreground focus:bg-primary/20 focus:text-primary-foreground">
                             <NavLink

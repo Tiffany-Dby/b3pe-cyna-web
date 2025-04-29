@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 import LanguageToggle from "./LanguageToggle";
 import { useTranslation } from "react-i18next";
+import { UserRole } from "@/users/types/UserRole";
 
 const NavigationMenu = () => {
   const { isAuthenticated, onSignOut, user } = useAuth();
@@ -45,13 +46,14 @@ const NavigationMenu = () => {
                 "header.navigation.account.subscriptions.description"
               ),
             },
-            ...(user?.role === 1
+            ...(user?.role === UserRole.admin
               ? [
                   {
-                    title: "Administrateur",
+                    title: t("header.navigation.account.admin.title"),
                     url: APP_ROUTES.ADMIN,
-                    description:
-                      "Interface réservée aux administrateurs du site. Gérez les produits, les utilisateurs, etc.",
+                    description: t(
+                      "header.navigation.account.admin.description"
+                    ),
                   },
                 ]
               : []),
