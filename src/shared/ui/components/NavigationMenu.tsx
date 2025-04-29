@@ -21,12 +21,12 @@ const NavigationMenu = () => {
   const menuItems: MenuItem[] = [
     {
       title: t("header.navigation.home"),
-      url: APP_ROUTES.home,
+      url: APP_ROUTES.HOME,
       icon: HomeIcon,
     },
     {
       title: t("header.navigation.products"),
-      url: APP_ROUTES.products,
+      url: APP_ROUTES.PRODUCTS,
       icon: BoxIcon,
     },
     isAuthenticated
@@ -36,12 +36,12 @@ const NavigationMenu = () => {
           subitems: [
             {
               title: t("header.navigation.account.settings.title"),
-              url: APP_ROUTES.accountSettings,
+              url: APP_ROUTES.ACCOUNT_SETTINGS,
               description: t("header.navigation.account.settings.description"),
             },
             {
               title: t("header.navigation.account.subscriptions.title"),
-              url: APP_ROUTES.accountSubscriptions,
+              url: APP_ROUTES.ACCOUNT_SUBSCRIPTIONS,
               description: t(
                 "header.navigation.account.subscriptions.description"
               ),
@@ -67,11 +67,11 @@ const NavigationMenu = () => {
       : {
           title: t("header.navigation.account.notAuth"),
           icon: CircleUserRoundIcon,
-          url: APP_ROUTES.signIn,
+          url: APP_ROUTES.SIGN_IN,
         },
     {
       title: t("header.navigation.cart"),
-      url: APP_ROUTES.cart,
+      url: APP_ROUTES.CART,
       icon: ShoppingCartIcon,
     },
   ];

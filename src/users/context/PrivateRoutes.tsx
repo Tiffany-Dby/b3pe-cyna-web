@@ -10,7 +10,7 @@ type PrivateRoutesProps = {
 
 const PrivateRoutes = ({
   hasAccess,
-  redirectPath = APP_ROUTES.signIn,
+  redirectPath = APP_ROUTES.SIGN_IN,
   children,
 }: PrivateRoutesProps) => {
   if (!hasAccess) {

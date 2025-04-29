@@ -26,7 +26,7 @@ const NotFoundView = () => {
           </CardDescription>
         </CardHeader>
         <CardContent className="pb-6">
-          <Button onClick={() => navigate(APP_ROUTES.home)} variant="default">
+          <Button onClick={() => navigate(APP_ROUTES.HOME)} variant="default">
             {t("cta")}
           </Button>
         </CardContent>

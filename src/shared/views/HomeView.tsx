@@ -31,7 +31,7 @@ const HomeView = () => {
               <div className="flex justify-end">
                 <div>
                   <Link
-                    to={APP_ROUTES.products}
+                    to={APP_ROUTES.PRODUCTS}
                     className="block bg-info py-2 px-4 rounded-sm hover:bg-accent transition-colors duration-500"
                   >
                     {t("banner.cta")}

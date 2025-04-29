@@ -1,13 +1,13 @@
 const APP_ROUTES = {
-  home: "/",
-  signIn: "/sign-in",
-  signUp: "/sign-up",
-  resetPassword: "/reset-password",
-  accountSettings: "/account/settings",
-  accountSubscriptions: "/account/subscriptions",
-  products: "/products",
-  product: "/products/:id",
-  cart: "/cart",
+  HOME: "/",
+  SIGN_IN: "/sign-in",
+  SIGN_UP: "/sign-up",
+  RESET_PASSWORD: "/reset-password",
+  ACCOUNT_SETTINGS: "/account/settings",
+  ACCOUNT_SUBSCRIPTIONS: "/account/subscriptions",
+  PRODUCTS: "/products",
+  PRODUCT: "/products/:id",
+  CART: "/cart",
   ADMIN: "/admin",
   ADMIN_DASHBOARD: "dashboard",
   ADMIN_PRODUCTS: "products",
@@ -15,12 +15,12 @@ const APP_ROUTES = {
 } as const;
 
 const API_ROUTES = {
-  url: "http://localhost:8000",
-  signUp: "/api/auth/register",
-  signIn: "/api/auth/login",
-  me: "/api/auth/me",
-  updateInfos: "/api/users/update",
-  updatePassword: "/api/users/update-password",
+  URL: "http://localhost:8000",
+  SIGN_UP: "/api/auth/register",
+  SIGN_IN: "/api/auth/login",
+  ME: "/api/auth/me",
+  USER_UPDATE_INFOS: "/api/users/update",
+  USER_UPDATE_PASSWORD: "/api/users/update-password",
 } as const;
 
 export { APP_ROUTES, API_ROUTES };

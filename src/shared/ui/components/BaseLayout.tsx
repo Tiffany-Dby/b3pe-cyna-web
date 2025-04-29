@@ -20,7 +20,7 @@ const BaseLayout = () => {
       >
         <div className="area-1/1 -z-10 backdrop-blur-md"></div>
         <div className="area-1/1 container mx-auto flex-between-center gap-2 py-3 px-4">
-          <Link to={APP_ROUTES.home}>
+          <Link to={APP_ROUTES.HOME}>
             <img src={logoCyna} alt={t("header.logoAlt")} />
           </Link>
           <NavigationMenu />

@@ -42,7 +42,7 @@ const SignUpView = () => {
 
   const { form, handleSubmit, isLoading, serverError } = useCustomForm({
     schema: SignUpSchema,
-    apiUrl: API_ROUTES.signUp,
+    apiUrl: API_ROUTES.SIGN_UP,
     defaultValues: {
       firstName: "",
       lastName: "",
@@ -162,7 +162,7 @@ const SignUpView = () => {
             <p>{t("signUp:signedUp")}</p>
             <div className="text-center">
               <Link
-                to={APP_ROUTES.signIn}
+                to={APP_ROUTES.SIGN_IN}
                 className="flex-center-center w-full h-9 border border-primary text-primary text-size-n font-medium bg-background py-2 px-4 hover:bg-primary hover:text-primary-foreground transition-colors duration-500 rounded-md dark:text-primary-foreground dark:border-primary-foreground dark:hover:border-transparent"
               >
                 {t("signUp:signIn")}

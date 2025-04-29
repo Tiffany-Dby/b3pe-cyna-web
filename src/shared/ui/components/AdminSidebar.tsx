@@ -37,7 +37,7 @@ const AdminSidebar = () => {
   return (
     <Sidebar collapsible="icon">
       <SidebarHeader className="overflow-hidden py-4">
-        <Link to={APP_ROUTES.home}>
+        <Link to={APP_ROUTES.HOME}>
           <img
             src={resolved === "dark" ? logoCyna : logoCynaBlack}
             alt="Logo Cyna"
@@ -112,7 +112,7 @@ const AdminSidebar = () => {
         <SidebarMenuButton>
           <Link
             className="flex justify-end items-center gap-2"
-            to={APP_ROUTES.home}
+            to={APP_ROUTES.HOME}
           >
             <ArrowLeftToLineIcon className="size-4 min-w-4" />
             {t("backToWebsite")}

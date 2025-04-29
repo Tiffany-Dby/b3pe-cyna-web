@@ -38,12 +38,12 @@ const SignInView = () => {
 
   const handleSignInSuccess = (userData: SignInResponse) => {
     onSignIn(userData);
-    navigate(APP_ROUTES.accountSettings);
+    navigate(APP_ROUTES.ACCOUNT_SETTINGS);
   };
 
   const { form, handleSubmit, isLoading, serverError } = useCustomForm({
     schema: SignInSchema,
-    apiUrl: API_ROUTES.signIn,
+    apiUrl: API_ROUTES.SIGN_IN,
     defaultValues: {
       email: "",
       password: "",
@@ -74,7 +74,7 @@ const SignInView = () => {
   ];
 
   if (isAuthenticated) {
-    return <Navigate to={APP_ROUTES.accountSettings} replace />;
+    return <Navigate to={APP_ROUTES.ACCOUNT_SETTINGS} replace />;
   }
 
   return (
@@ -123,7 +123,7 @@ const SignInView = () => {
               )
             )}
             <Link
-              to={APP_ROUTES.resetPassword}
+              to={APP_ROUTES.RESET_PASSWORD}
               className="underline justify-self-end opacity-75 hover:opacity-100 transition-opacity duration-500"
             >
               {t("signIn:forgetPassword")}
@@ -145,7 +145,7 @@ const SignInView = () => {
             <p>{t("signIn:notSignedUp")}</p>
             <div className="text-center">
               <Link
-                to={APP_ROUTES.signUp}
+                to={APP_ROUTES.SIGN_UP}
                 className="flex-center-center w-full h-9 border border-primary text-primary text-size-n font-medium bg-background py-2 px-4 hover:bg-primary hover:text-primary-foreground transition-colors duration-500 rounded-md dark:text-primary-foreground dark:border-primary-foreground dark:hover:border-transparent"
               >
                 {t("signIn:signUp")}

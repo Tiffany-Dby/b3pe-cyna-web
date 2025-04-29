@@ -21,9 +21,9 @@ const App = () => {
     <BrowserRouter>
       <Routes>
         <Route element={<BaseLayout />}>
-          <Route path={APP_ROUTES.home} element={<HomeView />} />
+          <Route path={APP_ROUTES.HOME} element={<HomeView />} />
           <Route
-            path={APP_ROUTES.signUp}
+            path={APP_ROUTES.SIGN_UP}
             element={
               <div className="max-w-xl w-full mx-auto py-5 px-4">
                 <SignUpView />
@@ -31,7 +31,7 @@ const App = () => {
             }
           />
           <Route
-            path={APP_ROUTES.signIn}
+            path={APP_ROUTES.SIGN_IN}
             element={
               <div className="max-w-xl w-full mx-auto py-5 px-4">
                 <SignInView />
@@ -39,7 +39,7 @@ const App = () => {
             }
           />
           <Route
-            path={APP_ROUTES.resetPassword}
+            path={APP_ROUTES.RESET_PASSWORD}
             element={
               <div className="max-w-xl w-full mx-auto py-5 px-4">
                 <ResetPasswordView />
@@ -48,7 +48,7 @@ const App = () => {
           />
 
           <Route
-            path={APP_ROUTES.accountSettings}
+            path={APP_ROUTES.ACCOUNT_SETTINGS}
             element={
               <PrivateRoutes hasAccess={isAuthenticated}>
                 <div className="max-w-xl w-full mx-auto py-5 px-4">
@@ -58,9 +58,9 @@ const App = () => {
             }
           />
 
-          <Route path={APP_ROUTES.products} element={<ProductView />} />
+          <Route path={APP_ROUTES.PRODUCTS} element={<ProductView />} />
 
-          <Route path={APP_ROUTES.cart} element={<CartView />} />
+          <Route path={APP_ROUTES.CART} element={<CartView />} />
 
           <Route
             path="*"
