@@ -18,8 +18,8 @@ import {
 import { Separator } from "@/lib/components/ui/separator";
 import ProductStatusBadge from "@/products/ui/components/ProductStatusBadge";
 import imgBanner from "@/shared/assets/images/banner.svg";
-import MasterCard from "@/shared/ui/logos/MasterCard";
-import PayPal from "@/shared/ui/logos/Paypal";
+import MasterCard from "@/shared/ui/components/MasterCard";
+import PayPal from "@/shared/ui/components/Paypal";
 import { formatAmount } from "@/shared/utils/number";
 import { MinusIcon, PlusIcon, Trash2Icon } from "lucide-react";
 import { useState } from "react";
