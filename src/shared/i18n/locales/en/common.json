@@ -65,6 +65,13 @@
     },
     "quantity": {
       "label": "Quantity"
+    },
+    "category": {
+      "label": "Name",
+      "placeholder": "Name",
+      "validation": {
+        "min": "Please provide a category name"
+      }
     }
   },
   "selects": {
@@ -73,6 +80,20 @@
       "placeholder": "Type choice",
       "monthly": "Monthly",
       "yearly": "Yearly"
+    },
+    "category": {
+      "label": "Parent category",
+      "placeholder": "Choose a category",
+      "validation": {
+        "min": "Please select an option"
+      }
+    },
+    "locale": {
+      "label": "Associated language",
+      "placeholder": "Choose a language",
+      "validation": {
+        "min": "Please select an option"
+      }
     }
   },
   "light": "Light",

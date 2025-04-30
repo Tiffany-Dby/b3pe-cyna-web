@@ -61,6 +61,13 @@
     },
     "quantity": {
       "label": "Quantité"
+    },
+    "category": {
+      "label": "Nom",
+      "placeholder": "Nom",
+      "validation": {
+        "min": "Veuillez renseigner un nom de catégorie"
+      }
     }
   },
   "selects": {
@@ -69,6 +76,20 @@
       "placeholder": "Choix du type",
       "monthly": "Mensuel",
       "yearly": "Annuel"
+    },
+    "category": {
+      "label": "Catégorie parente",
+      "placeholder": "Choisir une catégorie",
+      "validation": {
+        "min": "Veuillez sélectionner une option"
+      }
+    },
+    "locale": {
+      "label": "Langue associée",
+      "placeholder": "Choisir une langue",
+      "validation": {
+        "min": "Veuillez sélectionner une option"
+      }
     }
   },
   "light": "Clair",

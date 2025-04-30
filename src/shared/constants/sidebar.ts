@@ -103,7 +103,7 @@ const SIDEBAR_ITEMS: SidebarItem[] = [
           },
           {
             title: "management.categories.subItems.addNewCategory",
-            url: APP_ROUTES.ADMIN_PRODUCT,
+            url: APP_ROUTES.ADMIN_CATEGORY_NEW,
           },
         ],
       },

@@ -30,7 +30,7 @@ const BaseCard = ({
         <CardTitle>{title}</CardTitle>
         {description && <CardDescription>{description}</CardDescription>}
       </CardHeader>
-      {content && <CardContent>{content}</CardContent>}
+      {content && <CardContent className="flex-[1_0]">{content}</CardContent>}
       {footer && <CardFooter>{footer}</CardFooter>}
     </Card>
   );

@@ -1,0 +1,18 @@
+{
+  "newCategory": {
+    "title": "New product category",
+    "description": "Create a parent category, its English translation will be generated automatically",
+    "submit": {
+      "loading": "Adding…",
+      "action": "Add"
+    }
+  },
+  "newLocale": {
+    "title": "New translation",
+    "description": "Add a translation for an existing category",
+    "submit": {
+      "loading": "Adding…",
+      "action": "Add"
+    }
+  }
+}

@@ -9,6 +9,7 @@ import signIn from "./signIn.json";
 import signUp from "./signUp.json";
 import cart from "./cart.json";
 import adminSidebar from "./adminSidebar.json";
+import categories from "./categories.json";
 
 const en = {
   account,
@@ -22,6 +23,7 @@ const en = {
   signUp,
   cart,
   adminSidebar,
+  categories,
 } as const;
 
 export { en };
