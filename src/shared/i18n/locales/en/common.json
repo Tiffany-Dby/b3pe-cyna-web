@@ -96,6 +96,24 @@
       }
     }
   },
+  "dataTable": {
+    "display": "Display",
+    "empty": "No results",
+    "filters": {
+      "category": "Filter categories..."
+    },
+    "sort": {
+      "asc": "Asc",
+      "desc": "Desc",
+      "hide": "hide"
+    },
+    "pagination": {
+      "selected_one": "{{currectSelected}} of {{totalSelected}} row selected",
+      "selected_other": "{{currectSelected}} of {{totalSelected}} rows selected",
+      "rows": "Rows per page",
+      "page": "Page {{currentPage}} of {{totalPage}}"
+    }
+  },
   "light": "Light",
   "dark": "Dark",
   "system": "System"

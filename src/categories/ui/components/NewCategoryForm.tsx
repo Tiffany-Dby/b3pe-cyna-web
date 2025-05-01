@@ -3,7 +3,7 @@ import {
   NewCategorySchema,
 } from "@/categories/schemas/NewCategorySchema";
 import { useCategoriesStore } from "@/categories/store/categoriesStore";
-import { CategoryGlobal } from "@/categories/types/Categories";
+import { ApiCategory } from "@/categories/types/Categories";
 import { Button } from "@/lib/components/ui/button";
 import {
   Form,
@@ -35,7 +35,7 @@ const NewCategoryForm = () => {
 
   const { form, handleSubmit, isLoading, serverError } = useCustomForm<
     NewCategoryData,
-    CategoryGlobal
+    ApiCategory
   >({
     schema: NewCategorySchema,
     apiUrl: API_ROUTES.CATEGORY_NEW,
@@ -43,7 +43,12 @@ const NewCategoryForm = () => {
       globalName: "",
     },
     requestFn: postRequest,
-    onSuccess: (created) => addCategory(created),
+    onSuccess: (created) =>
+      addCategory({
+        id: created.id,
+        global_name: created.global_name,
+        locales: [{ locale: "en", name: created.global_name }],
+      }),
     token,
   });
 
@@ -53,7 +58,7 @@ const NewCategoryForm = () => {
       label: t("inputs.category.label"),
       type: "text",
       placeholder: t("inputs.category.placeholder"),
-      autoComplete: "",
+      autoComplete: "on",
       icon: ShapesIcon,
     },
   ];

@@ -3,6 +3,7 @@ import {
   NewLocaleCategorySchema,
 } from "@/categories/schemas/NewLocaleCategorySchema";
 import { useCategoriesStore } from "@/categories/store/categoriesStore";
+import { NewLocale } from "@/categories/types/Categories";
 import { Button } from "@/lib/components/ui/button";
 import {
   Form,
@@ -41,18 +42,30 @@ const NewCategoryLocaleForm = () => {
   const id = useId();
   const { t } = useTranslation();
   const { token } = useAuth();
-  const { categories, getCategories } = useCategoriesStore();
+  const { categories, getCategories, addLocale, flatCategories } =
+    useCategoriesStore();
+  const flat = flatCategories();
 
   useEffect(() => {
     getCategories(token);
   }, [getCategories, token]);
+
+  useEffect(() => {
+    console.log("categories", categories);
+  }, [categories]);
+  useEffect(() => {
+    console.log("flatCategories", flat);
+  }, [flat]);
 
   const parentOptions = categories.map((category) => ({
     label: category.global_name,
     value: String(category.id),
   }));
 
-  const { form, handleSubmit, isLoading, serverError } = useCustomForm({
+  const { form, handleSubmit, isLoading, serverError } = useCustomForm<
+    NewLocaleCategoryData,
+    NewLocale
+  >({
     schema: NewLocaleCategorySchema,
     apiUrl: API_ROUTES.CATEGORY_NEW_LOCALE,
     defaultValues: {
@@ -62,6 +75,7 @@ const NewCategoryLocaleForm = () => {
     },
     requestFn: postRequest,
     token,
+    onSuccess: (newLocale) => addLocale(newLocale),
   });
 
   const fields: NewLocaleCategoryField[] = [
@@ -71,7 +85,7 @@ const NewCategoryLocaleForm = () => {
       type: "select",
       placeholder: t("selects.category.placeholder"),
       options: parentOptions,
-      autoComplete: "",
+      autoComplete: "off",
     },
     {
       name: "locale",
@@ -82,14 +96,14 @@ const NewCategoryLocaleForm = () => {
         { label: "English", value: "en" },
         { label: "Français", value: "fr" },
       ],
-      autoComplete: "",
+      autoComplete: "off",
     },
     {
       name: "name",
       label: t("inputs.category.label"),
       type: "text",
       placeholder: t("inputs.category.placeholder"),
-      autoComplete: "",
+      autoComplete: "on",
       icon: ShapesIcon,
     },
   ];
@@ -134,7 +148,11 @@ const NewCategoryLocaleForm = () => {
                               value={field.value}
                               onValueChange={field.onChange}
                             >
-                              <SelectTrigger className="w-full border-primary/40">
+                              <SelectTrigger
+                                className="w-full border-primary/40"
+                                id={name}
+                                name={name}
+                              >
                                 <SelectValue placeholder={placeholder} />
                               </SelectTrigger>
                               <SelectContent>

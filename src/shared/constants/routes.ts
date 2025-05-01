@@ -12,6 +12,7 @@ const APP_ROUTES = {
   ADMIN_DASHBOARD: "dashboard",
   ADMIN_PRODUCTS: "products",
   ADMIN_PRODUCT: "product",
+  ADMIN_CATEGORY_ALL: "categories",
   ADMIN_CATEGORY_NEW: "categories/new",
 } as const;
 
@@ -22,7 +23,7 @@ const API_ROUTES = {
   ME: "/api/auth/me",
   USER_UPDATE_INFOS: "/api/users/update",
   USER_UPDATE_PASSWORD: "/api/users/update-password",
-  CATEGORY_GET_ALL: "/api/categories/get-all",
+  CATEGORY_GET_ALL: "/api/categories/get-all-locales",
   CATEGORY_NEW: "/api/categories/add",
   CATEGORY_NEW_LOCALE: "/api/categories/add-locale",
 } as const;
