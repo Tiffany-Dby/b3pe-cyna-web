@@ -29,7 +29,7 @@ const DataTableColumnHeader = <TData, TValue>({
   const { t } = useTranslation();
 
   if (!column.getCanSort()) {
-    return <div className={cn(className)}>{title}</div>;
+    return <div className={cn(className)}>{t(title)}</div>;
   }
 
   return (
@@ -41,7 +41,7 @@ const DataTableColumnHeader = <TData, TValue>({
             size="sm"
             className="-ml-3 h-8 data-[state=open]:bg-secondary data-[state=open]:text-secondary-foreground"
           >
-            <span>{title}</span>
+            <span>{t(title)}</span>
             {column.getIsSorted() === "desc" ? (
               <ArrowDownIcon />
             ) : column.getIsSorted() === "asc" ? (

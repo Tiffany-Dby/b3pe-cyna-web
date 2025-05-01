@@ -30,35 +30,45 @@ const columns: ColumnDef<LocaleCategory>[] = [
   {
     accessorKey: "globalName",
     meta: {
-      title: "Catégorie",
+      title: "common:dataTable.categories.columns.category",
       filterable: true,
-      filterPlaceholder: "common:dataTable.filters.category",
+      filterPlaceholder: "common:dataTable.categories.filters",
     },
     header: ({ column }) => (
-      <DataTableColumnHeader column={column} title="Catégorie" />
+      <DataTableColumnHeader
+        column={column}
+        title="common:dataTable.categories.columns.category"
+      />
     ),
   },
   {
     accessorKey: "locale",
-    meta: { title: "Langue" },
+    meta: { title: "common:dataTable.categories.columns.language" },
     header: ({ column }) => (
-      <DataTableColumnHeader column={column} title="Langue" />
+      <DataTableColumnHeader
+        column={column}
+        title="common:dataTable.categories.columns.language"
+      />
     ),
   },
   {
     accessorKey: "name",
-    meta: { title: "Nom" },
+    meta: { title: "common:dataTable.categories.columns.name" },
     header: ({ column }) => (
-      <DataTableColumnHeader column={column} title="Nom" />
+      <DataTableColumnHeader
+        column={column}
+        title="common:dataTable.categories.columns.name"
+      />
     ),
   },
   {
     id: "actions",
     enableSorting: false,
+    meta: { title: "common:dataTable.categories.columns.actions" },
     header: ({ column }) => (
       <DataTableColumnHeader
         column={column}
-        title="Actions"
+        title="common:dataTable.categories.columns.actions"
         className="text-right pr-1"
       />
     ),

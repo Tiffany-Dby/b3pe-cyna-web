@@ -43,8 +43,7 @@ const DataTableViewOptions = <TData,>({ table }: Props<TData>) => {
                 checked={column.getIsVisible()}
                 onCheckedChange={(value) => column.toggleVisibility(!!value)}
               >
-                {(column.columnDef.meta as { title?: string })?.title ??
-                  column.id}
+                {t(column.columnDef.meta?.title ?? column.id)}
               </DropdownMenuCheckboxItem>
             );
           })}

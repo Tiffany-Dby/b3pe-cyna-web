@@ -99,8 +99,14 @@
   "dataTable": {
     "display": "Display",
     "empty": "No results",
-    "filters": {
-      "category": "Filter categories..."
+    "categories": {
+      "columns": {
+        "category": "Category",
+        "language": "Language",
+        "name": "Name",
+        "actions": "Actions"
+      },
+      "filters": "Filter categories..."
     },
     "sort": {
       "asc": "Asc",
