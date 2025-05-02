@@ -14,5 +14,16 @@
       "loading": "Adding…",
       "action": "Add"
     }
+  },
+  "categoryList": {
+    "title": "Product categories",
+    "description": "Search, update or delete categories",
+    "columns": {
+      "category": "Category",
+      "language": "Language",
+      "name": "Name",
+      "actions": "Actions"
+    },
+    "filters": "Filter categories..."
   }
 }

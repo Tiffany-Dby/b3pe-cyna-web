@@ -95,15 +95,6 @@
   "dataTable": {
     "display": "Affichage",
     "empty": "Aucun résultat",
-    "categories": {
-      "columns": {
-        "category": "Catégorie",
-        "language": "Langue",
-        "name": "Nom",
-        "actions": "Actions"
-      },
-      "filters": "Filtrer les catégories..."
-    },
     "sort": {
       "asc": "Asc",
       "desc": "Desc",

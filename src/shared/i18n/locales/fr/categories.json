@@ -14,5 +14,16 @@
       "loading": "Ajout en cours...",
       "action": "Ajouter"
     }
+  },
+  "categoryList": {
+    "title": "Catégories de produit",
+    "description": "Recherchez, mettez à jour ou supprimez des catégories",
+    "columns": {
+      "category": "Catégorie",
+      "language": "Langue",
+      "name": "Nom",
+      "actions": "Actions"
+    },
+    "filters": "Filtrer les catégories..."
   }
 }
