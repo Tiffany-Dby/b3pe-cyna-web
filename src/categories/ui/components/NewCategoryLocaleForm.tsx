@@ -53,20 +53,11 @@ const NewCategoryLocaleForm = () => {
   const id = useId();
   const { t } = useTranslation();
   const { token } = useAuth();
-  const { categories, getCategories, addLocale, flatCategories } =
-    useCategoriesStore();
-  const flat = flatCategories();
+  const { categories, getCategories, addLocale } = useCategoriesStore();
 
   useEffect(() => {
     getCategories(token);
   }, [getCategories, token]);
-
-  useEffect(() => {
-    console.log("categories", categories);
-  }, [categories]);
-  useEffect(() => {
-    console.log("flatCategories", flat);
-  }, [flat]);
 
   const parentOptions = categories.map((category) => ({
     label: category.global_name,
