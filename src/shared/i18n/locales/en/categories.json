@@ -1,6 +1,6 @@
 {
   "newCategory": {
-    "title": "New product category",
+    "title": "New category",
     "description": "Create a parent category, its English translation will be generated automatically",
     "submit": {
       "loading": "Adding…",

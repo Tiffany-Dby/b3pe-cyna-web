@@ -1,6 +1,6 @@
 {
   "newCategory": {
-    "title": "Nouvelle catégorie de produit",
+    "title": "Nouvelle catégorie",
     "description": "Créez une catégorie parente, la traduction anglaise sera générée automatiquement",
     "submit": {
       "loading": "Ajout en cours...",

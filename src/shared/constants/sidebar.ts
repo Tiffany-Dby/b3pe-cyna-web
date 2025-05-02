@@ -4,7 +4,6 @@ import {
   ImageIcon,
   MessageSquareIcon,
   SettingsIcon,
-  ShapesIcon,
   UsersIcon,
 } from "lucide-react";
 import { APP_ROUTES } from "./routes";
@@ -91,19 +90,9 @@ const SIDEBAR_ITEMS: SidebarItem[] = [
             title: "management.products.subItems.addNewProduct",
             url: APP_ROUTES.ADMIN_PRODUCT,
           },
-        ],
-      },
-      {
-        title: "management.categories.title",
-        icon: ShapesIcon,
-        subItems: [
           {
-            title: "management.categories.subItems.allCategories",
-            url: APP_ROUTES.ADMIN_CATEGORY_ALL,
-          },
-          {
-            title: "management.categories.subItems.addNewCategory",
-            url: APP_ROUTES.ADMIN_CATEGORY_NEW,
+            title: "management.products.subItems.categories",
+            url: APP_ROUTES.ADMIN_CATEGORIES,
           },
         ],
       },

@@ -13,8 +13,7 @@ import NotFoundView from "@/shared/ui/views/NotFoundView";
 import CartView from "@/purchase/ui/views/CartView";
 import AdminLayout from "@/shared/ui/components/AdminLayout";
 import { UserRole } from "@/users/types/UserRole";
-import NewCategoryView from "@/categories/ui/views/NewCategoryView";
-import CategoriesListView from "./categories/ui/views/CategoriesListView";
+import AdminCategoriesView from "@/categories/ui/views/AdminCategoriesView";
 
 const App = () => {
   const { isAuthenticated, user } = useAuth();
@@ -84,12 +83,8 @@ const App = () => {
             />
             <Route path={APP_ROUTES.ADMIN_PRODUCT} element={<p>Product</p>} />
             <Route
-              path={APP_ROUTES.ADMIN_CATEGORY_ALL}
-              element={<CategoriesListView />}
-            />
-            <Route
-              path={APP_ROUTES.ADMIN_CATEGORY_NEW}
-              element={<NewCategoryView />}
+              path={APP_ROUTES.ADMIN_CATEGORIES}
+              element={<AdminCategoriesView />}
             />
           </Route>
         </Route>

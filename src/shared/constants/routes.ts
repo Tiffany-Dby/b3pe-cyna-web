@@ -12,8 +12,7 @@ const APP_ROUTES = {
   ADMIN_DASHBOARD: "dashboard",
   ADMIN_PRODUCTS: "products",
   ADMIN_PRODUCT: "product",
-  ADMIN_CATEGORY_ALL: "categories",
-  ADMIN_CATEGORY_NEW: "categories/new",
+  ADMIN_CATEGORIES: "categories",
 } as const;
 
 const API_ROUTES = {
