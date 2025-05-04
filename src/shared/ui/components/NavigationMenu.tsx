@@ -10,7 +10,7 @@ import {
   HomeIcon,
   ShoppingCartIcon,
 } from "lucide-react";
-import LanguageToggle from "./LanguageToggle";
+import LanguageToggle from "@/shared/ui/components/LanguageToggle";
 import { useTranslation } from "react-i18next";
 import { UserRole } from "@/users/types/UserRole";
 

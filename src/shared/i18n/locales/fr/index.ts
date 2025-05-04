@@ -1,14 +1,15 @@
-import account from "./account.json";
-import common from "./common.json";
-import home from "./home.json";
-import layout from "./layout.json";
-import notFound from "./notFound.json";
-import products from "./products.json";
-import resetPassword from "./resetPassword.json";
-import signIn from "./signIn.json";
-import signUp from "./signUp.json";
-import cart from "./cart.json";
-import adminSidebar from "./adminSidebar.json";
+import account from "@/shared/i18n/locales/fr/account.json";
+import common from "@/shared/i18n/locales/fr/common.json";
+import home from "@/shared/i18n/locales/fr/home.json";
+import layout from "@/shared/i18n/locales/fr/layout.json";
+import notFound from "@/shared/i18n/locales/fr/notFound.json";
+import products from "@/shared/i18n/locales/fr/products.json";
+import resetPassword from "@/shared/i18n/locales/fr/resetPassword.json";
+import signIn from "@/shared/i18n/locales/fr/signIn.json";
+import signUp from "@/shared/i18n/locales/fr/signUp.json";
+import cart from "@/shared/i18n/locales/fr/cart.json";
+import adminSidebar from "@/shared/i18n/locales/fr/adminSidebar.json";
+import categories from "@/shared/i18n/locales/fr/categories.json";
 
 const fr = {
   account,
@@ -22,6 +23,7 @@ const fr = {
   signUp,
   cart,
   adminSidebar,
+  categories,
 } as const;
 
 export { fr };

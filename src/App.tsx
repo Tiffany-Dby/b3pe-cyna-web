@@ -13,6 +13,7 @@ import NotFoundView from "@/shared/ui/views/NotFoundView";
 import CartView from "@/purchase/ui/views/CartView";
 import AdminLayout from "@/shared/ui/components/AdminLayout";
 import { UserRole } from "@/users/types/UserRole";
+import AdminCategoriesView from "@/categories/ui/views/AdminCategoriesView";
 
 const App = () => {
   const { isAuthenticated, user } = useAuth();
@@ -81,6 +82,10 @@ const App = () => {
               element={<p>Dashboard</p>}
             />
             <Route path={APP_ROUTES.ADMIN_PRODUCT} element={<p>Product</p>} />
+            <Route
+              path={APP_ROUTES.ADMIN_CATEGORIES}
+              element={<AdminCategoriesView />}
+            />
           </Route>
         </Route>
       </Routes>

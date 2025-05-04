@@ -65,6 +65,13 @@
     },
     "quantity": {
       "label": "Quantity"
+    },
+    "category": {
+      "label": "Name",
+      "placeholder": "Name",
+      "validation": {
+        "min": "Please provide a category name"
+      }
     }
   },
   "selects": {
@@ -73,6 +80,53 @@
       "placeholder": "Type choice",
       "monthly": "Monthly",
       "yearly": "Yearly"
+    },
+    "category": {
+      "label": "Parent category",
+      "placeholder": "Choose a category",
+      "validation": {
+        "min": "Please select an option"
+      }
+    },
+    "locale": {
+      "label": "Associated language",
+      "placeholder": "Choose a language",
+      "validation": {
+        "min": "Please select an option"
+      }
+    }
+  },
+  "dataTable": {
+    "display": "Display",
+    "empty": "No results",
+    "sort": {
+      "asc": "Asc",
+      "desc": "Desc",
+      "hide": "hide"
+    },
+    "pagination": {
+      "selected_one": "{{currectSelected}} of {{totalSelected}} row selected",
+      "selected_other": "{{currectSelected}} of {{totalSelected}} rows selected",
+      "rows": "Rows per page",
+      "page": "Page {{currentPage}} of {{totalPage}}"
+    },
+    "actions": {
+      "delete": "Delete",
+      "update": "Update"
+    }
+  },
+  "dialog": {
+    "delete": {
+      "title": "Confirm"
+    },
+    "update": {
+      "title": "Update"
+    },
+    "actions": {
+      "cancel": "Cancel",
+      "update": "Update",
+      "delete": "Delete",
+      "loading": "Loading..."
     }
   },
   "light": "Light",

@@ -1,0 +1,38 @@
+{
+  "newCategory": {
+    "title": "Nouvelle catégorie",
+    "description": "Créez une catégorie parente, la traduction anglaise sera générée automatiquement",
+    "submit": {
+      "loading": "Ajout en cours...",
+      "action": "Ajouter"
+    }
+  },
+  "newLocale": {
+    "title": "Nouvelle traduction",
+    "description": "Ajoutez une traduction pour une catégorie existante",
+    "submit": {
+      "loading": "Ajout en cours...",
+      "action": "Ajouter"
+    }
+  },
+  "categoryList": {
+    "title": "Catégories de produit",
+    "description": "Recherchez, mettez à jour ou supprimez des catégories",
+    "columns": {
+      "category": "Catégorie",
+      "language": "Langue",
+      "name": "Nom",
+      "actions": "Actions"
+    },
+    "filters": "Filtrer les catégories...",
+    "dialog": {
+      "delete": {
+        "description": "Suppression d'une traduction de catégorie",
+        "message": "Supprimer la traduction <0>{{name}} ({{locale}})</0> définitivement ?"
+      },
+      "update": {
+        "description": "Mettez à jour une traduction de catégorie"
+      }
+    }
+  }
+}

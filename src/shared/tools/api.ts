@@ -58,6 +58,22 @@ const putRequest: RequestFn = async <T, B extends object>(
   return await request<T>(url, config);
 };
 
+const deleteRequest = async <T>(
+  url: string,
+  token?: string
+): RequestPromise<T> => {
+  const config: FetchConfig = {
+    method: FetchMethod.DELETE,
+    headers: {
+      "Content-type": "application/json",
+      Accept: "application/json",
+      ...(token && { Authorization: `Bearer ${token}` }),
+    },
+  };
+
+  return await request<T>(url, config);
+};
+
 const request = async <T>(
   url: string,
   config: FetchConfig
@@ -84,4 +100,4 @@ const request = async <T>(
   }
 };
 
-export { getRequest, postRequest, putRequest };
+export { getRequest, postRequest, putRequest, deleteRequest };

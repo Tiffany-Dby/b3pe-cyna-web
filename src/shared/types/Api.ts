@@ -21,6 +21,7 @@ enum FetchMethod {
   POST = "POST",
   PATCH = "PATCH",
   PUT = "PUT",
+  DELETE = "DELETE",
 }
 
 export type { FetchConfig, RequestFn, RequestPromise };

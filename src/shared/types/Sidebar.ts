@@ -1,4 +1,4 @@
-import { AppRoutes } from "./Routes";
+import { AppRoutes } from "@/shared/types/Routes";
 
 type SidebarItem = {
   groupLabel: string;

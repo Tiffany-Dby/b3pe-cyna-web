@@ -4,11 +4,10 @@ import {
   ImageIcon,
   MessageSquareIcon,
   SettingsIcon,
-  ShapesIcon,
   UsersIcon,
 } from "lucide-react";
-import { APP_ROUTES } from "./routes";
-import { SidebarItem } from "../types/Sidebar";
+import { APP_ROUTES } from "@/shared/constants/routes";
+import { SidebarItem } from "@/shared/types/Sidebar";
 
 const SIDEBAR_ITEMS: SidebarItem[] = [
   {
@@ -91,19 +90,9 @@ const SIDEBAR_ITEMS: SidebarItem[] = [
             title: "management.products.subItems.addNewProduct",
             url: APP_ROUTES.ADMIN_PRODUCT,
           },
-        ],
-      },
-      {
-        title: "management.categories.title",
-        icon: ShapesIcon,
-        subItems: [
           {
-            title: "management.categories.subItems.allCategories",
-            url: APP_ROUTES.ADMIN_PRODUCT,
-          },
-          {
-            title: "management.categories.subItems.addNewCategory",
-            url: APP_ROUTES.ADMIN_PRODUCT,
+            title: "management.products.subItems.categories",
+            url: APP_ROUTES.ADMIN_CATEGORIES,
           },
         ],
       },

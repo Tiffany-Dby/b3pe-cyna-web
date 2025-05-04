@@ -12,6 +12,7 @@ const APP_ROUTES = {
   ADMIN_DASHBOARD: "dashboard",
   ADMIN_PRODUCTS: "products",
   ADMIN_PRODUCT: "product",
+  ADMIN_CATEGORIES: "categories",
 } as const;
 
 const API_ROUTES = {
@@ -21,6 +22,12 @@ const API_ROUTES = {
   ME: "/api/auth/me",
   USER_UPDATE_INFOS: "/api/users/update",
   USER_UPDATE_PASSWORD: "/api/users/update-password",
+  CATEGORY_GET_ALL: "/api/categories/get-all-locales",
+  CATEGORY_NEW: "/api/categories/add",
+  CATEGORY_NEW_LOCALE: "/api/categories/add-locale",
+  CATEGORY_UPDATE_LOCALE: "/api/categories/update-locale",
+  CATEGORY_DELETE: "/api/categories",
+  CATEGORY_DELETE_LOCALE: "/api/categories/delete-locale",
 } as const;
 
 export { APP_ROUTES, API_ROUTES };

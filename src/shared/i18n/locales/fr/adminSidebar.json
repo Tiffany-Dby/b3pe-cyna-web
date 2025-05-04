@@ -37,14 +37,8 @@
       "title": "Produits",
       "subItems": {
         "allProducts": "Tous les produits",
-        "addNewProduct": "Ajouter un produit"
-      }
-    },
-    "categories": {
-      "title": "Catégories",
-      "subItems": {
-        "allCategories": "Toutes les catégories",
-        "addNewCategory": "Ajouter une catégorie"
+        "addNewProduct": "Ajouter un produit",
+        "categories": "Catégories"
       }
     },
     "users": {
