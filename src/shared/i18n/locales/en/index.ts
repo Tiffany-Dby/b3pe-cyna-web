@@ -1,15 +1,15 @@
-import account from "./account.json";
-import common from "./common.json";
-import home from "./home.json";
-import layout from "./layout.json";
-import notFound from "./notFound.json";
-import products from "./products.json";
-import resetPassword from "./resetPassword.json";
-import signIn from "./signIn.json";
-import signUp from "./signUp.json";
-import cart from "./cart.json";
-import adminSidebar from "./adminSidebar.json";
-import categories from "./categories.json";
+import account from "@/shared/i18n/locales/en/account.json";
+import common from "@/shared/i18n/locales/en/common.json";
+import home from "@/shared/i18n/locales/en/home.json";
+import layout from "@/shared/i18n/locales/en/layout.json";
+import notFound from "@/shared/i18n/locales/en/notFound.json";
+import products from "@/shared/i18n/locales/en/products.json";
+import resetPassword from "@/shared/i18n/locales/en/resetPassword.json";
+import signIn from "@/shared/i18n/locales/en/signIn.json";
+import signUp from "@/shared/i18n/locales/en/signUp.json";
+import cart from "@/shared/i18n/locales/en/cart.json";
+import adminSidebar from "@/shared/i18n/locales/en/adminSidebar.json";
+import categories from "@/shared/i18n/locales/en/categories.json";
 
 const en = {
   account,

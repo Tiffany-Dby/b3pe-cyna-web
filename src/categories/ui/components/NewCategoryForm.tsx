@@ -3,7 +3,7 @@ import {
   NewCategorySchema,
 } from "@/categories/schemas/NewCategorySchema";
 import { useCategoriesStore } from "@/categories/store/categoriesStore";
-import { ApiCategory } from "@/categories/types/Categories";
+import { NewCategory } from "@/categories/types/Categories";
 import {
   Accordion,
   AccordionContent,
@@ -46,7 +46,7 @@ const NewCategoryForm = () => {
 
   const { form, handleSubmit, isLoading, serverError } = useCustomForm<
     NewCategoryData,
-    ApiCategory
+    NewCategory
   >({
     schema: NewCategorySchema,
     apiUrl: API_ROUTES.CATEGORY_NEW,
@@ -57,8 +57,14 @@ const NewCategoryForm = () => {
     onSuccess: (created) =>
       addCategory({
         id: created.id,
-        global_name: created.global_name,
-        locales: [{ locale: "en", name: created.global_name }],
+        globalName: created.globalName,
+        locales: [
+          {
+            id: created.localeId,
+            locale: created.locale,
+            name: created.localeName,
+          },
+        ],
       }),
     token,
   });

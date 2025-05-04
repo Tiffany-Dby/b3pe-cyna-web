@@ -6,8 +6,8 @@ import {
   SettingsIcon,
   UsersIcon,
 } from "lucide-react";
-import { APP_ROUTES } from "./routes";
-import { SidebarItem } from "../types/Sidebar";
+import { APP_ROUTES } from "@/shared/constants/routes";
+import { SidebarItem } from "@/shared/types/Sidebar";
 
 const SIDEBAR_ITEMS: SidebarItem[] = [
   {

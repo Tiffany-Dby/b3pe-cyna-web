@@ -105,6 +105,24 @@
       "selected_other": "{{currectSelected}} sur {{totalSelected}} lignes sélectionnées",
       "rows": "Lignes par page",
       "page": "Page {{currentPage}} sur {{totalPage}}"
+    },
+    "actions": {
+      "delete": "Supprimer",
+      "update": "Modifier"
+    }
+  },
+  "dialog": {
+    "delete": {
+      "title": "Confirmation"
+    },
+    "update": {
+      "title": "Mise à jour"
+    },
+    "actions": {
+      "cancel": "Annuler",
+      "update": "Mettre à jour",
+      "delete": "Supprimer",
+      "loading": "En cours..."
     }
   },
   "light": "Clair",

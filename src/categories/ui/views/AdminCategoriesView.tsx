@@ -1,6 +1,6 @@
-import NewCategoryLocaleForm from "../components/NewCategoryLocaleForm";
-import NewCategoryForm from "../components/NewCategoryForm";
-import CategoriesList from "../components/CategoriesList";
+import NewCategoryLocaleForm from "@/categories/ui/components/NewCategoryLocaleForm";
+import NewCategoryForm from "@/categories/ui/components/NewCategoryForm";
+import CategoriesList from "@/categories/ui/components/CategoriesList";
 
 const AdminCategoriesView = () => {
   return (

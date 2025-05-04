@@ -25,6 +25,9 @@ const API_ROUTES = {
   CATEGORY_GET_ALL: "/api/categories/get-all-locales",
   CATEGORY_NEW: "/api/categories/add",
   CATEGORY_NEW_LOCALE: "/api/categories/add-locale",
+  CATEGORY_UPDATE_LOCALE: "/api/categories/update-locale",
+  CATEGORY_DELETE: "/api/categories",
+  CATEGORY_DELETE_LOCALE: "/api/categories/delete-locale",
 } as const;
 
 export { APP_ROUTES, API_ROUTES };

@@ -60,7 +60,7 @@ const NewCategoryLocaleForm = () => {
   }, [getCategories, token]);
 
   const parentOptions = categories.map((category) => ({
-    label: category.global_name,
+    label: category.globalName,
     value: String(category.id),
   }));
 

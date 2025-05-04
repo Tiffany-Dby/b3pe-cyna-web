@@ -24,6 +24,15 @@
       "name": "Nom",
       "actions": "Actions"
     },
-    "filters": "Filtrer les catégories..."
+    "filters": "Filtrer les catégories...",
+    "dialog": {
+      "delete": {
+        "description": "Suppression d'une traduction de catégorie",
+        "message": "Supprimer la traduction <0>{{name}} ({{locale}})</0> définitivement ?"
+      },
+      "update": {
+        "description": "Mettez à jour une traduction de catégorie"
+      }
+    }
   }
 }

@@ -24,6 +24,15 @@
       "name": "Name",
       "actions": "Actions"
     },
-    "filters": "Filter categories..."
+    "filters": "Filter categories...",
+    "dialog": {
+      "delete": {
+        "description": "Delete a category translation",
+        "message": "Delete the translation <0>{{name}} ({{locale}})</0> permanently?"
+      },
+      "update": {
+        "description": "Update a category's translation"
+      }
+    }
   }
 }

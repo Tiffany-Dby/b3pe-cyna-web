@@ -2,7 +2,7 @@ import {
   ProductStatus,
   ProductStatusMap,
 } from "@/products/types/ProductStatus";
-import { ProductType } from "../types/ProductType";
+import { ProductType } from "@/products/types/ProductType";
 
 const PRODUCT_STATUS: ProductStatusMap = {
   [ProductStatus.Unavailable]: {

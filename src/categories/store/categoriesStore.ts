@@ -1,10 +1,10 @@
 import { create } from "zustand";
 import {
-  ApiCategory,
+  Category,
   CategoriesState,
   NewLocale,
 } from "@/categories/types/Categories";
-import { getRequest } from "@/shared/tools/api";
+import { deleteRequest, getRequest } from "@/shared/tools/api";
 import { API_ROUTES } from "@/shared/constants/routes";
 
 const useCategoriesStore = create<CategoriesState>((set, get) => ({
@@ -15,13 +15,28 @@ const useCategoriesStore = create<CategoriesState>((set, get) => ({
   getCategories: async (token) => {
     set({ isLoading: true });
 
-    const { result, error } = await getRequest<ApiCategory[]>(
+    const { result, error } = await getRequest<Category[]>(
       API_ROUTES.CATEGORY_GET_ALL,
       token
     );
 
-    set({ isLoading: false, error, categories: result ?? [] });
+    set({
+      isLoading: false,
+      error,
+      categories: result?.map((category) => ({ ...category })) ?? [],
+    });
   },
+
+  flatCategories: () =>
+    get().categories.flatMap((category) =>
+      category.locales.map((locale) => ({
+        id: locale.id,
+        globalId: category.id,
+        globalName: category.globalName,
+        locale: locale.locale,
+        name: locale.name,
+      }))
+    ),
 
   addCategory: (category) =>
     set((state) => ({ categories: [...state.categories, category] })),
@@ -34,22 +49,68 @@ const useCategoriesStore = create<CategoriesState>((set, get) => ({
               ...category,
               locales: [
                 ...category.locales,
-                { locale: newLocale.locale, name: newLocale.name },
+                {
+                  id: newLocale.localeId,
+                  locale: newLocale.locale,
+                  name: newLocale.localeName,
+                },
               ],
             }
           : category
       ),
     })),
 
-  flatCategories: () =>
-    get().categories.flatMap((category) =>
-      category.locales.map((locale) => ({
-        id: category.id,
-        globalName: category.global_name,
-        locale: locale.locale,
-        name: locale.name,
-      }))
-    ),
+  updateCategoryLocale: (updatedLocale, globalId) => {
+    set((state) => ({
+      categories: state.categories.map((category) =>
+        category.id === globalId
+          ? {
+              ...category,
+              locales: category.locales.map((locale) =>
+                locale.id === updatedLocale.id ? updatedLocale : locale
+              ),
+            }
+          : category
+      ),
+    }));
+  },
+
+  deleteCategory: async (token) => {
+    set({ isLoading: true });
+
+    const { result, error } = await deleteRequest<[]>(
+      API_ROUTES.CATEGORY_DELETE,
+      token
+    );
+
+    set({ isLoading: false, error, categories: result ?? [] });
+  },
+
+  deleteCategoryLocale: async (category, token) => {
+    set({ isLoading: true });
+
+    const { error } = await deleteRequest<[]>(
+      `${API_ROUTES.CATEGORY_DELETE_LOCALE}/${category.id}`,
+      token
+    );
+
+    set((state) => ({
+      isLoading: false,
+      error,
+      categories: error
+        ? state.categories
+        : state.categories.map((cat) =>
+            cat.id === category.globalId
+              ? {
+                  ...cat,
+                  locales: cat.locales.filter(
+                    (locale) => locale.id !== category.id
+                  ),
+                }
+              : cat
+          ),
+    }));
+  },
 }));
 
 export { useCategoriesStore };
