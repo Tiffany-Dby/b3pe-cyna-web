@@ -48,5 +48,13 @@
       "commitment": "Sans engagement"
     },
     "month": "mois"
+  },
+  "newBase": {
+    "title": "Nouveau produit",
+    "description": "Créez un nouveau produit avec ses informations de base",
+    "submit": {
+      "loading": "Ajout en cours...",
+      "action": "Ajouter"
+    }
   }
 }

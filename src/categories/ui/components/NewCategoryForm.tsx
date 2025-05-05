@@ -84,16 +84,14 @@ const NewCategoryForm = () => {
     <Accordion
       type="single"
       collapsible
-      className="flex-1 sm:min-w-80 w-full sm:w-auto"
+      className="flex-1 min-w-64 w-full sm:w-auto"
     >
       <AccordionItem className="group h-full" value="newCategoryForm">
-        <Card className="grow sm:min-w-80 w-full sm:w-auto group-data-[state=open]:h-full">
-          <CardHeader>
-            <AccordionTrigger className="items-center cursor-pointer p-0 hover:no-underline">
-              <h2>{t("categories:newCategory.title")}</h2>
-            </AccordionTrigger>
-          </CardHeader>
-          <AccordionContent className="flex flex-col gap-4 h-full">
+        <Card className="grow w-full group-data-[state=open]:h-full p-0 gap-0">
+          <AccordionTrigger className="items-center cursor-pointer px-6 hover:no-underline">
+            <h2>{t("categories:newCategory.title")}</h2>
+          </AccordionTrigger>
+          <AccordionContent className="flex flex-col gap-4 h-full pb-6">
             <CardHeader>
               <CardDescription>
                 <p>{t("categories:newCategory.description")}</p>

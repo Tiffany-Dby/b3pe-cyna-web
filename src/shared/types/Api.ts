@@ -6,14 +6,14 @@ type RequestPromise<T> = Promise<{
 
 type RequestFn = <T, B extends object>(
   url: string,
-  body: B,
+  body: B | FormData,
   token?: string
 ) => RequestPromise<T>;
 
 type FetchConfig = {
   method: FetchMethod;
   headers: Record<string, string>;
-  body?: string;
+  body?: string | FormData;
 };
 
 enum FetchMethod {

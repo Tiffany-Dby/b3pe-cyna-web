@@ -72,6 +72,31 @@
       "validation": {
         "min": "Please provide a category name"
       }
+    },
+    "product": {
+      "label": "Name",
+      "placeholder": "Name",
+      "validation": {
+        "min": "Please provide a product name"
+      }
+    },
+    "basePrice": {
+      "label": "Base price"
+    },
+    "price": {
+      "label": "Price"
+    },
+    "discountPercentage": {
+      "label": "Discount (%)"
+    },
+    "productImage": {
+      "label": "Carrousel (3 images)",
+      "validation": {
+        "min": "An image is required",
+        "maxFiles": "You can only select up to {{count}} images",
+        "maxSize": "{{size}}Mb maximum",
+        "mimeTypes": "Allowed extensions: {{extensions}}"
+      }
     }
   },
   "selects": {
@@ -82,7 +107,7 @@
       "yearly": "Yearly"
     },
     "category": {
-      "label": "Parent category",
+      "label": "Category",
       "placeholder": "Choose a category",
       "validation": {
         "min": "Please select an option"
@@ -93,6 +118,20 @@
       "placeholder": "Choose a language",
       "validation": {
         "min": "Please select an option"
+      }
+    },
+    "status": {
+      "label": "Status",
+      "placeholder": "Choose a status"
+    },
+    "discountOrder": {
+      "label": "Promotion carrousel",
+      "placeholder": "Choose the order",
+      "options": {
+        "noDiscount": "Not on sale",
+        "first": "1st",
+        "second": "2nd",
+        "third": "3rd"
       }
     }
   },
@@ -131,5 +170,6 @@
   },
   "light": "Light",
   "dark": "Dark",
-  "system": "System"
+  "system": "System",
+  "noFile": "No image selected"
 }

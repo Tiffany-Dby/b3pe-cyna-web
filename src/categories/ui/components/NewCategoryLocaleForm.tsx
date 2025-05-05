@@ -114,16 +114,17 @@ const NewCategoryLocaleForm = () => {
     <Accordion
       type="single"
       collapsible
-      className="flex-1 sm:min-w-80 w-full sm:w-auto"
+      className="flex-1 min-w-64 w-full sm:w-auto"
     >
-      <AccordionItem className="group h-full" value="newCategoryForm">
-        <Card className="grow sm:min-w-80 w-full sm:w-auto group-data-[state=open]:h-full">
-          <CardHeader>
-            <AccordionTrigger className="items-center cursor-pointer p-0 hover:no-underline">
-              <h2>{t("categories:newLocale.title")}</h2>
-            </AccordionTrigger>
-          </CardHeader>
-          <AccordionContent className="flex flex-col gap-4 h-full">
+      <AccordionItem
+        className="@container group h-full"
+        value="newCategoryLocaleForm"
+      >
+        <Card className="grow w-full sm:w-auto group-data-[state=open]:h-full p-0 gap-0">
+          <AccordionTrigger className="items-center cursor-pointer px-6 hover:no-underline">
+            <h2>{t("categories:newLocale.title")}</h2>
+          </AccordionTrigger>
+          <AccordionContent className="flex flex-col gap-4 h-full pb-6">
             <CardHeader>
               <CardDescription>
                 <p>{t("categories:newLocale.description")}</p>
@@ -133,7 +134,7 @@ const NewCategoryLocaleForm = () => {
             <CardContent className="h-full">
               <Form {...form}>
                 <form
-                  className="grid gap-5 sm:grid-cols-2"
+                  className="grid gap-5 @md:grid-cols-2"
                   onSubmit={handleSubmit}
                 >
                   {fields.map(
@@ -185,7 +186,7 @@ const NewCategoryLocaleForm = () => {
                                 <FormMessage className="text-danger" />
                               </FormItem>
                             ) : (
-                              <FormItem className="sm:col-span-2">
+                              <FormItem className="@md:col-span-2">
                                 <FormLabel htmlFor={name}>{label}</FormLabel>
                                 <FormControl>
                                   <BaseInputGroup
@@ -208,7 +209,7 @@ const NewCategoryLocaleForm = () => {
                   <Button
                     type="submit"
                     disabled={isLoading}
-                    className="sm:col-span-2"
+                    className="@md:col-span-2"
                   >
                     {isLoading
                       ? t("categories:newLocale.submit.loading")

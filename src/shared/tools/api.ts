@@ -24,17 +24,19 @@ const getRequest = async <T>(
 
 const postRequest: RequestFn = async <T, B extends object>(
   url: string,
-  body: B,
+  body: B | FormData,
   token?: string
 ) => {
+  const isFormData = body instanceof FormData;
+
   const config: FetchConfig = {
     method: FetchMethod.POST,
     headers: {
-      "Content-type": "application/json",
       Accept: "application/json",
+      ...(isFormData ? {} : { "Content-Type": "application/json" }),
       ...(token && { Authorization: `Bearer ${token}` }),
     },
-    body: JSON.stringify(body),
+    body: isFormData ? body : JSON.stringify(body),
   };
 
   return await request<T>(url, config);

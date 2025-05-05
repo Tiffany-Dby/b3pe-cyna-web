@@ -48,5 +48,13 @@
       "commitment": "Commitment-free"
     },
     "month": "month"
+  },
+  "newBase": {
+    "title": "New product",
+    "description": "Create a new product with its base informations",
+    "submit": {
+      "loading": "Loading...",
+      "action": "Add"
+    }
   }
 }

@@ -84,7 +84,7 @@ const SIDEBAR_ITEMS: SidebarItem[] = [
         subItems: [
           {
             title: "management.products.subItems.allProducts",
-            url: APP_ROUTES.ADMIN_PRODUCT,
+            url: APP_ROUTES.ADMIN_PRODUCTS,
           },
           {
             title: "management.products.subItems.addNewProduct",

@@ -1,5 +1,4 @@
 import { BrowserRouter, Route, Routes } from "react-router";
-import { useAuth } from "@/users/context/AuthContext";
 import { APP_ROUTES } from "@/shared/constants/routes";
 import PrivateRoutes from "@/users/context/PrivateRoutes";
 import BaseLayout from "@/shared/ui/components/BaseLayout";
@@ -14,10 +13,9 @@ import CartView from "@/purchase/ui/views/CartView";
 import AdminLayout from "@/shared/ui/components/AdminLayout";
 import { UserRole } from "@/users/types/UserRole";
 import AdminCategoriesView from "@/categories/ui/views/AdminCategoriesView";
+import AdminProductsView from "@/products/ui/views/AdminProductsView";
 
 const App = () => {
-  const { isAuthenticated, user } = useAuth();
-
   return (
     <BrowserRouter>
       <Routes>
@@ -51,7 +49,7 @@ const App = () => {
           <Route
             path={APP_ROUTES.ACCOUNT_SETTINGS}
             element={
-              <PrivateRoutes hasAccess={isAuthenticated}>
+              <PrivateRoutes>
                 <div className="max-w-xl w-full mx-auto py-5 px-4">
                   <SettingsView />
                 </div>
@@ -72,14 +70,16 @@ const App = () => {
             }
           />
         </Route>
-        <Route
-          element={<PrivateRoutes hasAccess={user?.role === UserRole.admin} />}
-        >
+        <Route element={<PrivateRoutes roles={[UserRole.admin]} />}>
           <Route path={APP_ROUTES.ADMIN} element={<AdminLayout />}>
             <Route index element={<p>Index</p>} />
             <Route
               path={APP_ROUTES.ADMIN_DASHBOARD}
               element={<p>Dashboard</p>}
+            />
+            <Route
+              path={APP_ROUTES.ADMIN_PRODUCTS}
+              element={<AdminProductsView />}
             />
             <Route path={APP_ROUTES.ADMIN_PRODUCT} element={<p>Product</p>} />
             <Route

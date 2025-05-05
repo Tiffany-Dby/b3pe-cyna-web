@@ -68,6 +68,45 @@
       "validation": {
         "min": "Veuillez renseigner un nom de catégorie"
       }
+    },
+    "product": {
+      "label": "Nom",
+      "placeholder": "Nom",
+      "validation": {
+        "min": "Veuillez renseigner un nom de produit"
+      }
+    },
+    "basePrice": {
+      "label": "Prix de base",
+      "validation": {
+        "required": "Le prix de base est requis",
+        "min": "Le prix de base doit être supérieur à 0"
+      }
+    },
+    "price": {
+      "label": "Prix",
+      "validation": {
+        "required": "Le prix est requis",
+        "min": "Le prix doit être supérieur à 0"
+      }
+    },
+    "discountPercentage": {
+      "label": "Réduction (%)",
+      "validation": {
+        "required": "Le pourcentage est requis",
+        "int": "Le pourcentage doit être un entier",
+        "min": "Le pourcentage doit être au minimum 0",
+        "max": "Le pourcentage ne peut pas dépasser 100"
+      }
+    },
+    "productImage": {
+      "label": "Carrousel (3 images)",
+      "validation": {
+        "min": "Une image est requise",
+        "maxFiles": "Vous ne pouvez sélectionner que {{count}} images",
+        "maxSize": "{{size}}Mo maximum",
+        "mimeTypes": "Extensions acceptées: {{extensions}}"
+      }
     }
   },
   "selects": {
@@ -78,7 +117,7 @@
       "yearly": "Annuel"
     },
     "category": {
-      "label": "Catégorie parente",
+      "label": "Catégorie",
       "placeholder": "Choisir une catégorie",
       "validation": {
         "min": "Veuillez sélectionner une option"
@@ -87,6 +126,26 @@
     "locale": {
       "label": "Langue associée",
       "placeholder": "Choisir une langue",
+      "validation": {
+        "min": "Veuillez sélectionner une option"
+      }
+    },
+    "status": {
+      "label": "Status",
+      "placeholder": "Choisir un status",
+      "validation": {
+        "min": "Veuillez sélectionner une option"
+      }
+    },
+    "discountOrder": {
+      "label": "Promotion carrousel",
+      "placeholder": "Choisir l'ordre",
+      "options": {
+        "noDiscount": "Pas en promotion",
+        "first": "1er",
+        "second": "2ème",
+        "third": "3ème"
+      },
       "validation": {
         "min": "Veuillez sélectionner une option"
       }
@@ -127,5 +186,6 @@
   },
   "light": "Clair",
   "dark": "Sombre",
-  "system": "Système"
+  "system": "Système",
+  "noFile": "Aucune image selectionée"
 }
