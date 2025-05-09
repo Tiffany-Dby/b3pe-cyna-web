@@ -60,6 +60,24 @@ const putRequest: RequestFn = async <T, B extends object>(
   return await request<T>(url, config);
 };
 
+const patchRequest: RequestFn = async <T, B extends object>(
+  url: string,
+  body: B,
+  token?: string
+) => {
+  const config: FetchConfig = {
+    method: FetchMethod.PATCH,
+    headers: {
+      "Content-type": "application/json",
+      Accept: "application/json",
+      ...(token && { Authorization: `Bearer ${token}` }),
+    },
+    body: JSON.stringify(body),
+  };
+
+  return await request<T>(url, config);
+};
+
 const deleteRequest = async <T>(
   url: string,
   token?: string
@@ -102,4 +120,4 @@ const request = async <T>(
   }
 };
 
-export { getRequest, postRequest, putRequest, deleteRequest };
+export { getRequest, postRequest, putRequest, patchRequest, deleteRequest };

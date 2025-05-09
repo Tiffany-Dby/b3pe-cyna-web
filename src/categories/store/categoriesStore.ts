@@ -1,9 +1,5 @@
 import { create } from "zustand";
-import {
-  Category,
-  CategoriesState,
-  NewLocale,
-} from "@/categories/types/Categories";
+import { Category, CategoriesState } from "@/categories/types/Categories";
 import { deleteRequest, getRequest } from "@/shared/tools/api";
 import { API_ROUTES } from "@/shared/constants/routes";
 
@@ -41,7 +37,7 @@ const useCategoriesStore = create<CategoriesState>((set, get) => ({
   addCategory: (category) =>
     set((state) => ({ categories: [...state.categories, category] })),
 
-  addLocale: (newLocale: NewLocale) =>
+  addLocale: (newLocale) =>
     set((state) => ({
       categories: state.categories.map((category) =>
         category.id === newLocale.id

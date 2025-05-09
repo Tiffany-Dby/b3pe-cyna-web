@@ -36,8 +36,7 @@
     "products": {
       "title": "Produits",
       "subItems": {
-        "allProducts": "Tous les produits",
-        "addNewProduct": "Ajouter un produit",
+        "productsAndTranslations": "Produits & traductions",
         "categories": "Catégories"
       }
     },

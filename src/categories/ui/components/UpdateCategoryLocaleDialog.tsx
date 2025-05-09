@@ -31,6 +31,7 @@ import { useTranslation } from "react-i18next";
 import BaseInputGroup from "@/shared/ui/components/BaseInputGroup";
 import { Button } from "@/lib/components/ui/button";
 import { useId } from "react";
+import { LOCALES } from "@/shared/constants/locales";
 
 type Props = {
   selected: LocaleCategory;
@@ -61,7 +62,7 @@ const UpdateCategoryLocaleDialog = ({
     schema: UpdateLocaleCategorySchema,
     apiUrl: API_ROUTES.CATEGORY_UPDATE_LOCALE,
     defaultValues: {
-      id: String(selected.id),
+      localeId: String(selected.id),
       locale: selected.locale,
       name: selected.name,
     },
@@ -79,10 +80,7 @@ const UpdateCategoryLocaleDialog = ({
       label: t("selects.locale.label"),
       type: "select",
       placeholder: t("selects.locale.placeholder"),
-      options: [
-        { label: "English", value: "en" },
-        { label: "Français", value: "fr" },
-      ],
+      options: LOCALES.OPTIONS,
       autoComplete: "off",
     },
     {

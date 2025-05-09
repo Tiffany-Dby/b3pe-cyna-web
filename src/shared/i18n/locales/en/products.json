@@ -53,8 +53,50 @@
     "title": "New product",
     "description": "Create a new product with its base informations",
     "submit": {
-      "loading": "Loading...",
-      "action": "Add"
+      "loading": "Creating...",
+      "action": "Create"
     }
+  },
+  "newTranslation": {
+    "title": "New translation",
+    "description": "Create a new product's translation",
+    "benefits": {
+      "legend": "Benefits",
+      "title": "Title",
+      "description": "Description"
+    },
+    "specifications": {
+      "legend": "Specifications",
+      "criteria": "Criteria",
+      "description": "Description"
+    },
+    "functionalities": {
+      "legend": "Functionalities",
+      "functionality": "Functionality"
+    },
+    "actions": {
+      "add": "Add",
+      "remove": "Remove"
+    },
+    "submit": {
+      "loading": "Creating...",
+      "action": "Create"
+    }
+  },
+  "productList": {
+    "title": "Products",
+    "description": "Search, update or delete products",
+    "columns": {
+      "product": "Product",
+      "details": "Translation",
+      "name": "Name",
+      "languages": "Languages",
+      "category": "Category",
+      "price": "Price",
+      "order": "Order",
+      "discountPercentage": "Discount",
+      "actions": "Actions"
+    },
+    "filters": "Filter products..."
   }
 }

@@ -1,7 +1,7 @@
 import { z } from "zod";
-import { FILES } from "@/products/constants/files";
 
-const NewProductSchema = z.object({
+const UpdateProductSchema = z.object({
+  id: z.number().int("Product id required"),
   categoryId: z
     .union([
       z.string().min(1, "common:selects.category.validation.min").default(""),
@@ -56,36 +56,8 @@ const NewProductSchema = z.object({
     if (val === "" || val == null) return undefined;
     return Number(val);
   }, z.number({ required_error: "common:selects.discountPercentage.validation.required" }).int("common:selects.discountPercentage.validation.int").min(0, "common:selects.discountPercentage.validation.min").max(100, "common:selects.discountPercentage.validation.max")),
-  image1: z
-    .instanceof(File, { message: "common:inputs.productImage.validation.min" })
-    .refine((file) => file.size <= FILES.MAX_IMAGE_SIZE, {
-      message: "common:inputs.productImage.validation.maxSize",
-    })
-    .refine(
-      (file) => FILES.ACCEPTED_IMAGE_MIMETYPES.includes(file.type),
-      "common:inputs.productImage.validation.mimeTypes"
-    ),
-  image2: z
-    .instanceof(File, { message: "common:inputs.productImage.validation.min" })
-    .refine((file) => file.size <= FILES.MAX_IMAGE_SIZE, {
-      message: "common:inputs.productImage.validation.maxSize",
-    })
-    .refine(
-      (file) => FILES.ACCEPTED_IMAGE_MIMETYPES.includes(file.type),
-      "common:inputs.productImage.validation.mimeTypes"
-    ),
-  image3: z
-    .instanceof(File, { message: "common:inputs.productImage.validation.min" })
-    .refine(
-      (file) => file.size <= FILES.MAX_IMAGE_SIZE,
-      "common:inputs.productImage.validation.maxSize"
-    )
-    .refine(
-      (file) => FILES.ACCEPTED_IMAGE_MIMETYPES.includes(file.type),
-      "common:inputs.productImage.validation.mimeTypes"
-    ),
 });
 
-export { NewProductSchema };
-export type NewProductInput = z.input<typeof NewProductSchema>;
-export type NewProductData = z.infer<typeof NewProductSchema>;
+export { UpdateProductSchema };
+export type UpdateProductInput = z.input<typeof UpdateProductSchema>;
+export type UpdateProductData = z.infer<typeof UpdateProductSchema>;

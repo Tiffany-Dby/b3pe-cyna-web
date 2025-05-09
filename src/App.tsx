@@ -14,6 +14,7 @@ import AdminLayout from "@/shared/ui/components/AdminLayout";
 import { UserRole } from "@/users/types/UserRole";
 import AdminCategoriesView from "@/categories/ui/views/AdminCategoriesView";
 import AdminProductsView from "@/products/ui/views/AdminProductsView";
+import UpdateProductView from "@/products/ui/views/UpdateProductView";
 
 const App = () => {
   return (
@@ -81,7 +82,10 @@ const App = () => {
               path={APP_ROUTES.ADMIN_PRODUCTS}
               element={<AdminProductsView />}
             />
-            <Route path={APP_ROUTES.ADMIN_PRODUCT} element={<p>Product</p>} />
+            <Route
+              path={APP_ROUTES.ADMIN_PRODUCT}
+              element={<UpdateProductView />}
+            />
             <Route
               path={APP_ROUTES.ADMIN_CATEGORIES}
               element={<AdminCategoriesView />}

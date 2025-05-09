@@ -33,7 +33,7 @@
       "label": "Confirmer mot de passe",
       "placeholder": "Confirmer mot de passe",
       "validation": {
-        "min": "Veuillez confirmer votre nouveau mot de passe",
+        "min": "Veuillez confirmer votre mot de passe",
         "match": "Les mots de passe ne correspondent pas"
       }
     },
@@ -43,7 +43,11 @@
     },
     "confirmNewPassword": {
       "label": "Confirmer nouveau mot de passe",
-      "placeholder": "Confirmer nouveau mot de passe"
+      "placeholder": "Confirmer nouveau mot de passe",
+      "validation": {
+        "min": "Veuillez confirmer votre nouveau mot de passe",
+        "match": "Les mots de passe ne correspondent pas"
+      }
     },
     "firstName": {
       "label": "Prénom",
@@ -76,13 +80,6 @@
         "min": "Veuillez renseigner un nom de produit"
       }
     },
-    "basePrice": {
-      "label": "Prix de base",
-      "validation": {
-        "required": "Le prix de base est requis",
-        "min": "Le prix de base doit être supérieur à 0"
-      }
-    },
     "price": {
       "label": "Prix",
       "validation": {
@@ -107,6 +104,34 @@
         "maxSize": "{{size}}Mo maximum",
         "mimeTypes": "Extensions acceptées: {{extensions}}"
       }
+    },
+    "title": {
+      "label": "Titre",
+      "placeholder": "Titre",
+      "validation": {
+        "min": "Veuillez renseigner un titre"
+      }
+    },
+    "description": {
+      "label": "Description",
+      "placeholder": "Description",
+      "validation": {
+        "min": "Veuillez renseigner une description"
+      }
+    },
+    "criteria": {
+      "label": "Critère",
+      "placeholder": "Critère",
+      "validation": {
+        "min": "Veuillez renseigner un critère"
+      }
+    },
+    "functionality": {
+      "label": "Fonctionnalité",
+      "placeholder": "Fonctionnalité",
+      "validation": {
+        "min": "Veuillez renseigner une fonctionnalité"
+      }
     }
   },
   "selects": {
@@ -124,7 +149,7 @@
       }
     },
     "locale": {
-      "label": "Langue associée",
+      "label": "Langue",
       "placeholder": "Choisir une langue",
       "validation": {
         "min": "Veuillez sélectionner une option"
@@ -133,6 +158,17 @@
     "status": {
       "label": "Status",
       "placeholder": "Choisir un status",
+      "validation": {
+        "min": "Veuillez sélectionner une option"
+      }
+    },
+    "type": {
+      "label": "Type",
+      "placeholder": "Choisir le type",
+      "options": {
+        "digital": "Digital",
+        "physical": "Physique"
+      },
       "validation": {
         "min": "Veuillez sélectionner une option"
       }
@@ -148,6 +184,13 @@
       },
       "validation": {
         "min": "Veuillez sélectionner une option"
+      }
+    },
+    "product": {
+      "label": "Produit",
+      "placeholder": "Choisir un produit",
+      "validation": {
+        "min": "Veuillez sélectionner un produit"
       }
     }
   },

@@ -11,13 +11,8 @@ import BaseInputGroup from "@/shared/ui/components/BaseInputGroup";
 import useCustomForm from "@/shared/hooks/useCustomForm";
 import { useAuth } from "@/users/context/AuthContext";
 import { useCategoriesStore } from "@/categories/store/categoriesStore";
-import {
-  NewProductData,
-  NewProductInput,
-  NewProductSchema,
-} from "@/products/schemas/NewProductSchema";
 import { API_ROUTES } from "@/shared/constants/routes";
-import { postRequest } from "@/shared/tools/api";
+import { putRequest } from "@/shared/tools/api";
 import { Field } from "@/shared/types/Field";
 import { Option } from "@/shared/types/Option";
 import { useEffect, useId } from "react";
@@ -31,14 +26,18 @@ import {
 } from "@/lib/components/ui/select";
 import { enumToOptions } from "@/shared/utils/format";
 import { ProductStatus } from "@/products/types/ProductStatus";
-import BaseMultiInputFile from "@/shared/ui/components/BaseMultiInputFile";
 import { useTranslation } from "react-i18next";
 import { ProductType } from "@/products/types/ProductType";
 import { useProductsStore } from "@/products/store/productsStore";
 import { Product } from "@/products/types/Products";
+import {
+  UpdateProductData,
+  UpdateProductInput,
+  UpdateProductSchema,
+} from "@/products/schemas/UpdateProductSchema";
 
-type NewProductField = Field & {
-  name: keyof NewProductData;
+type UpdateProductField = Field & {
+  name: keyof UpdateProductData;
   icon?: React.ComponentType<{ className?: string }>;
   placeholder?: string;
   options?: Option[];
@@ -48,12 +47,12 @@ type Props = {
   onError: (error: string | null) => void;
 };
 
-const NewProductForm = ({ onError }: Props) => {
+const UpdateProductForm = ({ onError }: Props) => {
   const id = useId();
   const { token } = useAuth();
   const { t } = useTranslation();
   const { categories } = useCategoriesStore();
-  const { addProduct } = useProductsStore();
+  const { selected, updateProduct, updateSelected } = useProductsStore();
 
   const categoriesOptions = categories.map((category) => ({
     label: category.globalName,
@@ -71,34 +70,49 @@ const NewProductForm = ({ onError }: Props) => {
   }));
 
   const { form, handleSubmit, isLoading, serverError } = useCustomForm<
-    NewProductInput,
+    UpdateProductInput,
     Product
   >({
-    schema: NewProductSchema,
-    apiUrl: API_ROUTES.PRODUCT_NEW,
+    schema: UpdateProductSchema,
+    apiUrl: API_ROUTES.PRODUCT_UPDATE,
     defaultValues: {
-      categoryId: "",
-      name: "",
-      status: "",
-      type: "",
-      price: 0,
-      discountOrder: "",
-      discountPercentage: 0,
-      image1: undefined,
-      image2: undefined,
-      image3: undefined,
+      id: selected?.id ?? 0,
+      categoryId: selected?.category.id ?? "",
+      name: selected?.name ?? "",
+      status: selected?.status ?? "",
+      type: selected?.type ?? "",
+      price: selected?.price ? selected.price / 100 : 0,
+      discountOrder: selected?.discountOrder ?? "",
+      discountPercentage: selected?.discountPercentage ?? 0,
     },
-    requestFn: postRequest,
+    requestFn: putRequest,
     token,
-    asFormData: true,
-    onSuccess: (product) => addProduct(product),
+    onSuccess: (product) => {
+      updateProduct(product);
+      updateSelected(product);
+    },
   });
 
   useEffect(() => {
     onError(serverError);
   }, [serverError]);
 
-  const fields: NewProductField[] = [
+  useEffect(() => {
+    if (!selected) return;
+
+    form.reset({
+      id: selected.id,
+      categoryId: selected.category.id,
+      name: selected.name,
+      status: selected.status,
+      type: selected.type,
+      price: selected.price / 100,
+      discountOrder: selected.discountOrder,
+      discountPercentage: selected.discountPercentage,
+    });
+  }, [selected]);
+
+  const fields: UpdateProductField[] = [
     {
       name: "name",
       label: t("inputs.product.label"),
@@ -231,15 +245,6 @@ const NewProductForm = ({ onError }: Props) => {
             />
           )
         )}
-        <FormItem className="@md:col-span-2 flex flex-col gap-2">
-          <FormControl>
-            <BaseMultiInputFile
-              label={t("inputs.productImage.label")}
-              count={3}
-              names={["image1", "image2", "image3"]}
-            />
-          </FormControl>
-        </FormItem>
         <Button
           type="submit"
           disabled={isLoading}
@@ -254,4 +259,4 @@ const NewProductForm = ({ onError }: Props) => {
   );
 };
 
-export default NewProductForm;
+export default UpdateProductForm;
