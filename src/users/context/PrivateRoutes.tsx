@@ -1,8 +1,8 @@
 import { APP_ROUTES } from "@/shared/constants/routes";
 import React from "react";
 import { Navigate, Outlet } from "react-router";
-import { useAuth } from "@/users/context/AuthContext";
 import { UserRole } from "@/users/types/UserRole";
+import { useAuth } from "@/users/context/AuthContext";
 
 type PrivateRoutesProps = {
   roles?: UserRole[];

@@ -43,6 +43,7 @@ const SignUpView = () => {
   const { form, handleSubmit, isLoading, serverError } = useCustomForm({
     schema: SignUpSchema,
     apiUrl: API_ROUTES.SIGN_UP,
+    withAuth: false,
     defaultValues: {
       firstName: "",
       lastName: "",

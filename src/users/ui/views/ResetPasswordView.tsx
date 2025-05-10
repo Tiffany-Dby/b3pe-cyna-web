@@ -30,6 +30,7 @@ const ResetPasswordView = () => {
   const { form, handleSubmit, isLoading, serverError } = useCustomForm({
     schema: ResetPasswordSchema,
     apiUrl: API_ROUTES.SIGN_IN,
+    withAuth: false,
     defaultValues: {
       email: "",
     },

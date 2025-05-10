@@ -4,16 +4,14 @@ import NewProductTranslationCard from "@/products/ui/components/NewProductTransl
 import { useProductsStore } from "@/products/store/productsStore";
 import { useEffect } from "react";
 import { useCategoriesStore } from "@/categories/store/categoriesStore";
-import { useAuth } from "@/users/context/AuthContext";
 
 const AdminProductsView = () => {
-  const { token } = useAuth();
   const { getProducts } = useProductsStore();
   const { getCategories } = useCategoriesStore();
 
   useEffect(() => {
-    getProducts(token);
-    getCategories(token);
+    getProducts();
+    getCategories();
   }, []);
 
   return (

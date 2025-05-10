@@ -21,6 +21,7 @@ const API_ROUTES = {
   SIGN_IN: "/api/auth/login",
   ME: "/api/auth/me",
   REFRESH: "/api/auth/refresh",
+  SIGN_OUT: "/api/auth/logout",
   USER_UPDATE_INFOS: "/api/users/update",
   USER_UPDATE_PASSWORD: "/api/users/update-password",
   PRODUCT_GET_ALL: "/api/products/get-all",

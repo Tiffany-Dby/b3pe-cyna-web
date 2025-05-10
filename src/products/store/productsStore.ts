@@ -1,7 +1,7 @@
 import { create } from "zustand";
 import { Product, ProductsState } from "@/products/types/Products";
-import { getRequest } from "@/shared/tools/api";
 import { API_ROUTES } from "@/shared/constants/routes";
+import { getRequest } from "@/shared/tools/api";
 
 const useProductsStore = create<ProductsState>((set) => ({
   products: [],
@@ -9,12 +9,12 @@ const useProductsStore = create<ProductsState>((set) => ({
   isLoading: false,
   error: null,
 
-  getProducts: async (token) => {
+  getProducts: async () => {
     set({ isLoading: true });
 
     const { result, error } = await getRequest<Product[]>(
       API_ROUTES.PRODUCT_GET_ALL,
-      token
+      false
     );
 
     set({

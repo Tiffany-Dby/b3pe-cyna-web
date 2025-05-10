@@ -49,7 +49,7 @@ type ProductsState = {
   selected: Product | null;
   isLoading: boolean;
   error: string | null;
-  getProducts: (token?: string) => Promise<void>;
+  getProducts: () => Promise<void>;
   addProduct: (product: Product) => void;
   addTranslation: (translation: NewDetail) => void;
   setSelected: (product: Product) => void;

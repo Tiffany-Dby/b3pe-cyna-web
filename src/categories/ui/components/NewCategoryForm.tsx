@@ -18,7 +18,6 @@ import useCustomForm from "@/shared/hooks/useCustomForm";
 import { postRequest } from "@/shared/tools/api";
 import { Field } from "@/shared/types/Field";
 import BaseInputGroup from "@/shared/ui/components/BaseInputGroup";
-import { useAuth } from "@/users/context/AuthContext";
 import { ShapesIcon } from "lucide-react";
 import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
@@ -34,7 +33,6 @@ type Props = {
 
 const NewCategoryForm = ({ onError }: Props) => {
   const { t } = useTranslation();
-  const { token } = useAuth();
   const { addCategory } = useCategoriesStore();
 
   const { form, handleSubmit, isLoading, serverError } = useCustomForm<
@@ -59,7 +57,6 @@ const NewCategoryForm = ({ onError }: Props) => {
           },
         ],
       }),
-    token,
   });
 
   const fields: NewCategoryField[] = [

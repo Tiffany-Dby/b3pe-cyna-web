@@ -9,10 +9,8 @@ import {
 import { Button } from "@/lib/components/ui/button";
 import BaseInputGroup from "@/shared/ui/components/BaseInputGroup";
 import useCustomForm from "@/shared/hooks/useCustomForm";
-import { useAuth } from "@/users/context/AuthContext";
 import { useCategoriesStore } from "@/categories/store/categoriesStore";
 import { API_ROUTES } from "@/shared/constants/routes";
-import { putRequest } from "@/shared/tools/api";
 import { Field } from "@/shared/types/Field";
 import { Option } from "@/shared/types/Option";
 import { useEffect, useId } from "react";
@@ -35,6 +33,7 @@ import {
   UpdateProductInput,
   UpdateProductSchema,
 } from "@/products/schemas/UpdateProductSchema";
+import { putRequest } from "@/shared/tools/api";
 
 type UpdateProductField = Field & {
   name: keyof UpdateProductData;
@@ -49,7 +48,6 @@ type Props = {
 
 const UpdateProductForm = ({ onError }: Props) => {
   const id = useId();
-  const { token } = useAuth();
   const { t } = useTranslation();
   const { categories } = useCategoriesStore();
   const { selected, updateProduct, updateSelected } = useProductsStore();
@@ -86,7 +84,6 @@ const UpdateProductForm = ({ onError }: Props) => {
       discountPercentage: selected?.discountPercentage ?? 0,
     },
     requestFn: putRequest,
-    token,
     onSuccess: (product) => {
       updateProduct(product);
       updateSelected(product);

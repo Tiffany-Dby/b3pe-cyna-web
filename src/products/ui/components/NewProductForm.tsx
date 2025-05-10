@@ -9,7 +9,6 @@ import {
 import { Button } from "@/lib/components/ui/button";
 import BaseInputGroup from "@/shared/ui/components/BaseInputGroup";
 import useCustomForm from "@/shared/hooks/useCustomForm";
-import { useAuth } from "@/users/context/AuthContext";
 import { useCategoriesStore } from "@/categories/store/categoriesStore";
 import {
   NewProductData,
@@ -17,7 +16,6 @@ import {
   NewProductSchema,
 } from "@/products/schemas/NewProductSchema";
 import { API_ROUTES } from "@/shared/constants/routes";
-import { postRequest } from "@/shared/tools/api";
 import { Field } from "@/shared/types/Field";
 import { Option } from "@/shared/types/Option";
 import { useEffect, useId } from "react";
@@ -36,6 +34,7 @@ import { useTranslation } from "react-i18next";
 import { ProductType } from "@/products/types/ProductType";
 import { useProductsStore } from "@/products/store/productsStore";
 import { Product } from "@/products/types/Products";
+import { postRequest } from "@/shared/tools/api";
 
 type NewProductField = Field & {
   name: keyof NewProductData;
@@ -50,7 +49,6 @@ type Props = {
 
 const NewProductForm = ({ onError }: Props) => {
   const id = useId();
-  const { token } = useAuth();
   const { t } = useTranslation();
   const { categories } = useCategoriesStore();
   const { addProduct } = useProductsStore();
@@ -89,7 +87,6 @@ const NewProductForm = ({ onError }: Props) => {
       image3: undefined,
     },
     requestFn: postRequest,
-    token,
     asFormData: true,
     onSuccess: (product) => addProduct(product),
   });

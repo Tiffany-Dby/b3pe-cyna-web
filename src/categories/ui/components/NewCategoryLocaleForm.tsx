@@ -27,7 +27,6 @@ import { postRequest } from "@/shared/tools/api";
 import { Field } from "@/shared/types/Field";
 import { Option } from "@/shared/types/Option";
 import BaseInputGroup from "@/shared/ui/components/BaseInputGroup";
-import { useAuth } from "@/users/context/AuthContext";
 import { ShapesIcon } from "lucide-react";
 import { useEffect, useId } from "react";
 import { useTranslation } from "react-i18next";
@@ -45,7 +44,6 @@ type Props = {
 const NewCategoryLocaleForm = ({ onError }: Props) => {
   const id = useId();
   const { t } = useTranslation();
-  const { token } = useAuth();
   const { categories, addLocale } = useCategoriesStore();
 
   const parentOptions = categories.map((category) => ({
@@ -65,7 +63,6 @@ const NewCategoryLocaleForm = ({ onError }: Props) => {
       name: "",
     },
     requestFn: postRequest,
-    token,
     onSuccess: (newLocale) => addLocale(newLocale),
   });
 

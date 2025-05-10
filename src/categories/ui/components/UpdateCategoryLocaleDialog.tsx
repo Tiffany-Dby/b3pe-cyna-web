@@ -1,7 +1,6 @@
 import { useCategoriesStore } from "@/categories/store/categoriesStore";
 import { LocaleCategory, UpdatedLocale } from "@/categories/types/Categories";
 import BaseDialog from "@/shared/ui/components/BaseDialog";
-import { useAuth } from "@/users/context/AuthContext";
 import {
   Form,
   FormControl,
@@ -19,7 +18,6 @@ import {
 } from "@/lib/components/ui/select";
 import useCustomForm from "@/shared/hooks/useCustomForm";
 import { API_ROUTES } from "@/shared/constants/routes";
-import { putRequest } from "@/shared/tools/api";
 import { Field } from "@/shared/types/Field";
 import {
   UpdateLocaleCategoryData,
@@ -32,6 +30,7 @@ import BaseInputGroup from "@/shared/ui/components/BaseInputGroup";
 import { Button } from "@/lib/components/ui/button";
 import { useId } from "react";
 import { LOCALES } from "@/shared/constants/locales";
+import { putRequest } from "@/shared/tools/api";
 
 type Props = {
   selected: LocaleCategory;
@@ -52,7 +51,6 @@ const UpdateCategoryLocaleDialog = ({
 }: Props) => {
   const id = useId();
   const { t } = useTranslation();
-  const { token } = useAuth();
   const { updateCategoryLocale } = useCategoriesStore();
 
   const { form, handleSubmit, isLoading, serverError } = useCustomForm<
@@ -67,7 +65,6 @@ const UpdateCategoryLocaleDialog = ({
       name: selected.name,
     },
     requestFn: putRequest,
-    token,
     onSuccess: (updated) => {
       updateCategoryLocale(updated, selected.globalId);
       onOpenChange(false);

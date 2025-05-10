@@ -1,20 +1,14 @@
-type RequestPromise<T> = Promise<{
+type ReqPromise<T> = {
   result: T;
   error: string | null;
   status: number;
-}>;
+};
 
-type RequestFn = <T, B extends object>(
+type RequestFn = <T, B>(
   url: string,
   body: B | FormData,
-  token?: string
-) => RequestPromise<T>;
-
-type FetchConfig = {
-  method: FetchMethod;
-  headers: Record<string, string>;
-  body?: string | FormData;
-};
+  withAuth?: boolean
+) => Promise<ReqPromise<T>>;
 
 enum FetchMethod {
   GET = "GET",
@@ -24,5 +18,5 @@ enum FetchMethod {
   DELETE = "DELETE",
 }
 
-export type { FetchConfig, RequestFn, RequestPromise };
+export type { RequestFn };
 export { FetchMethod };

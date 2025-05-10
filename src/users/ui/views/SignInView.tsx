@@ -14,12 +14,12 @@ import { SignInSchema, SignInData } from "@/users/schemas/SignInSchema";
 import { MailIcon, EyeIcon, EyeOffIcon } from "lucide-react";
 import { Link, Navigate, useNavigate } from "react-router";
 import { useState } from "react";
-import { useAuth } from "@/users/context/AuthContext";
 import { SignInResponse } from "@/users/types/SignIn";
 import { Separator } from "@/lib/components/ui/separator";
 import { Field } from "@/shared/types/Field";
 import { API_ROUTES, APP_ROUTES } from "@/shared/constants/routes";
 import { useTranslation } from "react-i18next";
+import { useAuth } from "@/users/context/AuthContext";
 import { postRequest } from "@/shared/tools/api";
 
 type SignInField = Field & {
@@ -44,6 +44,7 @@ const SignInView = () => {
   const { form, handleSubmit, isLoading, serverError } = useCustomForm({
     schema: SignInSchema,
     apiUrl: API_ROUTES.SIGN_IN,
+    withAuth: false,
     defaultValues: {
       email: "",
       password: "",

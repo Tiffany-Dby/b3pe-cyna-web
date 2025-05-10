@@ -10,7 +10,6 @@ import { API_ROUTES } from "@/shared/constants/routes";
 import useCustomForm from "@/shared/hooks/useCustomForm";
 import { postRequest } from "@/shared/tools/api";
 import BaseMultiInputFile from "@/shared/ui/components/BaseMultiInputFile";
-import { useAuth } from "@/users/context/AuthContext";
 import { useEffect } from "react";
 
 type Props = {
@@ -20,7 +19,6 @@ type Props = {
 };
 
 const UpdateImageForm = ({ productId, slot, onError }: Props) => {
-  const { token } = useAuth();
   const { updateSelected, updateImage } = useProductsStore();
 
   const { form, handleSubmit, isLoading, serverError } = useCustomForm<
@@ -34,7 +32,6 @@ const UpdateImageForm = ({ productId, slot, onError }: Props) => {
       image: undefined,
     },
     requestFn: postRequest,
-    token,
     asFormData: true,
     onSuccess: (product) => {
       updateSelected(product);
