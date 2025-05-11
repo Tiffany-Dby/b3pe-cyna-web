@@ -79,83 +79,85 @@ const SignInView = () => {
   }
 
   return (
-    <BaseCard
-      title={<h1>{t("signIn:title")}</h1>}
-      description={
-        <>{serverError && <p className="text-danger">{serverError}</p>}</>
-      }
-      content={
-        <Form {...form}>
-          <form className="grid gap-5" onSubmit={handleSubmit}>
-            {fields.map(
-              ({
-                name,
-                label,
-                type,
-                placeholder,
-                autoComplete,
-                icon: Icon,
-                toggleType,
-              }) => (
-                <FormField
-                  key={name}
-                  control={form.control}
-                  name={name}
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel htmlFor={name} className="sr-only">
-                        {label}
-                      </FormLabel>
-                      <FormControl>
-                        <BaseInputGroup
-                          {...field}
-                          id={name}
-                          type={type}
-                          placeholder={placeholder}
-                          autoComplete={autoComplete}
-                          icon={Icon}
-                          toggleType={toggleType}
-                        />
-                      </FormControl>
-                      <FormMessage className="text-danger" />
-                    </FormItem>
-                  )}
-                />
-              )
-            )}
-            <Link
-              to={APP_ROUTES.RESET_PASSWORD}
-              className="underline justify-self-end opacity-75 hover:opacity-100 transition-opacity duration-500"
-            >
-              {t("signIn:forgetPassword")}
-            </Link>
-            <div>
-              <Button type="submit" className="w-full" disabled={isLoading}>
-                {isLoading
-                  ? t("signIn:submit.loading")
-                  : t("signIn:submit.action")}
-              </Button>
-            </div>
-          </form>
-        </Form>
-      }
-      footer={
-        <div className="flex flex-col gap-5 w-full">
-          <Separator className="max-w-5/6 mx-auto my-2" />
-          <div className="flex flex-col gap-1">
-            <p>{t("signIn:notSignedUp")}</p>
-            <div className="text-center">
+    <div className="max-w-xl w-full mx-auto py-5 px-4">
+      <BaseCard
+        title={<h1>{t("signIn:title")}</h1>}
+        description={
+          <>{serverError && <p className="text-danger">{serverError}</p>}</>
+        }
+        content={
+          <Form {...form}>
+            <form className="grid gap-5" onSubmit={handleSubmit}>
+              {fields.map(
+                ({
+                  name,
+                  label,
+                  type,
+                  placeholder,
+                  autoComplete,
+                  icon: Icon,
+                  toggleType,
+                }) => (
+                  <FormField
+                    key={name}
+                    control={form.control}
+                    name={name}
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel htmlFor={name} className="sr-only">
+                          {label}
+                        </FormLabel>
+                        <FormControl>
+                          <BaseInputGroup
+                            {...field}
+                            id={name}
+                            type={type}
+                            placeholder={placeholder}
+                            autoComplete={autoComplete}
+                            icon={Icon}
+                            toggleType={toggleType}
+                          />
+                        </FormControl>
+                        <FormMessage className="text-danger" />
+                      </FormItem>
+                    )}
+                  />
+                )
+              )}
               <Link
-                to={APP_ROUTES.SIGN_UP}
-                className="flex-center-center w-full h-9 border border-primary text-primary text-size-n font-medium bg-background py-2 px-4 hover:bg-primary hover:text-primary-foreground transition-colors duration-500 rounded-md dark:text-primary-foreground dark:border-primary-foreground dark:hover:border-transparent"
+                to={APP_ROUTES.RESET_PASSWORD}
+                className="underline justify-self-end opacity-75 hover:opacity-100 transition-opacity duration-500"
               >
-                {t("signIn:signUp")}
+                {t("signIn:forgetPassword")}
               </Link>
+              <div>
+                <Button type="submit" className="w-full" disabled={isLoading}>
+                  {isLoading
+                    ? t("signIn:submit.loading")
+                    : t("signIn:submit.action")}
+                </Button>
+              </div>
+            </form>
+          </Form>
+        }
+        footer={
+          <div className="flex flex-col gap-5 w-full">
+            <Separator className="max-w-5/6 mx-auto my-2" />
+            <div className="flex flex-col gap-1">
+              <p>{t("signIn:notSignedUp")}</p>
+              <div className="text-center">
+                <Link
+                  to={APP_ROUTES.SIGN_UP}
+                  className="flex-center-center w-full h-9 border border-primary text-primary text-size-n font-medium bg-background py-2 px-4 hover:bg-primary hover:text-primary-foreground transition-colors duration-500 rounded-md dark:text-primary-foreground dark:border-primary-foreground dark:hover:border-transparent"
+                >
+                  {t("signIn:signUp")}
+                </Link>
+              </div>
             </div>
           </div>
-        </div>
-      }
-    />
+        }
+      />
+    </div>
   );
 };
 

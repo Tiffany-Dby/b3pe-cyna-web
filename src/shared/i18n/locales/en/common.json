@@ -192,6 +192,9 @@
       "validation": {
         "min": "Please select an option"
       }
+    },
+    "translation": {
+      "placeholder": "Choose a translation"
     }
   },
   "dataTable": {
@@ -215,18 +218,20 @@
   },
   "dialog": {
     "delete": {
-      "title": "Confirm"
+      "title": "Confirmation"
     },
     "update": {
       "title": "Update"
     },
     "actions": {
+      "confirm": "Confirm",
       "cancel": "Cancel",
       "update": "Update",
       "delete": "Delete",
       "loading": "Loading..."
     }
   },
+  "backToProducts": "Back to products",
   "light": "Light",
   "dark": "Dark",
   "system": "System",

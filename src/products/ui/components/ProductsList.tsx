@@ -9,6 +9,8 @@ import { Product } from "@/products/types/Products";
 import DeleteProductDialog from "./DeleteProductDialog";
 import { useNavigate } from "react-router";
 import { APP_ROUTES } from "@/shared/constants/routes";
+import UpdateProductTranslationDialog from "./UpdateProductTranslationDialog";
+import DeleteProductTranslationDialog from "./DeleteProductTranslationDialog";
 
 const ProductsList = () => {
   const { t, i18n } = useTranslation("products");
@@ -26,6 +28,8 @@ const ProductsList = () => {
       Columns(
         (item) => open("delete", item),
         (item) => handleNavigate(item),
+        (item) => open("update", item),
+        (item) => open("delete-sub", item),
         t,
         i18n
       ),
@@ -48,6 +52,22 @@ const ProductsList = () => {
 
       {dialog.type === "delete" && dialog.item && (
         <DeleteProductDialog
+          selected={dialog.item}
+          open={true}
+          onOpenChange={close}
+        />
+      )}
+
+      {dialog.type === "update" && dialog.item && (
+        <UpdateProductTranslationDialog
+          selected={dialog.item}
+          open={true}
+          onOpenChange={close}
+        />
+      )}
+
+      {dialog.type === "delete-sub" && dialog.item && (
+        <DeleteProductTranslationDialog
           selected={dialog.item}
           open={true}
           onOpenChange={close}

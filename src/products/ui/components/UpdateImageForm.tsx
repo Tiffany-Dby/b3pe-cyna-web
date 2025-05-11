@@ -11,6 +11,7 @@ import useCustomForm from "@/shared/hooks/useCustomForm";
 import { postRequest } from "@/shared/tools/api";
 import BaseMultiInputFile from "@/shared/ui/components/BaseMultiInputFile";
 import { useEffect } from "react";
+import { useTranslation } from "react-i18next";
 
 type Props = {
   productId: number;
@@ -19,6 +20,7 @@ type Props = {
 };
 
 const UpdateImageForm = ({ productId, slot, onError }: Props) => {
+  const { t } = useTranslation();
   const { updateSelected, updateImage } = useProductsStore();
 
   const { form, handleSubmit, isLoading, serverError } = useCustomForm<
@@ -53,7 +55,7 @@ const UpdateImageForm = ({ productId, slot, onError }: Props) => {
             <FormItem>
               <BaseMultiInputFile
                 {...field}
-                label={`Nouvelle image`}
+                label={t("products:updateProduct.formImage.label")}
                 count={1}
                 names={["image"]}
               />
@@ -61,7 +63,9 @@ const UpdateImageForm = ({ productId, slot, onError }: Props) => {
           )}
         />
         <Button type="submit" disabled={isLoading}>
-          {isLoading ? "Modification en cours..." : "Modifier"}
+          {isLoading
+            ? t("products:updateProduct.submit.loading")
+            : t("products:updateProduct.submit.action")}
         </Button>
       </form>
     </Form>

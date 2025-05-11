@@ -248,8 +248,8 @@ const UpdateProductForm = ({ onError }: Props) => {
           className="@md:col-span-2 self-end"
         >
           {isLoading
-            ? t("products:newBase.submit.loading")
-            : t("products:newBase.submit.action")}
+            ? t("products:updateProduct.submit.loading")
+            : t("products:updateProduct.submit.action")}
         </Button>
       </form>
     </Form>

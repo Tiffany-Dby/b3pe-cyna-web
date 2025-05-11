@@ -1,5 +1,7 @@
+import { useProductsStore } from "@/products/store/productsStore";
 import { Product } from "@/products/types/Products";
 import BaseDialog from "@/shared/ui/components/BaseDialog";
+import { Trans, useTranslation } from "react-i18next";
 
 type Props = {
   selected: Product;
@@ -8,24 +10,32 @@ type Props = {
 };
 
 const DeleteProductDialog = ({ selected, open, onOpenChange }: Props) => {
+  const { t } = useTranslation();
+  const { deleteProduct } = useProductsStore();
+
   return (
     <BaseDialog
       open={open}
       onOpenChange={onOpenChange}
-      title={"Supprimer"}
-      description={"Suppression d'un produit et ses traductions"}
+      title={t("dialog.delete.title")}
+      description={t("products:deleteProduct.dialog.description")}
       buttons={[
         {
-          children: "Supprimer",
-          onClick: () => console.log("clicked, selected:", selected),
+          children: t("dialog.actions.delete"),
+          variant: "destructive",
+          onClick: () => deleteProduct(selected),
         },
       ]}
     >
       <div className="py-4">
         <p>
-          Supprimer le produit{" "}
-          <span className="font-black">&#171; {selected.name} &#187;</span> et
-          toutes ses traductions ?
+          <Trans
+            i18nKey="products:deleteProduct.dialog.message"
+            values={{
+              name: selected.name,
+            }}
+            components={[<span key="0" className="font-black" />]}
+          />
         </p>
       </div>
     </BaseDialog>

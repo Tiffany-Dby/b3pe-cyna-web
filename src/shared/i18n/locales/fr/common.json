@@ -192,6 +192,9 @@
       "validation": {
         "min": "Veuillez sélectionner un produit"
       }
+    },
+    "translation": {
+      "placeholder": "Choisir une traduction"
     }
   },
   "dataTable": {
@@ -221,12 +224,14 @@
       "title": "Mise à jour"
     },
     "actions": {
+      "confirm": "Confirmer",
       "cancel": "Annuler",
       "update": "Mettre à jour",
       "delete": "Supprimer",
       "loading": "En cours..."
     }
   },
+  "backToProducts": "Revenir aux produits",
   "light": "Clair",
   "dark": "Sombre",
   "system": "Système",

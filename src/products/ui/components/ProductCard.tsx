@@ -6,60 +6,67 @@ import {
   CardHeader,
   CardTitle,
 } from "@/lib/components/ui/card";
-import imgBanner from "@/shared/assets/images/banner.svg";
 import { Link } from "react-router";
 import ProductStatusBadge from "@/products/ui/components/ProductStatusBadge";
-import { ProductStatus } from "@/products/types/ProductStatus";
-import { ProductType } from "@/products/types/ProductType";
 import { useTranslation } from "react-i18next";
+import { ProductLocale } from "@/products/types/Products";
+import { APP_ROUTES } from "@/shared/constants/routes";
+import PromotionTag from "@/shared/ui/components/PromotionTag";
 
-type ProductCardProps = {
-  discount: boolean;
-  status: ProductStatus;
-  type: ProductType;
+type Props = {
+  product: ProductLocale;
 };
 
-const ProductCard = ({ discount, status, type }: ProductCardProps) => {
+const ProductCard = ({ product }: Props) => {
   const { t } = useTranslation();
 
   return (
     <Link
-      to={"/product"}
-      className="block hover:scale-105 transition-[scale] duration-500"
+      to={`${APP_ROUTES.PRODUCTS}/${product.id}`}
+      className="block hover:scale-105 transition-[scale] duration-500 h-full"
     >
-      <Card className="pt-0 gap-4 relative">
-        <div className="bg-primary p-4 rounded-t-xl">
+      <Card className="pt-0 gap-4 relative h-full">
+        <div className="bg-primary rounded-t-xl">
           <img
-            src={imgBanner}
+            src={product.slides[0]}
             alt=""
-            className="w-full min-w-full h-full min-h-full object-contain max-h-56"
+            className="w-full min-w-full h-full min-h-full object-cover max-h-56 rounded-t-xl"
           />
         </div>
         <CardHeader>
           <CardTitle className="flex-between-center">
             <div>
-              <h3>XDR</h3>
+              <h3>{product.name}</h3>
             </div>
-            <ProductStatusBadge status={status} type={type} />
+            <ProductStatusBadge status={product.status} type={product.type} />
           </CardTitle>
           <CardDescription>
-            <p>{t("category")}: XDR</p>
+            <p>
+              {t("category")}: {product.category.localeName}
+            </p>
           </CardDescription>
           <div className="justify-self-end"></div>
         </CardHeader>
-        <CardContent>
-          <p className="line-clamp-3">TEXTE BDD</p>
+        <CardContent className="grow">
+          <div className="flex flex-col gap-2">
+            <p className="line-clamp-3 font-bold">
+              {product.details.descriptionTitle}
+            </p>
+            <p className="line-clamp-2">
+              {product.details.descriptionText}
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsa
+              assumenda sit ea repellat, vitae facere, numquam aperiam cumque
+              recusandae ratione quam repellendus est. Eius aut fugit ratione
+              maxime, enim vero hic nobis, modi exercitationem, recusandae ea
+              accusamus vitae reiciendis sit pariatur inventore reprehenderit.
+              Numquam, molestias nam ex aperiam sit sapiente!
+            </p>
+          </div>
         </CardContent>
         <CardFooter className="justify-end">
           <p className="text-secondary">{t("learnMore")}</p>
         </CardFooter>
-        {discount && (
-          <div className="w-[150px] h-[150px] overflow-hidden absolute -top-2.5 -right-2.5 before:absolute after:absolute before:-z-[1] after:-z-[1] before:block after:block before:border-[5px] after:border-[5px] before:border-accent after:border-accent before:border-t-transparent after:border-t-transparent before:border-r-transparent after:border-r-transparent before:left-0 before:top-0 after:right-0 after:bottom-0">
-            <span className="absolute block w-[225px] py-[15px] bg-accent shadow-lg text-accent-foreground uppercase text-center -left-[25px] top-[30px] rotate-45 font-bold leading-[18px] pl-3">
-              {t("products:promotion")}
-            </span>
-          </div>
-        )}
+        {!!product.discountPercentage && <PromotionTag />}
       </Card>
     </Link>
   );

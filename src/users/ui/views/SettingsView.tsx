@@ -111,32 +111,34 @@ const SettingsView = () => {
   ];
 
   return (
-    <BaseCard
-      title={<h1>{t("account:settings.title")}</h1>}
-      content={
-        <div className="flex flex-col gap-4">
-          {user ? (
-            <>
-              {forms.map((form, index) => (
-                <Fragment key={id + "-" + form.name}>
-                  <CollapsibleForm
-                    formName={t(form.name)}
-                    schema={form.schema}
-                    inputFields={form.fields}
-                    apiUrl={form.url}
-                    defaultValues={form.defaultValues}
-                    requestFn={form.requestFn}
-                  />
-                  {index + 1 < forms.length && <Separator />}
-                </Fragment>
-              ))}
-            </>
-          ) : (
-            <p>{t("loading")}</p>
-          )}
-        </div>
-      }
-    />
+    <div className="max-w-xl w-full mx-auto py-5 px-4">
+      <BaseCard
+        title={<h1>{t("account:settings.title")}</h1>}
+        content={
+          <div className="flex flex-col gap-4">
+            {user ? (
+              <>
+                {forms.map((form, index) => (
+                  <Fragment key={id + "-" + form.name}>
+                    <CollapsibleForm
+                      formName={t(form.name)}
+                      schema={form.schema}
+                      inputFields={form.fields}
+                      apiUrl={form.url}
+                      defaultValues={form.defaultValues}
+                      requestFn={form.requestFn}
+                    />
+                    {index + 1 < forms.length && <Separator />}
+                  </Fragment>
+                ))}
+              </>
+            ) : (
+              <p>{t("loading")}</p>
+            )}
+          </div>
+        }
+      />
+    </div>
   );
 };
 

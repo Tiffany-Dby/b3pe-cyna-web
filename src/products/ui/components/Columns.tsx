@@ -9,6 +9,8 @@ import { formatAmount } from "@/shared/utils/number";
 const Columns = (
   onDeleteProduct: (product: Product) => void,
   onUpdateProduct: (product: Product) => void,
+  onUpdateTranslation: (product: Product) => void,
+  onDeleteTranslation: (product: Product) => void,
   t: TFunction,
   i18n: i18n
 ): ColumnDef<Product>[] => {
@@ -191,12 +193,12 @@ const Columns = (
               {
                 key: "updateTranslation",
                 label: t("common:dataTable.actions.update"),
-                // onClick: () => onUpdate(product),
+                onClick: () => onUpdateTranslation(product),
               },
               {
                 key: "deleteTranslation",
                 label: t("common:dataTable.actions.delete"),
-                // onClick: () => onDelete(product),
+                onClick: () => onDeleteTranslation(product),
               },
             ]}
           />

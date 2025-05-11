@@ -98,5 +98,45 @@
       "actions": "Actions"
     },
     "filters": "Filter products..."
+  },
+  "updateProduct": {
+    "description": "Update the product's base informations",
+    "formBaseInfos": {
+      "title": "Informations"
+    },
+    "formImage": {
+      "title": "Images",
+      "subTitle": "Image #",
+      "seeCurrentImage": "See current image",
+      "label": "New image"
+    },
+    "submit": {
+      "loading": "Updating...",
+      "action": "Update"
+    }
+  },
+  "updateTranslation": {
+    "description": "Update the product's translation",
+    "submit": {
+      "loading": "Updating...",
+      "action": "Update"
+    },
+    "dialog": {
+      "description": "Choose the translation to update",
+      "message": "Product <0>« {{name}} »</0> translation's to update:"
+    }
+  },
+  "deleteProduct": {
+    "dialog": {
+      "description": "Delete a product and its translations",
+      "message": "Delete product <0>« {{name}} »</0> and all its associated translations ?"
+    }
+  },
+  "deleteTranslation": {
+    "dialog": {
+      "description": "Delete a product's translation",
+      "label": "Traduction du produit <0>« {{name}} »</0> à supprimer :",
+      "message": "Supprimer la version <0>« {{locale}} »</0> définitivement ?"
+    }
   }
 }

@@ -76,7 +76,7 @@ const BaseDialog = ({
               <Button
                 key={index}
                 {...button}
-                disabled={isLoading}
+                disabled={isLoading || button.disabled}
                 onClick={(event) => handleAction(button, event)}
               >
                 {isLoading ? t("dialog.actions.loading") : button.children}
