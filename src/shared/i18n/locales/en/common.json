@@ -72,6 +72,66 @@
       "validation": {
         "min": "Please provide a category name"
       }
+    },
+    "product": {
+      "label": "Name",
+      "placeholder": "Name",
+      "validation": {
+        "min": "Please provide a product name"
+      }
+    },
+    "price": {
+      "label": "Price",
+      "validation": {
+        "required": "The price is required",
+        "min": "The price must be greater than 0"
+      }
+    },
+    "discountPercentage": {
+      "label": "Discount (%)",
+      "validation": {
+        "required": "The percentage is required",
+        "int": "The percentage must be an integer",
+        "min": "The percentage must be atleast 0",
+        "max": "The percentage cannot be greater than 100"
+      }
+    },
+    "productImage": {
+      "label": "Carrousel (3 images)",
+      "validation": {
+        "min": "An image is required",
+        "maxFiles": "You can only select up to {{count}} images",
+        "maxSize": "{{size}}Mb maximum",
+        "mimeTypes": "Allowed extensions: {{extensions}}"
+      }
+    },
+    "title": {
+      "label": "Title",
+      "placeholder": "Title",
+      "validation": {
+        "min": "Please provide a title"
+      }
+    },
+    "description": {
+      "label": "Description",
+      "placeholder": "Description",
+      "validation": {
+        "min": "Please provide a description"
+      }
+    },
+    "criteria": {
+      "label": "Criteria",
+      "placeholder": "Criteria",
+      "validation": {
+        "min": "Please provide a criteria"
+      }
+    },
+    "functionality": {
+      "label": "Functionality",
+      "placeholder": "Functionality",
+      "validation": {
+        "min": "Please provide a functionality"
+      }
     }
   },
   "selects": {
@@ -82,18 +142,59 @@
       "yearly": "Yearly"
     },
     "category": {
-      "label": "Parent category",
+      "label": "Category",
       "placeholder": "Choose a category",
       "validation": {
         "min": "Please select an option"
       }
     },
     "locale": {
-      "label": "Associated language",
+      "label": "Language",
       "placeholder": "Choose a language",
       "validation": {
         "min": "Please select an option"
       }
+    },
+    "status": {
+      "label": "Status",
+      "placeholder": "Choose a status",
+      "validation": {
+        "min": "Please select an option"
+      }
+    },
+    "type": {
+      "label": "Type",
+      "placeholder": "Choose a type",
+      "options": {
+        "digital": "Digital",
+        "physical": "Physical"
+      },
+      "validation": {
+        "min": "Please select an option"
+      }
+    },
+    "discountOrder": {
+      "label": "Promotion carrousel",
+      "placeholder": "Choose the order",
+      "options": {
+        "noDiscount": "Not on sale",
+        "first": "1st",
+        "second": "2nd",
+        "third": "3rd"
+      },
+      "validation": {
+        "min": "Please select an option"
+      }
+    },
+    "product": {
+      "label": "Product",
+      "placeholder": "Choose a product",
+      "validation": {
+        "min": "Please select an option"
+      }
+    },
+    "translation": {
+      "placeholder": "Choose a translation"
     }
   },
   "dataTable": {
@@ -102,7 +203,7 @@
     "sort": {
       "asc": "Asc",
       "desc": "Desc",
-      "hide": "hide"
+      "hide": "Hide"
     },
     "pagination": {
       "selected_one": "{{currectSelected}} of {{totalSelected}} row selected",
@@ -117,19 +218,22 @@
   },
   "dialog": {
     "delete": {
-      "title": "Confirm"
+      "title": "Confirmation"
     },
     "update": {
       "title": "Update"
     },
     "actions": {
+      "confirm": "Confirm",
       "cancel": "Cancel",
       "update": "Update",
       "delete": "Delete",
       "loading": "Loading..."
     }
   },
+  "backToProducts": "Back to products",
   "light": "Light",
   "dark": "Dark",
-  "system": "System"
+  "system": "System",
+  "noFile": "No image selected"
 }

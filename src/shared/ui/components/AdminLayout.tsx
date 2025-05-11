@@ -27,7 +27,7 @@ const AdminLayout = () => {
   return (
     <SidebarProvider open={open} onOpenChange={setOpen}>
       <AdminSidebar />
-      <div className="flex flex-col w-full px-4">
+      <div className="flex flex-col w-full px-4 bg-primary/7 dark:bg-background">
         <header>
           <div className="flex items-center justify-between py-4">
             <div className="flex items-center gap-2">
@@ -41,7 +41,7 @@ const AdminLayout = () => {
             </div>
           </div>
         </header>
-        <main>
+        <main className="min-h-auto pt-4 pb-8">
           <Outlet />
         </main>
       </div>

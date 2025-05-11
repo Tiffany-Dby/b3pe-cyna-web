@@ -7,6 +7,7 @@ import {
   DropdownMenuTrigger,
 } from "@/lib/components/ui/dropdown-menu";
 import { MoreHorizontalIcon } from "lucide-react";
+import { Fragment } from "react";
 
 type ActionItem = {
   key: string;
@@ -22,7 +23,7 @@ type Props = {
 
 const DataTableActions = ({ items }: Props) => {
   return (
-    <DropdownMenu>
+    <DropdownMenu modal={false}>
       <DropdownMenuTrigger className="grid justify-self-end" asChild>
         <Button variant="ghost" className="h-8 w-8 p-0">
           <span className="sr-only">Open actions menu</span>
@@ -32,7 +33,14 @@ const DataTableActions = ({ items }: Props) => {
       <DropdownMenuContent className="grid" align="end">
         {items.map((item) =>
           item.separator ? (
-            <DropdownMenuSeparator key={item.key} />
+            <Fragment key={item.key}>
+              {item.label && (
+                <p className="px-2 py-0.5 text-muted-foreground">
+                  {item.label}
+                </p>
+              )}
+              <DropdownMenuSeparator />
+            </Fragment>
           ) : (
             <DropdownMenuItem
               key={item.key}

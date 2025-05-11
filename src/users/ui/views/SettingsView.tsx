@@ -7,7 +7,6 @@ import {
   PersonalInfoData,
   PersonInfosSchema,
 } from "@/users/schemas/PersonalInfosSchema";
-import { useAuth } from "@/users/context/AuthContext";
 import CollapsibleForm from "@/users/ui/components/CollapsibleForm";
 import { Separator } from "@/lib/components/ui/separator";
 import { Field } from "@/shared/types/Field";
@@ -15,6 +14,7 @@ import { API_ROUTES } from "@/shared/constants/routes";
 import { useTranslation } from "react-i18next";
 import { Fragment, useId } from "react";
 import { putRequest } from "@/shared/tools/api";
+import { useAuth } from "@/users/context/AuthContext";
 import { RequestFn } from "@/shared/types/Api";
 
 type PasswordField = Field & {
@@ -37,7 +37,7 @@ type Form = {
 const SettingsView = () => {
   const id = useId();
   const { t } = useTranslation();
-  const { user, token } = useAuth();
+  const { user } = useAuth();
 
   const forms: Form[] = [
     {
@@ -111,33 +111,34 @@ const SettingsView = () => {
   ];
 
   return (
-    <BaseCard
-      title={<h1>{t("account:settings.title")}</h1>}
-      content={
-        <div className="flex flex-col gap-4">
-          {user ? (
-            <>
-              {forms.map((form, index) => (
-                <Fragment key={id + "-" + form.name}>
-                  <CollapsibleForm
-                    formName={t(form.name)}
-                    schema={form.schema}
-                    inputFields={form.fields}
-                    apiUrl={form.url}
-                    defaultValues={form.defaultValues}
-                    requestFn={form.requestFn}
-                    token={token}
-                  />
-                  {index + 1 < forms.length && <Separator />}
-                </Fragment>
-              ))}
-            </>
-          ) : (
-            <p>{t("loading")}</p>
-          )}
-        </div>
-      }
-    />
+    <div className="max-w-xl w-full mx-auto py-5 px-4">
+      <BaseCard
+        title={<h1>{t("account:settings.title")}</h1>}
+        content={
+          <div className="flex flex-col gap-4">
+            {user ? (
+              <>
+                {forms.map((form, index) => (
+                  <Fragment key={id + "-" + form.name}>
+                    <CollapsibleForm
+                      formName={t(form.name)}
+                      schema={form.schema}
+                      inputFields={form.fields}
+                      apiUrl={form.url}
+                      defaultValues={form.defaultValues}
+                      requestFn={form.requestFn}
+                    />
+                    {index + 1 < forms.length && <Separator />}
+                  </Fragment>
+                ))}
+              </>
+            ) : (
+              <p>{t("loading")}</p>
+            )}
+          </div>
+        }
+      />
+    </div>
   );
 };
 

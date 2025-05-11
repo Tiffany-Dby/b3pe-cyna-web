@@ -7,6 +7,7 @@ import { LocaleCategory } from "@/categories/types/Categories";
 import DeleteCategoryLocaleDialog from "@/categories/ui/components/DeleteCategoryLocaleDialog";
 import UpdateCategoryLocaleDialog from "@/categories/ui/components/UpdateCategoryLocaleDialog";
 import { useDialog } from "@/shared/hooks/useDialog";
+import { useMemo } from "react";
 
 const CategoriesList = () => {
   const { t } = useTranslation();
@@ -15,9 +16,14 @@ const CategoriesList = () => {
   const { dialog, open, close } = useDialog<LocaleCategory>();
 
   const categories = flatCategories();
-  const columns = Columns(
-    (item) => open("delete", item),
-    (item) => open("update", item)
+  const columns = useMemo(
+    () =>
+      Columns(
+        (item) => open("delete", item),
+        (item) => open("update", item),
+        t
+      ),
+    [t]
   );
 
   return (

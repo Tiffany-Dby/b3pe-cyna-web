@@ -37,7 +37,6 @@ type CollapsibleFormProps<T extends FieldValues> = {
   apiUrl: string;
   defaultValues: DefaultValues<T>;
   requestFn: RequestFn;
-  token?: string;
 };
 
 const CollapsibleForm = <T extends FieldValues>({
@@ -47,7 +46,6 @@ const CollapsibleForm = <T extends FieldValues>({
   apiUrl,
   defaultValues,
   requestFn,
-  token,
 }: CollapsibleFormProps<T>) => {
   const { t } = useTranslation("account");
   const [isOpen, setIsOpen] = useState(false);
@@ -57,7 +55,6 @@ const CollapsibleForm = <T extends FieldValues>({
     apiUrl,
     defaultValues,
     requestFn,
-    token,
   });
 
   return (

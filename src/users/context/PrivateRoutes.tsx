@@ -1,23 +1,27 @@
 import { APP_ROUTES } from "@/shared/constants/routes";
 import React from "react";
 import { Navigate, Outlet } from "react-router";
+import { UserRole } from "@/users/types/UserRole";
+import { useAuth } from "@/users/context/AuthContext";
 
 type PrivateRoutesProps = {
-  hasAccess: boolean;
+  roles?: UserRole[];
   redirectPath?: string;
   children?: React.ReactNode;
 };
 
 const PrivateRoutes = ({
-  hasAccess,
+  roles,
   redirectPath = APP_ROUTES.SIGN_IN,
   children,
 }: PrivateRoutesProps) => {
-  if (!hasAccess) {
-    return <Navigate to={redirectPath} replace />;
-  }
+  const { user } = useAuth();
+  const hasAccess =
+    user !== null && (roles?.length ? roles.includes(user.role) : !!user);
 
-  return children ? children : <Outlet />;
+  if (!hasAccess) return <Navigate to={redirectPath} replace />;
+
+  return children ?? <Outlet />;
 };
 
 export default PrivateRoutes;

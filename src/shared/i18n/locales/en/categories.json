@@ -3,16 +3,16 @@
     "title": "New category",
     "description": "Create a parent category, its English translation will be generated automatically",
     "submit": {
-      "loading": "Adding…",
-      "action": "Add"
+      "loading": "Creating...",
+      "action": "Create"
     }
   },
   "newLocale": {
     "title": "New translation",
     "description": "Add a translation for an existing category",
     "submit": {
-      "loading": "Adding…",
-      "action": "Add"
+      "loading": "Creating...",
+      "action": "Create"
     }
   },
   "categoryList": {

@@ -40,7 +40,7 @@ type CategoriesState = {
   categories: Category[];
   isLoading: boolean;
   error: string | null;
-  getCategories: (token?: string) => Promise<void>;
+  getCategories: () => Promise<void>;
   flatCategories: () => LocaleCategory[];
   addCategory: (category: Category) => void;
   addLocale: (newLocale: NewLocale) => void;
@@ -48,11 +48,8 @@ type CategoriesState = {
     updatedLocale: UpdatedLocale,
     globalId: Category["id"]
   ) => void;
-  deleteCategory: (token?: string) => Promise<void>;
-  deleteCategoryLocale: (
-    category: LocaleCategory,
-    token?: string
-  ) => Promise<void>;
+  deleteCategory: () => Promise<void>;
+  deleteCategoryLocale: (category: LocaleCategory) => Promise<void>;
 };
 
 export type {

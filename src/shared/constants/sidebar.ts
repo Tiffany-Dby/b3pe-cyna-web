@@ -23,11 +23,11 @@ const SIDEBAR_ITEMS: SidebarItem[] = [
           },
           {
             title: "dashboard.analytics.subItems.userActivity",
-            url: APP_ROUTES.ADMIN_PRODUCT,
+            url: APP_ROUTES.ADMIN_DASHBOARD,
           },
           {
             title: "dashboard.analytics.subItems.inventories",
-            url: APP_ROUTES.ADMIN_PRODUCT,
+            url: APP_ROUTES.ADMIN_DASHBOARD,
           },
         ],
       },
@@ -37,11 +37,11 @@ const SIDEBAR_ITEMS: SidebarItem[] = [
         subItems: [
           {
             title: "dashboard.support.subItems.tickets",
-            url: APP_ROUTES.ADMIN_PRODUCT,
+            url: APP_ROUTES.ADMIN_DASHBOARD,
           },
           {
             title: "dashboard.support.subItems.chatbot",
-            url: APP_ROUTES.ADMIN_PRODUCT,
+            url: APP_ROUTES.ADMIN_DASHBOARD,
           },
         ],
       },
@@ -51,15 +51,15 @@ const SIDEBAR_ITEMS: SidebarItem[] = [
         subItems: [
           {
             title: "dashboard.settings.subItems.general",
-            url: APP_ROUTES.ADMIN_PRODUCT,
+            url: APP_ROUTES.ADMIN_DASHBOARD,
           },
           {
             title: "dashboard.settings.subItems.payments",
-            url: APP_ROUTES.ADMIN_PRODUCT,
+            url: APP_ROUTES.ADMIN_DASHBOARD,
           },
           {
             title: "dashboard.settings.subItems.localization",
-            url: APP_ROUTES.ADMIN_PRODUCT,
+            url: APP_ROUTES.ADMIN_DASHBOARD,
           },
         ],
       },
@@ -74,7 +74,7 @@ const SIDEBAR_ITEMS: SidebarItem[] = [
         subItems: [
           {
             title: "management.contents.subItems.promotionsCarousel",
-            url: APP_ROUTES.ADMIN_PRODUCT,
+            url: APP_ROUTES.ADMIN_DASHBOARD,
           },
         ],
       },
@@ -83,12 +83,8 @@ const SIDEBAR_ITEMS: SidebarItem[] = [
         icon: BoxIcon,
         subItems: [
           {
-            title: "management.products.subItems.allProducts",
-            url: APP_ROUTES.ADMIN_PRODUCT,
-          },
-          {
-            title: "management.products.subItems.addNewProduct",
-            url: APP_ROUTES.ADMIN_PRODUCT,
+            title: "management.products.subItems.productsAndTranslations",
+            url: APP_ROUTES.ADMIN_PRODUCTS,
           },
           {
             title: "management.products.subItems.categories",
@@ -102,11 +98,11 @@ const SIDEBAR_ITEMS: SidebarItem[] = [
         subItems: [
           {
             title: "management.users.subItems.allClients",
-            url: APP_ROUTES.ADMIN_PRODUCT,
+            url: APP_ROUTES.ADMIN_DASHBOARD,
           },
           {
             title: "management.users.subItems.allAdmins",
-            url: APP_ROUTES.ADMIN_PRODUCT,
+            url: APP_ROUTES.ADMIN_DASHBOARD,
           },
         ],
       },

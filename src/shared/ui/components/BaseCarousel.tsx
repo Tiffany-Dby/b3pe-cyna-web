@@ -47,7 +47,7 @@ const BaseCarousel = <T,>({
   return (
     <div className="mx-auto px-8">
       <Carousel
-        className="w-full max-w-md"
+        className="w-full"
         setApi={setApi}
         opts={{ loop: true }}
         plugins={plugin.current}

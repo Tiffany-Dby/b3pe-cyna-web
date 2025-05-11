@@ -1,69 +1,53 @@
-import {
-  createContext,
-  ReactNode,
-  useContext,
-  useEffect,
-  useState,
-} from "react";
-import {
-  clearStorage,
-  getFromStorage,
-  setToStorage,
-} from "@/shared/utils/localStorage";
-import { SignInResponse, UserResponse } from "@/users/types/SignIn";
+import { createContext, useContext, useEffect, useState } from "react";
+import { UserResponse } from "@/users/types/SignIn";
 import useFetch from "@/shared/hooks/useFetch";
 import { API_ROUTES } from "@/shared/constants/routes";
+import {
+  clearAccessToken,
+  getAccessToken,
+  setAccessToken,
+  signOut,
+} from "@/shared/tools/auth";
+
+type SignInResponse = {
+  access: string;
+  user: UserResponse;
+};
 
 type AuthContextType = {
-  token?: SignInResponse["access"];
-  user: User;
-  onSignIn: (userData: SignInResponse) => void;
+  user: UserResponse | null;
+  onSignIn: (response: SignInResponse) => void;
   onSignOut: () => void;
   isAuthenticated: boolean;
 };
 
-type User = UserResponse | null;
-
 const AuthContext = createContext<AuthContextType | null>(null);
 
-const AuthProvider = ({ children }: { children: ReactNode }) => {
-  const [token, setToken] = useState<AuthContextType["token"]>(
-    () => getFromStorage<AuthContextType["token"]>("token") ?? undefined
-  );
+const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const [user, setUser] = useState<UserResponse | null>(null);
 
-  const { data, error, isLoading } = useFetch<UserResponse>(
-    API_ROUTES.ME,
-    token
-  );
+  const { data, isLoading } = useFetch<UserResponse>(API_ROUTES.ME);
 
   useEffect(() => {
     if (data) setUser(data);
   }, [data]);
 
-  useEffect(() => {
-    if (error) onSignOut();
-  }, [error]);
-
-  const onSignIn = (userData: SignInResponse) => {
-    setToken(userData.access);
-    setUser(userData.user);
-
-    setToStorage("token", userData.access);
+  const onSignIn = (response: SignInResponse) => {
+    setAccessToken(response.access);
+    setUser(response.user);
   };
 
   const onSignOut = () => {
-    setToken(undefined);
+    clearAccessToken();
     setUser(null);
-    clearStorage();
+    signOut();
   };
 
-  const isAuthenticated = !!token;
-  // const isAuthenticated = true;
+  const isAuthenticated = !!getAccessToken();
 
   return (
     <AuthContext.Provider
-      value={{ token, user, onSignIn, onSignOut, isAuthenticated }}
+      value={{ user, onSignIn, onSignOut, isAuthenticated }}
     >
       {!isLoading && children}
     </AuthContext.Provider>
@@ -71,10 +55,10 @@ const AuthProvider = ({ children }: { children: ReactNode }) => {
 };
 
 const useAuth = () => {
-  const context = useContext(AuthContext);
-  if (!context) throw new Error("useAuth must be used within an AuthProvider");
+  const ctx = useContext(AuthContext);
+  if (!ctx) throw new Error("useAuth must be used within an AuthProvider");
 
-  return context;
+  return ctx;
 };
 
 export { AuthProvider, useAuth };

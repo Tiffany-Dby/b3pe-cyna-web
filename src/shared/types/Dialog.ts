@@ -1,3 +1,3 @@
-type DialogType = "delete" | "update" | null;
+type DialogType = "delete" | "delete-sub" | "update" | null;
 
 export type { DialogType };

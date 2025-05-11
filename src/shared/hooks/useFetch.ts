@@ -7,7 +7,7 @@ type FetchState<T> = {
   isLoading: boolean;
 };
 
-const useFetch = <T>(url: string, token?: string) => {
+const useFetch = <T>(url: string, withAuth?: boolean) => {
   const [state, setState] = useState<FetchState<T>>({
     data: null,
     error: null,
@@ -15,7 +15,7 @@ const useFetch = <T>(url: string, token?: string) => {
   });
 
   const handleGetRequest = async () => {
-    const { result, error } = await getRequest<T>(url, token);
+    const { result, error } = await getRequest<T>(url, withAuth);
     setState({ data: result, error, isLoading: false });
   };
 

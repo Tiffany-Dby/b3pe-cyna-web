@@ -3,14 +3,13 @@ import { ColumnDef } from "@tanstack/react-table";
 import DataTableColumnHeader from "@/shared/ui/components/DataTableColumnHeader";
 import DataTableActions from "@/shared/ui/components/DataTableActions";
 import { LocaleCategory } from "@/categories/types/Categories";
-import { useTranslation } from "react-i18next";
+import { TFunction } from "i18next";
 
 const Columns = (
   onDelete: (category: LocaleCategory) => void,
-  onUpdate: (category: LocaleCategory) => void
+  onUpdate: (category: LocaleCategory) => void,
+  t: TFunction
 ): ColumnDef<LocaleCategory>[] => {
-  const { t } = useTranslation();
-
   return [
     {
       id: "select",

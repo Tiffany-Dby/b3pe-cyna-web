@@ -1,23 +1,18 @@
 import { create } from "zustand";
-import {
-  Category,
-  CategoriesState,
-  NewLocale,
-} from "@/categories/types/Categories";
-import { deleteRequest, getRequest } from "@/shared/tools/api";
+import { Category, CategoriesState } from "@/categories/types/Categories";
 import { API_ROUTES } from "@/shared/constants/routes";
+import { deleteRequest, getRequest } from "@/shared/tools/api";
 
 const useCategoriesStore = create<CategoriesState>((set, get) => ({
   categories: [],
   isLoading: false,
   error: null,
 
-  getCategories: async (token) => {
+  getCategories: async () => {
     set({ isLoading: true });
 
     const { result, error } = await getRequest<Category[]>(
-      API_ROUTES.CATEGORY_GET_ALL,
-      token
+      API_ROUTES.CATEGORY_GET_ALL
     );
 
     set({
@@ -41,7 +36,7 @@ const useCategoriesStore = create<CategoriesState>((set, get) => ({
   addCategory: (category) =>
     set((state) => ({ categories: [...state.categories, category] })),
 
-  addLocale: (newLocale: NewLocale) =>
+  addLocale: (newLocale) =>
     set((state) => ({
       categories: state.categories.map((category) =>
         category.id === newLocale.id
@@ -75,23 +70,21 @@ const useCategoriesStore = create<CategoriesState>((set, get) => ({
     }));
   },
 
-  deleteCategory: async (token) => {
+  deleteCategory: async () => {
     set({ isLoading: true });
 
     const { result, error } = await deleteRequest<[]>(
-      API_ROUTES.CATEGORY_DELETE,
-      token
+      API_ROUTES.CATEGORY_DELETE
     );
 
     set({ isLoading: false, error, categories: result ?? [] });
   },
 
-  deleteCategoryLocale: async (category, token) => {
+  deleteCategoryLocale: async (category) => {
     set({ isLoading: true });
 
     const { error } = await deleteRequest<[]>(
-      `${API_ROUTES.CATEGORY_DELETE_LOCALE}/${category.id}`,
-      token
+      `${API_ROUTES.CATEGORY_DELETE_LOCALE}/${category.id}`
     );
 
     set((state) => ({

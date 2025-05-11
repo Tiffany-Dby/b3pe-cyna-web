@@ -3,7 +3,6 @@ import { APP_ROUTES } from "@/shared/constants/routes";
 import { MenuItem } from "@/shared/types/NavigationMenu";
 import NavigationInline from "@/shared/ui/components/NavigationInline";
 import NavigationSheet from "@/shared/ui/components/NavigationSheet";
-import { useAuth } from "@/users/context/AuthContext";
 import {
   BoxIcon,
   CircleUserRoundIcon,
@@ -13,6 +12,7 @@ import {
 import LanguageToggle from "@/shared/ui/components/LanguageToggle";
 import { useTranslation } from "react-i18next";
 import { UserRole } from "@/users/types/UserRole";
+import { useAuth } from "@/users/context/AuthContext";
 
 const NavigationMenu = () => {
   const { isAuthenticated, onSignOut, user } = useAuth();

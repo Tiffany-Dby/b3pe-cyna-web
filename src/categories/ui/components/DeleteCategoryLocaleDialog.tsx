@@ -1,7 +1,6 @@
 import { useCategoriesStore } from "@/categories/store/categoriesStore";
 import { LocaleCategory } from "@/categories/types/Categories";
 import BaseDialog from "@/shared/ui/components/BaseDialog";
-import { useAuth } from "@/users/context/AuthContext";
 import { Trans, useTranslation } from "react-i18next";
 
 type Props = {
@@ -16,7 +15,6 @@ const DeleteCategoryLocaleDialog = ({
   onOpenChange,
 }: Props) => {
   const { t } = useTranslation();
-  const { token } = useAuth();
   const { deleteCategoryLocale } = useCategoriesStore();
 
   return (
@@ -29,7 +27,7 @@ const DeleteCategoryLocaleDialog = ({
       buttons={[
         {
           children: t("dialog.actions.delete"),
-          onClick: () => deleteCategoryLocale(selected, token),
+          onClick: () => deleteCategoryLocale(selected),
         },
       ]}
     >

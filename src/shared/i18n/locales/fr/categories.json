@@ -3,16 +3,16 @@
     "title": "Nouvelle catégorie",
     "description": "Créez une catégorie parente, la traduction anglaise sera générée automatiquement",
     "submit": {
-      "loading": "Ajout en cours...",
-      "action": "Ajouter"
+      "loading": "Création en cours...",
+      "action": "Créer"
     }
   },
   "newLocale": {
     "title": "Nouvelle traduction",
     "description": "Ajoutez une traduction pour une catégorie existante",
     "submit": {
-      "loading": "Ajout en cours...",
-      "action": "Ajouter"
+      "loading": "Création en cours...",
+      "action": "Créer"
     }
   },
   "categoryList": {
