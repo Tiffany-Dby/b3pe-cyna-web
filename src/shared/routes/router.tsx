@@ -16,6 +16,7 @@ import AdminUpdateProductView from "@/products/ui/views/AdminUpdateProductView";
 import AdminCategoriesView from "@/categories/ui/views/AdminCategoriesView";
 import AdminUpdateProductTranslationView from "@/products/ui/views/AdminUpdateProductTranslationView";
 import CartView from "@/purchase/ui/views/CartView";
+import ProductsView from "@/products/ui/views/ProductsView";
 
 const router = createBrowserRouter([
   {
@@ -48,7 +49,7 @@ const router = createBrowserRouter([
       },
       {
         path: APP_ROUTES.PRODUCTS,
-        Component: ProductView,
+        Component: ProductsView,
       },
       {
         path: APP_ROUTES.PRODUCT,

@@ -28,80 +28,80 @@ const HomeView = () => {
 
   return (
     <>
-      {isLoading && <p>Loading...</p>}
-      {error && <p>error</p>}
-      {!error && productsLocale && (
-        <>
-          <section className="flex flex-col justify-center min-h-[calc(100dvh-54px)] bg-linear-90 from-primary-150 to-primary text-primary-foreground">
-            <div className="container mx-auto py-3 px-4 h-full">
-              <div className="flex-between-center flex-col gap-8 md:flex-row">
-                <div className="flex flex-col gap-6 md:w-1/2">
-                  <Trans i18nKey={"home:banner.title"}>
-                    <h1 className="leading-11">
-                      <span className="bg-white px-1">
-                        <span className="bg-linear-90 from-primary-150 to-primary bg-clip-text text-transparent font-black" />
-                      </span>
-                      <span className="underline"></span>
-                    </h1>
-                  </Trans>
-                  <Trans i18nKey={"home:banner.description"}>
-                    <p className="text-size-xl">
-                      <strong className="text-secondary-75" />
-                    </p>
-                  </Trans>
-                  <div className="flex justify-end">
-                    <div>
-                      <Link
-                        to={APP_ROUTES.PRODUCTS}
-                        className="block bg-info py-2 px-4 rounded-sm hover:bg-accent transition-colors duration-500"
-                      >
-                        {t("banner.cta")}
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-                <div className="md:w-1/2">
-                  <img
-                    src={imgBanner}
-                    alt={t("banner.imgAlt")}
-                    className="w-full max-w-full h-full max-h-full object-cover drop-shadow-2xl shadow-primary-150"
-                  />
+      <section className="flex flex-col justify-center min-h-[calc(100dvh-54px)] bg-linear-90 from-primary-150 to-primary text-primary-foreground">
+        <div className="container mx-auto py-3 px-4 h-full">
+          <div className="flex-between-center flex-col gap-8 md:flex-row">
+            <div className="flex flex-col gap-6 md:w-1/2">
+              <Trans i18nKey={"home:banner.title"}>
+                <h1 className="leading-11">
+                  <span className="bg-white px-1">
+                    <span className="bg-linear-90 from-primary-150 to-primary bg-clip-text text-transparent font-black" />
+                  </span>
+                  <span className="underline"></span>
+                </h1>
+              </Trans>
+              <Trans i18nKey={"home:banner.description"}>
+                <p className="text-size-xl">
+                  <strong className="text-secondary-75" />
+                </p>
+              </Trans>
+              <div className="flex justify-end">
+                <div>
+                  <Link
+                    to={APP_ROUTES.PRODUCTS}
+                    className="block bg-info py-2 px-4 rounded-sm hover:bg-accent transition-colors duration-500"
+                  >
+                    {t("banner.cta")}
+                  </Link>
                 </div>
               </div>
             </div>
-          </section>
-          {promos && (
-            <section>
-              <div className="container mx-auto flex flex-col gap-5 py-10 px-4">
-                <h2>{t("currentPromotions.title")}</h2>
-                <div className="flex-center-center max-w-2xl mx-auto">
-                  <BaseCarousel
-                    slides={promos}
-                    renderSlide={(product) => (
-                      <Link
-                        to={`${APP_ROUTES.PRODUCTS}/${product.id}`}
-                        className="grid rounded-md transition-shadow duration-500 hover:ring-primary hover:ring-2"
-                      >
-                        <img
-                          src={product.slides[0]}
-                          alt={product.name}
-                          className="rounded-md area-1/1"
-                        />
-                        <p className="flex-center-center gap-2 font-semibold area-1/1 place-self-end pb-5 pr-5 underline">
-                          <ArrowRightIcon className="w-4 h-4" />
-                          {t("common:learnMore")} : {product.name}{" "}
-                        </p>
-                      </Link>
-                    )}
-                  />
-                </div>
-                <p>TEXTE BDD</p>
-              </div>
-            </section>
-          )}
-          <Separator className="max-w-3/6 m-auto my-4 bg-muted" />
-          <section>
-            <div className="container mx-auto flex flex-col gap-5 py-10 px-4">
+            <div className="md:w-1/2">
+              <img
+                src={imgBanner}
+                alt={t("banner.imgAlt")}
+                className="w-full max-w-full h-full max-h-full object-cover drop-shadow-2xl shadow-primary-150"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+      {promos && (
+        <section>
+          <div className="container mx-auto flex flex-col gap-5 py-10 px-4">
+            <h2>{t("currentPromotions.title")}</h2>
+            <div className="flex-center-center max-w-2xl mx-auto">
+              <BaseCarousel
+                slides={promos}
+                renderSlide={(product) => (
+                  <Link
+                    to={`${APP_ROUTES.PRODUCTS}/${product.id}`}
+                    className="grid rounded-md transition-shadow duration-500 hover:ring-primary hover:ring-2"
+                  >
+                    <img
+                      src={product.slides[0]}
+                      alt={product.name}
+                      className="rounded-md area-1/1"
+                    />
+                    <p className="flex-center-center gap-2 font-semibold area-1/1 place-self-end pb-5 pr-5 underline">
+                      <ArrowRightIcon className="w-4 h-4" />
+                      {t("common:learnMore")} : {product.name}{" "}
+                    </p>
+                  </Link>
+                )}
+              />
+            </div>
+            <p>TEXTE BDD</p>
+          </div>
+        </section>
+      )}
+      <Separator className="max-w-3/6 m-auto my-4 bg-muted" />
+      <section>
+        <div className="container mx-auto flex flex-col gap-5 py-10 px-4">
+          {isLoading && <p>Loading...</p>}
+          {error && <p>error</p>}
+          {!error && productsLocale && (
+            <>
               <h2>{t("topProduct.title")}</h2>
               <div className="flex flex-col justify-center gap-5 sm:flex-row sm:flex-wrap">
                 {productsLocale.map((product) => (
@@ -113,10 +113,10 @@ const HomeView = () => {
                   </article>
                 ))}
               </div>
-            </div>
-          </section>
-        </>
-      )}
+            </>
+          )}
+        </div>
+      </section>
     </>
   );
 };
