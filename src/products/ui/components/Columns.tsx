@@ -82,16 +82,16 @@ const Columns = (
       cell: ({ row }) => <p>{row.original.category.globalName}</p>,
     },
     {
-      accessorKey: "price",
-      meta: { title: "products:productList.columns.price" },
+      accessorKey: "basePrice",
+      meta: { title: "products:productList.columns.basePrice" },
       header: ({ column }) => (
         <DataTableColumnHeader
           column={column}
-          title="products:productList.columns.price"
+          title="products:productList.columns.basePrice"
         />
       ),
       cell: ({ row }) =>
-        formatAmount(row.original.price / 100, {
+        formatAmount(row.original.basePrice / 100, {
           locale: i18n.resolvedLanguage,
           currency: "EUR",
         }),
@@ -194,11 +194,13 @@ const Columns = (
                 key: "updateTranslation",
                 label: t("common:dataTable.actions.update"),
                 onClick: () => onUpdateTranslation(product),
+                disabled: !product.details.length,
               },
               {
                 key: "deleteTranslation",
                 label: t("common:dataTable.actions.delete"),
                 onClick: () => onDeleteTranslation(product),
+                disabled: !product.details.length,
               },
             ]}
           />

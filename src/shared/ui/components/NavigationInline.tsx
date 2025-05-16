@@ -10,9 +10,12 @@ import { NavLink } from "react-router";
 import { Fragment, useId } from "react";
 import { Button } from "@/lib/components/ui/button";
 import { MenuItem } from "@/shared/types/NavigationMenu";
+import { APP_ROUTES } from "@/shared/constants/routes";
+import { usePurchaseStore } from "@/purchase/store/purchaseStore";
 
 const NavigationInline = ({ items }: { items: MenuItem[] }) => {
   const id = useId();
+  const { cart } = usePurchaseStore();
 
   return (
     <NavigationMenu className="hidden md:block">
@@ -20,13 +23,18 @@ const NavigationInline = ({ items }: { items: MenuItem[] }) => {
         {items.map((item) => (
           <Fragment key={id + "-" + item.title}>
             {!item.subitems ? (
-              <NavigationMenuItem>
+              <NavigationMenuItem className=" [&_span]:text-white">
                 <NavLink
                   to={item.url!}
                   className={`${navigationMenuTriggerStyle()} gap-1`}
                 >
                   <item.icon className="size-3.5" />
                   {item.title}
+                  {item.url === APP_ROUTES.CART && !!cart?.items.length && (
+                    <span className="absolute flex-center-center w-4.5 h-4.5 bg-danger rounded-full text-size-label -right-0.5 -top-0.5">
+                      {cart.items.length}
+                    </span>
+                  )}
                 </NavLink>
               </NavigationMenuItem>
             ) : (

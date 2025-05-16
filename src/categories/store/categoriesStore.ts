@@ -2,6 +2,8 @@ import { create } from "zustand";
 import { Category, CategoriesState } from "@/categories/types/Categories";
 import { API_ROUTES } from "@/shared/constants/routes";
 import { deleteRequest, getRequest } from "@/shared/tools/api";
+import { toast } from "sonner";
+import { TOAST } from "@/shared/constants/toast";
 
 const useCategoriesStore = create<CategoriesState>((set, get) => ({
   categories: [],
@@ -18,7 +20,7 @@ const useCategoriesStore = create<CategoriesState>((set, get) => ({
     set({
       isLoading: false,
       error,
-      categories: result?.map((category) => ({ ...category })) ?? [],
+      categories: error ? [] : result,
     });
   },
 
@@ -70,27 +72,42 @@ const useCategoriesStore = create<CategoriesState>((set, get) => ({
     }));
   },
 
-  deleteCategory: async () => {
+  deleteCategory: async (toasMsgs) => {
+    const { success, loading, error } = toasMsgs;
+
     set({ isLoading: true });
 
-    const { result, error } = await deleteRequest<[]>(
+    const toastId = toast.loading(loading);
+    const { result, error: reqError } = await deleteRequest<[]>(
       API_ROUTES.CATEGORY_DELETE
     );
 
-    set({ isLoading: false, error, categories: result ?? [] });
+    set({ isLoading: false });
+
+    if (reqError) toast.error(error, { id: toastId });
+    else toast.success(success, { id: toastId });
+
+    set({ error: reqError, categories: result ?? [] });
   },
 
-  deleteCategoryLocale: async (category) => {
+  deleteCategoryLocale: async (category, toasMsgs = TOAST.DEFAULT_MSGS) => {
+    const { success, loading, error } = toasMsgs;
+
     set({ isLoading: true });
 
-    const { error } = await deleteRequest<[]>(
+    const toastId = toast.loading(loading);
+    const { error: reqError } = await deleteRequest<[]>(
       `${API_ROUTES.CATEGORY_DELETE_LOCALE}/${category.id}`
     );
 
+    set({ isLoading: false });
+
+    if (reqError) toast.error(error, { id: toastId });
+    else toast.success(success, { id: toastId });
+
     set((state) => ({
-      isLoading: false,
-      error,
-      categories: error
+      error: reqError,
+      categories: reqError
         ? state.categories
         : state.categories.map((cat) =>
             cat.id === category.globalId

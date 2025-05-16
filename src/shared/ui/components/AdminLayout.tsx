@@ -8,6 +8,7 @@ import LanguageToggle from "@/shared/ui/components/LanguageToggle";
 import { SIDEBAR_ITEMS } from "@/shared/constants/sidebar";
 import { APP_ROUTES } from "@/shared/constants/routes";
 import { useTranslation } from "react-i18next";
+import { Toaster } from "sonner";
 
 const AdminLayout = () => {
   const location = useLocation();
@@ -43,6 +44,7 @@ const AdminLayout = () => {
         </header>
         <main className="min-h-auto pt-4 pb-8">
           <Outlet />
+          <Toaster richColors position="top-center" closeButton />
         </main>
       </div>
     </SidebarProvider>

@@ -27,7 +27,12 @@ const DeleteCategoryLocaleDialog = ({
       buttons={[
         {
           children: t("dialog.actions.delete"),
-          onClick: () => deleteCategoryLocale(selected),
+          onClick: () =>
+            deleteCategoryLocale(selected, {
+              loading: t("categories:toast.deleteLocale.loading"),
+              success: t("categories:toast.deleteLocale.success"),
+              error: t("categories:toast.error"),
+            }),
         },
       ]}
     >

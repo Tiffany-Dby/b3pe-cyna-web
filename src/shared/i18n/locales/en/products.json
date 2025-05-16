@@ -93,6 +93,7 @@
       "languages": "Languages",
       "category": "Category",
       "price": "Price",
+      "basePrice": "Base price",
       "order": "Order",
       "discountPercentage": "Discount",
       "actions": "Actions"
@@ -123,20 +124,53 @@
     },
     "dialog": {
       "description": "Choose the translation to update",
-      "message": "Product <0>« {{name}} »</0> translation's to update:"
+      "message": "Product <0>« {{name}} »</0> translation to update:"
     }
   },
   "deleteProduct": {
     "dialog": {
-      "description": "Delete a product and its translations",
-      "message": "Delete product <0>« {{name}} »</0> and all its associated translations ?"
+      "description": "Delete a product",
+      "descriptionWithTranslations": "Delete a product and its translations",
+      "message": "Permanently delete <0>« {{name}} »</0>?",
+      "messageWithTranslations": "Permanently delete <0>« {{name}} »</0> and all its associated translations?"
     }
   },
   "deleteTranslation": {
     "dialog": {
-      "description": "Delete a product's translation",
-      "label": "Traduction du produit <0>« {{name}} »</0> à supprimer :",
-      "message": "Supprimer la version <0>« {{locale}} »</0> définitivement ?"
+      "description": "Delete a product translation",
+      "label": "Product <0>« {{name}} »</0> translation to delete:",
+      "message": "Permanently delete the <0>« {{locale}} »</0> version?"
     }
+  },
+  "toast": {
+    "new": {
+      "success": "Product created !",
+      "loading": "Creating..."
+    },
+    "newTranslation": {
+      "success": "Translation created !",
+      "loading": "Creating..."
+    },
+    "update": {
+      "success": "Product updated !",
+      "loading": "Updating..."
+    },
+    "updateImage": {
+      "success": "Image updated !",
+      "loading": "Updating..."
+    },
+    "updateTranslation": {
+      "success": "Translation updated !",
+      "loading": "Updating..."
+    },
+    "delete": {
+      "success": "Product deleted !",
+      "loading": "Deleting..."
+    },
+    "deleteTranslation": {
+      "success": "Product's translation deleted !",
+      "loading": "Deleting..."
+    },
+    "error": "An error occured"
   }
 }

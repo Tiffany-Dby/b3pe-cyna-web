@@ -5,5 +5,6 @@
   "shipping": "Livraison",
   "discount": "Promotion",
   "proceedPayments": "Procéder au paiement",
-  "securedPayments": "Paiement sécurisé"
+  "securedPayments": "Paiement sécurisé",
+  "empty": "Le panier est vide"
 }

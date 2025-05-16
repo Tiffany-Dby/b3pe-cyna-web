@@ -69,6 +69,11 @@ const UpdateCategoryLocaleDialog = ({
       updateCategoryLocale(updated, selected.globalId);
       onOpenChange(false);
     },
+    toastMsgs: {
+      loading: t("categories:toast.updateLocale.loading"),
+      success: t("categories:toast.updateLocale.success"),
+      error: t("categories:toast.error"),
+    },
   });
 
   const fields: UpdateLocaleCategoryField[] = [

@@ -34,5 +34,32 @@
         "description": "Update a category's translation"
       }
     }
+  },
+  "toast": {
+    "new": {
+      "success": "Category created !",
+      "loading": "Creating..."
+    },
+    "newLocale": {
+      "success": "Translation created !",
+      "loading": "Creating..."
+    },
+    "update": {
+      "success": "Category updated !",
+      "loading": "Updating..."
+    },
+    "updateLocale": {
+      "success": "Translation updated !",
+      "loading": "Updating..."
+    },
+    "delete": {
+      "success": "Category deleted !",
+      "loading": "Deleting..."
+    },
+    "deleteLocale": {
+      "success": "Translation deleted !",
+      "loading": "Deleting..."
+    },
+    "error": "An error occured"
   }
 }

@@ -81,7 +81,7 @@
       }
     },
     "price": {
-      "label": "Price",
+      "label": "Base price",
       "validation": {
         "required": "The price is required",
         "min": "The price must be greater than 0"

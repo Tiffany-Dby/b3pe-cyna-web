@@ -81,7 +81,7 @@
       }
     },
     "price": {
-      "label": "Prix",
+      "label": "Prix de base",
       "validation": {
         "required": "Le prix est requis",
         "min": "Le prix doit être supérieur à 0"

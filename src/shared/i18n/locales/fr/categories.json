@@ -34,5 +34,32 @@
         "description": "Mettez à jour une traduction de catégorie"
       }
     }
+  },
+  "toast": {
+    "new": {
+      "success": "Catégorie créée !",
+      "loading": "Création en cours..."
+    },
+    "newLocale": {
+      "success": "Traduction créée !",
+      "loading": "Création en cours..."
+    },
+    "update": {
+      "success": "Catégorie mise à jour !",
+      "loading": "Mise à jour en cours..."
+    },
+    "updateLocale": {
+      "success": "Traduction mise à jour!",
+      "loading": "Mise à jour en cours..."
+    },
+    "delete": {
+      "success": "Catégorie supprimée !",
+      "loading": "Suppression en cours..."
+    },
+    "deleteLocale": {
+      "success": "Traduction supprimée !",
+      "loading": "Suppression en cours..."
+    },
+    "error": "Une erreur est survenue"
   }
 }

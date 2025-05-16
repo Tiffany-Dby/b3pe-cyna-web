@@ -84,6 +84,11 @@ const UpdateProductTranslationForm = ({ onError }: Props) => {
       updateSelectedTranslation(updated);
       updateProductTranslation(updated);
     },
+    toastMsgs: {
+      loading: t("products:toast.updateTranslation.loading"),
+      success: t("products:toast.updateTranslation.success"),
+      error: t("products:toast.error"),
+    },
   });
 
   useEffect(() => {

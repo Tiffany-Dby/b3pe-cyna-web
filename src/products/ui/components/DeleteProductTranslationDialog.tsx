@@ -38,7 +38,13 @@ const DeleteProductTranslationDialog = ({
           children: t("dialog.actions.delete"),
           disabled: !locale,
           variant: "destructive",
-          onClick: () => deleteProductTranslation(locale!),
+          onClick: () =>
+            deleteProductTranslation(locale!, {
+              // /!\ paired with disabled check
+              loading: t("products:toast.deleteTranslation.loading"),
+              success: t("products:toast.deleteTranslation.success"),
+              error: t("products:toast.error"),
+            }),
         },
       ]}
     >

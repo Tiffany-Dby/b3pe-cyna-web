@@ -1,6 +1,7 @@
 import { NewCategory } from "@/categories/types/Categories";
 import { ProductType } from "./ProductType";
 import { ProductStatus } from "./ProductStatus";
+import { ToastMsgs } from "@/shared/types/Toast";
 
 type Product = {
   id: number;
@@ -8,6 +9,7 @@ type Product = {
   name: string;
   type: ProductType;
   price: number;
+  basePrice: number;
   status: ProductStatus;
   discountOrder: number;
   discountPercentage: number;
@@ -69,8 +71,11 @@ type ProductsState = {
   updateImage: (product: Product, slot: Slot) => void;
   updateSelected: (product: Product) => void;
   updateSelectedTranslation: (translation: NewDetail) => void;
-  deleteProduct: (product: Product) => Promise<void>;
-  deleteProductTranslation: (translation: Detail) => Promise<void>;
+  deleteProduct: (product: Product, toastMsgs: ToastMsgs) => Promise<void>;
+  deleteProductTranslation: (
+    translation: Detail,
+    toasMsgs: ToastMsgs
+  ) => Promise<void>;
 };
 
 export type {

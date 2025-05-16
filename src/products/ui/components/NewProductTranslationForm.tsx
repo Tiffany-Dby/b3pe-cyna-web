@@ -79,6 +79,11 @@ const NewProductTranslationForm = ({ onError }: Props) => {
     },
     requestFn: postRequest,
     onSuccess: (translation) => addTranslation(translation),
+    toastMsgs: {
+      loading: t("products:toast.newTranslation.loading"),
+      success: t("products:toast.newTranslation.success"),
+      error: t("products:toast.error"),
+    },
   });
 
   useEffect(() => {

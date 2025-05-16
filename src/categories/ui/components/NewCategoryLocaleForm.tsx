@@ -64,6 +64,11 @@ const NewCategoryLocaleForm = ({ onError }: Props) => {
     },
     requestFn: postRequest,
     onSuccess: (newLocale) => addLocale(newLocale),
+    toastMsgs: {
+      loading: t("categories:toast.newLocale.loading"),
+      success: t("categories:toast.newLocale.success"),
+      error: t("categories:toast.error"),
+    },
   });
 
   const fields: NewLocaleCategoryField[] = [

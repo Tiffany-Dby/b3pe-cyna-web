@@ -52,10 +52,12 @@ const UpdateProductForm = ({ onError }: Props) => {
   const { categories } = useCategoriesStore();
   const { selected, updateProduct, updateSelected } = useProductsStore();
 
-  const categoriesOptions = categories.map((category) => ({
-    label: category.globalName,
-    value: String(category.id),
-  }));
+  const categoriesOptions = categories
+    .filter((category) => !!category.locales.length)
+    .map((category) => ({
+      label: category.globalName,
+      value: String(category.id),
+    }));
 
   const statusOptions = enumToOptions(ProductStatus).map((status) => ({
     ...status,
@@ -79,7 +81,7 @@ const UpdateProductForm = ({ onError }: Props) => {
       name: selected?.name ?? "",
       status: selected?.status ?? "",
       type: selected?.type ?? "",
-      price: selected?.price ? selected.price / 100 : 0,
+      basePrice: selected?.basePrice ? selected.basePrice / 100 : 0,
       discountOrder: selected?.discountOrder ?? "",
       discountPercentage: selected?.discountPercentage ?? 0,
     },
@@ -87,6 +89,11 @@ const UpdateProductForm = ({ onError }: Props) => {
     onSuccess: (product) => {
       updateProduct(product);
       updateSelected(product);
+    },
+    toastMsgs: {
+      loading: t("products:toast.update.loading"),
+      success: t("products:toast.update.success"),
+      error: t("products:toast.error"),
     },
   });
 
@@ -103,7 +110,7 @@ const UpdateProductForm = ({ onError }: Props) => {
       name: selected.name,
       status: selected.status,
       type: selected.type,
-      price: selected.price / 100,
+      basePrice: selected.basePrice / 100,
       discountOrder: selected.discountOrder,
       discountPercentage: selected.discountPercentage,
     });
@@ -143,7 +150,7 @@ const UpdateProductForm = ({ onError }: Props) => {
       autoComplete: "on",
     },
     {
-      name: "price",
+      name: "basePrice",
       label: t("inputs.price.label"),
       type: "number",
       placeholder: "",

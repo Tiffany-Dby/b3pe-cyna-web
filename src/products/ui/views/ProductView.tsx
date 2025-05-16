@@ -41,9 +41,11 @@ import PromotionTag from "@/shared/ui/components/PromotionTag";
 import useFetch from "@/shared/hooks/useFetch";
 import { API_ROUTES } from "@/shared/constants/routes";
 import { ProductLocale } from "@/products/types/Products";
+import { usePurchaseStore } from "@/purchase/store/purchaseStore";
 
 const ProductView = () => {
   const { t, i18n } = useTranslation("products");
+  const { addToCart } = usePurchaseStore();
 
   const { id } = useParams();
   const locale = i18n.resolvedLanguage;
@@ -334,6 +336,7 @@ const ProductView = () => {
                             className="w-full max-w-50 sm:max-w-none"
                             variant="success"
                             disabled={disabled}
+                            onClick={() => addToCart(Number(id), 1)}
                           >
                             {t("pricing.yearly.cta")}
                           </Button>

@@ -6,6 +6,8 @@ import {
 } from "@/products/types/Products";
 import { API_ROUTES } from "@/shared/constants/routes";
 import { deleteRequest, getRequest } from "@/shared/tools/api";
+import { TOAST } from "@/shared/constants/toast";
+import { toast } from "sonner";
 
 const useProductsStore = create<ProductsState>((set) => ({
   products: [],
@@ -53,9 +55,6 @@ const useProductsStore = create<ProductsState>((set) => ({
       `${API_ROUTES.PRODUCT_GET}/${id}/${locale}`,
       false
     );
-
-    console.log("result", result);
-    console.log("error", error);
 
     set({
       isLoading: false,
@@ -129,33 +128,51 @@ const useProductsStore = create<ProductsState>((set) => ({
   updateSelectedTranslation: (updateTranslation) =>
     set(() => ({ selectedTranslation: { ...updateTranslation } })),
 
-  deleteProduct: async (selected) => {
+  deleteProduct: async (selected, toasMsgs = TOAST.DEFAULT_MSGS) => {
+    console.log(selected);
+    const { success, loading, error } = toasMsgs;
+
     set({ isLoading: true });
 
-    const { error } = await deleteRequest<[]>(
+    const toastId = toast.loading(loading);
+    const { error: reqError } = await deleteRequest<[]>(
       `${API_ROUTES.PRODUCT_DELETE}/${selected.id}`
     );
 
+    set({ isLoading: false });
+
+    if (reqError) toast.error(error, { id: toastId });
+    else toast.success(success, { id: toastId });
+
     set((state) => ({
-      isLoading: false,
-      error,
-      products: error
+      error: reqError,
+      products: reqError
         ? state.products
         : state.products.filter((product) => product.id !== selected.id),
     }));
   },
 
-  deleteProductTranslation: async (translation) => {
+  deleteProductTranslation: async (
+    translation,
+    toasMsgs = TOAST.DEFAULT_MSGS
+  ) => {
+    const { success, loading, error } = toasMsgs;
+
     set({ isLoading: true });
 
-    const { error } = await deleteRequest<[]>(
+    const toastId = toast.loading(loading);
+    const { error: reqError } = await deleteRequest<[]>(
       `${API_ROUTES.PRODUCT_DELETE_TRANSLATION}/${translation.id}`
     );
 
+    set({ isLoading: false });
+
+    if (reqError) toast.error(error, { id: toastId });
+    else toast.success(success, { id: toastId });
+
     set((state) => ({
-      isLoading: false,
-      error,
-      products: error
+      error: reqError,
+      products: reqError
         ? state.products
         : state.products.map((product) =>
             product.id === translation.productId

@@ -53,10 +53,12 @@ const NewProductForm = ({ onError }: Props) => {
   const { categories } = useCategoriesStore();
   const { addProduct } = useProductsStore();
 
-  const categoriesOptions = categories.map((category) => ({
-    label: category.globalName,
-    value: String(category.id),
-  }));
+  const categoriesOptions = categories
+    .filter((category) => !!category.locales.length)
+    .map((category) => ({
+      label: category.globalName,
+      value: String(category.id),
+    }));
 
   const statusOptions = enumToOptions(ProductStatus).map((status) => ({
     ...status,
@@ -79,7 +81,7 @@ const NewProductForm = ({ onError }: Props) => {
       name: "",
       status: "",
       type: "",
-      price: 0,
+      basePrice: 0,
       discountOrder: "",
       discountPercentage: 0,
       image1: undefined,
@@ -89,6 +91,11 @@ const NewProductForm = ({ onError }: Props) => {
     requestFn: postRequest,
     asFormData: true,
     onSuccess: (product) => addProduct(product),
+    toastMsgs: {
+      loading: t("products:toast.new.loading"),
+      success: t("products:toast.new.success"),
+      error: t("products:toast.error"),
+    },
   });
 
   useEffect(() => {
@@ -129,7 +136,7 @@ const NewProductForm = ({ onError }: Props) => {
       autoComplete: "on",
     },
     {
-      name: "price",
+      name: "basePrice",
       label: t("inputs.price.label"),
       type: "number",
       placeholder: "",

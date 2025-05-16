@@ -28,11 +28,14 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/lib/components/ui/accordion";
+import { APP_ROUTES } from "@/shared/constants/routes";
+import { usePurchaseStore } from "@/purchase/store/purchaseStore";
 
 const NavigationSheet = ({ items }: { items: MenuItem[] }) => {
   const id = useId();
   const [isOpen, setIsOpen] = useState(false);
   const handleOpenChange = () => setIsOpen(!isOpen);
+  const { cart } = usePurchaseStore();
 
   return (
     <Sheet open={isOpen} onOpenChange={handleOpenChange}>
@@ -66,8 +69,16 @@ const NavigationSheet = ({ items }: { items: MenuItem[] }) => {
                         className="flex items-center gap-1 w-full py-3 hover:underline"
                         onClick={handleOpenChange}
                       >
-                        <item.icon className="size-3.5" />
-                        {item.title}
+                        <span className="flex-center-center gap-1 relative">
+                          <item.icon className="size-3.5" />
+                          {item.title}
+                          {item.url === APP_ROUTES.CART &&
+                            !!cart?.items.length && (
+                              <span className="absolute flex-center-center w-4.5 h-4.5 bg-danger rounded-full text-size-label -right-4 -top-2">
+                                {cart.items.length}
+                              </span>
+                            )}
+                        </span>
                       </NavLink>
                     </NavigationMenuItem>
                     <li className="w-full">

@@ -40,6 +40,10 @@ const API_ROUTES = {
   CATEGORY_UPDATE_LOCALE: "/api/categories/update-locale",
   CATEGORY_DELETE: "/api/categories",
   CATEGORY_DELETE_LOCALE: "/api/categories/delete-locale",
+  CART_GET: "/api/orders/get-cart",
+  CART_NEW_ITEM: "/api/orders/add-product",
+  CART_UPDATE_ITEM: "/api/orders/update-cart-item",
+  CART_DELETE_ITEM: "/api/orders/delete-cart-item",
 } as const;
 
 export { APP_ROUTES, API_ROUTES };

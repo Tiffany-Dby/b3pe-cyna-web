@@ -39,6 +39,11 @@ const UpdateImageForm = ({ productId, slot, onError }: Props) => {
       updateSelected(product);
       updateImage(product, slot);
     },
+    toastMsgs: {
+      loading: t("products:toast.updateImage.loading"),
+      success: t("products:toast.updateImage.success"),
+      error: t("products:toast.error"),
+    },
   });
 
   useEffect(() => {

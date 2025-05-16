@@ -30,7 +30,7 @@ const NewProductSchema = z.object({
       message: "common:selects.type.validation.min",
     })
     .transform((val) => Number(val)),
-  price: z.preprocess(
+  basePrice: z.preprocess(
     (val) => {
       if (val === "" || val == null) return undefined;
       return Number(val);

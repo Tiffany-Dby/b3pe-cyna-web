@@ -1,3 +1,5 @@
+import { ToastMsgs } from "@/shared/types/Toast";
+
 type NewCategory = {
   id: number;
   globalName: string;
@@ -48,8 +50,11 @@ type CategoriesState = {
     updatedLocale: UpdatedLocale,
     globalId: Category["id"]
   ) => void;
-  deleteCategory: () => Promise<void>;
-  deleteCategoryLocale: (category: LocaleCategory) => Promise<void>;
+  deleteCategory: (toasMsgs: ToastMsgs) => Promise<void>;
+  deleteCategoryLocale: (
+    category: LocaleCategory,
+    toasMsgs: ToastMsgs
+  ) => Promise<void>;
 };
 
 export type {

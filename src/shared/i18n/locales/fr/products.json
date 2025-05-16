@@ -93,6 +93,7 @@
       "languages": "Langues",
       "category": "Catégorie",
       "price": "Prix",
+      "basePrice": "Prix de base",
       "order": "Ordre",
       "discountPercentage": "Réduction",
       "actions": "Actions"
@@ -129,7 +130,9 @@
   "deleteProduct": {
     "dialog": {
       "description": "Suppression d'un produit et ses traductions",
-      "message": "Supprimer le produit <0>« {{name}} »</0> et toutes les traductions qui lui sont associées ?"
+      "descriptionWithTranslations": "Suppression d'un produit et ses traductions",
+      "message": "Supprimer le produit <0>« {{name}} »</0> ?",
+      "messageWithTranslations": "Supprimer le produit <0>« {{name}} »</0> et toutes les traductions qui lui sont associées ?"
     }
   },
   "deleteTranslation": {
@@ -138,5 +141,36 @@
       "label": "Traduction du produit <0>« {{name}} »</0> à supprimer :",
       "message": "Supprimer la version <0>« {{locale}} »</0> définitivement ?"
     }
+  },
+  "toast": {
+    "new": {
+      "success": "Produit créé !",
+      "loading": "Création en cours..."
+    },
+    "newTranslation": {
+      "success": "Traduction créée !",
+      "loading": "Création en cours..."
+    },
+    "update": {
+      "success": "Produit mis à jour !",
+      "loading": "Mise à jour en cours..."
+    },
+    "updateImage": {
+      "success": "Image mise à jour !",
+      "loading": "Mise à jour en cours..."
+    },
+    "updateTranslation": {
+      "success": "Traduction mise à jour !",
+      "loading": "Mise à jour en cours..."
+    },
+    "delete": {
+      "success": "Produit supprimé !",
+      "loading": "Suppression en cours..."
+    },
+    "deleteTranslation": {
+      "success": "Traduction du produit supprimée !",
+      "loading": "Suppression en cours..."
+    },
+    "error": "Une erreur est survenue"
   }
 }

@@ -57,6 +57,11 @@ const NewCategoryForm = ({ onError }: Props) => {
           },
         ],
       }),
+    toastMsgs: {
+      loading: t("categories:toast.new.loading"),
+      success: t("categories:toast.new.success"),
+      error: t("categories:toast.error"),
+    },
   });
 
   const fields: NewCategoryField[] = [

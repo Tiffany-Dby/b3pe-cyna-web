@@ -3,7 +3,10 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { ZodSchema } from "zod";
 import { useState } from "react";
 import { setFormData } from "@/shared/utils/form";
-import { RequestFn } from "../types/Api";
+import { RequestFn } from "@/shared/types/Api";
+import { toast } from "sonner";
+import { ToastMsgs } from "@/shared/types/Toast";
+import { TOAST } from "@/shared/constants/toast";
 
 type Props<T extends FieldValues, R> = UseFormProps<T> & {
   schema: ZodSchema<T>;
@@ -12,6 +15,7 @@ type Props<T extends FieldValues, R> = UseFormProps<T> & {
   requestFn: RequestFn;
   onSuccess?: (data: R) => void;
   asFormData?: boolean;
+  toastMsgs?: ToastMsgs;
 };
 
 const useCustomForm = <T extends FieldValues, R>({
@@ -22,6 +26,7 @@ const useCustomForm = <T extends FieldValues, R>({
   defaultValues,
   requestFn,
   asFormData = false,
+  toastMsgs = TOAST.DEFAULT_MSGS,
   ...formOptions
 }: Props<T, R>) => {
   const [isLoading, setIsLoading] = useState(false);
@@ -33,20 +38,29 @@ const useCustomForm = <T extends FieldValues, R>({
     ...formOptions,
   });
 
+  const { loading, success, error } = toastMsgs;
+
   const handleSubmit = form.handleSubmit(async (data) => {
     setServerError(null);
 
     setIsLoading(true);
+    const toastId = toast.loading(loading);
     const payload = asFormData ? setFormData(data) : data;
-    const { result, error } = await requestFn<R, T>(apiUrl, payload, withAuth);
+    const { result, error: reqError } = await requestFn<R, T>(
+      apiUrl,
+      payload,
+      withAuth
+    );
     setIsLoading(false);
 
-    if (error) {
-      setServerError(error);
+    if (reqError) {
+      setServerError(reqError);
+      toast.error(error, { id: toastId });
 
       return;
     }
 
+    toast.success(success, { id: toastId });
     form.reset();
 
     if (onSuccess && result) onSuccess(result);
