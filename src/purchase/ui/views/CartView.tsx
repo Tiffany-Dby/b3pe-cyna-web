@@ -16,6 +16,7 @@ import { RiVisaLine } from "react-icons/ri";
 import CartItemCard from "../components/CartItemCard";
 import { usePurchaseStore } from "@/purchase/store/purchaseStore";
 import { useEffect } from "react";
+import { ProductStatus } from "@/products/types/ProductStatus";
 
 const CartView = () => {
   const { t, i18n } = useTranslation("cart");
@@ -105,7 +106,18 @@ const CartView = () => {
                 </CardHeader>
                 <CardContent className="flex flex-col gap-6">
                   <div>
-                    <Button className="w-full">{t("proceedPayments")}</Button>
+                    <Button
+                      className="w-full"
+                      disabled={cart.items
+                        .map((item) => item.product)
+                        .some(
+                          (product) =>
+                            product.status === ProductStatus.Unavailable ||
+                            product.status === ProductStatus.Maintenance
+                        )}
+                    >
+                      {t("proceedPayments")}
+                    </Button>
                   </div>
                   <div className="px-14">
                     <Separator />

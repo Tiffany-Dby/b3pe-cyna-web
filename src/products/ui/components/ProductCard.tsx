@@ -52,15 +52,7 @@ const ProductCard = ({ product }: Props) => {
             <p className="line-clamp-3 font-bold">
               {product.details.descriptionTitle}
             </p>
-            <p className="line-clamp-2">
-              {product.details.descriptionText}
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsa
-              assumenda sit ea repellat, vitae facere, numquam aperiam cumque
-              recusandae ratione quam repellendus est. Eius aut fugit ratione
-              maxime, enim vero hic nobis, modi exercitationem, recusandae ea
-              accusamus vitae reiciendis sit pariatur inventore reprehenderit.
-              Numquam, molestias nam ex aperiam sit sapiente!
-            </p>
+            <p className="line-clamp-2">{product.details.descriptionText}</p>
           </div>
         </CardContent>
         <CardFooter className="justify-end">
