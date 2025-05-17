@@ -44,12 +44,9 @@ const ProductsView = () => {
         {!error && productsLocale && (
           <>
             <h1>{t("productList.title")}</h1>
-            <div className="flex flex-col justify-center gap-5 sm:flex-row sm:flex-wrap">
+            <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-3">
               {sortedProducts.map((product) => (
-                <article
-                  key={product.id}
-                  className="flex-[1_0] sm:min-w-68 sm:max-w-[calc((1/2*100%)-0.625rem)]"
-                >
+                <article key={product.id}>
                   <ProductCard product={product} />
                 </article>
               ))}
