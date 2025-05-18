@@ -9,12 +9,9 @@ const SettingsPasswordCard = () => {
     <BaseAccordionCard
       accordionValue="updatePasswordForm"
       title="account:settings.changePassword.caption"
-      description=""
+      serverError={serverError}
     >
-      <>
-        {serverError && <p className="text-danger">{serverError}</p>}
-        <UpdatePasswordForm onError={setServerError} />
-      </>
+      <UpdatePasswordForm onError={setServerError} />
     </BaseAccordionCard>
   );
 };

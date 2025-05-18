@@ -16,6 +16,8 @@ const APP_ROUTES = {
   ADMIN_PRODUCT: "products/:id",
   ADMIN_PRODUCT_TRANSLATION: "products/:id/translations/:locale",
   ADMIN_CATEGORIES: "categories",
+  ADMIN_USERS_ADMINS: "users/admins",
+  ADMIN_USERS_CLIENTS: "users/clients",
 } as const;
 
 const API_ROUTES = {
@@ -25,6 +27,7 @@ const API_ROUTES = {
   ME: "/api/auth/me",
   REFRESH: "/api/auth/refresh",
   SIGN_OUT: "/api/auth/logout",
+  USER_NEW_ADMIN: "/api/users/add-admin",
   USER_UPDATE_INFOS: "/api/users/update",
   USER_UPDATE_PASSWORD: "/api/users/update-password",
   USER_ADDRESS_NEW: "/api/addresses/add",

@@ -97,12 +97,12 @@ const SIDEBAR_ITEMS: SidebarItem[] = [
         icon: UsersIcon,
         subItems: [
           {
-            title: "management.users.subItems.allClients",
-            url: APP_ROUTES.ADMIN_DASHBOARD,
+            title: "management.users.subItems.allAdmins",
+            url: APP_ROUTES.ADMIN_USERS_ADMINS,
           },
           {
-            title: "management.users.subItems.allAdmins",
-            url: APP_ROUTES.ADMIN_DASHBOARD,
+            title: "management.users.subItems.allClients",
+            url: APP_ROUTES.ADMIN_USERS_CLIENTS,
           },
         ],
       },

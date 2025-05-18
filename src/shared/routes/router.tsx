@@ -18,6 +18,7 @@ import AdminUpdateProductTranslationView from "@/products/ui/views/AdminUpdatePr
 import CartView from "@/purchase/ui/views/CartView";
 import ProductsView from "@/products/ui/views/ProductsView";
 import AdminPromotionsCarouselView from "@/home/ui/views/AdminPromotionsCarouselView";
+import AdminAllAdminsView from "@/users/ui/views/AdminAllAdminsView";
 
 const router = createBrowserRouter([
   {
@@ -88,6 +89,10 @@ const router = createBrowserRouter([
           {
             path: APP_ROUTES.ADMIN_CATEGORIES,
             Component: AdminCategoriesView,
+          },
+          {
+            path: APP_ROUTES.ADMIN_USERS_ADMINS,
+            Component: AdminAllAdminsView,
           },
         ],
       },

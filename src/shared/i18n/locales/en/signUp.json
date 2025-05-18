@@ -2,7 +2,7 @@
   "title": "Sign up",
   "submit": {
     "loading": "Creation...",
-    "action": "Sign up"
+    "action": "Create an account"
   },
   "signedUp": "Already have an account?",
   "signIn": "Sign in"

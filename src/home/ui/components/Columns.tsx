@@ -36,7 +36,10 @@ const Columns = (
       accessorKey: "locale",
       meta: { title: "contents:promotionsTextList.columns.language" },
       header: ({ column }) => (
-        <DataTableColumnHeader column={column} title="Langue" />
+        <DataTableColumnHeader
+          column={column}
+          title="contents:promotionsTextList.columns.language"
+        />
       ),
       enableSorting: false,
       enableHiding: false,

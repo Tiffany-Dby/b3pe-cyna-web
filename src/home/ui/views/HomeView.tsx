@@ -105,7 +105,7 @@ const HomeView = () => {
                 />
               </div>
               <div>
-                {isPromoTextLoading && <p>{t("loading")}</p>}
+                {isPromoTextLoading && <p>{t("common:loading")}</p>}
                 {promosTextError && <p>{promosTextError}</p>}
                 {promosText?.text?.split("\n").map((line, index) => (
                   <p key={index} className="whitespace-pre-wrap">
@@ -120,7 +120,7 @@ const HomeView = () => {
       )}
       <section>
         <div className="container mx-auto flex flex-col gap-5 py-10 px-4">
-          {isLoading && <p>{t("loading")}</p>}
+          {isLoading && <p>{t("common:loading")}</p>}
           {error && <p>{error}</p>}
           {!error && productsLocale && (
             <>

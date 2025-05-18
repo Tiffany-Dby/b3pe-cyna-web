@@ -9,12 +9,9 @@ const SettingsPersonalInfosCard = () => {
     <BaseAccordionCard
       accordionValue="updatePersonalInfosForm"
       title="account:settings.personalInformations.caption"
-      description=""
+      serverError={serverError}
     >
-      <>
-        {serverError && <p className="text-danger">{serverError}</p>}
-        <UpdatePersonalInfosForm onError={setServerError} />
-      </>
+      <UpdatePersonalInfosForm onError={setServerError} />
     </BaseAccordionCard>
   );
 };
