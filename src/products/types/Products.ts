@@ -1,6 +1,6 @@
 import { NewCategory } from "@/categories/types/Categories";
-import { ProductType } from "./ProductType";
-import { ProductStatus } from "./ProductStatus";
+import { ProductType } from "@/products/types/ProductType";
+import { ProductStatus } from "@/products/types/ProductStatus";
 import { ToastMsgs } from "@/shared/types/Toast";
 
 type Product = {

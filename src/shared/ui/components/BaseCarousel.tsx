@@ -56,7 +56,7 @@ const BaseCarousel = <T,>({
           {slides.map((slide, index) => (
             <CarouselItem key={index}>
               <div className="p-1">
-                <Card className="py-0">
+                <Card className="py-0 border-0">
                   <CardContent className={cn("p-0", className)}>
                     {renderSlide(slide, index)}
                   </CardContent>

@@ -8,6 +8,7 @@ import { Trans, useTranslation } from "react-i18next";
 import useFetch from "@/shared/hooks/useFetch";
 import { ProductLocale } from "@/products/types/Products";
 import { ArrowRightIcon } from "lucide-react";
+import { PromotionsText } from "@/home/types/PromotionsCarousel";
 
 const HomeView = () => {
   const { t, i18n } = useTranslation("home");
@@ -22,9 +23,20 @@ const HomeView = () => {
     false
   );
 
-  const promos = productsLocale?.filter(
-    (product) => product.discountPercentage
+  const {
+    data: promosText,
+    isLoading: isPromoTextLoading,
+    error: promosTextError,
+  } = useFetch<PromotionsText>(
+    `${API_ROUTES.PROMOTION_CAROUSEL_TEXT_GET_ALL}/${locale}`
+    // false TODO: update when correction is made backend
   );
+
+  const promos = productsLocale
+    ?.filter((product) => product.discountPercentage)
+    .sort(
+      (productA, productB) => productA.discountOrder - productB.discountOrder
+    );
 
   return (
     <>
@@ -68,7 +80,7 @@ const HomeView = () => {
       </section>
       {promos && (
         <section>
-          <div className="container mx-auto flex flex-col gap-5 py-10 px-4">
+          <div className="container max-w-3xl mx-auto flex flex-col gap-5 py-10 px-4">
             <h2>{t("currentPromotions.title")}</h2>
             <div className="flex-center-center max-w-2xl mx-auto">
               <BaseCarousel
@@ -83,23 +95,31 @@ const HomeView = () => {
                       alt={product.name}
                       className="rounded-md area-1/1"
                     />
-                    <p className="flex-center-center gap-2 font-semibold area-1/1 place-self-end pb-5 pr-5 underline">
+                    <p className="flex-center-center gap-2 font-semibold area-1/1 place-self-end pb-5 pr-5 text-primary-150-foreground underline">
                       <ArrowRightIcon className="w-4 h-4" />
-                      {t("common:learnMore")} : {product.name}{" "}
+                      {t("common:learnMore")} : {product.name}
                     </p>
                   </Link>
                 )}
               />
             </div>
-            <p>TEXTE BDD</p>
+            <div>
+              {isPromoTextLoading && <p>{t("loading")}</p>}
+              {promosTextError && <p>{promosTextError}</p>}
+              {promosText?.text?.split("\n").map((line, index) => (
+                <p key={index} className="whitespace-pre-wrap">
+                  {line}
+                </p>
+              ))}
+            </div>
           </div>
         </section>
       )}
       <Separator className="max-w-3/6 m-auto my-4 bg-muted" />
       <section>
         <div className="container mx-auto flex flex-col gap-5 py-10 px-4">
-          {isLoading && <p>Loading...</p>}
-          {error && <p>error</p>}
+          {isLoading && <p>{t("loading")}</p>}
+          {error && <p>{error}</p>}
           {!error && productsLocale && (
             <>
               <h2>{t("topProduct.title")}</h2>

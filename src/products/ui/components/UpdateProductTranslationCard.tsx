@@ -2,7 +2,7 @@ import BaseCard from "@/shared/ui/components/BaseCard";
 import { useState } from "react";
 import { useProductsStore } from "@/products/store/productsStore";
 import { useTranslation } from "react-i18next";
-import UpdateProductTranslationForm from "./UpdateProductTranslationForm";
+import UpdateProductTranslationForm from "@/products/ui/components/UpdateProductTranslationForm";
 
 const UpdateProductTranslationCard = () => {
   const { selectedTranslation, selected } = useProductsStore();

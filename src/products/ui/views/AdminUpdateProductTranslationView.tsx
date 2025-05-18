@@ -1,7 +1,7 @@
 import { APP_ROUTES } from "@/shared/constants/routes";
 import { CornerUpLeftIcon } from "lucide-react";
 import { Link } from "react-router";
-import UpdateProductTranslationCard from "../components/UpdateProductTranslationCard";
+import UpdateProductTranslationCard from "@/products/ui/components/UpdateProductTranslationCard";
 import { useTranslation } from "react-i18next";
 
 const AdminUpdateProductTranslationView = () => {

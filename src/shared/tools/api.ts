@@ -1,7 +1,7 @@
 import { FetchMethod } from "@/shared/types/Api";
 import { getAccessToken, refresh } from "@/shared/tools/auth";
 import { API_ROUTES } from "@/shared/constants/routes";
-import { formatServerError } from "../utils/format";
+import { formatServerError } from "@/shared/utils/format";
 
 const request = async <T>(
   url: string,

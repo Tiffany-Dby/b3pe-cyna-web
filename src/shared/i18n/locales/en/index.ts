@@ -10,6 +10,7 @@ import signUp from "@/shared/i18n/locales/en/signUp.json";
 import cart from "@/shared/i18n/locales/en/cart.json";
 import adminSidebar from "@/shared/i18n/locales/en/adminSidebar.json";
 import categories from "@/shared/i18n/locales/en/categories.json";
+import contents from "@/shared/i18n/locales/en/contents.json";
 
 const en = {
   account,
@@ -24,6 +25,7 @@ const en = {
   cart,
   adminSidebar,
   categories,
+  contents,
 } as const;
 
 export { en };

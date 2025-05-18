@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import { Cart, PurchaseState } from "../types/Purchase";
+import { Cart, PurchaseState } from "@/purchase/types/Purchase";
 import {
   deleteRequest,
   getRequest,

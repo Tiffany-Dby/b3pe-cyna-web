@@ -74,7 +74,7 @@ const SIDEBAR_ITEMS: SidebarItem[] = [
         subItems: [
           {
             title: "management.contents.subItems.promotionsCarousel",
-            url: APP_ROUTES.ADMIN_DASHBOARD,
+            url: APP_ROUTES.ADMIN_PROMOTION_CAROUSEL,
           },
         ],
       },

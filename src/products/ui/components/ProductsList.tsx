@@ -6,11 +6,11 @@ import { useMemo } from "react";
 import { useTranslation } from "react-i18next";
 import { useDialog } from "@/shared/hooks/useDialog";
 import { Product } from "@/products/types/Products";
-import DeleteProductDialog from "./DeleteProductDialog";
+import DeleteProductDialog from "@/products/ui/components/DeleteProductDialog";
 import { useNavigate } from "react-router";
 import { APP_ROUTES } from "@/shared/constants/routes";
-import UpdateProductTranslationDialog from "./UpdateProductTranslationDialog";
-import DeleteProductTranslationDialog from "./DeleteProductTranslationDialog";
+import UpdateProductTranslationDialog from "@/products/ui/components/UpdateProductTranslationDialog";
+import DeleteProductTranslationDialog from "@/products/ui/components/DeleteProductTranslationDialog";
 
 const ProductsList = () => {
   const { t, i18n } = useTranslation("products");

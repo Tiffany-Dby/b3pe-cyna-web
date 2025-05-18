@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import ProductCard from "../components/ProductCard";
+import ProductCard from "@/products/ui/components/ProductCard";
 import { ProductLocale } from "@/products/types/Products";
 import { API_ROUTES } from "@/shared/constants/routes";
 import useFetch from "@/shared/hooks/useFetch";

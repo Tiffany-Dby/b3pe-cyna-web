@@ -132,6 +132,13 @@
       "validation": {
         "min": "Veuillez renseigner une fonctionnalité"
       }
+    },
+    "promotionsText": {
+      "label": "Texte",
+      "placeholder": "Texte",
+      "validation": {
+        "min": "Veuillez renseigner un texte promotionnel"
+      }
     }
   },
   "selects": {

@@ -13,7 +13,7 @@ import { formatAmount } from "@/shared/utils/number";
 import { useTranslation } from "react-i18next";
 import { FaStripe } from "react-icons/fa6";
 import { RiVisaLine } from "react-icons/ri";
-import CartItemCard from "../components/CartItemCard";
+import CartItemCard from "@/purchase/ui/components/CartItemCard";
 import { usePurchaseStore } from "@/purchase/store/purchaseStore";
 import { useEffect } from "react";
 import { ProductStatus } from "@/products/types/ProductStatus";

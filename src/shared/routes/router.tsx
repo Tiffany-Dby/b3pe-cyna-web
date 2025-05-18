@@ -2,7 +2,7 @@ import { createBrowserRouter } from "react-router";
 import { APP_ROUTES } from "@/shared/constants/routes";
 import { UserRole } from "@/users/types/UserRole";
 import App from "@/App";
-import HomeView from "@/shared/ui/views/HomeView";
+import HomeView from "@/home/ui/views/HomeView";
 import SignUpView from "@/users/ui/views/SignUpView";
 import SignInView from "@/users/ui/views/SignInView";
 import ResetPasswordView from "@/users/ui/views/ResetPasswordView";
@@ -17,6 +17,7 @@ import AdminCategoriesView from "@/categories/ui/views/AdminCategoriesView";
 import AdminUpdateProductTranslationView from "@/products/ui/views/AdminUpdateProductTranslationView";
 import CartView from "@/purchase/ui/views/CartView";
 import ProductsView from "@/products/ui/views/ProductsView";
+import AdminPromotionsCarouselView from "@/home/ui/views/AdminPromotionsCarouselView";
 
 const router = createBrowserRouter([
   {
@@ -74,6 +75,10 @@ const router = createBrowserRouter([
         children: [
           { index: true, element: <p>Index</p> },
           { path: APP_ROUTES.ADMIN_DASHBOARD, element: <p>Dashboard</p> },
+          {
+            path: APP_ROUTES.ADMIN_PROMOTION_CAROUSEL,
+            Component: AdminPromotionsCarouselView,
+          },
           { path: APP_ROUTES.ADMIN_PRODUCTS, Component: AdminProductsView },
           { path: APP_ROUTES.ADMIN_PRODUCT, Component: AdminUpdateProductView },
           {

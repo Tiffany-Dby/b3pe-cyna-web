@@ -6,7 +6,7 @@ import { useTranslation } from "react-i18next";
 import { Link } from "react-router";
 import { SquareArrowOutUpRightIcon } from "lucide-react";
 import { Separator } from "@/lib/components/ui/separator";
-import UpdateImageForm from "./UpdateImageForm";
+import UpdateImageForm from "@/products/ui/components/UpdateImageForm";
 import { Slot } from "@/products/types/Products";
 
 const UpdateProductCard = () => {

@@ -18,37 +18,42 @@ type Props<TData> = {
 const DataTableViewOptions = <TData,>({ table }: Props<TData>) => {
   const { t } = useTranslation();
 
+  const columns = table
+    .getAllColumns()
+    .filter(
+      (column) =>
+        typeof column.accessorFn !== "undefined" && column.getCanHide()
+    );
+
   return (
-    <DropdownMenu>
-      <DropdownMenuTrigger asChild>
-        <Button variant="outline" className="ml-auto">
-          <Settings2Icon />
-          <span className="sr-only">{t("dataTable.display")}</span>
-        </Button>
-      </DropdownMenuTrigger>
-      <DropdownMenuContent align="end" className="w-[150px]">
-        <DropdownMenuLabel>{t("dataTable.display")}</DropdownMenuLabel>
-        <DropdownMenuSeparator />
-        {table
-          .getAllColumns()
-          .filter(
-            (column) =>
-              typeof column.accessorFn !== "undefined" && column.getCanHide()
-          )
-          .map((column) => {
-            return (
-              <DropdownMenuCheckboxItem
-                key={column.id}
-                className="capitalize"
-                checked={column.getIsVisible()}
-                onCheckedChange={(value) => column.toggleVisibility(!!value)}
-              >
-                {t(column.columnDef.meta?.title ?? column.id)}
-              </DropdownMenuCheckboxItem>
-            );
-          })}
-      </DropdownMenuContent>
-    </DropdownMenu>
+    <>
+      {!!columns.length && (
+        <DropdownMenu>
+          <DropdownMenuTrigger asChild>
+            <Button variant="outline" className="ml-auto">
+              <Settings2Icon />
+              <span className="sr-only">{t("dataTable.display")}</span>
+            </Button>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent align="end" className="w-[150px]">
+            <DropdownMenuLabel>{t("dataTable.display")}</DropdownMenuLabel>
+            <DropdownMenuSeparator />
+            {columns.map((column) => {
+              return (
+                <DropdownMenuCheckboxItem
+                  key={column.id}
+                  className="capitalize"
+                  checked={column.getIsVisible()}
+                  onCheckedChange={(value) => column.toggleVisibility(!!value)}
+                >
+                  {t(column.columnDef.meta?.title ?? column.id)}
+                </DropdownMenuCheckboxItem>
+              );
+            })}
+          </DropdownMenuContent>
+        </DropdownMenu>
+      )}
+    </>
   );
 };
 

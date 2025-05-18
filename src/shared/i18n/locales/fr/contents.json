@@ -1,0 +1,38 @@
+{
+  "promotionsTextList": {
+    "title": "Textes promotionnels",
+    "description": "Recherchez, mettez à jour ou supprimez des textes promotionnels",
+    "dialog": {
+      "update": {
+        "description": "Mettre à jour le texte promotionnel"
+      }
+    },
+    "columns": {
+      "language": "Langue",
+      "text": "Texte",
+      "actions": "Actions"
+    },
+    "filters": "Filtrer les textes..."
+  },
+  "newPromotionsText": {
+    "title": "Nouveau texte promotionnel",
+    "description": "Créez un nouveau texte en associant une langue",
+    "submit": {
+      "loading": "Création en cours...",
+      "action": "Créer"
+    }
+  },
+  "toast": {
+    "promotionsText": {
+      "new": {
+        "success": "Texte promotionnel créé !",
+        "loading": "Création en cours..."
+      },
+      "update": {
+        "success": "Texte promotionnel mis à jour !",
+        "loading": "Mise à jour en cours..."
+      }
+    },
+    "error": "An error occured"
+  }
+}

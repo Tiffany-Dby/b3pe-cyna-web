@@ -11,6 +11,7 @@ const APP_ROUTES = {
   CART: "/cart",
   ADMIN: "/admin",
   ADMIN_DASHBOARD: "dashboard",
+  ADMIN_PROMOTION_CAROUSEL: "promotions-carousel",
   ADMIN_PRODUCTS: "products",
   ADMIN_PRODUCT: "products/:id",
   ADMIN_PRODUCT_TRANSLATION: "products/:id/translations/:locale",
@@ -44,6 +45,9 @@ const API_ROUTES = {
   CART_NEW_ITEM: "/api/orders/add-product",
   CART_UPDATE_ITEM: "/api/orders/update-cart-item",
   CART_DELETE_ITEM: "/api/orders/delete-cart-item",
+  PROMOTION_CAROUSEL_TEXT_NEW: "/api/home-texts",
+  PROMOTION_CAROUSEL_TEXT_GET_ALL: "/api/home-texts",
+  PROMOTION_CAROUSEL_TEXT_UPDATE: "/api/home-texts",
 } as const;
 
 export { APP_ROUTES, API_ROUTES };

@@ -132,6 +132,13 @@
       "validation": {
         "min": "Please provide a functionality"
       }
+    },
+    "promotionsText": {
+      "label": "Text",
+      "placeholder": "Text",
+      "validation": {
+        "min": "Please provide a promotionnal text"
+      }
     }
   },
   "selects": {
