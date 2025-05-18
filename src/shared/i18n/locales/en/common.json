@@ -139,6 +139,52 @@
       "validation": {
         "min": "Please provide a promotionnal text"
       }
+    },
+    "street": {
+      "label": "Street",
+      "placeholder": "Street",
+      "validation": {
+        "min": "Please provide a street"
+      }
+    },
+    "number": {
+      "label": "Number",
+      "placeholder": "Number",
+      "validation": {
+        "min": "Please provide a street number"
+      }
+    },
+    "complement": {
+      "label": "Street line 2",
+      "placeholder": "Street line 2"
+    },
+    "zipCode": {
+      "label": "Zip code",
+      "placeholder": "Zip code",
+      "validation": {
+        "min": "Please provide a zip code"
+      }
+    },
+    "city": {
+      "label": "City",
+      "placeholder": "City",
+      "validation": {
+        "min": "Please provide a city"
+      }
+    },
+    "region": {
+      "label": "Region",
+      "placeholder": "Region",
+      "validation": {
+        "min": "Please provide a region"
+      }
+    },
+    "country": {
+      "label": "Country",
+      "placeholder": "Country",
+      "validation": {
+        "min": "Please provide a country"
+      }
     }
   },
   "selects": {
@@ -202,6 +248,14 @@
     },
     "translation": {
       "placeholder": "Choose a translation"
+    },
+    "addressType": {
+      "label": "Type",
+      "placeholder": "Choose a type",
+      "options": {
+        "billing": "Billing",
+        "shipping": "Shipping"
+      }
     }
   },
   "dataTable": {
@@ -224,6 +278,9 @@
     }
   },
   "dialog": {
+    "new": {
+      "title": "Creation"
+    },
     "delete": {
       "title": "Confirmation"
     },

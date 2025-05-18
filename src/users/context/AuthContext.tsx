@@ -18,6 +18,7 @@ type AuthContextType = {
   user: UserResponse | null;
   onSignIn: (response: SignInResponse) => void;
   onSignOut: () => void;
+  onUserUpdate: (user: UserResponse) => void;
   isAuthenticated: boolean;
 };
 
@@ -43,11 +44,13 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     signOut();
   };
 
+  const onUserUpdate = (u: UserResponse) => setUser(u);
+
   const isAuthenticated = !!getAccessToken();
 
   return (
     <AuthContext.Provider
-      value={{ user, onSignIn, onSignOut, isAuthenticated }}
+      value={{ user, onSignIn, onSignOut, onUserUpdate, isAuthenticated }}
     >
       {!isLoading && children}
     </AuthContext.Provider>

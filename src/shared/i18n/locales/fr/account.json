@@ -8,8 +8,37 @@
       "caption": "Changer de mot de passe"
     },
     "submit": {
-      "loading": "Mise à jour...",
+      "loading": "Mise à jour en cours...",
       "action": "Mettre à jour"
+    },
+    "address": {
+      "caption": "Adresse",
+      "newAddress": "Nouvelle adresse",
+      "delete": "Supprimer",
+      "dialog": {
+        "new": {
+          "description": "Enregistrer une nouvelle adresse sur mon compte"
+        },
+        "delete": {
+          "description": "Suppression d'une adresse",
+          "message": "Supprimer l'addresse définitivement ?"
+        }
+      },
+      "toast": {
+        "new": {
+          "success": "Adresse enregistrée !",
+          "loading": "Enregistrement en cours..."
+        },
+        "update": {
+          "success": "Adresse mise à jour !",
+          "loading": "Mise à jour en cours..."
+        },
+        "delete": {
+          "success": "Adresse supprimée !",
+          "loading": "Suppression en cours..."
+        },
+        "error": "Une erreur est survenue"
+      }
     }
   }
 }

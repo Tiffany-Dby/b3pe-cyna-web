@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-const ChangePasswordSchema = z
+const UpdatePasswordSchema = z
   .object({
     previousPassword: z
       .string()
@@ -24,5 +24,5 @@ const ChangePasswordSchema = z
     path: ["confirmPassword"],
   });
 
-export { ChangePasswordSchema };
-export type ChangePasswordData = z.infer<typeof ChangePasswordSchema>;
+export { UpdatePasswordSchema };
+export type UpdatePasswordData = z.infer<typeof UpdatePasswordSchema>;

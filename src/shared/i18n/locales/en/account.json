@@ -10,6 +10,35 @@
     "submit": {
       "loading": "Updating...",
       "action": "Update"
+    },
+    "address": {
+      "caption": "Address",
+      "newAddress": "New address",
+      "delete": "Delete",
+      "dialog": {
+        "new": {
+          "description": "Save a new address on my account"
+        },
+        "delete": {
+          "description": "Delete an address",
+          "message": "Delete the address permanently?"
+        }
+      },
+      "toast": {
+        "new": {
+          "success": "Address saved !",
+          "loading": "Saving..."
+        },
+        "update": {
+          "success": "Address updated !",
+          "loading": "Updating..."
+        },
+        "delete": {
+          "success": "Address deleted !",
+          "loading": "Deleting..."
+        },
+        "error": "An error occured"
+      }
     }
   }
 }

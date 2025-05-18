@@ -15,7 +15,7 @@ import { useTranslation } from "react-i18next";
 type Props = {
   accordionValue: string;
   title: string;
-  description: string;
+  description: React.ReactNode | string;
   children: React.ReactNode;
   serverError?: string | null;
 };
@@ -39,7 +39,11 @@ const BaseAccordionCard = ({
           <AccordionContent className="flex flex-col gap-4 h-full pb-6">
             <CardHeader>
               <CardDescription>
-                <p>{t(description)}</p>
+                {typeof description === "string" ? (
+                  <p>{t(description)}</p>
+                ) : (
+                  description
+                )}
                 {serverError && <p className="text-danger">{serverError}</p>}
               </CardDescription>
             </CardHeader>

@@ -139,6 +139,52 @@
       "validation": {
         "min": "Veuillez renseigner un texte promotionnel"
       }
+    },
+    "street": {
+      "label": "Rue",
+      "placeholder": "Rue",
+      "validation": {
+        "min": "Veuillez renseigner une rue"
+      }
+    },
+    "number": {
+      "label": "Numéro",
+      "placeholder": "Numéro",
+      "validation": {
+        "min": "Veuillez renseigner un numéro de voie"
+      }
+    },
+    "complement": {
+      "label": "Complément d'adresse",
+      "placeholder": "Complément d'adresse"
+    },
+    "zipCode": {
+      "label": "Code postal",
+      "placeholder": "Code postal",
+      "validation": {
+        "min": "Veuillez renseigner un code postal"
+      }
+    },
+    "city": {
+      "label": "Ville",
+      "placeholder": "Ville",
+      "validation": {
+        "min": "Veuillez renseigner une ville"
+      }
+    },
+    "region": {
+      "label": "Région",
+      "placeholder": "Région",
+      "validation": {
+        "min": "Veuillez renseigner une région"
+      }
+    },
+    "country": {
+      "label": "Pays",
+      "placeholder": "Pays",
+      "validation": {
+        "min": "Veuillez renseigner un pays"
+      }
     }
   },
   "selects": {
@@ -202,6 +248,14 @@
     },
     "translation": {
       "placeholder": "Choisir une traduction"
+    },
+    "addressType": {
+      "label": "Type",
+      "placeholder": "Choisir le type",
+      "options": {
+        "billing": "Facturation",
+        "shipping": "Livraison"
+      }
     }
   },
   "dataTable": {
@@ -224,6 +278,9 @@
     }
   },
   "dialog": {
+    "new": {
+      "title": "Création"
+    },
     "delete": {
       "title": "Confirmation"
     },

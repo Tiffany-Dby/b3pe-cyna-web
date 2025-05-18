@@ -129,7 +129,6 @@ const useProductsStore = create<ProductsState>((set) => ({
     set(() => ({ selectedTranslation: { ...updateTranslation } })),
 
   deleteProduct: async (selected, toasMsgs = TOAST.DEFAULT_MSGS) => {
-    console.log(selected);
     const { success, loading, error } = toasMsgs;
 
     set({ isLoading: true });
