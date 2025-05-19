@@ -9,6 +9,7 @@ import { Separator } from "@/lib/components/ui/separator";
 import { useAddressesStore } from "@/users/store/addressesStore";
 import { Address } from "@/users/types/Address";
 import DeleteAddressDialog from "./DeleteAddressDialog";
+import Loader from "@/shared/ui/components/Loader";
 
 const SettingsAddressCard = () => {
   const { t } = useTranslation();
@@ -30,7 +31,7 @@ const SettingsAddressCard = () => {
         }
       >
         <div className="flex flex-col gap-4">
-          {isLoading && <p>{t("loading")}</p>}
+          {isLoading && <Loader />}
           {error && <p className="text-danger">{error}</p>}
           {addresses?.map((address, index) => (
             <div className="flex flex-col gap-4" key={index}>

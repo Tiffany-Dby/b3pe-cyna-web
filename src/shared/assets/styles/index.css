@@ -273,6 +273,17 @@
   }
 }
 
+@theme {
+  --animate-loader: loader 1.35s infinite linear;
+  --animate-loader-reverse: loader 0.65s infinite linear reverse;
+
+  @keyframes loader {
+    100% {
+      transform: rotate(1turn);
+    }
+  }
+}
+
 header:has(.burger--open) {
   /* padding-right: 15px; */
 }

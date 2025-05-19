@@ -42,6 +42,7 @@ import useFetch from "@/shared/hooks/useFetch";
 import { API_ROUTES } from "@/shared/constants/routes";
 import { ProductLocale } from "@/products/types/Products";
 import { usePurchaseStore } from "@/purchase/store/purchaseStore";
+import Loader from "@/shared/ui/components/Loader";
 
 const ProductView = () => {
   const { t, i18n } = useTranslation("products");
@@ -63,10 +64,10 @@ const ProductView = () => {
 
   return (
     <>
+      {isLoading && <Loader />}
       <article>
         <div className="container mx-auto flex flex-col gap-16 pt-4 pb-8">
           {error && <p className="text-danger">{error}</p>}
-          {isLoading && <p>Loading...</p>}
           {!error && productLocale && (
             <>
               <div>

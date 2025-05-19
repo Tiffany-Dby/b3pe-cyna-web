@@ -5,6 +5,7 @@ import { API_ROUTES } from "@/shared/constants/routes";
 import useFetch from "@/shared/hooks/useFetch";
 import { ProductStatus } from "@/products/types/ProductStatus";
 import { useMemo } from "react";
+import Loader from "@/shared/ui/components/Loader";
 
 const ProductsView = () => {
   const { t, i18n } = useTranslation("products");
@@ -37,24 +38,26 @@ const ProductsView = () => {
   }, [productsLocale]);
 
   return (
-    <section>
-      <div className="container mx-auto flex flex-col gap-5 py-10 px-4">
-        {isLoading && <p>{t("common:loading")}</p>}
-        {error && <p>error</p>}
-        {!error && productsLocale && (
-          <>
-            <h1>{t("productList.title")}</h1>
-            <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-3">
-              {sortedProducts.map((product) => (
-                <article key={product.id}>
-                  <ProductCard product={product} />
-                </article>
-              ))}
-            </div>
-          </>
-        )}
-      </div>
-    </section>
+    <>
+      {isLoading && <Loader />}
+      <section>
+        <div className="container mx-auto flex flex-col gap-5 py-10 px-4">
+          {error && <p>error</p>}
+          {!error && productsLocale && (
+            <>
+              <h1>{t("productList.title")}</h1>
+              <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-3">
+                {sortedProducts.map((product) => (
+                  <article key={product.id}>
+                    <ProductCard product={product} />
+                  </article>
+                ))}
+              </div>
+            </>
+          )}
+        </div>
+      </section>
+    </>
   );
 };
 

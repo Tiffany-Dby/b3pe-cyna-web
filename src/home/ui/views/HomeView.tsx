@@ -9,6 +9,7 @@ import useFetch from "@/shared/hooks/useFetch";
 import { ProductLocale } from "@/products/types/Products";
 import { ArrowRightIcon } from "lucide-react";
 import { PromotionsText } from "@/home/types/PromotionsCarousel";
+import Loader from "@/shared/ui/components/Loader";
 
 const HomeView = () => {
   const { t, i18n } = useTranslation("home");
@@ -105,7 +106,7 @@ const HomeView = () => {
                 />
               </div>
               <div>
-                {isPromoTextLoading && <p>{t("common:loading")}</p>}
+                {isPromoTextLoading && <Loader />}
                 {promosTextError && <p>{promosTextError}</p>}
                 {promosText?.text?.split("\n").map((line, index) => (
                   <p key={index} className="whitespace-pre-wrap">
@@ -120,7 +121,7 @@ const HomeView = () => {
       )}
       <section>
         <div className="container mx-auto flex flex-col gap-5 py-10 px-4">
-          {isLoading && <p>{t("common:loading")}</p>}
+          {isLoading && <Loader />}
           {error && <p>{error}</p>}
           {!error && productsLocale && (
             <>
