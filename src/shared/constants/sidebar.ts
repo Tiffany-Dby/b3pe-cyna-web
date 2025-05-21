@@ -19,7 +19,7 @@ const SIDEBAR_ITEMS: SidebarItem[] = [
         subItems: [
           {
             title: "dashboard.analytics.subItems.salesOrders",
-            url: APP_ROUTES.ADMIN,
+            url: APP_ROUTES.ADMIN_DASHBOARD,
           },
           {
             title: "dashboard.analytics.subItems.userActivity",

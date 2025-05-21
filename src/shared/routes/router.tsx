@@ -19,6 +19,7 @@ import CartView from "@/purchase/ui/views/CartView";
 import ProductsView from "@/products/ui/views/ProductsView";
 import AdminPromotionsCarouselView from "@/home/ui/views/AdminPromotionsCarouselView";
 import AdminAllAdminsView from "@/users/ui/views/AdminAllAdminsView";
+import AdminDashboardView from "@/dashboard/ui/views/AdminDashboardView";
 
 const router = createBrowserRouter([
   {
@@ -75,7 +76,7 @@ const router = createBrowserRouter([
         Component: AdminLayout,
         children: [
           { index: true, element: <p>Index</p> },
-          { path: APP_ROUTES.ADMIN_DASHBOARD, element: <p>Dashboard</p> },
+          { path: APP_ROUTES.ADMIN_DASHBOARD, Component: AdminDashboardView },
           {
             path: APP_ROUTES.ADMIN_PROMOTION_CAROUSEL,
             Component: AdminPromotionsCarouselView,

@@ -10,17 +10,17 @@ import { Option } from "@/shared/types/Option";
 import { useId } from "react";
 
 type Props = {
-  control: boolean;
+  control?: boolean;
   options: Option[];
   value: string;
   placeholder: string;
   name: string;
-  onChange: () => void;
+  onChange: (value: string) => void;
   disabled?: boolean;
 };
 
 const BaseSelect = ({
-  control,
+  control = false,
   options,
   placeholder,
   name,
