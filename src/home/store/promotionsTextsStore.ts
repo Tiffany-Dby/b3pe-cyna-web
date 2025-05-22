@@ -15,8 +15,8 @@ const usePromotionsTextStore = create<PromotionsTextState>((set) => ({
     set({ isLoading: true });
 
     const { result, error } = await getRequest<PromotionsText[]>(
-      API_ROUTES.PROMOTION_CAROUSEL_TEXT_GET_ALL
-      // false TODO: update when correction is made backend
+      API_ROUTES.PROMOTION_CAROUSEL_TEXT_GET_ALL,
+      false
     );
 
     set({ isLoading: false, error, promotionsTexts: error ? [] : result });

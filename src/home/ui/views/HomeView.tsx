@@ -29,8 +29,8 @@ const HomeView = () => {
     isLoading: isPromoTextLoading,
     error: promosTextError,
   } = useFetch<PromotionsText>(
-    `${API_ROUTES.PROMOTION_CAROUSEL_TEXT_GET_ALL}/${locale}`
-    // false TODO: update when correction is made backend
+    `${API_ROUTES.PROMOTION_CAROUSEL_TEXT_GET_ALL}/${locale}`,
+    false
   );
 
   const promos = productsLocale
