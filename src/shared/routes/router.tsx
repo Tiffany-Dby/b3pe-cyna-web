@@ -5,7 +5,6 @@ import App from "@/App";
 import HomeView from "@/home/ui/views/HomeView";
 import SignUpView from "@/users/ui/views/SignUpView";
 import SignInView from "@/users/ui/views/SignInView";
-import ResetPasswordView from "@/users/ui/views/ResetPasswordView";
 import PrivateRoutes from "@/users/context/PrivateRoutes";
 import SettingsView from "@/users/ui/views/SettingsView";
 import ProductView from "@/products/ui/views/ProductView";
@@ -24,6 +23,7 @@ import CheckoutView from "@/purchase/ui/views/CheckoutView";
 import AddressView from "@/purchase/ui/views/AddressView";
 import PurchaseLayout from "@/purchase/ui/components/PurchaseLayout";
 import SuccessView from "@/purchase/ui/views/SuccessView";
+import ResetPasswordView from "@/users/ui/views/ResetPasswordView";
 
 const router = createBrowserRouter([
   {

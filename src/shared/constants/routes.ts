@@ -34,6 +34,8 @@ const API_ROUTES = {
   ME: "/api/auth/me",
   REFRESH: "/api/auth/refresh",
   SIGN_OUT: "/api/auth/logout",
+  REQUEST_RESET_PASSWORD: "/api/auth/send-reset",
+  RESET_PASSWORD: "/api/auth/reset-password",
   USER_NEW_ADMIN: "/api/users/add-admin",
   USER_UPDATE_INFOS: "/api/users/update",
   USER_UPDATE_PASSWORD: "/api/users/update-password",
