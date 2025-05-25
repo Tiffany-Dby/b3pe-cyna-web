@@ -11,7 +11,7 @@ const useAddressesStore = create<AddressesState>((set) => ({
   error: null,
 
   getUserAddresses: async () => {
-    set({ isLoading: true });
+    set({ isLoading: true, error: null });
 
     const { result, error } = await getRequest<Address[]>(
       API_ROUTES.USER_ADDRESS_GET_ALL

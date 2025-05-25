@@ -71,7 +71,7 @@ const NavigationMenu = () => {
         },
     {
       title: t("header.navigation.cart"),
-      url: APP_ROUTES.CART,
+      url: APP_ROUTES.TO_CART,
       icon: ShoppingCartIcon,
     },
   ];

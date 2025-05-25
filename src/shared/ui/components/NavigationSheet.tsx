@@ -72,7 +72,7 @@ const NavigationSheet = ({ items }: { items: MenuItem[] }) => {
                         <span className="flex-center-center gap-1 relative">
                           <item.icon className="size-3.5" />
                           {item.title}
-                          {item.url === APP_ROUTES.CART &&
+                          {item.url === APP_ROUTES.TO_CART &&
                             !!cart?.items.length && (
                               <span className="absolute flex-center-center w-4.5 h-4.5 bg-danger rounded-full text-size-label -right-4 -top-2">
                                 {cart.items.length}
@@ -115,9 +115,8 @@ const NavigationSheet = ({ items }: { items: MenuItem[] }) => {
                                       </NavLink>
                                     </li>
                                   ) : (
-                                    <li className="p-3 pt-0 hover:px-0 transition-[padding] duration-500">
+                                    <li className="hover:px-3 transition-[padding] duration-500">
                                       <Button
-                                        className="w-full"
                                         onClick={() => {
                                           if (subitem.action) subitem.action();
                                           handleOpenChange();

@@ -1,5 +1,11 @@
 import { create } from "zustand";
-import { Cart, PurchaseState } from "@/purchase/types/Purchase";
+import {
+  Cart,
+  CartToUpdate,
+  NewCartItem,
+  PurchaseState,
+  UpdateCartItem,
+} from "@/purchase/types/Purchase";
 import {
   deleteRequest,
   getRequest,
@@ -8,10 +14,12 @@ import {
 } from "@/shared/tools/api";
 import { API_ROUTES } from "@/shared/constants/routes";
 import { toast } from "sonner";
+import { TOAST } from "@/shared/constants/toast";
 
 const usePurchaseStore = create<PurchaseState>((set) => ({
   cart: null,
   isLoading: false,
+  isUpdating: false,
   error: null,
 
   getCart: async () => {
@@ -22,24 +30,45 @@ const usePurchaseStore = create<PurchaseState>((set) => ({
     set({ isLoading: false, error, cart: error ? null : result });
   },
 
-  addToCart: async (productId, quantity) => {
+  addToCart: async (newItem, toasMsgs = TOAST.DEFAULT_MSGS) => {
+    const { success, loading, error } = toasMsgs;
+
     set({ isLoading: true });
 
-    const promise = postRequest<Cart, { productId: number; quantity: number }>(
+    const toastId = toast.loading(loading);
+    const { result, error: reqError } = await postRequest<Cart, NewCartItem>(
       API_ROUTES.CART_NEW_ITEM,
       {
-        productId,
-        quantity,
+        productId: newItem.productId,
+        quantity: newItem.quantity,
+        recurring: newItem.recurring,
       }
     );
 
-    toast.promise(promise, {
-      loading: "Ajout au panier en cours...",
-      success: "Produit ajouté au panier !",
-      error: () => "Une erreur est survenue",
-    });
+    set({ isLoading: false });
 
-    const { result, error } = await promise;
+    if (reqError) toast.error(error, { id: toastId });
+    else toast.success(success, { id: toastId });
+
+    set((state) => ({
+      isLoading: false,
+      error: reqError,
+      cart: reqError ? state.cart : result,
+    }));
+  },
+
+  updateCart: async (cart) => {
+    set({ isLoading: true });
+
+    const { result, error } = await putRequest<Cart, CartToUpdate>(
+      API_ROUTES.CART_UPDATE,
+      {
+        orderId: cart.orderId,
+        status: cart.status,
+        shippingAddressId: cart.shippingAddressId,
+        billingAddressId: cart.billingAddressId,
+      }
+    );
 
     set((state) => ({
       isLoading: false,
@@ -48,16 +77,20 @@ const usePurchaseStore = create<PurchaseState>((set) => ({
     }));
   },
 
-  updateCartItem: async (productId, quantity) => {
-    set({ isLoading: true });
+  updateCartItem: async (item) => {
+    set({ isUpdating: true });
 
-    const { result, error } = await putRequest<
-      any,
-      { productId: number; quantity: number }
-    >(API_ROUTES.CART_UPDATE_ITEM, { productId, quantity });
+    const { result, error } = await putRequest<Cart, UpdateCartItem>(
+      API_ROUTES.CART_UPDATE_ITEM,
+      {
+        productId: item.productId,
+        quantity: item.quantity,
+        recurring: item.recurring,
+      }
+    );
 
     set((state) => ({
-      isLoading: false,
+      isUpdating: false,
       error,
       cart: error ? state.cart : result,
     }));

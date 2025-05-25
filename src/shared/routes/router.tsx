@@ -20,6 +20,10 @@ import ProductsView from "@/products/ui/views/ProductsView";
 import AdminPromotionsCarouselView from "@/home/ui/views/AdminPromotionsCarouselView";
 import AdminAllAdminsView from "@/users/ui/views/AdminAllAdminsView";
 import AdminDashboardView from "@/dashboard/ui/views/AdminDashboardView";
+import CheckoutView from "@/purchase/ui/views/CheckoutView";
+import AddressView from "@/purchase/ui/views/AddressView";
+import PurchaseLayout from "@/purchase/ui/components/PurchaseLayout";
+import SuccessView from "@/purchase/ui/views/SuccessView";
 
 const router = createBrowserRouter([
   {
@@ -59,9 +63,26 @@ const router = createBrowserRouter([
         Component: ProductView,
       },
       {
-        path: APP_ROUTES.CART,
-        Component: CartView,
+        path: APP_ROUTES.PURCHASE,
+        Component: PurchaseLayout,
+        children: [
+          { index: true, path: APP_ROUTES.PURCHASE_CART, Component: CartView },
+          { path: APP_ROUTES.PURCHASE_ADDRESS, Component: AddressView },
+          { path: APP_ROUTES.PURCHASE_CHECKOUT, Component: CheckoutView },
+        ],
       },
+      {
+        path: APP_ROUTES.SUCCESS,
+        Component: SuccessView,
+      },
+      // {
+      //   path: APP_ROUTES.CART_ADDRESS,
+      //   Component: AddressView,
+      // },
+      // {
+      //   path: APP_ROUTES.CART_CHECKOUT,
+      //   Component: CheckoutView,
+      // },
       {
         path: "*",
         Component: NotFoundView,

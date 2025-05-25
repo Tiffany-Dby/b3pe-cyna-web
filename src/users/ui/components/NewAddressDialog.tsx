@@ -21,7 +21,8 @@ import {
   NewAddressSchema,
 } from "@/users/schemas/NewAddressSchema";
 import { useAddressesStore } from "@/users/store/addressesStore";
-import { Address } from "@/users/types/Address";
+import { Address, AddressType } from "@/users/types/Address";
+import { enumToOptions } from "@/shared/utils/format";
 
 type NewAddressField = Field & {
   name: keyof NewAddressData;
@@ -37,6 +38,11 @@ type Props = {
 const NewAddressDialog = ({ open, onOpenChange }: Props) => {
   const { t } = useTranslation();
   const { addUserAddress } = useAddressesStore();
+
+  const addressOpts = enumToOptions(AddressType).map((type) => ({
+    ...type,
+    label: t(`selects.addressType.options.${type.label}`),
+  }));
 
   const { form, handleSubmit, isLoading, serverError } = useCustomForm<
     NewAddressInput,
@@ -72,10 +78,7 @@ const NewAddressDialog = ({ open, onOpenChange }: Props) => {
       label: t("selects.addressType.label"),
       type: "select",
       placeholder: t("selects.addressType.placeholder"),
-      options: [
-        { label: t("selects.addressType.options.billing"), value: "0" },
-        { label: t("selects.addressType.options.shipping"), value: "1" },
-      ],
+      options: addressOpts,
       autoComplete: "off",
     },
     {

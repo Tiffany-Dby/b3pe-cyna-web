@@ -8,18 +8,13 @@ import {
 } from "@/lib/components/ui/card";
 import { Input } from "@/lib/components/ui/input";
 import { Label } from "@/lib/components/ui/label";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/lib/components/ui/select";
 import ProductStatusBadge from "@/products/ui/components/ProductStatusBadge";
 import { usePurchaseStore } from "@/purchase/store/purchaseStore";
-import { CartItem } from "@/purchase/types/Purchase";
+import { CartItem, Recurring } from "@/purchase/types/Purchase";
+import BaseSelect from "@/shared/ui/components/BaseSelect";
+import { enumToOptions } from "@/shared/utils/format";
 import { formatAmount } from "@/shared/utils/number";
-import { MinusIcon, PlusIcon, Trash2Icon } from "lucide-react";
+import { LoaderIcon, MinusIcon, PlusIcon, Trash2Icon } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
 type Props = {
@@ -29,21 +24,49 @@ type Props = {
 
 const CartItemCard = ({ item, index }: Props) => {
   const { t, i18n } = useTranslation("cart");
-  const { updateCartItem, removeCartItem } = usePurchaseStore();
+  const { isUpdating, updateCartItem, removeCartItem } = usePurchaseStore();
 
   const product = item.product;
   const quantity = item.quantity;
+  const recurring = item.recurring;
 
-  const increment = () => updateCartItem(product.id, quantity + 1);
+  const increment = () =>
+    updateCartItem({
+      productId: product.id,
+      quantity: quantity + 1,
+      recurring: recurring,
+    });
   const decrement = () =>
     quantity > 1
-      ? updateCartItem(product.id, quantity - 1)
+      ? updateCartItem({
+          productId: product.id,
+          quantity: quantity - 1,
+          recurring: recurring,
+        })
       : removeCartItem(item.id);
 
   const onQuantityChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const value = parseInt(event.target.value, 10) || 0;
-    value <= 0 ? () => {} : updateCartItem(product.id, value);
+    value <= 0
+      ? () => {}
+      : updateCartItem({
+          productId: product.id,
+          quantity: value,
+          recurring: recurring,
+        });
   };
+
+  const recurringOpts = enumToOptions(Recurring).map((type) => ({
+    ...type,
+    label: t(`common:selects.subType.${type.label}`),
+  }));
+
+  const onRecurringChange = (newReccuring: string) =>
+    updateCartItem({
+      productId: product.id,
+      quantity,
+      recurring: parseInt(newReccuring, 10),
+    });
 
   return (
     <article className={`md:col-1 md:row-${index + 1}`}>
@@ -53,7 +76,7 @@ const CartItemCard = ({ item, index }: Props) => {
             <div className="aspect-square sm:max-w-30 bg-primary rounded-lg">
               <img
                 src={product.slides[0]}
-                alt=""
+                alt={product.name}
                 className="w-full max-w-full h-full max-h-full object-center object-cover rounded-lg"
               />
             </div>
@@ -87,22 +110,17 @@ const CartItemCard = ({ item, index }: Props) => {
           <CardContent className="row-2 col-span-full px-0 sm:col-2 sm:flex sm:grow sm:w-full">
             <div className="flex gap-1 w-full justify-between">
               <div className="flex flex-col w-1/2 justify-end gap-1">
-                <Label>{t("common:selects.subType.label")}</Label>
-                <Select>
-                  <SelectTrigger className="w-full border-primary/40">
-                    <SelectValue
-                      placeholder={t("common:selects.subType.placeholder")}
-                    />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="0">
-                      {t("common:selects.subType.monthly")}
-                    </SelectItem>
-                    <SelectItem value="1">
-                      {t("common:selects.subType.yearly")}
-                    </SelectItem>
-                  </SelectContent>
-                </Select>
+                <Label htmlFor="subType">
+                  {t("common:selects.subType.label")}
+                </Label>
+                <BaseSelect
+                  name="subType"
+                  options={recurringOpts}
+                  placeholder={t("common:selects.subType.placeholder")}
+                  disabled={isUpdating}
+                  value={String(item.recurring)}
+                  onChange={onRecurringChange}
+                />
               </div>
               <div className="flex flex-col gap-1 justify-end">
                 <Label>{t("common:inputs.quantity.label")}</Label>
@@ -110,20 +128,29 @@ const CartItemCard = ({ item, index }: Props) => {
                   <Button
                     className="w-8 h-8 p-0 rounded-tr-none rounded-br-none"
                     onClick={decrement}
+                    disabled={isUpdating}
                   >
-                    {quantity > 1 ? <MinusIcon /> : <Trash2Icon />}
+                    {isUpdating ? (
+                      <LoaderIcon />
+                    ) : quantity > 1 ? (
+                      <MinusIcon />
+                    ) : (
+                      <Trash2Icon />
+                    )}
                   </Button>
                   <Input
                     type="number"
                     className="px-0 text-center max-h-8 rounded-none max-w-8 border-primary text-foreground [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
                     value={quantity}
                     onChange={onQuantityChange}
+                    disabled={isUpdating}
                   />
                   <Button
                     className="w-8 h-8 p-0 rounded-tl-none rounded-bl-none"
                     onClick={increment}
+                    disabled={isUpdating}
                   >
-                    <PlusIcon />
+                    {isUpdating ? <LoaderIcon /> : <PlusIcon />}
                   </Button>
                 </div>
               </div>

@@ -1,8 +1,13 @@
 import { ToastMsgs } from "@/shared/types/Toast";
 
+enum AddressType {
+  billing = 0,
+  shipping = 1,
+}
+
 type Address = {
   id: number;
-  type: number;
+  type: AddressType;
   street: string;
   number: string;
   complement: string;
@@ -22,3 +27,4 @@ type AddressesState = {
 };
 
 export type { Address, AddressesState };
+export { AddressType };

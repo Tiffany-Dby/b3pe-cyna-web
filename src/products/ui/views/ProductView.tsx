@@ -269,6 +269,16 @@ const ProductView = () => {
                             className="w-full max-w-50 sm:max-w-none"
                             variant="outline"
                             disabled={disabled}
+                            onClick={() =>
+                              addToCart(
+                                {
+                                  productId: Number(id),
+                                  quantity: 1,
+                                  recurring: 1,
+                                },
+                                {}
+                              )
+                            }
                           >
                             {t("pricing.monthly.cta")}
                           </Button>
@@ -337,7 +347,16 @@ const ProductView = () => {
                             className="w-full max-w-50 sm:max-w-none"
                             variant="success"
                             disabled={disabled}
-                            onClick={() => addToCart(Number(id), 1)}
+                            onClick={() =>
+                              addToCart(
+                                {
+                                  productId: Number(id),
+                                  quantity: 1,
+                                  recurring: 2,
+                                },
+                                {}
+                              )
+                            }
                           >
                             {t("pricing.yearly.cta")}
                           </Button>

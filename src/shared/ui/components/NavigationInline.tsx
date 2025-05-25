@@ -19,7 +19,7 @@ const NavigationInline = ({ items }: { items: MenuItem[] }) => {
 
   return (
     <NavigationMenu className="hidden md:block">
-      <NavigationMenuList>
+      <NavigationMenuList className="gap-1">
         {items.map((item) => (
           <Fragment key={id + "-" + item.title}>
             {!item.subitems ? (
@@ -30,7 +30,7 @@ const NavigationInline = ({ items }: { items: MenuItem[] }) => {
                 >
                   <item.icon className="size-3.5" />
                   {item.title}
-                  {item.url === APP_ROUTES.CART && !!cart?.items.length && (
+                  {item.url === APP_ROUTES.TO_CART && !!cart?.items.length && (
                     <span className="absolute flex-center-center w-4.5 h-4.5 bg-danger rounded-full text-size-label -right-0.5 -top-0.5">
                       {cart.items.length}
                     </span>
@@ -59,7 +59,7 @@ const NavigationInline = ({ items }: { items: MenuItem[] }) => {
                             </NavLink>
                           </li>
                         ) : (
-                          <li className="px-3 pb-3 hover:px-0 transition-[padding] duration-500">
+                          <li className="hover:px-3 pb-1 transition-[padding] duration-500">
                             <Button className="w-full" onClick={subitem.action}>
                               {subitem.title}
                             </Button>
