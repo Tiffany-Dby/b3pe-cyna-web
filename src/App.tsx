@@ -3,7 +3,7 @@ import BaseLayout from "@/shared/ui/components/BaseLayout";
 import { Toaster } from "sonner";
 import { usePurchaseStore } from "@/purchase/store/purchaseStore";
 import { useEffect } from "react";
-import { Crisp } from "crisp-sdk-web";
+// import { Crisp } from "crisp-sdk-web";
 
 const App = () => {
   const { getCart } = usePurchaseStore();

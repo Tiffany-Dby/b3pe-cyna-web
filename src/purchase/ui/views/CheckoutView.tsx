@@ -1,15 +1,15 @@
-import { useState, useEffect } from "react";
-import { Appearance, loadStripe } from "@stripe/stripe-js";
-import {
-  Elements,
-  PaymentElement,
-  useStripe,
-  useElements,
-} from "@stripe/react-stripe-js";
-import { Button } from "@/lib/components/ui/button";
+import { useEffect } from "react";
+// import { Appearance } from "@stripe/stripe-js";
+// import {
+//   Elements,
+//   PaymentElement,
+//   useStripe,
+//   useElements,
+// } from "@stripe/react-stripe-js";
+// import { Button } from "@/lib/components/ui/button";
 import { usePurchaseStore } from "@/purchase/store/purchaseStore";
-import { postRequest } from "@/shared/tools/api";
-import Loader from "@/shared/ui/components/Loader";
+// import { postRequest } from "@/shared/tools/api";
+// import Loader from "@/shared/ui/components/Loader";
 import BaseCard from "@/shared/ui/components/BaseCard";
 import {
   Breadcrumb,
@@ -26,7 +26,7 @@ import { useTranslation } from "react-i18next";
 
 const CheckoutView = () => {
   const { cart } = usePurchaseStore();
-  const [clientSecret, setClientSecret] = useState<string>("");
+  // const [clientSecret, setClientSecret] = useState<string>("");
 
   const handleCheckout = async () => {
     if (!cart) return;
@@ -55,22 +55,22 @@ const CheckoutView = () => {
     handleCheckout();
   }, [cart]);
 
-  const appearance: Appearance = {
-    theme: "stripe",
-    variables: {
-      colorBackground: "var(--background)",
-      colorText: "var(--foreground)",
-      colorPrimary: "var(--color-primary)",
-      spacingUnit: "calc(var(--spacing) * 2)",
-      borderRadius: "calc(var(--radius) - 2px)",
-    },
-    rules: {
-      ".AccordionItem": {
-        border: "none",
-        boxShadow: "none",
-      },
-    },
-  };
+  // const appearance: Appearance = {
+  //   theme: "stripe",
+  //   variables: {
+  //     colorBackground: "var(--background)",
+  //     colorText: "var(--foreground)",
+  //     colorPrimary: "var(--color-primary)",
+  //     spacingUnit: "calc(var(--spacing) * 2)",
+  //     borderRadius: "calc(var(--radius) - 2px)",
+  //   },
+  //   rules: {
+  //     ".AccordionItem": {
+  //       border: "none",
+  //       boxShadow: "none",
+  //     },
+  //   },
+  // };
 
   // if (!clientSecret) {
   //   return <Loader />;
@@ -90,7 +90,7 @@ const CheckoutForm = () => {
   // const elements = useElements();
   const { t } = useTranslation("purchase");
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (/* e: React.FormEvent */) => {
     // e.preventDefault();
     // if (!stripe || !elements) return;
     // const { error } = await stripe.confirmPayment({
