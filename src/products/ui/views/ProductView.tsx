@@ -432,9 +432,10 @@ const ProductView = () => {
                           <Button
                             className="w-full max-w-50 sm:max-w-none"
                             variant="outline"
-                            disabled={disabled}
+                            disabled={true}
                           >
-                            {t("pricing.trial.cta")}
+                            {/* {t("pricing.trial.cta")} */}
+                            {t("common:soonAvailable")}
                           </Button>
                         </CardFooter>
                       </Card>
