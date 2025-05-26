@@ -47,6 +47,7 @@ const BaseLayout = ({ children }: Props) => {
                         href="https://www.linkedin.com/"
                         target="_blank"
                         rel="noopener noreferrer"
+                        aria-label="Linkedin link"
                       >
                         <FaLinkedinIn className="h-8 w-8 bg-white text-primary-150 p-0.5 rounded-sm" />
                       </a>
@@ -56,6 +57,7 @@ const BaseLayout = ({ children }: Props) => {
                         href="https://www.facebook.com/"
                         target="_blank"
                         rel="noopener noreferrer"
+                        aria-label="Facebook link"
                       >
                         <FaFacebookF className="h-8 w-8 bg-white text-primary-150 p-0.5 rounded-sm" />
                       </a>
@@ -65,6 +67,7 @@ const BaseLayout = ({ children }: Props) => {
                         href="https://x.com/"
                         target="_blank"
                         rel="noopener noreferrer"
+                        aria-label="Twitter link"
                       >
                         <FaXTwitter className="h-8 w-8 bg-white text-primary-150 p-0.5 rounded-sm" />
                       </a>

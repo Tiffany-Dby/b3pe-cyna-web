@@ -153,6 +153,7 @@ const NavigationSheet = ({ items }: { items: MenuItem[] }) => {
                   href="https://www.linkedin.com/"
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label="Linkedin link"
                 >
                   <FaLinkedinIn className="h-6 w-6 bg-white text-primary-150 p-0.5 rounded-sm" />
                 </a>
@@ -162,6 +163,7 @@ const NavigationSheet = ({ items }: { items: MenuItem[] }) => {
                   href="https://www.facebook.com/"
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label="Facebook link"
                 >
                   <FaFacebookF className="h-6 w-6 bg-white text-primary-150 p-0.5 rounded-sm" />
                 </a>
@@ -171,6 +173,7 @@ const NavigationSheet = ({ items }: { items: MenuItem[] }) => {
                   href="https://x.com/"
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label="Twitter link"
                 >
                   <FaXTwitter className="h-6 w-6 bg-white text-primary-150 p-0.5 rounded-sm" />
                 </a>
