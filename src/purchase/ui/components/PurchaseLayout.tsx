@@ -22,7 +22,7 @@ import { APP_ROUTES } from "@/shared/constants/routes";
 import { useAddressesStore } from "@/users/store/addressesStore";
 
 const PurchaseLayout = () => {
-  const { t, i18n } = useTranslation("cart");
+  const { t } = useTranslation("purchase");
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -62,10 +62,9 @@ const PurchaseLayout = () => {
                   <CardHeader>
                     <CardTitle className="flex flex-col gap-4">
                       <h3 className="flex-between-center">
-                        <span>{t("subTitle")}</span>
+                        <span>{t("cart.subTitle")}</span>
                         <span>
                           {formatAmount(totalCart, {
-                            locale: i18n.resolvedLanguage,
                             currency: "EUR",
                           })}
                         </span>
@@ -75,36 +74,32 @@ const PurchaseLayout = () => {
                     <CardDescription>
                       <ul className="px-1">
                         <li className="flex-between-center">
-                          <span>{t("subTotal")}</span>
+                          <span>{t("cart.subTotal")}</span>
                           <span>
                             {formatAmount(subTotal / 100, {
-                              locale: i18n.resolvedLanguage,
                               currency: "EUR",
                             })}
                           </span>
                         </li>
                         <li className="flex-between-center">
-                          <span>{t("shipping")}</span>
+                          <span>{t("cart.shipping")}</span>
                           <span>
                             {formatAmount(0, {
-                              locale: i18n.resolvedLanguage,
                               currency: "EUR",
                             })}
                           </span>
                         </li>
                         <li className="flex-between-center">
-                          <span>{t("discount")}</span>
+                          <span>{t("cart.discount")}</span>
                           {totalDiscount ? (
                             <span className="flex-center-center bg-success/18 px-1 border border-success rounded-sm text-success h-5.5">
                               -{" "}
                               {formatAmount(totalDiscount / 100, {
-                                locale: i18n.resolvedLanguage,
                                 currency: "EUR",
                               })}
                             </span>
                           ) : (
                             formatAmount(0, {
-                              locale: i18n.resolvedLanguage,
                               currency: "EUR",
                             })
                           )}
@@ -126,7 +121,7 @@ const PurchaseLayout = () => {
                             )}
                           onClick={() => navigate(APP_ROUTES.PURCHASE_ADDRESS)}
                         >
-                          {t("proceedPayments")}
+                          {t("cart.proceedPayments")}
                         </Button>
                       </div>
                     )}
@@ -137,7 +132,7 @@ const PurchaseLayout = () => {
                     <div className="flex flex-col gap-2">
                       <CardDescription>
                         <p className="text-size-label text-center">
-                          {t("securedPayments")}
+                          {t("cart.securedPayments")}
                         </p>
                       </CardDescription>
                       <div className="flex-center-center gap-3">

@@ -20,10 +20,9 @@ import {
 } from "@/lib/components/ui/breadcrumb";
 import { Link } from "react-router";
 import { APP_ROUTES } from "@/shared/constants/routes";
+import { useTranslation } from "react-i18next";
 
-const stripePromise = loadStripe(
-  "pk_test_51RHl0nP3G6YqBCSln3FADBnkJN9na8kiqvsczrPWePhnqWXvfyA6FE9zat0QujYCYs5xl6mLqxcXEgOoTh6xQRP000Lfjyt5Bd"
-);
+// const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_TEST_PUBLIC_KEY);
 
 const CheckoutView = () => {
   const { cart } = usePurchaseStore();
@@ -89,6 +88,7 @@ const CheckoutView = () => {
 const CheckoutForm = () => {
   // const stripe = useStripe();
   // const elements = useElements();
+  const { t } = useTranslation("purchase");
 
   const handleSubmit = async (e: React.FormEvent) => {
     // e.preventDefault();
@@ -107,25 +107,25 @@ const CheckoutForm = () => {
   return (
     <div className="flex flex-col gap-6 grow">
       <div className="h-20">
-        <h1>Etape 3/3</h1>
+        <h1>{t("step")} 3/3</h1>
         <Breadcrumb>
           <BreadcrumbList>
             <BreadcrumbItem>
-              <Link to={APP_ROUTES.TO_CART}>Panier</Link>
+              <Link to={APP_ROUTES.TO_CART}>{t("breadcrumb.cart")}</Link>
             </BreadcrumbItem>
             <BreadcrumbSeparator />
             <BreadcrumbItem>
-              <Link to={APP_ROUTES.TO_ADDRESS}>Adresse</Link>
+              <Link to={APP_ROUTES.TO_ADDRESS}>{t("breadcrumb.address")}</Link>
             </BreadcrumbItem>
             <BreadcrumbSeparator />
             <BreadcrumbItem>
-              <BreadcrumbPage>Paiment</BreadcrumbPage>
+              <BreadcrumbPage>{t("breadcrumb.payment")}</BreadcrumbPage>
             </BreadcrumbItem>
           </BreadcrumbList>
         </Breadcrumb>
       </div>
       <BaseCard
-        title={<h2>Payment</h2>}
+        title={<h2>{t("checkout.title")}</h2>}
         content={
           <form onSubmit={handleSubmit} className="flex flex-col gap-4">
             {/* <PaymentElement />

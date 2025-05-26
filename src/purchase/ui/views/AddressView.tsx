@@ -23,7 +23,7 @@ import { useTranslation } from "react-i18next";
 import { Link, useNavigate } from "react-router";
 
 const AddressView = () => {
-  const { t } = useTranslation();
+  const { t } = useTranslation("purchase");
   const navigate = useNavigate();
   const { addresses } = useAddressesStore();
   const {
@@ -96,15 +96,15 @@ const AddressView = () => {
   return (
     <div className="flex flex-col gap-6 grow">
       <div className="h-20">
-        <h1>Etape 2/3</h1>
+        <h1>{t("step")} 2/3</h1>
         <Breadcrumb>
           <BreadcrumbList>
             <BreadcrumbItem>
-              <Link to={APP_ROUTES.TO_CART}>Panier</Link>
+              <Link to={APP_ROUTES.TO_CART}>{t("breadcrumb.cart")}</Link>
             </BreadcrumbItem>
             <BreadcrumbSeparator />
             <BreadcrumbItem>
-              <BreadcrumbPage>Adresse</BreadcrumbPage>
+              <BreadcrumbPage>{t("breadcrumb.address")}</BreadcrumbPage>
             </BreadcrumbItem>
           </BreadcrumbList>
         </Breadcrumb>
@@ -113,7 +113,7 @@ const AddressView = () => {
         title={<h2>{t("account:settings.address.caption")}</h2>}
         description={
           <div className="flex-between-center">
-            <p>Choisissez l'adresse de facturation et de livraison</p>
+            <p>{t("address.description")}</p>
             <div className="flex justify-end">
               <Button onClick={() => open("create", null)}>
                 <PlusIcon /> {t("account:settings.address.newAddress")}
@@ -124,7 +124,7 @@ const AddressView = () => {
         content={
           <div className="grid gap-8">
             <article>
-              <h3>{t(`selects.addressType.options.billing`)}</h3>
+              <h3>{t("common:selects.addressType.options.billing")}</h3>
               {billingAddresses.length ? (
                 <div className="grid gap-8">
                   <RadioGroup value={billingId} onValueChange={setBillingId}>
@@ -163,17 +163,17 @@ const AddressView = () => {
                         setUseSame(newChecked)
                       }
                     />
-                    Utiliser la même adresse pour la livraison
+                    {t("address.useSame")}
                   </Label>
                 </div>
               ) : (
-                <>Veuillez renseigner une addresse de facturation</>
+                <p>{t("address.billingEmpty")}</p>
               )}
             </article>
 
             {!useSame && (
               <article>
-                <h3>{t(`selects.addressType.options.shipping`)}</h3>
+                <h3>{t("common:selects.addressType.options.shipping")}</h3>
                 {shippingAddresses.length ? (
                   <>
                     <RadioGroup
@@ -209,7 +209,7 @@ const AddressView = () => {
                     </RadioGroup>
                   </>
                 ) : (
-                  <>Veuillez renseigner une addresse de livraison</>
+                  <p>{t("address.shippingEmpty")}</p>
                 )}
               </article>
             )}
@@ -219,13 +219,13 @@ const AddressView = () => {
                 variant="outline"
                 onClick={() => navigate(APP_ROUTES.TO_CART)}
               >
-                Revenir au panier
+                {t("address.backToCart")}
               </Button>
               <Button
                 onClick={handleNext}
                 disabled={!billingId || !shippingId || isCartLoading}
               >
-                Passer à l'étape suivante
+                {t("address.nextStep")}
               </Button>
             </div>
           </div>

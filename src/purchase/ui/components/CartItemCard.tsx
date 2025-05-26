@@ -23,7 +23,7 @@ type Props = {
 };
 
 const CartItemCard = ({ item, index }: Props) => {
-  const { t, i18n } = useTranslation("cart");
+  const { t } = useTranslation();
   const { isUpdating, updateCartItem, removeCartItem } = usePurchaseStore();
 
   const product = item.product;
@@ -58,7 +58,7 @@ const CartItemCard = ({ item, index }: Props) => {
 
   const recurringOpts = enumToOptions(Recurring).map((type) => ({
     ...type,
-    label: t(`common:selects.subType.${type.label}`),
+    label: t(`selects.subType.${type.label}`),
   }));
 
   const onRecurringChange = (newReccuring: string) =>
@@ -88,14 +88,12 @@ const CartItemCard = ({ item, index }: Props) => {
                 <div className="relative flex flex-col sm:items-end">
                   <p className="text-size-2xl">
                     {formatAmount((product.price / 100) * quantity, {
-                      locale: i18n.resolvedLanguage,
                       currency: "EUR",
                     })}
                   </p>
                   {!!product.discountPercentage && (
                     <p className="absolute top-full line-through text-size-s text-muted-foreground">
                       {formatAmount((product.basePrice / 100) * quantity, {
-                        locale: i18n.resolvedLanguage,
                         currency: "EUR",
                       })}
                     </p>
@@ -110,20 +108,18 @@ const CartItemCard = ({ item, index }: Props) => {
           <CardContent className="row-2 col-span-full px-0 sm:col-2 sm:flex sm:grow sm:w-full">
             <div className="flex gap-1 w-full justify-between">
               <div className="flex flex-col w-1/2 justify-end gap-1">
-                <Label htmlFor="subType">
-                  {t("common:selects.subType.label")}
-                </Label>
+                <Label htmlFor="subType">{t("selects.subType.label")}</Label>
                 <BaseSelect
                   name="subType"
                   options={recurringOpts}
-                  placeholder={t("common:selects.subType.placeholder")}
+                  placeholder={t("selects.subType.placeholder")}
                   disabled={isUpdating}
                   value={String(item.recurring)}
                   onChange={onRecurringChange}
                 />
               </div>
               <div className="flex flex-col gap-1 justify-end">
-                <Label>{t("common:inputs.quantity.label")}</Label>
+                <Label>{t("inputs.quantity.label")}</Label>
                 <div className="flex">
                   <Button
                     className="w-8 h-8 p-0 rounded-tr-none rounded-br-none"

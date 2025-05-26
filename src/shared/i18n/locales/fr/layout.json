@@ -25,6 +25,92 @@
     }
   },
   "footer": {
-    "rights": "Tous droits réservés"
+    "rights": "Tous droits réservés",
+    "termsOfUse": "Conditions Générales d’Utilisation",
+    "legalNotice": "Mentions légales"
+  },
+  "legal": {
+    "terms": {
+      "title": "Conditions Générales d’Utilisation",
+      "disclaimer": "⚠️ Ceci est un exemple fictif de Conditions Générales d’Utilisation fourni à titre démonstratif uniquement et ne constitue pas un document juridique valide. Veuillez consulter un juriste qualifié avant toute publication.",
+      "lastUpdated": "Dernière mise à jour le {{date}}",
+      "sections": {
+        "preamble": "Les présentes Conditions Générales d’Utilisation (« Conditions ») régissent votre accès et votre utilisation de la plateforme Cyna (« Service »), éditée par Cyna Inc., dont le siège est au 123 rue de l’Innovation, 75001 Paris, France.",
+        "definitions": {
+          "heading": "Définitions",
+          "user": "« Utilisateur » : toute personne accédant au Service.",
+          "account": "« Compte » : l’espace personnalisé créé lors de l’inscription."
+        },
+        "access": {
+          "heading": "Accès au Service",
+          "p1": "Le Service est disponible 24 heures sur 24, 7 jours sur 7, sous réserve de maintenances et d’interruptions techniques.",
+          "p2": "Cyna Inc. se réserve le droit de modifier, suspendre ou interrompre tout ou partie du Service à tout moment, sans préavis."
+        },
+        "account": {
+          "heading": "Création et gestion du Compte",
+          "p1": "Pour accéder aux fonctionnalités complètes, l’Utilisateur doit créer un Compte en fournissant une adresse e-mail valide.",
+          "p2": "L’Utilisateur est responsable de la confidentialité de ses identifiants. Toute activité réalisée via son Compte lui est imputable."
+        },
+        "obligations": {
+          "heading": "Obligations de l’Utilisateur",
+          "p1": "L’Utilisateur s’engage à ne pas utiliser le Service à des fins illicites ou contraires à l’ordre public.",
+          "p2": "Il est strictement interdit de transmettre des virus, malwares ou tout code malveillant.",
+          "p3": "L’Utilisateur doit respecter la législation sur la protection des données personnelles et ne pas collecter ou diffuser de données sans consentement."
+        },
+        "intellectualProperty": {
+          "heading": "Propriété intellectuelle",
+          "p1": "Tous les éléments du Service (textes, logos, images, code source) sont la propriété exclusive de Cyna Inc. ou de ses partenaires.",
+          "p2": "Toute reproduction ou diffusion, totale ou partielle, sans autorisation préalable écrite est interdite."
+        },
+        "liability": {
+          "heading": "Responsabilité",
+          "p1": "Cyna Inc. met en œuvre tous les moyens raisonnables pour assurer la disponibilité et la sécurité du Service, mais n’est tenue qu’à une obligation de moyens.",
+          "p2": "En aucun cas Cyna Inc. ne pourra être tenue responsable des dommages indirects, perte de données ou préjudice commercial résultant de l’utilisation ou de l’impossibilité d’utiliser le Service."
+        },
+        "data": {
+          "heading": "Données personnelles",
+          "p1": "Les données collectées sont traitées conformément à notre Politique de Confidentialité, accessible sur le site.",
+          "p2": "L’Utilisateur dispose d’un droit d’accès, de rectification et de suppression en écrivant à privacy@cyna.example.com."
+        },
+        "cookies": {
+          "heading": "Cookies",
+          "p1": "Le Service utilise des cookies nécessaires à son fonctionnement et à des fins d’analyse. L’Utilisateur peut configurer ou refuser ces cookies via son navigateur."
+        },
+        "modification": {
+          "heading": "Modification des Conditions",
+          "p1": "Cyna Inc. se réserve le droit de modifier ces Conditions à tout moment. Les nouvelles versions s’appliquent dès leur publication."
+        },
+        "duration": {
+          "heading": "Durée et résiliation",
+          "p1": "Ces Conditions entrent en vigueur dès leur acceptation par l’Utilisateur.",
+          "p2": "Cyna Inc. peut suspendre ou supprimer un Compte en cas de non-respect. L’Utilisateur peut supprimer son Compte à tout moment via le support."
+        },
+        "jurisdiction": {
+          "heading": "Loi applicable et juridiction",
+          "p1": "Ces Conditions sont soumises au droit français. En cas de litige, les tribunaux de Paris seront seuls compétents."
+        },
+        "contact": {
+          "heading": "Contact",
+          "p1": "Pour toute question relative à ces Conditions, contactez-nous à support@cyna.example.com",
+          "p2": "Ou par courrier : Cyna Inc., 123 rue de l’Innovation, 75001 Paris, France."
+        }
+      }
+    },
+    "legalNotice": {
+      "title": "Mentions légales",
+      "disclaimer": "⚠️ Ceci est un exemple fictif de mentions légales fourni à titre démonstratif uniquement. Veuillez consulter un juriste avant toute publication.",
+      "companyLabel": "Éditeur",
+      "company": "Cyna Inc.",
+      "addressLabel": "Siège social",
+      "address": "123 rue de l’Innovation, 75001 Paris, France",
+      "siretLabel": "SIRET",
+      "siret": "000 000 000 00000",
+      "publisherLabel": "Directeur de la publication",
+      "publisher": "John Doe",
+      "hostingLabel": "Hébergeur",
+      "hosting": "Example Hosting — 1 rue de l’Hébergement, 75002 Paris, France",
+      "contactLabel": "Contact légal",
+      "contact": "legal@cyna.example.com"
+    }
   }
 }

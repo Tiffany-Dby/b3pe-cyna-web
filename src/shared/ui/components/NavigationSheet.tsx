@@ -1,6 +1,6 @@
 import {
   Sheet,
-  SheetClose,
+  // SheetClose,
   SheetContent,
   SheetDescription,
   // SheetDescription,
@@ -15,7 +15,7 @@ import logoCyna from "@/shared/assets/images/logo-cyna.svg";
 import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 import { Button } from "@/lib/components/ui/button";
 import { MenuItem } from "@/shared/types/NavigationMenu";
-import { NavLink } from "react-router";
+import { Link, NavLink } from "react-router";
 import {
   NavigationMenu,
   NavigationMenuItem,
@@ -30,8 +30,11 @@ import {
 } from "@/lib/components/ui/accordion";
 import { APP_ROUTES } from "@/shared/constants/routes";
 import { usePurchaseStore } from "@/purchase/store/purchaseStore";
+import { FaFacebookF, FaLinkedinIn, FaXTwitter } from "react-icons/fa6";
+import { useTranslation } from "react-i18next";
 
 const NavigationSheet = ({ items }: { items: MenuItem[] }) => {
+  const { t } = useTranslation("layout");
   const id = useId();
   const [isOpen, setIsOpen] = useState(false);
   const handleOpenChange = () => setIsOpen(!isOpen);
@@ -143,7 +146,55 @@ const NavigationSheet = ({ items }: { items: MenuItem[] }) => {
           </NavigationMenuList>
         </NavigationMenu>
         <SheetFooter>
-          <SheetClose asChild></SheetClose>
+          <nav className="flex flex-col gap-4">
+            <ul className="flex justify-end gap-4">
+              <li>
+                <a
+                  href="https://www.linkedin.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Linkedin link"
+                >
+                  <FaLinkedinIn className="h-6 w-6 bg-white text-primary-150 p-0.5 rounded-sm" />
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.facebook.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Facebook link"
+                >
+                  <FaFacebookF className="h-6 w-6 bg-white text-primary-150 p-0.5 rounded-sm" />
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://x.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Twitter link"
+                >
+                  <FaXTwitter className="h-6 w-6 bg-white text-primary-150 p-0.5 rounded-sm" />
+                </a>
+              </li>
+            </ul>
+            <ul className="flex flex-col gap-4 text-right text-size-label">
+              <li>
+                <Link to={"#"}>Contact</Link>
+              </li>
+              <li>
+                <Link to={APP_ROUTES.LEGAL_NOTICE}>
+                  {t("footer.legalNotice")}
+                </Link>
+              </li>
+              <li>
+                <Link to={APP_ROUTES.LEGAL_TERMS_OF_USE}>
+                  {t("footer.termsOfUse")}
+                </Link>
+              </li>
+            </ul>
+          </nav>
         </SheetFooter>
       </SheetContent>
     </Sheet>
