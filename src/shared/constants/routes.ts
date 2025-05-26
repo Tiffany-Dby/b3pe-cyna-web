@@ -1,3 +1,5 @@
+const BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
 const APP_ROUTES = {
   HOME: "/",
   SIGN_IN: "/sign-in",
@@ -25,10 +27,12 @@ const APP_ROUTES = {
   ADMIN_CATEGORIES: "categories",
   ADMIN_USERS_ADMINS: "users/admins",
   ADMIN_USERS_CLIENTS: "users/clients",
+  LEGAL_TERMS_OF_USE: "legal/terms-of-use",
+  LEGAL_NOTICE: "legal/notice",
 } as const;
 
 const API_ROUTES = {
-  URL: "http://localhost:8000",
+  URL: BASE_URL,
   SIGN_UP: "/api/auth/register",
   SIGN_IN: "/api/auth/login",
   ME: "/api/auth/me",

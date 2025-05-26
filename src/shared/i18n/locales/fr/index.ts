@@ -7,11 +7,11 @@ import products from "@/shared/i18n/locales/fr/products.json";
 import resetPassword from "@/shared/i18n/locales/fr/resetPassword.json";
 import signIn from "@/shared/i18n/locales/fr/signIn.json";
 import signUp from "@/shared/i18n/locales/fr/signUp.json";
-import cart from "@/shared/i18n/locales/fr/cart.json";
 import adminSidebar from "@/shared/i18n/locales/fr/adminSidebar.json";
 import categories from "@/shared/i18n/locales/fr/categories.json";
 import contents from "@/shared/i18n/locales/fr/contents.json";
 import users from "@/shared/i18n/locales/fr/users.json";
+import purchase from "@/shared/i18n/locales/fr/purchase.json";
 
 const fr = {
   account,
@@ -23,11 +23,11 @@ const fr = {
   resetPassword,
   signIn,
   signUp,
-  cart,
   adminSidebar,
   categories,
   contents,
   users,
+  purchase,
 } as const;
 
 export { fr };

@@ -1,3 +1,5 @@
+import i18next from "i18next";
+
 const formatAmount = (
   value: number,
   opts?: {
@@ -5,7 +7,7 @@ const formatAmount = (
     locale?: string;
   }
 ): string => {
-  const { currency, locale } = opts || {};
+  const { currency, locale = i18next.resolvedLanguage || "en" } = opts || {};
 
   const hasFraction = !Number.isInteger(value);
 
@@ -19,10 +21,12 @@ const formatAmount = (
     currency,
   };
 
-  return value.toLocaleString(
+  const formatter = new Intl.NumberFormat(
     locale,
     currency ? optionsWithCurrency : baseOptions
   );
+
+  return formatter.format(value);
 };
 
 export { formatAmount };

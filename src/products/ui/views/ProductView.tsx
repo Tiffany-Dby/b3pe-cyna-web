@@ -39,10 +39,17 @@ import { formatAmount } from "@/shared/utils/number";
 import { cn } from "@/lib/utils";
 import PromotionTag from "@/shared/ui/components/PromotionTag";
 import useFetch from "@/shared/hooks/useFetch";
-import { API_ROUTES } from "@/shared/constants/routes";
+import { API_ROUTES, APP_ROUTES } from "@/shared/constants/routes";
 import { ProductLocale } from "@/products/types/Products";
 import { usePurchaseStore } from "@/purchase/store/purchaseStore";
 import Loader from "@/shared/ui/components/Loader";
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/lib/components/ui/breadcrumb";
 
 const ProductView = () => {
   const { t, i18n } = useTranslation("products");
@@ -80,7 +87,23 @@ const ProductView = () => {
                         type={productLocale.type}
                       />
                     </div>
-                    <div className="flex justify-end">
+                    <div className="flex-between-center">
+                      <Breadcrumb>
+                        <BreadcrumbList>
+                          <BreadcrumbItem>
+                            <Link to={APP_ROUTES.HOME}>
+                              {t("layout:header.navigation.home")}
+                            </Link>
+                          </BreadcrumbItem>
+                          <BreadcrumbSeparator />
+                          <BreadcrumbItem>
+                            <BreadcrumbPage>
+                              {t("product")}
+                              {productLocale.name}
+                            </BreadcrumbPage>
+                          </BreadcrumbItem>
+                        </BreadcrumbList>
+                      </Breadcrumb>
                       <Link
                         to={disabled ? "#" : "#pricing"}
                         aria-disabled={disabled}

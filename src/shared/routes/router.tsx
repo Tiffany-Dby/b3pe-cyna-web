@@ -24,6 +24,8 @@ import AddressView from "@/purchase/ui/views/AddressView";
 import PurchaseLayout from "@/purchase/ui/components/PurchaseLayout";
 import SuccessView from "@/purchase/ui/views/SuccessView";
 import ResetPasswordView from "@/users/ui/views/ResetPasswordView";
+import TermsOfUseView from "@/shared/ui/views/TermsOfUseView";
+import LegalNoticeView from "@/shared/ui/views/LegalNoticeView";
 
 const router = createBrowserRouter([
   {
@@ -75,14 +77,14 @@ const router = createBrowserRouter([
         path: APP_ROUTES.SUCCESS,
         Component: SuccessView,
       },
-      // {
-      //   path: APP_ROUTES.CART_ADDRESS,
-      //   Component: AddressView,
-      // },
-      // {
-      //   path: APP_ROUTES.CART_CHECKOUT,
-      //   Component: CheckoutView,
-      // },
+      {
+        path: APP_ROUTES.LEGAL_TERMS_OF_USE,
+        Component: TermsOfUseView,
+      },
+      {
+        path: APP_ROUTES.LEGAL_NOTICE,
+        Component: LegalNoticeView,
+      },
       {
         path: "*",
         Component: NotFoundView,

@@ -1,4 +1,5 @@
 {
+  "product": "Product: ",
   "status": {
     "unavailable": "Unavailable",
     "available": "Available",

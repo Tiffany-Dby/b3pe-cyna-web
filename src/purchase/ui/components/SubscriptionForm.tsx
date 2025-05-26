@@ -9,11 +9,8 @@ import { API_ROUTES } from "@/shared/constants/routes";
 import { Button } from "@/lib/components/ui/button";
 import { useEffect, useState } from "react";
 
-const stripePromise = loadStripe(
-  "pk_test_51RHl0nP3G6YqBCSln3FADBnkJN9na8kiqvsczrPWePhnqWXvfyA6FE9zat0QujYCYs5xl6mLqxcXEgOoTh6xQRP000Lfjyt5Bd"
-);
+// const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_TEST_PUBLIC_KEY);
 
-// Embedded subscription form
 function SubscriptionForm({
   orderId,
   billingAddressId,
@@ -36,7 +33,7 @@ function SubscriptionForm({
       body: JSON.stringify({
         orderId,
         billingAddressId,
-        paymentMethodId: 1, // or however you choose/store this
+        paymentMethodId: 1,
         recurrence,
       }),
     })
@@ -51,7 +48,6 @@ function SubscriptionForm({
     e.preventDefault();
     if (!stripe || !elements || !clientSecret) return;
 
-    // guard against null
     const cardEl = elements.getElement(CardElement);
     if (!cardEl) return;
 

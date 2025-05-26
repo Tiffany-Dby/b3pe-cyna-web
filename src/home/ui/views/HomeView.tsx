@@ -120,7 +120,7 @@ const HomeView = () => {
         </>
       )}
       <section>
-        <div className="container mx-auto flex flex-col gap-5 py-10 px-4">
+        <div className="container mx-auto flex flex-col gap-5 py-10 px-4 overflow-hidden">
           {isLoading && <Loader />}
           {error && <p>{error}</p>}
           {!error && productsLocale && (
