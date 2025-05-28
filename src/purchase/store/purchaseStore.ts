@@ -116,6 +116,12 @@ const usePurchaseStore = create<PurchaseState>((set) => ({
         : null,
     }));
   },
+
+  emptyCart: () => {
+    set((state) => ({
+      cart: state.cart ? { ...state.cart, items: [] } : null,
+    }));
+  },
 }));
 
 export { usePurchaseStore };

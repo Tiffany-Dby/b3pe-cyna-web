@@ -1,7 +1,7 @@
 import { useTranslation } from "react-i18next";
-import SettingsAddressCard from "../components/SettingsAddressCard";
-import SettingsPasswordCard from "../components/SettingsPasswordCard";
-import SettingsPersonalInfosCard from "../components/SettingsPersonalInfosCard";
+import SettingsAddressCard from "@/users/ui/components/SettingsAddressCard";
+import SettingsPasswordCard from "@/users/ui/components/SettingsPasswordCard";
+import SettingsPersonalInfosCard from "@/users/ui/components/SettingsPersonalInfosCard";
 import { useAddressesStore } from "@/users/store/addressesStore";
 import { useEffect } from "react";
 

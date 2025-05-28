@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import { Address, AddressesState } from "../types/Address";
+import { Address, AddressesState } from "@/users/types/Address";
 import { deleteRequest, getRequest } from "@/shared/tools/api";
 import { API_ROUTES } from "@/shared/constants/routes";
 import { TOAST } from "@/shared/constants/toast";

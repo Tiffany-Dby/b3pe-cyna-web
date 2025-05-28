@@ -1,4 +1,4 @@
-import SalesChart from "../components/SalesChart";
+import SalesChart from "@/dashboard/ui/components/SalesChart";
 
 const AdminDashboardView = () => {
   return (

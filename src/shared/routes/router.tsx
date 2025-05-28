@@ -74,7 +74,7 @@ const router = createBrowserRouter([
         ],
       },
       {
-        path: APP_ROUTES.SUCCESS,
+        path: APP_ROUTES.CHECKOUT_SUCCESS,
         Component: SuccessView,
       },
       {

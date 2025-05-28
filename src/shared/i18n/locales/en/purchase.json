@@ -31,6 +31,11 @@
     "nextStep": "Next step"
   },
   "checkout": {
-    "title": "Payment"
+    "title": "Payment",
+    "description": "Choose and enter your payment method to complete your order",
+    "cancel": "Cancel",
+    "canceling": "Canceling...",
+    "pay": "Pay",
+    "loading": "Processing..."
   }
 }

@@ -172,6 +172,10 @@
       "success": "Product's translation deleted !",
       "loading": "Deleting..."
     },
+    "addToCart": {
+      "success": "Product added to your cart !",
+      "loading": "Adding to your cart..."
+    },
     "error": "An error occured"
   }
 }

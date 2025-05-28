@@ -1,6 +1,6 @@
 import BaseAccordionCard from "@/shared/ui/components/BaseAccordionCard";
 import { useState } from "react";
-import UpdatePersonalInfosForm from "./UpdatePersonalInfosForm";
+import UpdatePersonalInfosForm from "@/users/ui/components/UpdatePersonalInfosForm";
 
 const SettingsPersonalInfosCard = () => {
   const [serverError, setServerError] = useState<string | null>(null);

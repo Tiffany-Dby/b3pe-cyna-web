@@ -28,5 +28,13 @@
     "useSame": "Utiliser la même adresse pour la livraison",
     "backToCart": "Revenir au panier",
     "nextStep": "Passer à l'étape suivante"
+  },
+  "checkout": {
+    "title": "Paiement",
+    "description": "Choisissez et indiquez votre moyen de paiement pour finaliser votre commande",
+    "cancel": "Annuler",
+    "canceling": "Annulation en cours...",
+    "pay": "Payer",
+    "loading": "Paiement en cours..."
   }
 }

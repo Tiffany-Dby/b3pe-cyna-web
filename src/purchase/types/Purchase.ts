@@ -3,7 +3,6 @@ import { ToastMsgs } from "@/shared/types/Toast";
 import { Address } from "@/users/types/Address";
 
 enum Recurring {
-  once = 0,
   monthly = 1,
   yearly = 2,
 }
@@ -38,6 +37,11 @@ type CartToUpdate = {
   billingAddressId: number;
 };
 
+type NewIntent = {
+  intentId: string;
+  clientSecret: string;
+};
+
 type PurchaseState = {
   cart: Cart | null;
   isLoading: boolean;
@@ -48,6 +52,7 @@ type PurchaseState = {
   updateCart: (cart: CartToUpdate) => Promise<void>;
   updateCartItem: (item: UpdateCartItem) => Promise<void>;
   removeCartItem: (itemId: number) => Promise<void>;
+  emptyCart: () => void;
 };
 
 export type {
@@ -56,6 +61,7 @@ export type {
   NewCartItem,
   UpdateCartItem,
   CartToUpdate,
+  NewIntent,
   PurchaseState,
 };
 export { Recurring };

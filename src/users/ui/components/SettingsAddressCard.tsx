@@ -2,13 +2,13 @@ import { Button } from "@/lib/components/ui/button";
 import { useDialog } from "@/shared/hooks/useDialog";
 import BaseAccordionCard from "@/shared/ui/components/BaseAccordionCard";
 import { useTranslation } from "react-i18next";
-import NewAddressDialog from "./NewAddressDialog";
-import UpdateAddressForm from "./UpdateAddressForm";
+import NewAddressDialog from "@/users/ui/components/NewAddressDialog";
+import UpdateAddressForm from "@/users/ui/components/UpdateAddressForm";
 import { PlusIcon, Trash2Icon } from "lucide-react";
 import { Separator } from "@/lib/components/ui/separator";
 import { useAddressesStore } from "@/users/store/addressesStore";
 import { Address } from "@/users/types/Address";
-import DeleteAddressDialog from "./DeleteAddressDialog";
+import DeleteAddressDialog from "@/users/ui/components/DeleteAddressDialog";
 import Loader from "@/shared/ui/components/Loader";
 
 const SettingsAddressCard = () => {

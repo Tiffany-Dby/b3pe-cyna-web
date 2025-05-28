@@ -8,22 +8,22 @@ const CartView = () => {
   const { cart } = usePurchaseStore();
 
   return (
-    <>
+    <div className="flex flex-col gap-6 grow">
+      <div className="h-20">
+        <h1>{t("cart.title")}</h1>
+      </div>
       {!cart?.items?.length ? (
         <Card>
-          <p className="px-6 text-center">{t("empty")}</p>
+          <p className="px-6 text-center">{t("cart.empty")}</p>
         </Card>
       ) : (
-        <div className="flex flex-col gap-6 grow">
-          <div className="h-20">
-            <h1>{t("cart.title")}</h1>
-          </div>
-          {cart.items?.map((item, index) => (
+        <>
+          {cart.items.map((item, index) => (
             <CartItemCard index={index} item={item} key={item.id} />
           ))}
-        </div>
+        </>
       )}
-    </>
+    </div>
   );
 };
 

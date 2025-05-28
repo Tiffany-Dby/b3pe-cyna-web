@@ -21,10 +21,6 @@ const SuccessView = () => {
           }
           content={
             <div className="flex flex-col gap-4">
-              <div>
-                <p>{t("success.orderSummary")}</p>
-                <p>(Infos)</p>
-              </div>
               <div className="flex-center-center gap-4">
                 <div className="button !bg-transparent rounded-md w-fit hover:!bg-success/20 transition-colors duration-500">
                   <Link

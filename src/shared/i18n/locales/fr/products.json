@@ -172,6 +172,10 @@
       "success": "Traduction du produit supprimée !",
       "loading": "Suppression en cours..."
     },
+    "addToCart": {
+      "success": "Produit ajouté à votre panier !",
+      "loading": "Ajout au panier en cours..."
+    },
     "error": "Une erreur est survenue"
   }
 }

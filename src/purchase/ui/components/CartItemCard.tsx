@@ -127,7 +127,7 @@ const CartItemCard = ({ item, index }: Props) => {
                     disabled={isUpdating}
                   >
                     {isUpdating ? (
-                      <LoaderIcon />
+                      <LoaderIcon className="animate-[spin_3s_linear_infinite]" />
                     ) : quantity > 1 ? (
                       <MinusIcon />
                     ) : (
@@ -146,7 +146,11 @@ const CartItemCard = ({ item, index }: Props) => {
                     onClick={increment}
                     disabled={isUpdating}
                   >
-                    {isUpdating ? <LoaderIcon /> : <PlusIcon />}
+                    {isUpdating ? (
+                      <LoaderIcon className="animate-[spin_3s_linear_infinite]" />
+                    ) : (
+                      <PlusIcon />
+                    )}
                   </Button>
                 </div>
               </div>

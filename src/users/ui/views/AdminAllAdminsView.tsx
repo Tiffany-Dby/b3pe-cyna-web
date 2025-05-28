@@ -1,4 +1,4 @@
-import NewAdminCard from "../components/NewAdminCard";
+import NewAdminCard from "@/users/ui/components/NewAdminCard";
 
 const AdminAllAdminsView = () => {
   return (

@@ -69,6 +69,12 @@ const ProductView = () => {
 
   const disabled = productLocale?.status !== ProductStatus.Available;
 
+  const toastMsgs = {
+    success: t("toast.addToCart.success"),
+    loading: t("toast.addToCart.loading"),
+    error: t("toast.error"),
+  };
+
   return (
     <>
       {isLoading && <Loader />}
@@ -299,7 +305,7 @@ const ProductView = () => {
                                   quantity: 1,
                                   recurring: 1,
                                 },
-                                {}
+                                toastMsgs
                               )
                             }
                           >
@@ -377,7 +383,7 @@ const ProductView = () => {
                                   quantity: 1,
                                   recurring: 2,
                                 },
-                                {}
+                                toastMsgs
                               )
                             }
                           >

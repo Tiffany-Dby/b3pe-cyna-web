@@ -1,5 +1,5 @@
 import BaseAccordionCard from "@/shared/ui/components/BaseAccordionCard";
-import SignUpForm from "./SignUpForm";
+import SignUpForm from "@/users/ui/components/SignUpForm";
 import { useState } from "react";
 import { API_ROUTES } from "@/shared/constants/routes";
 

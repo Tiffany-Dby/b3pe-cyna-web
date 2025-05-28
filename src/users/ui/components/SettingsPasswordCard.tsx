@@ -1,5 +1,5 @@
 import BaseAccordionCard from "@/shared/ui/components/BaseAccordionCard";
-import UpdatePasswordForm from "./UpdatePasswordForm";
+import UpdatePasswordForm from "@/users/ui/components/UpdatePasswordForm";
 import { useState } from "react";
 
 const SettingsPasswordCard = () => {

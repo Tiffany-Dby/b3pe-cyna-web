@@ -17,7 +17,7 @@ const APP_ROUTES = {
   TO_CART: "/purchase/cart",
   TO_ADDRESS: "/purchase/cart/address",
   TO_CHECKOUT: "/purchase/cart/address/checkout",
-  SUCCESS: "/success",
+  CHECKOUT_SUCCESS: "/purchase/cart/address/checkout/success",
   ADMIN: "/admin",
   ADMIN_DASHBOARD: "dashboard",
   ADMIN_PROMOTION_CAROUSEL: "promotions-carousel",
@@ -69,6 +69,9 @@ const API_ROUTES = {
   PROMOTION_CAROUSEL_TEXT_NEW: "/api/home-texts",
   PROMOTION_CAROUSEL_TEXT_GET_ALL: "/api/home-texts",
   PROMOTION_CAROUSEL_TEXT_UPDATE: "/api/home-texts",
+  PURCHASE_CHECKOUT: "/api/checking",
+  PURCHASE_INTENT_CANCEL: "/api/checking/cancel-setup-intent",
+  PURCHASE_INTENT_NEW: "/api/checking/create-setup-intent",
 } as const;
 
 export { APP_ROUTES, API_ROUTES };
