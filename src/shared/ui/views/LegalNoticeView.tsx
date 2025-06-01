@@ -13,7 +13,7 @@ const LegalNoticeView = () => {
   const { t } = useTranslation("layout");
   return (
     <article>
-      <div className="container mx-auto py-8 px-4 flex flex-col gap-12">
+      <div className="container mx-auto pt-10 pb-24 px-4 flex flex-col gap-12">
         <div>
           <h1>{t("legal.legalNotice.title")}</h1>
           <Breadcrumb className="pt-6">

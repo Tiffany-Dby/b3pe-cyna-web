@@ -15,7 +15,7 @@ const TermsOfUseView = () => {
 
   return (
     <article>
-      <div className="container mx-auto py-8 px-4 flex flex-col gap-12">
+      <div className="container mx-auto pt-10 pb-24 px-4 flex flex-col gap-12">
         <div>
           <h1>{t("legal.terms.title")}</h1>
           <p className="text-sm italic">

@@ -57,7 +57,7 @@ const PurchaseLayout = () => {
     <>
       {isLoading && <Loader />}
       <section>
-        <div className="container mx-auto py-5 px-4">
+        <div className="container mx-auto pt-10 pb-24 px-4">
           {!isLoading && cart && (
             <div className="flex flex-col md:flex-row w-full gap-6">
               <Outlet />

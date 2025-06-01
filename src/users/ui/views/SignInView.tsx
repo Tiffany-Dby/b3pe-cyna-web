@@ -79,7 +79,7 @@ const SignInView = () => {
   }
 
   return (
-    <div className="max-w-xl w-full mx-auto py-5 px-4">
+    <div className="max-w-xl w-full mx-auto pt-10 pb-24 px-4">
       <BaseCard
         title={<h1>{t("signIn:title")}</h1>}
         description={

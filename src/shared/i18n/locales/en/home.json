@@ -9,6 +9,7 @@
     "title": "Current promotions !"
   },
   "topProduct": {
-    "title": "Best seller"
+    "title": "Best seller",
+    "description": "<0>Appreciated by our customers, this bestseller combines quality and reliability.</0> <1>To explore our other products, <0>visit our products page</0></1>"
   }
 }

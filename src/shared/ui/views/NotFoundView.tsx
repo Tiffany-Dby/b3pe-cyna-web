@@ -15,9 +15,9 @@ const NotFoundView = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="max-w-xl w-full mx-auto py-5 px-4">
+    <div className="max-w-xl w-full mx-auto pt-10 pb-24 px-4">
       <article>
-        <Card className="w-full mx-auto my-10 max-w-100 text-center">
+        <Card className="w-full mx-auto max-w-100 text-center">
           <CardHeader className="py-6">
             <CardTitle>
               <h1 className="text-size-4xl">{t("title")}</h1>

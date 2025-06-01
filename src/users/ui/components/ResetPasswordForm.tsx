@@ -80,9 +80,9 @@ const ResetPasswordForm = ({ token }: Props) => {
   ];
 
   return (
-    <div className="max-w-xl w-full mx-auto py-5 px-4">
+    <div className="max-w-xl w-full mx-auto pt-10 pb-24 px-4">
       <BaseCard
-        title={<h1>{t("resetPassword:title")}</h1>}
+        title={<h1 className="text-balance">{t("resetPassword:title")}</h1>}
         description={
           <>{serverError && <p className="text-danger">{serverError}</p>}</>
         }

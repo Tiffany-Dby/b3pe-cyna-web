@@ -6,7 +6,7 @@ import { Separator } from "@/lib/components/ui/separator";
 import { API_ROUTES, APP_ROUTES } from "@/shared/constants/routes";
 import { Trans, useTranslation } from "react-i18next";
 import useFetch from "@/shared/hooks/useFetch";
-import { ProductLocale } from "@/products/types/Products";
+import { BestSeller, ProductLocale } from "@/products/types/Products";
 import { ArrowRightIcon } from "lucide-react";
 import { PromotionsText } from "@/home/types/PromotionsCarousel";
 import Loader from "@/shared/ui/components/Loader";
@@ -14,6 +14,14 @@ import Loader from "@/shared/ui/components/Loader";
 const HomeView = () => {
   const { t, i18n } = useTranslation("home");
   const locale = i18n.resolvedLanguage;
+
+  const {
+    data: bestSeller,
+    isLoading: isBestSellerLoading,
+    error: bestSellerError,
+  } = useFetch<BestSeller>(
+    `${API_ROUTES.PRODUCT_GET_BEST_SELLER}?locale=${locale ?? "en"}`
+  );
 
   const {
     data: productsLocale,
@@ -43,7 +51,7 @@ const HomeView = () => {
     <>
       <section className="flex flex-col justify-center min-h-[calc(100dvh-54px)] bg-linear-90 from-primary-150 to-primary text-primary-foreground">
         <div className="container mx-auto py-3 px-4 h-full">
-          <div className="flex-between-center flex-col gap-8 md:flex-row">
+          <div className="flex-between-center flex-col gap-12 md:flex-row">
             <div className="flex flex-col gap-6 md:w-1/2">
               <Trans i18nKey={"home:banner.title"}>
                 <h1 className="leading-11">
@@ -79,12 +87,14 @@ const HomeView = () => {
           </div>
         </div>
       </section>
-      {!!promos?.length && (
-        <>
-          <section>
-            <div className="container max-w-3xl mx-auto flex flex-col gap-5 py-10 px-4">
-              <h2>{t("currentPromotions.title")}</h2>
-              <div className="flex-center-center max-w-2xl mx-auto">
+      <>
+        <section>
+          <div className="container max-w-2xl mx-auto flex flex-col gap-5 py-10 px-4">
+            <h2>{t("currentPromotions.title")}</h2>
+            {(isLoading || isPromoTextLoading) && <Loader />}
+            {error && <p className="text-danger">{error}</p>}
+            {!!promos?.length && (
+              <div className="flex-center-center mx-auto">
                 <BaseCarousel
                   slides={promos}
                   renderSlide={(product) => (
@@ -105,38 +115,42 @@ const HomeView = () => {
                   )}
                 />
               </div>
+            )}
+            <div>
+              {promosTextError && (
+                <p className="text-danger">{promosTextError}</p>
+              )}
+              {promosText?.text?.split("\n").map((line, index) => (
+                <p key={index} className="whitespace-pre-wrap">
+                  {line}
+                </p>
+              ))}
+            </div>
+          </div>
+        </section>
+        <Separator className="max-w-3/6 m-auto my-4 bg-muted" />
+      </>
+      <section>
+        <div className="container max-w-2xl mx-auto flex flex-col gap-5 pt-10 pb-24 px-4 overflow-hidden">
+          <h2>{t("topProduct.title")}</h2>
+          {isBestSellerLoading && <Loader />}
+          {bestSellerError && <p className="text-danger">{bestSellerError}</p>}
+          {!bestSellerError && bestSeller && (
+            <div className="flex flex-col gap-10">
+              <div className="flex flex-col gap-8 items-center">
+                <article className="relative grid flex-[1_0]">
+                  <ProductCard bestSeller product={bestSeller.product} />
+                </article>
+              </div>
               <div>
-                {isPromoTextLoading && <Loader />}
-                {promosTextError && <p>{promosTextError}</p>}
-                {promosText?.text?.split("\n").map((line, index) => (
-                  <p key={index} className="whitespace-pre-wrap">
-                    {line}
+                <Trans i18nKey={"home:topProduct.description"}>
+                  <p />
+                  <p>
+                    <Link to={APP_ROUTES.PRODUCTS} className="underline" />
                   </p>
-                ))}
+                </Trans>
               </div>
             </div>
-          </section>
-          <Separator className="max-w-3/6 m-auto my-4 bg-muted" />
-        </>
-      )}
-      <section>
-        <div className="container mx-auto flex flex-col gap-5 py-10 px-4 overflow-hidden">
-          {isLoading && <Loader />}
-          {error && <p>{error}</p>}
-          {!error && productsLocale && (
-            <>
-              <h2>{t("topProduct.title")}</h2>
-              <div className="flex flex-col justify-center gap-5 sm:flex-row sm:flex-wrap">
-                {productsLocale.map((product) => (
-                  <article
-                    key={product.id}
-                    className="flex-[1_0] sm:min-w-68 sm:max-w-[calc((1/2*100%)-0.625rem)]"
-                  >
-                    <ProductCard product={product} />
-                  </article>
-                ))}
-              </div>
-            </>
           )}
         </div>
       </section>

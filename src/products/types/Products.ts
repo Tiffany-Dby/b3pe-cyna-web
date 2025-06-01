@@ -47,6 +47,11 @@ type UpdatedDetail = Detail;
 
 type Slot = 1 | 2 | 3;
 
+type BestSeller = {
+  product: ProductLocale;
+  totalSold: number;
+};
+
 type ProductLocale = Omit<Product, "details"> & {
   details: Detail;
 };
@@ -85,5 +90,6 @@ export type {
   NewDetail,
   Slot,
   ProductLocale,
+  BestSeller,
   UpdatedDetail,
 };

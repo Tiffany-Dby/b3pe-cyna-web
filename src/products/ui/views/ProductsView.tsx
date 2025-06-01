@@ -41,7 +41,7 @@ const ProductsView = () => {
     <>
       {isLoading && <Loader />}
       <section>
-        <div className="container mx-auto flex flex-col gap-5 py-10 px-4">
+        <div className="container mx-auto flex flex-col gap-5 pt-10 pb-24 px-4">
           {error && <p>error</p>}
           {!error && productsLocale && (
             <>

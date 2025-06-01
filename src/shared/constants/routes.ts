@@ -49,6 +49,7 @@ const API_ROUTES = {
   USER_SUBSCRIPTIONS_CANCEL: "/api/subscriptions/cancel",
   PRODUCT_GET: "/api/products/get",
   PRODUCT_GET_ALL: "/api/products/get-all",
+  PRODUCT_GET_BEST_SELLER: "/api/products/best-seller",
   PRODUCT_NEW: "/api/products/add",
   PRODUCT_NEW_TRANSLATION: "/api/products/add/details",
   PRODUCT_UPDATE: "/api/products/update",

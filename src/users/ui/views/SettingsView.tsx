@@ -23,7 +23,7 @@ const SettingsView = () => {
 
   return (
     <section>
-      <div className="container mx-auto flex flex-col gap-6 py-5 px-4">
+      <div className="container mx-auto flex flex-col gap-6 pt-10 pb-24 px-4">
         <div>
           <h1>{t("account:settings.title")}</h1>
           <Breadcrumb>

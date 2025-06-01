@@ -10,7 +10,7 @@ const AccountView = () => {
 
   return (
     <section>
-      <div className="container mx-auto py-5 px-4 h-full flex flex-col gap-4">
+      <div className="container mx-auto pt-10 pb-24 px-4 h-full flex flex-col gap-4">
         <div>
           <h1>{t("layout:header.navigation.account.auth")}</h1>
         </div>
