@@ -30,6 +30,8 @@ const CartItemCard = ({ item, index }: Props) => {
   const quantity = item.quantity;
   const recurring = item.recurring;
 
+  const yearlyPrice = item.recurring === 2 ? 12 : 1;
+
   const increment = () =>
     updateCartItem({
       productId: product.id,
@@ -87,15 +89,21 @@ const CartItemCard = ({ item, index }: Props) => {
                 <h2>{product.name}</h2>
                 <div className="relative flex flex-col sm:items-end">
                   <p className="text-size-2xl">
-                    {formatAmount((product.price / 100) * quantity, {
-                      currency: "EUR",
-                    })}
+                    {formatAmount(
+                      (product.price / 100) * yearlyPrice * quantity,
+                      {
+                        currency: "EUR",
+                      }
+                    )}
                   </p>
                   {!!product.discountPercentage && (
                     <p className="absolute top-full line-through text-size-s text-muted-foreground">
-                      {formatAmount((product.basePrice / 100) * quantity, {
-                        currency: "EUR",
-                      })}
+                      {formatAmount(
+                        (product.basePrice / 100) * yearlyPrice * quantity,
+                        {
+                          currency: "EUR",
+                        }
+                      )}
                     </p>
                   )}
                 </div>

@@ -1,6 +1,6 @@
 {
   "settings": {
-    "title": "My account",
+    "title": "My settings",
     "personalInformations": {
       "caption": "Personal informations"
     },
@@ -39,6 +39,39 @@
         },
         "error": "An error occured"
       }
+    }
+  },
+  "subscriptions": {
+    "title": "My subscriptions",
+    "noSubscription": "No subscription",
+    "start": "Start",
+    "nextInvoice": "Next invoice",
+    "cancel": "Cancel",
+    "update": "Update",
+    "upgrade": "Upgrade soon available",
+    "status": {
+      "title": "Status",
+      "active": "Active",
+      "canceled": "Canceled",
+      "incomplete": "Incomplete",
+      "incompleteExpired": "Incomplete Expired",
+      "pastDue": "Past Due",
+      "paused": "Paused",
+      "trialing": "Trialing",
+      "unpaid": "Unpaid"
+    },
+    "dialog": {
+      "cancel": {
+        "description": "Cancel a subscription",
+        "message": "Cancel the selected subscription?"
+      }
+    },
+    "toast": {
+      "cancel": {
+        "success": "Subscription canceled !",
+        "loading": "Canceling subscription..."
+      },
+      "error": "An error occured"
     }
   }
 }

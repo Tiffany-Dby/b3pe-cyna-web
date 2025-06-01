@@ -25,7 +25,7 @@ const useCancel = ({ intentId }: Cancel) => {
       return;
     }
 
-    navigate(APP_ROUTES.TO_CART);
+    navigate(APP_ROUTES.PURCHASE_CART);
   };
 
   return { onCancel, isLoading };

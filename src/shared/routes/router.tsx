@@ -26,6 +26,8 @@ import SuccessView from "@/purchase/ui/views/SuccessView";
 import ResetPasswordView from "@/users/ui/views/ResetPasswordView";
 import TermsOfUseView from "@/shared/ui/views/TermsOfUseView";
 import LegalNoticeView from "@/shared/ui/views/LegalNoticeView";
+import SubscriptionsView from "@/users/ui/views/SubscriptionsView";
+import AccountView from "@/users/ui/views/AccountView";
 
 const router = createBrowserRouter([
   {
@@ -49,10 +51,11 @@ const router = createBrowserRouter([
         path: APP_ROUTES.ACCOUNT,
         Component: PrivateRoutes,
         children: [
+          { index: true, Component: AccountView },
           { path: APP_ROUTES.ACCOUNT_SETTINGS, Component: SettingsView },
           {
             path: APP_ROUTES.ACCOUNT_SUBSCRIPTIONS,
-            element: <p>Subscriptions</p>,
+            Component: SubscriptionsView,
           },
         ],
       },

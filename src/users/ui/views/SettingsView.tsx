@@ -4,6 +4,14 @@ import SettingsPasswordCard from "@/users/ui/components/SettingsPasswordCard";
 import SettingsPersonalInfosCard from "@/users/ui/components/SettingsPersonalInfosCard";
 import { useAddressesStore } from "@/users/store/addressesStore";
 import { useEffect } from "react";
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/lib/components/ui/breadcrumb";
+import { Link } from "react-router";
 
 const SettingsView = () => {
   const { t } = useTranslation();
@@ -14,14 +22,33 @@ const SettingsView = () => {
   }, []);
 
   return (
-    <div className="max-w-xl w-full mx-auto py-5 px-4">
-      <h1>{t("account:settings.title")}</h1>
-      <div className="flex flex-col gap-4">
-        <SettingsPersonalInfosCard />
-        <SettingsPasswordCard />
-        <SettingsAddressCard />
+    <section>
+      <div className="container mx-auto flex flex-col gap-6 py-5 px-4">
+        <div>
+          <h1>{t("account:settings.title")}</h1>
+          <Breadcrumb>
+            <BreadcrumbList>
+              <BreadcrumbItem>
+                <Link to={"/account"}>
+                  {t("layout:header.navigation.account.auth")}
+                </Link>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbPage>
+                  {t("layout:header.navigation.account.settings.title")}
+                </BreadcrumbPage>
+              </BreadcrumbItem>
+            </BreadcrumbList>
+          </Breadcrumb>
+        </div>
+        <div className="grid md:grid-cols-2 gap-4">
+          <SettingsPersonalInfosCard />
+          <SettingsPasswordCard />
+          <SettingsAddressCard />
+        </div>
       </div>
-    </div>
+    </section>
   );
 };
 

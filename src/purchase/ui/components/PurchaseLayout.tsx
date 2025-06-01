@@ -36,14 +36,18 @@ const PurchaseLayout = () => {
 
   const totalDiscount =
     cart?.items.reduce(
-      (acc, { product, quantity }) =>
-        acc + (product.basePrice - product.price) * quantity,
+      (acc, { product, quantity, recurring }) =>
+        acc +
+        (product.basePrice - product.price) *
+          (recurring === 2 ? 12 : 1) *
+          quantity,
       0
     ) || 0;
 
   const subTotal =
     cart?.items.reduce(
-      (acc, { product, quantity }) => acc + product.basePrice * quantity,
+      (acc, { product, quantity, recurring }) =>
+        acc + product.basePrice * (recurring === 2 ? 12 : 1) * quantity,
       0
     ) || 0;
 
@@ -109,7 +113,7 @@ const PurchaseLayout = () => {
                       </CardDescription>
                     </CardHeader>
                     <CardContent className="flex flex-col gap-6">
-                      {location.pathname === APP_ROUTES.TO_CART && (
+                      {location.pathname === APP_ROUTES.PURCHASE_CART && (
                         <div>
                           <Button
                             className="w-full"

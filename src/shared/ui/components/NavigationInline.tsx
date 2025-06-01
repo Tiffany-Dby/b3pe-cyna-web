@@ -18,31 +18,32 @@ const NavigationInline = ({ items }: { items: MenuItem[] }) => {
   const { cart } = usePurchaseStore();
 
   return (
-    <NavigationMenu className="hidden md:block">
+    <NavigationMenu className="hidden md:block" viewport={false}>
       <NavigationMenuList className="gap-1">
         {items.map((item) => (
           <Fragment key={id + "-" + item.title}>
             {!item.subitems ? (
               <NavigationMenuItem className=" [&_span]:text-white">
                 <NavLink
-                  to={item.url!}
+                  to={item.url}
                   className={`${navigationMenuTriggerStyle()} gap-1`}
                 >
                   <item.icon className="size-3.5" />
                   {item.title}
-                  {item.url === APP_ROUTES.TO_CART && !!cart?.items.length && (
-                    <span className="absolute flex-center-center w-4.5 h-4.5 bg-danger rounded-full text-size-label -right-0.5 -top-0.5">
-                      {cart.items.length}
-                    </span>
-                  )}
+                  {item.url === APP_ROUTES.PURCHASE_CART &&
+                    !!cart?.items.length && (
+                      <span className="absolute flex-center-center w-4.5 h-4.5 bg-danger rounded-full text-size-label -right-0.5 -top-0.5">
+                        {cart.items.length}
+                      </span>
+                    )}
                 </NavLink>
               </NavigationMenuItem>
             ) : (
               <NavigationMenuItem>
-                <NavigationMenuTrigger className="flex gap-1">
+                <NavigationMenuTrigger className="flex-center-center gap-1">
                   <item.icon className="size-3.5" /> {item.title}
                 </NavigationMenuTrigger>
-                <NavigationMenuContent>
+                <NavigationMenuContent className="right-0 left-auto">
                   <ul className="grid gap-3 md:w-[375px]">
                     {item.subitems.map((subitem) => (
                       <Fragment key={id + "-" + subitem.title}>

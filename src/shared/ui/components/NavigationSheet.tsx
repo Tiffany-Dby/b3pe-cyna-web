@@ -75,7 +75,7 @@ const NavigationSheet = ({ items }: { items: MenuItem[] }) => {
                         <span className="flex-center-center gap-1 relative">
                           <item.icon className="size-3.5" />
                           {item.title}
-                          {item.url === APP_ROUTES.TO_CART &&
+                          {item.url === APP_ROUTES.PURCHASE_CART &&
                             !!cart?.items.length && (
                               <span className="absolute flex-center-center w-4.5 h-4.5 bg-danger rounded-full text-size-label -right-4 -top-2">
                                 {cart.items.length}
@@ -94,9 +94,13 @@ const NavigationSheet = ({ items }: { items: MenuItem[] }) => {
                       <Accordion type="single" collapsible>
                         <AccordionItem value={`${index}`}>
                           <AccordionTrigger className="items-center">
-                            <span className="flex items-center gap-1 text-size-n font-normal">
+                            <NavLink
+                              to={item.url}
+                              className="flex items-center gap-1 text-size-n font-normal"
+                              onClick={handleOpenChange}
+                            >
                               <item.icon className="size-3.5" /> {item.title}
-                            </span>
+                            </NavLink>
                           </AccordionTrigger>
                           <AccordionContent>
                             <ul className="flex flex-col gap-3">

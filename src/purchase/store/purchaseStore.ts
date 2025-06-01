@@ -3,12 +3,14 @@ import {
   Cart,
   CartToUpdate,
   NewCartItem,
+  OrderStatus,
   PurchaseState,
   UpdateCartItem,
 } from "@/purchase/types/Purchase";
 import {
   deleteRequest,
   getRequest,
+  patchRequest,
   postRequest,
   putRequest,
 } from "@/shared/tools/api";
@@ -117,9 +119,18 @@ const usePurchaseStore = create<PurchaseState>((set) => ({
     }));
   },
 
-  emptyCart: () => {
+  emptyCart: async (orderId, status) => {
+    set({ isLoading: true });
+
+    const { error } = await patchRequest<
+      Cart,
+      { orderId: number; status: OrderStatus }
+    >(API_ROUTES.CART_UPDATE_STATUS, { orderId, status });
+
     set((state) => ({
-      cart: state.cart ? { ...state.cart, items: [] } : null,
+      isLoading: false,
+      error,
+      cart: error && state.cart ? { ...state.cart, items: [] } : null,
     }));
   },
 }));

@@ -1,6 +1,6 @@
 {
   "settings": {
-    "title": "Mon compte",
+    "title": "Mes Paramètres",
     "personalInformations": {
       "caption": "Informations personnelles"
     },
@@ -39,6 +39,39 @@
         },
         "error": "Une erreur est survenue"
       }
+    }
+  },
+  "subscriptions": {
+    "title": "Mes abonnements",
+    "noSubscription": "Aucun abonnement",
+    "start": "Début",
+    "nextInvoice": "Prochaine facture",
+    "cancel": "Résilier",
+    "update": "Modifier",
+    "upgrade": "Mise à niveau bientôt disponible",
+    "status": {
+      "title": "Status",
+      "active": "Actif",
+      "canceled": "Annulé",
+      "incomplete": "Incomplet",
+      "incompleteExpired": "Incomplet expiré",
+      "pastDue": "En retard de paiement",
+      "paused": "En pause",
+      "trialing": "En période d'essai",
+      "unpaid": "Impayé"
+    },
+    "dialog": {
+      "cancel": {
+        "description": "Résilier un abonnement",
+        "message": "Résilier l'abonnement sélectionné ?"
+      }
+    },
+    "toast": {
+      "cancel": {
+        "success": "Abonnement résilié !",
+        "loading": "Résiliation en cours..."
+      },
+      "error": "Une erreur est survenue"
     }
   }
 }

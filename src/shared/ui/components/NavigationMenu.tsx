@@ -32,6 +32,7 @@ const NavigationMenu = () => {
     isAuthenticated
       ? {
           title: t("header.navigation.account.auth"),
+          url: APP_ROUTES.ACCOUNT,
           icon: CircleUserRoundIcon,
           subitems: [
             {
@@ -71,7 +72,7 @@ const NavigationMenu = () => {
         },
     {
       title: t("header.navigation.cart"),
-      url: APP_ROUTES.TO_CART,
+      url: APP_ROUTES.PURCHASE_CART,
       icon: ShoppingCartIcon,
     },
   ];

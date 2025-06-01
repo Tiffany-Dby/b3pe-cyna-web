@@ -2,6 +2,15 @@ import { Product } from "@/products/types/Products";
 import { ToastMsgs } from "@/shared/types/Toast";
 import { Address } from "@/users/types/Address";
 
+enum OrderStatus {
+  cart = 0,
+  pending = 1,
+  failed = 2,
+  cancelled = 3,
+  refunded = 4,
+  succeeded = 5,
+}
+
 enum Recurring {
   monthly = 1,
   yearly = 2,
@@ -42,6 +51,12 @@ type NewIntent = {
   clientSecret: string;
 };
 
+type PaymentMethod = {
+  id: number;
+  name: string;
+  stripeCode: string;
+};
+
 type PurchaseState = {
   cart: Cart | null;
   isLoading: boolean;
@@ -52,7 +67,7 @@ type PurchaseState = {
   updateCart: (cart: CartToUpdate) => Promise<void>;
   updateCartItem: (item: UpdateCartItem) => Promise<void>;
   removeCartItem: (itemId: number) => Promise<void>;
-  emptyCart: () => void;
+  emptyCart: (orderId: number, status: OrderStatus) => Promise<void>;
 };
 
 export type {
@@ -62,6 +77,7 @@ export type {
   UpdateCartItem,
   CartToUpdate,
   NewIntent,
+  PaymentMethod,
   PurchaseState,
 };
-export { Recurring };
+export { OrderStatus, Recurring };

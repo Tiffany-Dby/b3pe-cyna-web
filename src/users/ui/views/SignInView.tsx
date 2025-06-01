@@ -38,7 +38,7 @@ const SignInView = () => {
 
   const handleSignInSuccess = (userData: SignInResponse) => {
     onSignIn(userData);
-    navigate(APP_ROUTES.ACCOUNT_SETTINGS);
+    navigate("/" + APP_ROUTES.ACCOUNT);
   };
 
   const { form, handleSubmit, isLoading, serverError } = useCustomForm({
@@ -75,7 +75,7 @@ const SignInView = () => {
   ];
 
   if (isAuthenticated) {
-    return <Navigate to={APP_ROUTES.ACCOUNT_SETTINGS} replace />;
+    return <Navigate to={"/" + APP_ROUTES.ACCOUNT} replace />;
   }
 
   return (

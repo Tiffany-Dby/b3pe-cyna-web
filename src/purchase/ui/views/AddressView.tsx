@@ -90,7 +90,7 @@ const AddressView = () => {
       return;
     }
 
-    navigate(APP_ROUTES.TO_CHECKOUT);
+    navigate(APP_ROUTES.PURCHASE_CHECKOUT);
   };
 
   return (
@@ -100,7 +100,7 @@ const AddressView = () => {
         <Breadcrumb>
           <BreadcrumbList>
             <BreadcrumbItem>
-              <Link to={APP_ROUTES.TO_CART}>{t("breadcrumb.cart")}</Link>
+              <Link to={APP_ROUTES.PURCHASE_CART}>{t("breadcrumb.cart")}</Link>
             </BreadcrumbItem>
             <BreadcrumbSeparator />
             <BreadcrumbItem>
@@ -217,7 +217,7 @@ const AddressView = () => {
             <div className="flex gap-4 justify-end">
               <Button
                 variant="outline"
-                onClick={() => navigate(APP_ROUTES.TO_CART)}
+                onClick={() => navigate(APP_ROUTES.PURCHASE_CART)}
               >
                 {t("address.backToCart")}
               </Button>

@@ -5,24 +5,28 @@ import { PaymentMethod } from "@stripe/stripe-js";
 import { useCallback, useState } from "react";
 import { useNavigate } from "react-router";
 import { usePurchaseStore } from "@/purchase/store/purchaseStore";
+import { OrderStatus } from "@/purchase/types/Purchase";
 
 type PaymentStep = {
-  clientSecret: string;
   type: string;
+  id: number;
+  clientSecret: string;
 };
 
 type Payments = {
   payments: PaymentStep[];
 };
 
-type PaymentResponse = {
+type PaymentPayload = {
   orderId: number;
   paymentMethodId: string | PaymentMethod;
+  paymentMethodType: string;
 };
 
 const useCheckout = (orderId: number) => {
   const stripe = useStripe();
   const elements = useElements();
+  const [paymentMethodType, setPaymentMethodType] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
   const { emptyCart } = usePurchaseStore();
@@ -50,10 +54,11 @@ const useCheckout = (orderId: number) => {
 
       const { result, error: checkError } = await postRequest<
         Payments,
-        PaymentResponse
+        PaymentPayload
       >(API_ROUTES.PURCHASE_CHECKOUT, {
         orderId,
         paymentMethodId,
+        paymentMethodType,
       });
 
       if (checkError) {
@@ -63,27 +68,30 @@ const useCheckout = (orderId: number) => {
         return;
       }
 
+      let isSuccess = false;
       for (const { clientSecret, type } of result.payments) {
-        const { error: payError } = await stripe.confirmPayment({
+        const confirm = await stripe.confirmPayment({
           clientSecret,
           redirect: "if_required",
         });
 
-        if (payError) {
-          console.error(`${type} payment failed:`, payError.message);
+        if (confirm.error) {
+          console.error(`${type} payment failed:`, confirm.error.message);
           setIsLoading(false);
 
           return;
         }
+
+        isSuccess = confirm.paymentIntent.status === "succeeded";
       }
 
-      emptyCart();
+      isSuccess && emptyCart(orderId, OrderStatus.succeeded);
       navigate(APP_ROUTES.CHECKOUT_SUCCESS);
     },
-    [stripe, elements, orderId]
+    [stripe, elements, orderId, paymentMethodType]
   );
 
-  return { handleSubmit, isLoading };
+  return { handleSubmit, setPaymentMethodType, isLoading };
 };
 
 export default useCheckout;

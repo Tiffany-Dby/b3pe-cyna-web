@@ -8,6 +8,7 @@ import {
   setAccessToken,
   signOut,
 } from "@/shared/tools/auth";
+import { UserRole } from "@/users/types/UserRole";
 
 type SignInResponse = {
   access: string;
@@ -20,6 +21,7 @@ type AuthContextType = {
   onSignOut: () => void;
   onUserUpdate: (user: UserResponse) => void;
   isAuthenticated: boolean;
+  isAdmin: boolean;
 };
 
 const AuthContext = createContext<AuthContextType | null>(null);
@@ -47,10 +49,18 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const onUserUpdate = (u: UserResponse) => setUser(u);
 
   const isAuthenticated = !!getAccessToken();
+  const isAdmin = user?.role === UserRole.admin;
 
   return (
     <AuthContext.Provider
-      value={{ user, onSignIn, onSignOut, onUserUpdate, isAuthenticated }}
+      value={{
+        user,
+        onSignIn,
+        onSignOut,
+        onUserUpdate,
+        isAuthenticated,
+        isAdmin,
+      }}
     >
       {!isLoading && children}
     </AuthContext.Provider>
