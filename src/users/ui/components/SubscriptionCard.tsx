@@ -10,7 +10,7 @@ import {
   SubscriptionStatus,
 } from "@/users/types/Subscriptions";
 import { ArrowUpIcon } from "lucide-react";
-import CancelSubscriptionDialog from "./CancelSubscriptionDialog";
+import CancelSubscriptionDialog from "@/users/ui/components/CancelSubscriptionDialog";
 import { useTranslation } from "react-i18next";
 
 type Props = {

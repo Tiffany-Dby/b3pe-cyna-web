@@ -1,4 +1,4 @@
-import { DateStatus } from "../types/DateStatus";
+import { DateStatus } from "@/shared/types/DateStatus";
 
 const getDateStatus = (
   daysDiff: number,

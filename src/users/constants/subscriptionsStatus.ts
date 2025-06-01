@@ -1,7 +1,7 @@
 import {
   SubscriptionStatus,
   SubscriptionStatusMap,
-} from "../types/Subscriptions";
+} from "@/users/types/Subscriptions";
 
 const SUBSCRIPTION_STATUS: SubscriptionStatusMap = {
   [SubscriptionStatus.active]: {

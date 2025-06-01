@@ -5,7 +5,7 @@ import { PaymentMethod } from "@stripe/stripe-js";
 import { useCallback, useState } from "react";
 import { useNavigate } from "react-router";
 import { usePurchaseStore } from "@/purchase/store/purchaseStore";
-import { OrderStatus } from "../types/Purchase";
+import { OrderStatus } from "@/purchase/types/Purchase";
 
 type PaymentStep = {
   type: string;
