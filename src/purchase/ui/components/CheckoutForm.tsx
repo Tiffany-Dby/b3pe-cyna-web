@@ -22,7 +22,8 @@ type Props = {
 
 const CheckoutForm = ({ orderId, intentId }: Props) => {
   const { t } = useTranslation("purchase");
-  const { handleSubmit, isLoading } = useCheckout(orderId);
+  const { handleSubmit, setPaymentMethodType, isLoading } =
+    useCheckout(orderId);
   const { onCancel, isLoading: isCancelLoading } = useCancel({ intentId });
 
   return (
@@ -32,11 +33,13 @@ const CheckoutForm = ({ orderId, intentId }: Props) => {
         <Breadcrumb>
           <BreadcrumbList>
             <BreadcrumbItem>
-              <Link to={APP_ROUTES.TO_CART}>{t("breadcrumb.cart")}</Link>
+              <Link to={APP_ROUTES.PURCHASE_CART}>{t("breadcrumb.cart")}</Link>
             </BreadcrumbItem>
             <BreadcrumbSeparator />
             <BreadcrumbItem>
-              <Link to={APP_ROUTES.TO_ADDRESS}>{t("breadcrumb.address")}</Link>
+              <Link to={APP_ROUTES.PURCHASE_ADDRESS}>
+                {t("breadcrumb.address")}
+              </Link>
             </BreadcrumbItem>
             <BreadcrumbSeparator />
             <BreadcrumbItem>
@@ -51,7 +54,10 @@ const CheckoutForm = ({ orderId, intentId }: Props) => {
         content={
           <form onSubmit={handleSubmit} className="flex flex-col gap-4">
             <div>
-              <PaymentElement options={{ layout: { type: "tabs" } }} />
+              <PaymentElement
+                onChange={(event) => setPaymentMethodType(event.value.type)}
+                options={{ layout: { type: "tabs" } }}
+              />
             </div>
             <div className="flex gap-4">
               <Button

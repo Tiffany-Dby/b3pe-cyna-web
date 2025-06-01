@@ -97,8 +97,8 @@ const ProductView = () => {
                       <Breadcrumb>
                         <BreadcrumbList>
                           <BreadcrumbItem>
-                            <Link to={APP_ROUTES.HOME}>
-                              {t("layout:header.navigation.home")}
+                            <Link to={APP_ROUTES.PRODUCTS}>
+                              {t("layout:header.navigation.products")}
                             </Link>
                           </BreadcrumbItem>
                           <BreadcrumbSeparator />

@@ -2,7 +2,7 @@ import { AppRoutes } from "@/shared/types/Routes";
 
 type MenuItem = {
   title: string;
-  url?: AppRoutes;
+  url: AppRoutes;
   icon: React.ComponentType<{ className?: string }>;
   subitems?: MenuSubItem[];
 };

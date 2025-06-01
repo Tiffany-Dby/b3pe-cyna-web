@@ -1,4 +1,7 @@
 {
+  "inProgress": "Active",
+  "expireSoon": "Expire soon",
+  "expired": "Inactive",
   "loading": "Loading...",
   "learnMore": "Learn more",
   "soonAvailable": "Soon available",
@@ -287,6 +290,9 @@
     },
     "update": {
       "title": "Update"
+    },
+    "cancel": {
+      "title": "Cancelation"
     },
     "actions": {
       "confirm": "Confirm",
