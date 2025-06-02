@@ -45,6 +45,7 @@ type SubscriptionItem = {
 type SubscriptionsState = {
   subscriptions: Subscription[];
   isLoading: boolean;
+  isCancelLoading: boolean;
   error: string | null;
   getSubscriptions: () => Promise<void>;
   updateStatus: (id: number, status: number) => Promise<void>;

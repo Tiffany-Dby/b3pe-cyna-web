@@ -1,5 +1,5 @@
 import { Button } from "@/lib/components/ui/button";
-import { Card } from "@/lib/components/ui/card";
+import { Card, CardDescription } from "@/lib/components/ui/card";
 import { Separator } from "@/lib/components/ui/separator";
 import ProductStatusBadge from "@/products/ui/components/ProductStatusBadge";
 import { useDialog } from "@/shared/hooks/useDialog";
@@ -12,6 +12,7 @@ import {
 import { ArrowUpIcon } from "lucide-react";
 import CancelSubscriptionDialog from "@/users/ui/components/CancelSubscriptionDialog";
 import { useTranslation } from "react-i18next";
+import { useSubscriptionsStore } from "@/users/store/subscriptionsStore";
 
 type Props = {
   subscriptionItem: SubscriptionItem;
@@ -20,6 +21,7 @@ type Props = {
 
 const SubscriptionCard = ({ subscriptionItem, status }: Props) => {
   const { t } = useTranslation("account");
+  const { isCancelLoading } = useSubscriptionsStore();
   const { dialog, open, close } = useDialog<SubscriptionItem | null>();
   const product = subscriptionItem?.orderItem.product;
 
@@ -28,7 +30,20 @@ const SubscriptionCard = ({ subscriptionItem, status }: Props) => {
       <Card className="px-6">
         <article className="@container flex flex-col gap-8">
           <div className="flex-between-center flex-wrap">
-            <h2>{product?.name}</h2>
+            <div className="flex items-baseline gap-2">
+              <h2>{product?.name}</h2>
+              <CardDescription>
+                (
+                {t(
+                  `common:selects.subType.${
+                    subscriptionItem.orderItem.recurring === 1
+                      ? "monthly"
+                      : "yearly"
+                  }`
+                )}
+                )
+              </CardDescription>
+            </div>
             <ProductStatusBadge type={product?.type} status={product?.status} />
           </div>
           <div className="flex flex-col gap-2">
@@ -53,10 +68,13 @@ const SubscriptionCard = ({ subscriptionItem, status }: Props) => {
               variant="outline"
               className="grow"
               onClick={() => open("cancel", subscriptionItem)}
+              disabled={isCancelLoading}
             >
               {t("subscriptions.cancel")}
             </Button>
-            <Button className="grow">{t("subscriptions.update")}</Button>
+            <Button className="grow" disabled={isCancelLoading}>
+              {t("subscriptions.update")}
+            </Button>
             <Button variant="primaryLight" className="w-full" disabled={true}>
               <span className="flex-between-center gap-2 w-full">
                 {t("subscriptions.upgrade")} <ArrowUpIcon />

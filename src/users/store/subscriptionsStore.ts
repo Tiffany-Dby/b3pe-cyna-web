@@ -8,6 +8,7 @@ import { toast } from "sonner";
 const useSubscriptionsStore = create<SubscriptionsState>((set) => ({
   subscriptions: [],
   isLoading: false,
+  isCancelLoading: false,
   error: null,
 
   getSubscriptions: async () => {
@@ -42,7 +43,7 @@ const useSubscriptionsStore = create<SubscriptionsState>((set) => ({
   cancelSubscription: async (selected, toastMsgs = TOAST.DEFAULT_MSGS) => {
     const { success, loading, error } = toastMsgs;
 
-    set({ isLoading: true });
+    set({ isCancelLoading: true });
 
     const toastId = toast.loading(loading);
     const { result, error: reqError } = await postRequest<
@@ -53,7 +54,7 @@ const useSubscriptionsStore = create<SubscriptionsState>((set) => ({
       subscriptionItemStripeId: selected.stripeItemId,
     });
 
-    set({ isLoading: false });
+    set({ isCancelLoading: false });
 
     if (reqError) toast.error(error, { id: toastId });
     else toast.success(success, { id: toastId });

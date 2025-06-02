@@ -21,10 +21,6 @@ const SubscriptionsView = () => {
     getSubscriptions();
   }, []);
 
-  useEffect(() => {
-    console.log(subscriptions);
-  }, [subscriptions]);
-
   return (
     <section className="flex flex-col flex-1">
       <div className="container mx-auto pt-10 pb-24 px-4 h-full flex flex-1 flex-col gap-4">
