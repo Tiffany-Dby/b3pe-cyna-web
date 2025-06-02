@@ -4,7 +4,7 @@ import {
 } from "@/products/types/ProductStatus";
 import { ProductType } from "@/products/types/ProductType";
 
-const PRODUCT_STATUS: ProductStatusMap = {
+const STATUS: ProductStatusMap = {
   [ProductStatus.Unavailable]: {
     label: (type) =>
       type === ProductType.Digital ? "status.unavailable" : "status.outOfStock",
@@ -21,4 +21,8 @@ const PRODUCT_STATUS: ProductStatusMap = {
   },
 };
 
-export { PRODUCT_STATUS };
+const PRODUCT = {
+  STATUS,
+};
+
+export { PRODUCT };

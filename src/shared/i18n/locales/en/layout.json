@@ -15,6 +15,10 @@
           "title": "Subscriptions",
           "description": "Extend my subscriptions, upgrade, and more."
         },
+        "history": {
+          "title": "Orders",
+          "description": "Retrieve my orders history, my invoices, etc."
+        },
         "admin": {
           "title": "Administrator",
           "description": "Interface reserved for site administrators. Manage products, users, and more."

@@ -1,6 +1,6 @@
 import { DateStatus, DateStatusMap } from "@/shared/types/DateStatus";
 
-const DATE_STATUS: DateStatusMap = {
+const STATUS: DateStatusMap = {
   [DateStatus.Active]: {
     label: "common:inProgress",
     color: "bg-success",
@@ -15,4 +15,16 @@ const DATE_STATUS: DateStatusMap = {
   },
 };
 
-export { DATE_STATUS };
+const TIME_FORMAT_OPTIONS: Intl.DateTimeFormatOptions = {
+  weekday: "long",
+  year: "numeric",
+  month: "long",
+  day: "numeric",
+};
+
+const DATE = {
+  TIME_FORMAT_OPTIONS,
+  STATUS,
+};
+
+export { DATE };

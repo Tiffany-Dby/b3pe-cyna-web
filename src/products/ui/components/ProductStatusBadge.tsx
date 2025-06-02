@@ -1,4 +1,4 @@
-import { PRODUCT_STATUS } from "@/products/constants/procuctStatus";
+import { PRODUCT } from "@/products/constants/procuctStatus";
 import { ProductStatus } from "@/products/types/ProductStatus";
 import { ProductType } from "@/products/types/ProductType";
 import { useTranslation } from "react-i18next";
@@ -10,7 +10,7 @@ type Props = {
 
 const ProductStatusBadge = ({ status, type }: Props) => {
   const { t } = useTranslation("products");
-  const currentStatus = PRODUCT_STATUS[status];
+  const currentStatus = PRODUCT.STATUS[status];
 
   return (
     <div

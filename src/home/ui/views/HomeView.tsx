@@ -138,7 +138,7 @@ const HomeView = () => {
           {!bestSellerError && bestSeller && (
             <div className="flex flex-col gap-10">
               <div className="flex flex-col gap-8 items-center">
-                <article className="relative grid flex-[1_0]">
+                <article className="relative grid flex-[1_0] max-w-[35.5rem]">
                   <ProductCard bestSeller product={bestSeller.product} />
                 </article>
               </div>

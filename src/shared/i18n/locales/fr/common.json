@@ -1,4 +1,8 @@
 {
+  "paymentMethod": {
+    "card": "Carte Bleu",
+    "sepa_debit": "Sepa"
+  },
   "inProgress": "Actif",
   "expireSoon": "Expire bientôt",
   "expired": "Inactif",

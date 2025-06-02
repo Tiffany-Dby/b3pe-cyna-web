@@ -15,6 +15,10 @@
           "title": "Abonnements",
           "description": "Prologer mes abonnements, effectuer une mise à niveau, etc."
         },
+        "history": {
+          "title": "Commandes",
+          "description": "Retrouver mon historique de commandes, mes factures, etc."
+        },
         "admin": {
           "title": "Administrateur",
           "description": "Interface réservée aux administrateurs du site. Gérez les produits, les utilisateurs, etc."

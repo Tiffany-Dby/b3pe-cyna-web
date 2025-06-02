@@ -28,6 +28,7 @@ import TermsOfUseView from "@/shared/ui/views/TermsOfUseView";
 import LegalNoticeView from "@/shared/ui/views/LegalNoticeView";
 import SubscriptionsView from "@/users/ui/views/SubscriptionsView";
 import AccountView from "@/users/ui/views/AccountView";
+import HistoryView from "@/users/ui/views/HistoryView";
 
 const router = createBrowserRouter([
   {
@@ -56,6 +57,10 @@ const router = createBrowserRouter([
           {
             path: APP_ROUTES.ACCOUNT_SUBSCRIPTIONS,
             Component: SubscriptionsView,
+          },
+          {
+            path: APP_ROUTES.ACCOUNT_HISTORY,
+            Component: HistoryView,
           },
         ],
       },

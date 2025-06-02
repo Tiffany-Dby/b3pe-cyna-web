@@ -100,7 +100,10 @@ const DataTable = <TData, TValue>({ columns, data }: Props<TData, TValue>) => {
                   data-state={row.getIsSelected() && "selected"}
                 >
                   {row.getVisibleCells().map((cell) => (
-                    <TableCell key={cell.id}>
+                    <TableCell
+                      key={cell.id}
+                      className="has-[.multi-lines]:align-top"
+                    >
                       {flexRender(
                         cell.column.columnDef.cell,
                         cell.getContext()

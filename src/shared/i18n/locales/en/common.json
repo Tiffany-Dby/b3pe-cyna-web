@@ -1,4 +1,8 @@
 {
+  "paymentMethod": {
+    "card": "Credit Card",
+    "sepa_debit": "Sepa Debit"
+  },
   "inProgress": "Active",
   "expireSoon": "Expire soon",
   "expired": "Inactive",

@@ -47,6 +47,11 @@ const NavigationMenu = () => {
                 "header.navigation.account.subscriptions.description"
               ),
             },
+            {
+              title: t("header.navigation.account.history.title"),
+              url: APP_ROUTES.ACCOUNT_HISTORY,
+              description: t("header.navigation.account.history.description"),
+            },
             ...(user?.role === UserRole.admin
               ? [
                   {

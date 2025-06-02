@@ -73,5 +73,30 @@
       },
       "error": "An error occured"
     }
+  },
+  "history": {
+    "title": "My order history",
+    "subTitle": "Orders",
+    "description": "Detailed history and invoices of all my orders",
+    "columns": {
+      "order": "Order",
+      "date": "Date",
+      "status": "Status",
+      "products": "Products",
+      "quantities": "Quantities",
+      "total": "Total",
+      "paymentMethod": "Payment method",
+      "invoice": "Invoice"
+    },
+    "filters": "Filter by products name...",
+    "yearlySubscription": "Yearly subscription",
+    "monthlySubscription": "Monthly subscription",
+    "status": {
+      "pending": "Pending",
+      "failed": "Failed",
+      "canceled": "Canceled",
+      "refunded": "Refunded",
+      "succeeded": "Paid"
+    }
   }
 }

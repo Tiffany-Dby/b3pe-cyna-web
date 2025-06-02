@@ -73,5 +73,30 @@
       },
       "error": "Une erreur est survenue"
     }
+  },
+  "history": {
+    "title": "Mon historique de commandes",
+    "subTitle": "Commandes",
+    "description": "Historique détaillé et factures de toutes mes commandes",
+    "columns": {
+      "order": "Commande",
+      "date": "Date",
+      "status": "Status",
+      "products": "Produits",
+      "quantities": "Quantités",
+      "total": "Total",
+      "paymentMethod": "Moyen de paiement",
+      "invoice": "Facture"
+    },
+    "filters": "Filtrer par nom de produit...",
+    "yearlySubscription": "Abonnement annuel",
+    "monthlySubscription": "Abonnement mensuel",
+    "status": {
+      "pending": "En attente",
+      "failed": "Echoué",
+      "canceled": "Annulé",
+      "refunded": "Remboursé",
+      "succeeded": "Payé"
+    }
   }
 }

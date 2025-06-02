@@ -26,6 +26,11 @@ const AccountView = () => {
               {t("layout:header.navigation.account.subscriptions.title")}
             </Link>
           </Card>
+          <Card className="p-0 text-center">
+            <Link className="p-6" to={APP_ROUTES.ACCOUNT_HISTORY}>
+              {t("layout:header.navigation.account.history.title")}
+            </Link>
+          </Card>
           {isAdmin && (
             <Card className="p-0 text-center">
               <Link className="p-6" to={APP_ROUTES.ADMIN}>

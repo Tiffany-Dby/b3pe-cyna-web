@@ -1,4 +1,4 @@
-import { DATE_STATUS } from "@/shared/constants/dateStatus";
+import { DATE } from "@/shared/constants/date";
 import { getDateStatus } from "@/shared/utils/date";
 import { useTranslation } from "react-i18next";
 
@@ -16,7 +16,7 @@ const DateStatusBadge = ({ expiryDate, warningThresholdDays = 3 }: Props) => {
     (exipredDate.getTime() - currentDate.getTime()) / (1000 * 60 * 60 * 24);
 
   const status = getDateStatus(daysDiff, warningThresholdDays);
-  const { label, color } = DATE_STATUS[status];
+  const { label, color } = DATE.STATUS[status];
 
   return (
     <p className="flex items-center gap-2">

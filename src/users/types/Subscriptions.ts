@@ -30,6 +30,8 @@ type Subscription = {
   status: SubscriptionStatus;
   stripeSubscriptionId: string;
   user: UserResponse;
+  createdAt: Date;
+  lastInvoiceUrl: string;
 };
 
 type SubscriptionItem = {
