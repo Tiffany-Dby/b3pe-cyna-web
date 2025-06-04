@@ -1,9 +1,10 @@
 const SALES_CHART = {
-  TIME_RANGE_OPTS: [
-    { label: "Last 7 days", value: "7" },
-    { label: "Last 30 days", value: "30" },
-    { label: "Last 90 days", value: "90" },
-  ],
+  REVENUES: {
+    TIME_RANGE_OPTS: [
+      { label: "dashboard:options.daily_7", value: "daily-7" },
+      { label: "dashboard:options.weekly_5", value: "weekly-5" },
+    ],
+  },
 };
 
 export { SALES_CHART };

@@ -1,0 +1,40 @@
+{
+  "revenues": {
+    "title": "Recettes",
+    "description": {
+      "daily": "Total des recettes par jour pour les {{count}} derniers jours",
+      "weekly": "Total des recettes par semaine pour les {{count}} dernières semaines"
+    },
+    "placeholder": "Période"
+  },
+  "sales": {
+    "title": "Ventes",
+    "description": {
+      "daily": "Total des ventes par jour pour les {{count}} derniers jours",
+      "weekly": "Total des ventes par semaine pour les {{count}} dernières semaines"
+    },
+    "placeholder": "Période"
+  },
+  "salesByCategory": {
+    "title": "Ventes par catégorie",
+    "description": {
+      "daily": "Total des ventes par catégorie par jour pour les {{count}} derniers jours",
+      "weekly": "Total des ventes par catégorie par semaine pour les {{count}} dernières semaines"
+    },
+    "placeholder": "Période",
+    "label": "Catégorie"
+  },
+  "revenuesByCategory": {
+    "title": "Recettes par catégorie",
+    "description": {
+      "daily": "Total des recettes par catégorie par jour pour les {{count}} derniers jours",
+      "weekly": "Total des recettes par catégorie par semaine pour les {{count}} dernières semaines"
+    },
+    "placeholder": "Période",
+    "label": "Catégorie"
+  },
+  "options": {
+    "daily_7": "7 derniers jours",
+    "weekly_5": "5 dernières semaines"
+  }
+}

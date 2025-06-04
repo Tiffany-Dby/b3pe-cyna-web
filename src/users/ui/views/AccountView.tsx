@@ -33,7 +33,7 @@ const AccountView = () => {
           </Card>
           {isAdmin && (
             <Card className="p-0 text-center">
-              <Link className="p-6" to={APP_ROUTES.ADMIN}>
+              <Link className="p-6" to={APP_ROUTES.ADMIN_DASHBOARD_SALES}>
                 {t("layout:header.navigation.account.admin.title")}
               </Link>
             </Card>

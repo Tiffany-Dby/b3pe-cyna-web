@@ -20,7 +20,7 @@ const ProductsList = () => {
 
   const handleNavigate = (item: Product) => {
     setSelected(item);
-    navigate(`${APP_ROUTES.ADMIN}/${APP_ROUTES.ADMIN_PRODUCTS}/${item.id}`);
+    navigate(`${APP_ROUTES.ADMIN_PRODUCTS}/${item.id}`);
   };
 
   const columns = useMemo(

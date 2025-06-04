@@ -12,6 +12,7 @@ import categories from "@/shared/i18n/locales/en/categories.json";
 import contents from "@/shared/i18n/locales/en/contents.json";
 import users from "@/shared/i18n/locales/en/users.json";
 import purchase from "@/shared/i18n/locales/en/purchase.json";
+import dashboard from "@/shared/i18n/locales/en/dashboard.json";
 
 const en = {
   account,
@@ -28,6 +29,7 @@ const en = {
   contents,
   users,
   purchase,
+  dashboard,
 } as const;
 
 export { en };

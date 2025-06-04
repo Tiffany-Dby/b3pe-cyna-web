@@ -10,7 +10,7 @@ const AdminUpdateProductTranslationView = () => {
     <div className="flex flex-col gap-8 max-w-xl w-full mx-auto">
       <div className="w-fit hover:underline">
         <Link
-          to={APP_ROUTES.ADMIN + "/" + APP_ROUTES.ADMIN_PRODUCTS}
+          to={APP_ROUTES.ADMIN_PRODUCTS}
           className="flex-center-center gap-2"
         >
           <CornerUpLeftIcon className="w-4 h-4" /> {t("backToProducts")}

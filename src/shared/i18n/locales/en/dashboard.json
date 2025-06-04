@@ -1,0 +1,40 @@
+{
+  "revenues": {
+    "title": "Revenues",
+    "description": {
+      "daily": "Total revenues per day for the last {{count}} days",
+      "weekly": "Total revenues per week for the last {{count}} weeks"
+    },
+    "placeholder": "Period"
+  },
+  "sales": {
+    "title": "Sales",
+    "description": {
+      "daily": "Total sales per day for the last {{count}} days",
+      "weekly": "Total sales per week for the last {{count}} weeks"
+    },
+    "placeholder": "Period"
+  },
+  "salesByCategory": {
+    "title": "Sales by category",
+    "description": {
+      "daily": "Total category sales per day for the last {{count}} days",
+      "weekly": "Total category sales per week for the last {{count}} weeks"
+    },
+    "placeholder": "Period",
+    "label": "Category"
+  },
+  "revenuesByCategory": {
+    "title": "Revenues by category",
+    "description": {
+      "daily": "Total category revenues per day for the last {{count}} days",
+      "weekly": "Total category revenues per week for the last {{count}} weeks"
+    },
+    "placeholder": "Period",
+    "label": "Category"
+  },
+  "options": {
+    "daily_7": "Last 7 days",
+    "weekly_5": "Last 5 weeks"
+  }
+}

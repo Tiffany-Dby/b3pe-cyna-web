@@ -17,12 +17,13 @@ import { formatDate } from "@/shared/utils/date";
 import { formatAmount } from "@/shared/utils/number";
 import { useTranslation } from "react-i18next";
 
-const SalesChart = () => {
+const RevenuesChart = () => {
   const { t, i18n } = useTranslation("dashboard");
   const locale = i18n.resolvedLanguage;
 
   const amountOpts = {
     locale,
+    currency: "EUR",
   };
 
   const dateOpts: Intl.DateTimeFormatOptions = {
@@ -48,7 +49,9 @@ const SalesChart = () => {
   } = useSalesMetrics<SalesMetricPoint>(API_ROUTES.METRICS_SALES);
 
   const descriptionKey =
-    period === "daily" ? "sales.description.daily" : "sales.description.weekly";
+    period === "daily"
+      ? "revenues.description.daily"
+      : "revenues.description.weekly";
   const description = t(descriptionKey, { count });
 
   const selectOptions = SALES_CHART.REVENUES.TIME_RANGE_OPTS.map((option) => ({
@@ -57,8 +60,8 @@ const SalesChart = () => {
   }));
 
   const chartConfig = {
-    count: {
-      label: t("sales.title"),
+    amount: {
+      label: t("revenues.title"),
       color: "var(--chart-1)",
     },
   } satisfies ChartConfig;
@@ -68,7 +71,7 @@ const SalesChart = () => {
       <CardHeader className="flex flex-col gap-2 space-y-0 border-b @xl:flex-row">
         <div className="grid flex-1 gap-1">
           <CardTitle>
-            <h2>{t("sales.title")}</h2>
+            <h2>{t("revenues.title")}</h2>
           </CardTitle>
           <CardDescription>
             {description}
@@ -77,8 +80,8 @@ const SalesChart = () => {
         </div>
         <div className="w-full @lg:max-w-48 self-end">
           <BaseSelect
-            name="salesTimeRange"
-            placeholder={t("sales.placeholder")}
+            name="revenuesTimeRange"
+            placeholder={t("revenues.placeholder")}
             value={selectValue}
             onChange={onRangeChange}
             options={selectOptions}
@@ -94,12 +97,13 @@ const SalesChart = () => {
             config={chartConfig}
             xDataKey="period"
             xTickFormatter={(value) => formatDate(value, locale, dateOpts)}
-            yTickFormatter={(value) => formatAmount(value, amountOpts)}
-            allowDecimals={false}
+            yTickFormatter={(value) => formatAmount(value / 100, amountOpts)}
             tooltipLabelFormatter={(value) =>
               formatDate(value, locale, dateLongOpts)
             }
-            tooltipValueFormatter={(value) => formatAmount(value, amountOpts)}
+            tooltipValueFormatter={(value) =>
+              formatAmount(value / 100, amountOpts)
+            }
           />
         )}
       </CardContent>
@@ -107,4 +111,4 @@ const SalesChart = () => {
   );
 };
 
-export default SalesChart;
+export default RevenuesChart;

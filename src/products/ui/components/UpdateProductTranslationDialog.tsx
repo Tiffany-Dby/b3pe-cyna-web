@@ -44,7 +44,7 @@ const UpdateProductTranslationDialog = ({
             setSelectedTranslation(locale!);
             setSelected(selected);
             navigate(
-              `${APP_ROUTES.ADMIN}/${APP_ROUTES.ADMIN_PRODUCTS}/${selected.id}/translations/${locale?.id}`
+              `${APP_ROUTES.ADMIN_PRODUCTS}/${selected.id}/translations/${locale?.id}`
             );
           },
         },

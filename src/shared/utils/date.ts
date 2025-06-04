@@ -14,4 +14,10 @@ const getDateStatus = (
 const formatUnixTimestamp = (timestamp: number) =>
   new Date(timestamp * 1000).toLocaleDateString();
 
-export { getDateStatus, formatUnixTimestamp };
+const formatDate = (
+  value: Date | string,
+  locale?: string,
+  options?: Intl.DateTimeFormatOptions
+) => new Date(value).toLocaleDateString(locale, options);
+
+export { getDateStatus, formatUnixTimestamp, formatDate };

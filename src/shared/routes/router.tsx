@@ -106,8 +106,35 @@ const router = createBrowserRouter([
         path: APP_ROUTES.ADMIN,
         Component: AdminLayout,
         children: [
-          { index: true, element: <p>Index</p> },
-          { path: APP_ROUTES.ADMIN_DASHBOARD, Component: AdminDashboardView },
+          {
+            index: true,
+            path: APP_ROUTES.ADMIN_DASHBOARD_SALES,
+            Component: AdminDashboardView,
+          },
+          {
+            path: APP_ROUTES.ADMIN_DASHBOARD_CUSTOMERS,
+            element: <p>Dashboard/customers</p>,
+          },
+          {
+            path: APP_ROUTES.ADMIN_SUPPORT_TICKETS,
+            element: <p>Supprt/tickets</p>,
+          },
+          {
+            path: APP_ROUTES.ADMIN_SUPPORT_CHATBOT,
+            element: <p>Supprt/chatbot</p>,
+          },
+          {
+            path: APP_ROUTES.ADMIN_SETTINGS_GENERAL,
+            element: <p>Settings/general</p>,
+          },
+          {
+            path: APP_ROUTES.ADMIN_SETTINGS_PAYMENTS,
+            element: <p>Settings/payments</p>,
+          },
+          {
+            path: APP_ROUTES.ADMIN_SETTINGS_LANGUAGES,
+            element: <p>Settings/languages</p>,
+          },
           {
             path: APP_ROUTES.ADMIN_PROMOTION_CAROUSEL,
             Component: AdminPromotionsCarouselView,
@@ -125,6 +152,10 @@ const router = createBrowserRouter([
           {
             path: APP_ROUTES.ADMIN_USERS_ADMINS,
             Component: AdminAllAdminsView,
+          },
+          {
+            path: APP_ROUTES.ADMIN_USERS_CLIENTS,
+            element: <p>Users/clients</p>,
           },
         ],
       },

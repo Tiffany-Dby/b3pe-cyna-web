@@ -19,16 +19,16 @@ const SIDEBAR_ITEMS: SidebarItem[] = [
         subItems: [
           {
             title: "dashboard.analytics.subItems.salesOrders",
-            url: APP_ROUTES.ADMIN_DASHBOARD,
+            url: APP_ROUTES.ADMIN_DASHBOARD_SALES,
           },
           {
             title: "dashboard.analytics.subItems.userActivity",
-            url: APP_ROUTES.ADMIN_DASHBOARD,
+            url: APP_ROUTES.ADMIN_DASHBOARD_CUSTOMERS,
           },
-          {
-            title: "dashboard.analytics.subItems.inventories",
-            url: APP_ROUTES.ADMIN_DASHBOARD,
-          },
+          // {
+          //   title: "dashboard.analytics.subItems.inventories",
+          //   url: APP_ROUTES.ADMIN_DASHBOARD,
+          // },
         ],
       },
       {
@@ -37,11 +37,11 @@ const SIDEBAR_ITEMS: SidebarItem[] = [
         subItems: [
           {
             title: "dashboard.support.subItems.tickets",
-            url: APP_ROUTES.ADMIN_DASHBOARD,
+            url: APP_ROUTES.ADMIN_SUPPORT_TICKETS,
           },
           {
             title: "dashboard.support.subItems.chatbot",
-            url: APP_ROUTES.ADMIN_DASHBOARD,
+            url: APP_ROUTES.ADMIN_SUPPORT_CHATBOT,
           },
         ],
       },
@@ -51,15 +51,15 @@ const SIDEBAR_ITEMS: SidebarItem[] = [
         subItems: [
           {
             title: "dashboard.settings.subItems.general",
-            url: APP_ROUTES.ADMIN_DASHBOARD,
+            url: APP_ROUTES.ADMIN_SETTINGS_GENERAL,
           },
           {
             title: "dashboard.settings.subItems.payments",
-            url: APP_ROUTES.ADMIN_DASHBOARD,
+            url: APP_ROUTES.ADMIN_SETTINGS_PAYMENTS,
           },
           {
             title: "dashboard.settings.subItems.localization",
-            url: APP_ROUTES.ADMIN_DASHBOARD,
+            url: APP_ROUTES.ADMIN_SETTINGS_LANGUAGES,
           },
         ],
       },

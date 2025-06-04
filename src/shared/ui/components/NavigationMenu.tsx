@@ -56,7 +56,7 @@ const NavigationMenu = () => {
               ? [
                   {
                     title: t("header.navigation.account.admin.title"),
-                    url: APP_ROUTES.ADMIN,
+                    url: APP_ROUTES.ADMIN_DASHBOARD_SALES,
                     description: t(
                       "header.navigation.account.admin.description"
                     ),
