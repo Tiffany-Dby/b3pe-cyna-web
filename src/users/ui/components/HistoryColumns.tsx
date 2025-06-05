@@ -157,7 +157,7 @@ const HistoryColumns = (t: TFunction, i18n: i18n): ColumnDef<Payment>[] => {
       ),
     },
     {
-      accessorKey: "lastInvoiceUrl",
+      accessorKey: "invoiceUrl",
       meta: { title: "account:history.columns.invoice" },
       enableSorting: false,
       header: ({ column }) => (
@@ -169,11 +169,11 @@ const HistoryColumns = (t: TFunction, i18n: i18n): ColumnDef<Payment>[] => {
       ),
       cell: ({ row }) => (
         <div className="multi-lines flex justify-center">
-          {!!row.original.subscription.lastInvoiceUrl ? (
+          {!!row.original.invoiceUrl ? (
             <a
               className="flex w-fit justify-center"
               title="Voir la facture"
-              href={row.original.subscription.lastInvoiceUrl}
+              href={row.original.invoiceUrl}
               target="_blank"
             >
               <FileCheckIcon className="h-4.5 w-4.5" />

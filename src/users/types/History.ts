@@ -18,6 +18,8 @@ type Payment = {
   amount: number;
   order: Cart;
   subscription: Subscription;
+  invoiceUrl: string;
+  createdAt: string;
 };
 
 export type { Payment, PaymentStatusMap };
