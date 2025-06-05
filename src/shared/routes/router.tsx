@@ -29,6 +29,7 @@ import LegalNoticeView from "@/shared/ui/views/LegalNoticeView";
 import SubscriptionsView from "@/users/ui/views/SubscriptionsView";
 import AccountView from "@/users/ui/views/AccountView";
 import HistoryView from "@/users/ui/views/HistoryView";
+import SearchResultView from "@/shared/ui/views/SearchResultView";
 
 const router = createBrowserRouter([
   {
@@ -71,6 +72,10 @@ const router = createBrowserRouter([
       {
         path: APP_ROUTES.PRODUCT,
         Component: ProductView,
+      },
+      {
+        path: APP_ROUTES.SEARCH,
+        Component: SearchResultView,
       },
       {
         path: APP_ROUTES.PURCHASE,

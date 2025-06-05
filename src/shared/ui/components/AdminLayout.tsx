@@ -23,7 +23,8 @@ const AdminLayout = () => {
         APP_ROUTES.ADMIN + "/" + sub.url === location.pathname
     );
 
-  const pageTitle = currentSubItem?.title ?? "Back office";
+  const pageTitle =
+    currentSubItem?.title ?? "layout:header.navigation.account.admin.title";
 
   return (
     <SidebarProvider open={open} onOpenChange={setOpen}>

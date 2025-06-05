@@ -13,6 +13,7 @@ import contents from "@/shared/i18n/locales/fr/contents.json";
 import users from "@/shared/i18n/locales/fr/users.json";
 import purchase from "@/shared/i18n/locales/fr/purchase.json";
 import dashboard from "@/shared/i18n/locales/fr/dashboard.json";
+import search from "@/shared/i18n/locales/fr/search.json";
 
 const fr = {
   account,
@@ -30,6 +31,7 @@ const fr = {
   users,
   purchase,
   dashboard,
+  search,
 } as const;
 
 export { fr };

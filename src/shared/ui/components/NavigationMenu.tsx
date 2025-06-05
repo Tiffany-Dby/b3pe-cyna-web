@@ -13,6 +13,7 @@ import LanguageToggle from "@/shared/ui/components/LanguageToggle";
 import { useTranslation } from "react-i18next";
 import { UserRole } from "@/users/types/UserRole";
 import { useAuth } from "@/users/context/AuthContext";
+import SearchToggle from "@/shared/ui/components/SearchToggle";
 
 const NavigationMenu = () => {
   const { isAuthenticated, onSignOut, user } = useAuth();
@@ -87,6 +88,7 @@ const NavigationMenu = () => {
       <NavigationInline items={menuItems} />
       <ModeToggle />
       <LanguageToggle />
+      <SearchToggle />
       <NavigationSheet items={menuItems} />
     </div>
   );
