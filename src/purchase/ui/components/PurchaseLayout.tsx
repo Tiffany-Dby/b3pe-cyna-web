@@ -17,25 +17,28 @@ import { usePurchaseStore } from "@/purchase/store/purchaseStore";
 import { useEffect } from "react";
 import { ProductStatus } from "@/products/types/ProductStatus";
 import Loader from "@/shared/ui/components/Loader";
-import { Outlet, useLocation, useNavigate } from "react-router";
+import { Link, Outlet, useLocation, useNavigate } from "react-router";
 import { APP_ROUTES } from "@/shared/constants/routes";
 import { useAddressesStore } from "@/users/store/addressesStore";
+import { useAuth } from "@/users/context/AuthContext";
 
 const PurchaseLayout = () => {
   const { t } = useTranslation("purchase");
   const location = useLocation();
   const navigate = useNavigate();
 
-  const { cart, getCart, isLoading } = usePurchaseStore();
+  const { isAuthenticated } = useAuth();
+  const { getDisplayedCart, isLoading } = usePurchaseStore();
   const { getUserAddresses } = useAddressesStore();
 
   useEffect(() => {
-    getCart();
-    getUserAddresses();
-  }, []);
+    if (isAuthenticated) getUserAddresses();
+  }, [isAuthenticated]);
+
+  const displayedCart = getDisplayedCart();
 
   const totalDiscount =
-    cart?.items.reduce(
+    displayedCart.reduce(
       (acc, { product, quantity, recurring }) =>
         acc +
         (product.basePrice - product.price) *
@@ -45,7 +48,7 @@ const PurchaseLayout = () => {
     ) || 0;
 
   const subTotal =
-    cart?.items.reduce(
+    displayedCart.reduce(
       (acc, { product, quantity, recurring }) =>
         acc + product.basePrice * (recurring === 2 ? 12 : 1) * quantity,
       0
@@ -58,10 +61,10 @@ const PurchaseLayout = () => {
       {isLoading && <Loader />}
       <section>
         <div className="container mx-auto pt-10 pb-24 px-4">
-          {!isLoading && cart && (
+          {!isLoading && (
             <div className="flex flex-col md:flex-row w-full gap-6">
               <Outlet />
-              {!!cart.items.length && (
+              {!!displayedCart.length && (
                 <article className="md:col-2 md:row-span-full md:max-w-1/3 md:mt-[104px] grow">
                   <Card className="sticky top-20">
                     <CardHeader>
@@ -115,21 +118,30 @@ const PurchaseLayout = () => {
                     <CardContent className="flex flex-col gap-6">
                       {location.pathname === APP_ROUTES.PURCHASE_CART && (
                         <div>
-                          <Button
-                            className="w-full"
-                            disabled={cart.items
-                              .map((item) => item.product)
-                              .some(
-                                (p) =>
-                                  p.status === ProductStatus.Unavailable ||
-                                  p.status === ProductStatus.Maintenance
-                              )}
-                            onClick={() =>
-                              navigate(APP_ROUTES.PURCHASE_ADDRESS)
-                            }
-                          >
-                            {t("cart.proceedPayments")}
-                          </Button>
+                          {isAuthenticated ? (
+                            <Button
+                              className="w-full"
+                              disabled={displayedCart
+                                .map((item) => item.product)
+                                .some(
+                                  (p) =>
+                                    p.status === ProductStatus.Unavailable ||
+                                    p.status === ProductStatus.Maintenance
+                                )}
+                              onClick={() =>
+                                navigate(APP_ROUTES.PURCHASE_ADDRESS)
+                              }
+                            >
+                              {t("cart.proceedPayments")}
+                            </Button>
+                          ) : (
+                            <Link
+                              to={APP_ROUTES.SIGN_IN}
+                              className="flex-center-center w-full h-9 border border-primary text-primary text-size-n font-medium bg-background py-2 px-4 hover:bg-primary hover:text-primary-foreground transition-colors duration-500 rounded-md dark:text-primary-foreground dark:border-primary-foreground dark:hover:border-transparent"
+                            >
+                              {t("cart.signInToPay")}
+                            </Link>
+                          )}
                         </div>
                       )}
                       <div className="px-14">

@@ -3,6 +3,7 @@ import { Button } from "@/lib/components/ui/button";
 import {
   Dialog,
   DialogContent,
+  DialogDescription,
   DialogTitle,
   DialogTrigger,
 } from "@/lib/components/ui/dialog";
@@ -16,6 +17,7 @@ import {
   SelectValue,
 } from "@/lib/components/ui/select";
 import useSearchForm from "@/shared/hooks/useSearchForm";
+import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 import { SearchIcon } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
@@ -53,7 +55,7 @@ const SearchToggle = () => {
       <DialogTrigger asChild>
         <Button variant="outline" size="icon">
           <abbr
-            title={t("title")}
+            title={t("search")}
             className="flex-center-center h-[1.2rem] w-[1.2rem]"
           >
             <SearchIcon />
@@ -68,6 +70,9 @@ const SearchToggle = () => {
         <DialogTitle className="sr-only" asChild>
           <h4>{t("srTitle")}</h4>
         </DialogTitle>
+        <VisuallyHidden>
+          <DialogDescription>Search bar</DialogDescription>
+        </VisuallyHidden>
         <form
           className="flex shadow-[0px_0px_200px_0px] shadow-white/50"
           onSubmit={handleSubmit}

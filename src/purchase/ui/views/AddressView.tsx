@@ -58,7 +58,7 @@ const AddressView = () => {
 
     if (cart.billingAddress?.id) {
       setBillingId(String(cart.billingAddress.id));
-    } else {
+    } else if (billingAddresses[0]) {
       setBillingId(String(billingAddresses[0].id));
     }
 
@@ -66,7 +66,7 @@ const AddressView = () => {
       if (cart.shippingAddress.id !== cart.billingAddress?.id)
         setUseSame(false);
       setShippingId(String(cart.shippingAddress.id));
-    } else {
+    } else if (shippingAddresses[0]) {
       setShippingId(String(shippingAddresses[0].id));
     }
   }, [cart, addresses]);
@@ -125,7 +125,7 @@ const AddressView = () => {
           <div className="grid gap-8">
             <article>
               <h3>{t("common:selects.addressType.options.billing")}</h3>
-              {billingAddresses.length ? (
+              {!!billingAddresses.length ? (
                 <div className="grid gap-8">
                   <RadioGroup value={billingId} onValueChange={setBillingId}>
                     {billingAddresses.map((address) => (

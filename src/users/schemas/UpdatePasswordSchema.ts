@@ -21,7 +21,7 @@ const UpdatePasswordSchema = z
   })
   .refine((field) => field.newPassword === field.confirmNewPassword, {
     message: "common:inputs.confirmPassword.validation.match",
-    path: ["confirmPassword"],
+    path: ["confirmNewPassword"],
   });
 
 export { UpdatePasswordSchema };

@@ -10,20 +10,26 @@ import { Input } from "@/lib/components/ui/input";
 import { Label } from "@/lib/components/ui/label";
 import ProductStatusBadge from "@/products/ui/components/ProductStatusBadge";
 import { usePurchaseStore } from "@/purchase/store/purchaseStore";
-import { CartItem, Recurring } from "@/purchase/types/Purchase";
+import {
+  CartItem,
+  GuestCartDisplayItem,
+  Recurring,
+} from "@/purchase/types/Purchase";
 import BaseSelect from "@/shared/ui/components/BaseSelect";
 import { enumToOptions } from "@/shared/utils/format";
 import { formatAmount } from "@/shared/utils/number";
+import { useAuth } from "@/users/context/AuthContext";
 import { LoaderIcon, MinusIcon, PlusIcon, Trash2Icon } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
 type Props = {
-  item: CartItem;
+  item: CartItem | GuestCartDisplayItem;
   index: number;
 };
 
 const CartItemCard = ({ item, index }: Props) => {
   const { t } = useTranslation();
+  const { isAuthenticated } = useAuth();
   const { isUpdating, updateCartItem, removeCartItem } = usePurchaseStore();
 
   const product = item.product;
@@ -33,29 +39,41 @@ const CartItemCard = ({ item, index }: Props) => {
   const yearlyPrice = item.recurring === 2 ? 12 : 1;
 
   const increment = () =>
-    updateCartItem({
-      productId: product.id,
-      quantity: quantity + 1,
-      recurring: recurring,
-    });
+    updateCartItem(
+      {
+        id: item.id,
+        productId: product.id,
+        quantity: quantity + 1,
+        recurring: recurring,
+      },
+      isAuthenticated
+    );
   const decrement = () =>
     quantity > 1
-      ? updateCartItem({
-          productId: product.id,
-          quantity: quantity - 1,
-          recurring: recurring,
-        })
-      : removeCartItem(item.id);
+      ? updateCartItem(
+          {
+            id: item.id,
+            productId: product.id,
+            quantity: quantity - 1,
+            recurring: recurring,
+          },
+          isAuthenticated
+        )
+      : removeCartItem(item.id, isAuthenticated);
 
   const onQuantityChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const value = parseInt(event.target.value, 10) || 0;
     value <= 0
       ? () => {}
-      : updateCartItem({
-          productId: product.id,
-          quantity: value,
-          recurring: recurring,
-        });
+      : updateCartItem(
+          {
+            id: item.id,
+            productId: product.id,
+            quantity: value,
+            recurring: recurring,
+          },
+          isAuthenticated
+        );
   };
 
   const recurringOpts = enumToOptions(Recurring).map((type) => ({
@@ -64,11 +82,15 @@ const CartItemCard = ({ item, index }: Props) => {
   }));
 
   const onRecurringChange = (newReccuring: string) =>
-    updateCartItem({
-      productId: product.id,
-      quantity,
-      recurring: parseInt(newReccuring, 10),
-    });
+    updateCartItem(
+      {
+        id: item.id,
+        productId: product.id,
+        quantity,
+        recurring: parseInt(newReccuring, 10),
+      },
+      isAuthenticated
+    );
 
   return (
     <article className={`md:col-1 md:row-${index + 1}`}>

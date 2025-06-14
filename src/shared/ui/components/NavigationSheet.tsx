@@ -38,7 +38,9 @@ const NavigationSheet = ({ items }: { items: MenuItem[] }) => {
   const id = useId();
   const [isOpen, setIsOpen] = useState(false);
   const handleOpenChange = () => setIsOpen(!isOpen);
-  const { cart } = usePurchaseStore();
+
+  const { getDisplayedCart } = usePurchaseStore();
+  const cart = getDisplayedCart();
 
   return (
     <Sheet open={isOpen} onOpenChange={handleOpenChange}>
@@ -76,9 +78,9 @@ const NavigationSheet = ({ items }: { items: MenuItem[] }) => {
                           <item.icon className="size-3.5" />
                           {item.title}
                           {item.url === APP_ROUTES.PURCHASE_CART &&
-                            !!cart?.items.length && (
+                            !!cart?.length && (
                               <span className="absolute flex-center-center w-4.5 h-4.5 bg-danger rounded-full text-size-label -right-4 -top-2">
-                                {cart.items.length}
+                                {cart.length}
                               </span>
                             )}
                         </span>

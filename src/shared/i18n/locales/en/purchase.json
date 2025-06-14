@@ -13,7 +13,8 @@
     "discount": "Discount",
     "proceedPayments": "Proceed to checkout",
     "securedPayments": "Secure payments",
-    "empty": "Cart is empty"
+    "empty": "Cart is empty",
+    "signInToPay": "Sign in to proceed"
   },
   "success": {
     "title": "Thank you for your order!",

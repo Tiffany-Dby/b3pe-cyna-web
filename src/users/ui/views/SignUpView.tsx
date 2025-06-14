@@ -2,13 +2,16 @@ import { Separator } from "@/lib/components/ui/separator";
 import { APP_ROUTES } from "@/shared/constants/routes";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import SignUpForm from "@/users/ui/components/SignUpForm";
 import BaseCard from "@/shared/ui/components/BaseCard";
 
 const SignUpView = () => {
   const { t } = useTranslation();
+  const navigate = useNavigate();
   const [serverError, setServerError] = useState<string | null>(null);
+
+  const handleSuccess = () => navigate(APP_ROUTES.SIGN_IN);
 
   return (
     <div className="max-w-xl w-full mx-auto pt-10 pb-24 px-4">
@@ -17,7 +20,9 @@ const SignUpView = () => {
         description={
           <>{serverError && <p className="text-danger">{serverError}</p>}</>
         }
-        content={<SignUpForm onError={setServerError} />}
+        content={
+          <SignUpForm onError={setServerError} onSuccess={handleSuccess} />
+        }
         footer={
           <div className="flex flex-col gap-5 w-full">
             <Separator className="max-w-5/6 mx-auto my-2" />

@@ -6,5 +6,10 @@
   },
   "forgetPassword": "Mot de passe oublié ?",
   "notSignedUp": "Pas encore inscrit(e) ?",
-  "signUp": "Je m'inscris"
+  "signUp": "Je m'inscris",
+  "toast": {
+    "success": "Vous êtes connecté(e) !",
+    "loading": "Connexion en cours...",
+    "error": "Une erreur est survenue"
+  }
 }

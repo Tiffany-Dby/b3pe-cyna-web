@@ -50,9 +50,11 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/lib/components/ui/breadcrumb";
+import { useAuth } from "@/users/context/AuthContext";
 
 const ProductView = () => {
   const { t, i18n } = useTranslation("products");
+  const { isAuthenticated } = useAuth();
   const { addToCart } = usePurchaseStore();
 
   const { id } = useParams();
@@ -305,6 +307,7 @@ const ProductView = () => {
                                   quantity: 1,
                                   recurring: 1,
                                 },
+                                isAuthenticated,
                                 toastMsgs
                               )
                             }
@@ -383,6 +386,7 @@ const ProductView = () => {
                                   quantity: 1,
                                   recurring: 2,
                                 },
+                                isAuthenticated,
                                 toastMsgs
                               )
                             }

@@ -12,7 +12,8 @@
     "discount": "Promotion",
     "proceedPayments": "Passer la commande",
     "securedPayments": "Paiement sécurisé",
-    "empty": "Le panier est vide"
+    "empty": "Le panier est vide",
+    "signInToPay": "Me connecter et payer"
   },
   "success": {
     "title": "Merci pour votre commande !",

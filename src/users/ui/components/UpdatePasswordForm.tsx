@@ -119,6 +119,7 @@ const UpdatePasswordForm = ({ onError }: Props) => {
                   <BaseInputGroup
                     {...field}
                     id={name}
+                    value={field.value}
                     type={type}
                     placeholder={placeholder}
                     autoComplete={autoComplete}

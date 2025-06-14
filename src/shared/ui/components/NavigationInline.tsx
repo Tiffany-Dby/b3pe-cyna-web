@@ -15,7 +15,9 @@ import { usePurchaseStore } from "@/purchase/store/purchaseStore";
 
 const NavigationInline = ({ items }: { items: MenuItem[] }) => {
   const id = useId();
-  const { cart } = usePurchaseStore();
+  const { getDisplayedCart } = usePurchaseStore();
+
+  const cart = getDisplayedCart();
 
   return (
     <NavigationMenu className="hidden md:block" viewport={false}>
@@ -30,12 +32,11 @@ const NavigationInline = ({ items }: { items: MenuItem[] }) => {
                 >
                   <item.icon className="size-3.5" />
                   {item.title}
-                  {item.url === APP_ROUTES.PURCHASE_CART &&
-                    !!cart?.items.length && (
-                      <span className="absolute flex-center-center w-4.5 h-4.5 bg-danger rounded-full text-size-label -right-0.5 -top-0.5">
-                        {cart.items.length}
-                      </span>
-                    )}
+                  {item.url === APP_ROUTES.PURCHASE_CART && !!cart.length && (
+                    <span className="absolute flex-center-center w-4.5 h-4.5 bg-danger rounded-full text-size-label -right-0.5 -top-0.5">
+                      {cart.length}
+                    </span>
+                  )}
                 </NavLink>
               </NavigationMenuItem>
             ) : (

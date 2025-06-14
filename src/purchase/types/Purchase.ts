@@ -23,13 +23,24 @@ type CartItem = {
   product: Omit<Product, "details">;
 };
 
+type GuestCartItem = {
+  id: string;
+  productId: number;
+  quantity: number;
+  recurring: Recurring;
+};
+
+type GuestCartDisplayItem = Omit<CartItem, "id"> & {
+  id: string;
+};
+
 type NewCartItem = {
   productId: number;
   quantity: number;
   recurring: Recurring;
 };
 
-type UpdateCartItem = NewCartItem;
+type UpdateCartItem = NewCartItem & { id: number };
 
 type Cart = {
   id: number;
@@ -59,15 +70,33 @@ type PaymentMethod = {
 
 type PurchaseState = {
   cart: Cart | null;
+  guestCart: GuestCartItem[];
   isLoading: boolean;
   isUpdating: boolean;
   error: string | null;
   getCart: () => Promise<void>;
-  addToCart: (newItem: NewCartItem, toasMsgs: ToastMsgs) => Promise<void>;
+  addToCart: (
+    newItem: NewCartItem,
+    isAuthenticated: boolean,
+    toasMsgs?: ToastMsgs
+  ) => Promise<void>;
   updateCart: (cart: CartToUpdate) => Promise<void>;
-  updateCartItem: (item: UpdateCartItem) => Promise<void>;
-  removeCartItem: (itemId: number) => Promise<void>;
+  updateCartItem: (
+    item: {
+      id?: string | number;
+      productId: number;
+      quantity: number;
+      recurring: Recurring;
+    },
+    isAuthenticated: boolean
+  ) => Promise<void>;
+  removeCartItem: (
+    itemId: number | string,
+    isAuthenticated: boolean
+  ) => Promise<void>;
   emptyCart: (orderId: number, status: OrderStatus) => Promise<void>;
+  syncGuestCart: (isAuthenticated: boolean) => Promise<void>;
+  getDisplayedCart: () => (CartItem | GuestCartDisplayItem)[];
 };
 
 export type {
@@ -78,6 +107,8 @@ export type {
   CartToUpdate,
   NewIntent,
   PaymentMethod,
+  GuestCartItem,
+  GuestCartDisplayItem,
   PurchaseState,
 };
 export { OrderStatus, Recurring };

@@ -6,5 +6,10 @@
   },
   "forgetPassword": "Forgotten password?",
   "notSignedUp": "Don't have an account?",
-  "signUp": "Sign up"
+  "signUp": "Sign up",
+  "toast": {
+    "success": "You are signed in!",
+    "loading": "Signing in...",
+    "error": "An error occured"
+  }
 }

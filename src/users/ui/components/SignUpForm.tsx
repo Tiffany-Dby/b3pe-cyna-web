@@ -34,9 +34,10 @@ type Props = {
   onError: (error: string | null) => void;
   url?: ApiRoutes;
   withAuth?: boolean;
+  onSuccess?: () => void;
 };
 
-const SignUpForm = ({ onError, url, withAuth = false }: Props) => {
+const SignUpForm = ({ onError, url, withAuth = false, onSuccess }: Props) => {
   const { t } = useTranslation();
   const [typePassword, setTypePassword] = useState<"text" | "password">(
     "password"
@@ -56,6 +57,7 @@ const SignUpForm = ({ onError, url, withAuth = false }: Props) => {
       password: "",
       confirmPassword: "",
     },
+    onSuccess: onSuccess,
     requestFn: postRequest,
   });
 

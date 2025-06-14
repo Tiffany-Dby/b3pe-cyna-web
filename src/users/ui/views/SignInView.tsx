@@ -49,6 +49,11 @@ const SignInView = () => {
       email: "",
       password: "",
     },
+    toastMsgs: {
+      success: t("signIn:toast.success"),
+      loading: t("signIn:toast.loading"),
+      error: t("signIn:toast.error"),
+    },
     requestFn: postRequest,
     onSuccess: handleSignInSuccess,
   });

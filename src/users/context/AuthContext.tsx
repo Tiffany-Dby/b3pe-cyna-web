@@ -9,6 +9,7 @@ import {
   signOut,
 } from "@/shared/tools/auth";
 import { UserRole } from "@/users/types/UserRole";
+import { usePurchaseStore } from "@/purchase/store/purchaseStore";
 
 type SignInResponse = {
   access: string;
@@ -28,6 +29,7 @@ const AuthContext = createContext<AuthContextType | null>(null);
 
 const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const [user, setUser] = useState<UserResponse | null>(null);
+  const { getCart, syncGuestCart } = usePurchaseStore();
 
   const { data, isLoading } = useFetch<UserResponse>(API_ROUTES.ME);
 
@@ -38,6 +40,7 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const onSignIn = (response: SignInResponse) => {
     setAccessToken(response.access);
     setUser(response.user);
+    getCart().then(() => syncGuestCart(true));
   };
 
   const onSignOut = () => {
