@@ -6,7 +6,7 @@ import { useEffect } from "react";
 import { useAuth } from "@/users/context/useAuth";
 import { useProductsStore } from "@/products/store/productsStore";
 import { useTranslation } from "react-i18next";
-// import { Crisp } from "crisp-sdk-web";
+import { Crisp } from "crisp-sdk-web";
 
 const App = () => {
   const { i18n } = useTranslation();
@@ -24,9 +24,9 @@ const App = () => {
     getProductsLocale(locale);
   }, [getProductsLocale, locale]);
 
-  /* useEffect(() => {
+  useEffect(() => {
     Crisp.configure(import.meta.env.VITE_CRISP_TOKEN);
-  }, []); */
+  }, []);
 
   return (
     <>
