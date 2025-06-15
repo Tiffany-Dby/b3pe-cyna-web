@@ -1,5 +1,3 @@
-// src/shared/ui/components/BasePieChart.tsx
-
 import {
   ChartConfig,
   ChartContainer,

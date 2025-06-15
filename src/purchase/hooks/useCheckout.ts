@@ -85,10 +85,10 @@ const useCheckout = (orderId: number) => {
         isSuccess = confirm.paymentIntent.status === "succeeded";
       }
 
-      isSuccess && emptyCart(orderId, OrderStatus.succeeded);
+      if (isSuccess) emptyCart(orderId, OrderStatus.succeeded);
       navigate(APP_ROUTES.CHECKOUT_SUCCESS);
     },
-    [stripe, elements, orderId, paymentMethodType]
+    [stripe, elements, orderId, paymentMethodType, emptyCart, navigate]
   );
 
   return { handleSubmit, setPaymentMethodType, isLoading };

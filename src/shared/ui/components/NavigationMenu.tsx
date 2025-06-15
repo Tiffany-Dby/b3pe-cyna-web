@@ -12,7 +12,7 @@ import {
 import LanguageToggle from "@/shared/ui/components/LanguageToggle";
 import { useTranslation } from "react-i18next";
 import { UserRole } from "@/users/types/UserRole";
-import { useAuth } from "@/users/context/AuthContext";
+import { useAuth } from "@/users/context/useAuth";
 import SearchToggle from "@/shared/ui/components/SearchToggle";
 
 const NavigationMenu = () => {

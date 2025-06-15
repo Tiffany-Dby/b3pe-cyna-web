@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { getRequest } from "@/shared/tools/api";
 
 type FetchState<T> = {
@@ -14,14 +14,14 @@ const useFetch = <T>(url: string, withAuth?: boolean) => {
     isLoading: true,
   });
 
-  const handleGetRequest = async () => {
+  const handleGetRequest = useCallback(async () => {
     const { result, error } = await getRequest<T>(url, withAuth);
     setState({ data: result, error, isLoading: false });
-  };
+  }, [url, withAuth]);
 
   useEffect(() => {
     handleGetRequest();
-  }, [url]);
+  }, [handleGetRequest]);
 
   return state;
 };

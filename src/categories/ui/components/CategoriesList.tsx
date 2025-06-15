@@ -23,7 +23,7 @@ const CategoriesList = () => {
         (item) => open("update", item),
         t
       ),
-    [t]
+    [open, t]
   );
 
   return (

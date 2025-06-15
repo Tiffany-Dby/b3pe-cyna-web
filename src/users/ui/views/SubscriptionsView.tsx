@@ -19,7 +19,7 @@ const SubscriptionsView = () => {
 
   useEffect(() => {
     getSubscriptions();
-  }, []);
+  }, [getSubscriptions]);
 
   return (
     <section className="flex flex-col flex-1">

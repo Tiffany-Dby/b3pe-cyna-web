@@ -93,7 +93,7 @@ const UpdateProductTranslationForm = ({ onError }: Props) => {
 
   useEffect(() => {
     onError(serverError);
-  }, [serverError]);
+  }, [onError, serverError]);
 
   useEffect(() => {
     if (!selectedTranslation) return;
@@ -106,7 +106,7 @@ const UpdateProductTranslationForm = ({ onError }: Props) => {
       specifications: selectedTranslation.specifications,
       functionalities: selectedTranslation.functionalities,
     });
-  }, [selectedTranslation]);
+  }, [form, selectedTranslation]);
 
   const fields: UpdateProductTranslationField[] = [
     {

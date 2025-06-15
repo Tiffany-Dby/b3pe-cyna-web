@@ -12,7 +12,7 @@ const AdminProductsView = () => {
   useEffect(() => {
     getProducts();
     getCategories();
-  }, []);
+  }, [getCategories, getProducts]);
 
   return (
     <div className="@container flex flex-wrap gap-4">

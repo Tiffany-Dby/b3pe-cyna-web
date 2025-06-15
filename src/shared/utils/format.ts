@@ -11,7 +11,7 @@ const enumToOptions = <T extends Record<string, string | number>>(
     }));
 
 const formatServerError = (
-  payload?: { detail: string | Array<any> },
+  payload?: { detail: string | Record<string, unknown>[] },
   statusText: string = ""
 ) => {
   const detail = payload?.detail;

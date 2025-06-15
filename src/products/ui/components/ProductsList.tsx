@@ -2,7 +2,7 @@ import { useProductsStore } from "@/products/store/productsStore";
 import BaseCard from "@/shared/ui/components/BaseCard";
 import DataTable from "@/shared/ui/components/DataTable";
 import Columns from "@/products/ui/components/Columns";
-import { useMemo } from "react";
+import { useCallback, useMemo } from "react";
 import { useTranslation } from "react-i18next";
 import { useDialog } from "@/shared/hooks/useDialog";
 import { Product } from "@/products/types/Products";
@@ -18,10 +18,13 @@ const ProductsList = () => {
   const { dialog, open, close } = useDialog<Product>();
   const navigate = useNavigate();
 
-  const handleNavigate = (item: Product) => {
-    setSelected(item);
-    navigate(`${APP_ROUTES.ADMIN_PRODUCTS}/${item.id}`);
-  };
+  const handleNavigate = useCallback(
+    (item: Product) => {
+      setSelected(item);
+      navigate(`${APP_ROUTES.ADMIN_PRODUCTS}/${item.id}`);
+    },
+    [setSelected, navigate]
+  );
 
   const columns = useMemo(
     () =>
@@ -33,7 +36,7 @@ const ProductsList = () => {
         t,
         i18n
       ),
-    [t, i18n]
+    [t, i18n, open, handleNavigate]
   );
 
   return (

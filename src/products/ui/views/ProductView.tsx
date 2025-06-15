@@ -50,7 +50,7 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/lib/components/ui/breadcrumb";
-import { useAuth } from "@/users/context/AuthContext";
+import { useAuth } from "@/users/context/useAuth";
 
 const ProductView = () => {
   const { t, i18n } = useTranslation("products");
@@ -58,14 +58,14 @@ const ProductView = () => {
   const { addToCart } = usePurchaseStore();
 
   const { id } = useParams();
-  const locale = i18n.resolvedLanguage;
+  const locale = i18n.resolvedLanguage ?? "en";
 
   const {
     data: productLocale,
     isLoading,
     error,
   } = useFetch<ProductLocale>(
-    `${API_ROUTES.PRODUCT_GET}/${id}/${locale ?? "en"}`,
+    `${API_ROUTES.PRODUCT_GET}/${id}/${locale}`,
     false
   );
 

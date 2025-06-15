@@ -12,12 +12,14 @@ import { Button } from "@/lib/components/ui/button";
 import { MenuItem } from "@/shared/types/NavigationMenu";
 import { APP_ROUTES } from "@/shared/constants/routes";
 import { usePurchaseStore } from "@/purchase/store/purchaseStore";
+import { useAuth } from "@/users/context/useAuth";
 
 const NavigationInline = ({ items }: { items: MenuItem[] }) => {
   const id = useId();
+  const { isAuthenticated } = useAuth();
   const { getDisplayedCart } = usePurchaseStore();
 
-  const cart = getDisplayedCart();
+  const cart = getDisplayedCart(isAuthenticated);
 
   return (
     <NavigationMenu className="hidden md:block" viewport={false}>
@@ -31,7 +33,9 @@ const NavigationInline = ({ items }: { items: MenuItem[] }) => {
                   className={`${navigationMenuTriggerStyle()} gap-1`}
                 >
                   <item.icon className="size-3.5" />
-                  {item.title}
+                  <span className="pt-0.5 flex-center-center">
+                    {item.title}
+                  </span>
                   {item.url === APP_ROUTES.PURCHASE_CART && !!cart.length && (
                     <span className="absolute flex-center-center w-4.5 h-4.5 bg-danger rounded-full text-size-label -right-0.5 -top-0.5">
                       {cart.length}
@@ -42,7 +46,10 @@ const NavigationInline = ({ items }: { items: MenuItem[] }) => {
             ) : (
               <NavigationMenuItem>
                 <NavigationMenuTrigger className="flex-center-center gap-1">
-                  <item.icon className="size-3.5" /> {item.title}
+                  <item.icon className="size-3.5" />{" "}
+                  <span className="pt-0.5 flex-center-center">
+                    {item.title}
+                  </span>
                 </NavigationMenuTrigger>
                 <NavigationMenuContent className="right-0 left-auto">
                   <ul className="grid gap-3 md:w-[375px]">

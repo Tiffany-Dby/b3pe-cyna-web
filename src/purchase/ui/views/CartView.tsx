@@ -2,12 +2,14 @@ import { Card } from "@/lib/components/ui/card";
 import { useTranslation } from "react-i18next";
 import CartItemCard from "@/purchase/ui/components/CartItemCard";
 import { usePurchaseStore } from "@/purchase/store/purchaseStore";
+import { useAuth } from "@/users/context/useAuth";
 
 const CartView = () => {
   const { t } = useTranslation("purchase");
+  const { isAuthenticated } = useAuth();
   const { getDisplayedCart } = usePurchaseStore();
 
-  const displayedCart = getDisplayedCart();
+  const displayedCart = getDisplayedCart(isAuthenticated);
 
   return (
     <div className="flex flex-col gap-6 grow">

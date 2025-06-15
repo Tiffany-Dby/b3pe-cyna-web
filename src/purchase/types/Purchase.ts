@@ -96,7 +96,9 @@ type PurchaseState = {
   ) => Promise<void>;
   emptyCart: (orderId: number, status: OrderStatus) => Promise<void>;
   syncGuestCart: (isAuthenticated: boolean) => Promise<void>;
-  getDisplayedCart: () => (CartItem | GuestCartDisplayItem)[];
+  getDisplayedCart: (
+    isAuthenticated: boolean
+  ) => (CartItem | GuestCartDisplayItem)[];
 };
 
 export type {

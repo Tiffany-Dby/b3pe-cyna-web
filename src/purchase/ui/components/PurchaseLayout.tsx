@@ -20,7 +20,7 @@ import Loader from "@/shared/ui/components/Loader";
 import { Link, Outlet, useLocation, useNavigate } from "react-router";
 import { APP_ROUTES } from "@/shared/constants/routes";
 import { useAddressesStore } from "@/users/store/addressesStore";
-import { useAuth } from "@/users/context/AuthContext";
+import { useAuth } from "@/users/context/useAuth";
 
 const PurchaseLayout = () => {
   const { t } = useTranslation("purchase");
@@ -33,9 +33,9 @@ const PurchaseLayout = () => {
 
   useEffect(() => {
     if (isAuthenticated) getUserAddresses();
-  }, [isAuthenticated]);
+  }, [isAuthenticated, getUserAddresses]);
 
-  const displayedCart = getDisplayedCart();
+  const displayedCart = getDisplayedCart(isAuthenticated);
 
   const totalDiscount =
     displayedCart.reduce(

@@ -18,7 +18,7 @@ import {
 import BaseSelect from "@/shared/ui/components/BaseSelect";
 import { enumToOptions } from "@/shared/utils/format";
 import { formatAmount } from "@/shared/utils/number";
-import { useAuth } from "@/users/context/AuthContext";
+import { useAuth } from "@/users/context/useAuth";
 import { LoaderIcon, MinusIcon, PlusIcon, Trash2Icon } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
@@ -63,17 +63,16 @@ const CartItemCard = ({ item, index }: Props) => {
 
   const onQuantityChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const value = parseInt(event.target.value, 10) || 0;
-    value <= 0
-      ? () => {}
-      : updateCartItem(
-          {
-            id: item.id,
-            productId: product.id,
-            quantity: value,
-            recurring: recurring,
-          },
-          isAuthenticated
-        );
+    if (value > 0)
+      updateCartItem(
+        {
+          id: item.id,
+          productId: product.id,
+          quantity: value,
+          recurring: recurring,
+        },
+        isAuthenticated
+      );
   };
 
   const recurringOpts = enumToOptions(Recurring).map((type) => ({

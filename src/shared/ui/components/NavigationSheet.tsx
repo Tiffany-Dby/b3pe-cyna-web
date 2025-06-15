@@ -32,15 +32,17 @@ import { APP_ROUTES } from "@/shared/constants/routes";
 import { usePurchaseStore } from "@/purchase/store/purchaseStore";
 import { FaFacebookF, FaLinkedinIn, FaXTwitter } from "react-icons/fa6";
 import { useTranslation } from "react-i18next";
+import { useAuth } from "@/users/context/useAuth";
 
 const NavigationSheet = ({ items }: { items: MenuItem[] }) => {
   const { t } = useTranslation("layout");
   const id = useId();
+  const { isAuthenticated } = useAuth();
   const [isOpen, setIsOpen] = useState(false);
   const handleOpenChange = () => setIsOpen(!isOpen);
 
   const { getDisplayedCart } = usePurchaseStore();
-  const cart = getDisplayedCart();
+  const cart = getDisplayedCart(isAuthenticated);
 
   return (
     <Sheet open={isOpen} onOpenChange={handleOpenChange}>
@@ -76,7 +78,9 @@ const NavigationSheet = ({ items }: { items: MenuItem[] }) => {
                       >
                         <span className="flex-center-center gap-1 relative">
                           <item.icon className="size-3.5" />
-                          {item.title}
+                          <span className="pt-0.5 flex-center-center font-bold">
+                            {item.title}
+                          </span>
                           {item.url === APP_ROUTES.PURCHASE_CART &&
                             !!cart?.length && (
                               <span className="absolute flex-center-center w-4.5 h-4.5 bg-danger rounded-full text-size-label -right-4 -top-2">
@@ -98,10 +102,13 @@ const NavigationSheet = ({ items }: { items: MenuItem[] }) => {
                           <AccordionTrigger className="items-center">
                             <NavLink
                               to={item.url}
-                              className="flex items-center gap-1 text-size-n font-normal"
+                              className="flex items-center gap-1.5 text-size-n"
                               onClick={handleOpenChange}
                             >
-                              <item.icon className="size-3.5" /> {item.title}
+                              <item.icon className="size-3.5" />{" "}
+                              <span className="pt-0.5 flex-center-center font-roboto font-bold">
+                                {item.title}
+                              </span>
                             </NavLink>
                           </AccordionTrigger>
                           <AccordionContent>
@@ -115,10 +122,10 @@ const NavigationSheet = ({ items }: { items: MenuItem[] }) => {
                                         className="flex flex-col gap-1.5"
                                         onClick={handleOpenChange}
                                       >
-                                        <p className="font-bold">
+                                        <p className="font-bold text-size-xs">
                                           {subitem.title}
                                         </p>
-                                        <p className="text-size-label">
+                                        <p className="text-size-xs font-light">
                                           {subitem.description}
                                         </p>
                                       </NavLink>

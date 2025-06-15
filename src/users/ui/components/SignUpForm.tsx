@@ -112,7 +112,7 @@ const SignUpForm = ({ onError, url, withAuth = false, onSuccess }: Props) => {
 
   useEffect(() => {
     onError(serverError);
-  }, [serverError]);
+  }, [onError, serverError]);
 
   return (
     <Form {...form}>

@@ -1,4 +1,4 @@
-import { PaymentStatus, PaymentStatusMap } from "../types/History";
+import { PaymentStatus, PaymentStatusMap } from "@/users/types/History";
 
 const STATUS: PaymentStatusMap = {
   [PaymentStatus.pending]: {

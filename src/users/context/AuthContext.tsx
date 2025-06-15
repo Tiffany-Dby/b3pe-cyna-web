@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import { UserResponse } from "@/users/types/SignIn";
 import useFetch from "@/shared/hooks/useFetch";
 import { API_ROUTES } from "@/shared/constants/routes";
@@ -70,11 +70,4 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   );
 };
 
-const useAuth = () => {
-  const ctx = useContext(AuthContext);
-  if (!ctx) throw new Error("useAuth must be used within an AuthProvider");
-
-  return ctx;
-};
-
-export { AuthProvider, useAuth };
+export { AuthProvider, AuthContext };

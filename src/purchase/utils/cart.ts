@@ -1,4 +1,4 @@
-import { NewCartItem } from "../types/Purchase";
+import { NewCartItem } from "@/purchase/types/Purchase";
 
 const mergeCartItems = (cartItems: NewCartItem[], newCartItem: NewCartItem) => {
   const existingItem = cartItems.find(

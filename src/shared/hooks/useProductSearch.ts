@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import { ProductLocale } from "@/products/types/Products";
 import { useSearchParams } from "react-router";
-import { API_ROUTES } from "../constants/routes";
-import { isStringFilled } from "../utils/string";
-import { buildUrl } from "../utils/url";
-import { getRequest } from "../tools/api";
+import { API_ROUTES } from "@/shared/constants/routes";
+import { isStringFilled } from "@/shared/utils/string";
+import { buildUrl } from "@/shared/utils/url";
+import { getRequest } from "@/shared/tools/api";
 
 const useProductSearch = () => {
   const [searchParams] = useSearchParams();
