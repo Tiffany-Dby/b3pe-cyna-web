@@ -13,12 +13,12 @@ import { usePurchaseStore } from "@/purchase/store/purchaseStore";
 import { APP_ROUTES } from "@/shared/constants/routes";
 import { useDialog } from "@/shared/hooks/useDialog";
 import BaseCard from "@/shared/ui/components/BaseCard";
-import { useAuth } from "@/users/context/AuthContext";
+import { useAuth } from "@/users/context/useAuth";
 import { useAddressesStore } from "@/users/store/addressesStore";
 import { Address, AddressType } from "@/users/types/Address";
 import NewAddressDialog from "@/users/ui/components/NewAddressDialog";
 import { PlusIcon } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Link, useNavigate } from "react-router";
 
@@ -35,11 +35,15 @@ const AddressView = () => {
   const { dialog, open, close } = useDialog<Address | null>();
   const { user } = useAuth();
 
-  const billingAddresses = addresses?.filter(
-    (address) => address?.type === AddressType.billing
+  const billingAddresses = useMemo(
+    () => addresses?.filter((address) => address?.type === AddressType.billing),
+    [addresses]
   );
-  const shippingAddresses = addresses?.filter(
-    (address) => address?.type === AddressType.shipping
+
+  const shippingAddresses = useMemo(
+    () =>
+      addresses?.filter((address) => address?.type === AddressType.shipping),
+    [addresses]
   );
 
   const [useSame, setUseSame] = useState(true);
@@ -48,10 +52,9 @@ const AddressView = () => {
   const [shippingId, setShippingId] = useState("");
 
   useEffect(() => {
-    useSame
-      ? setShippingId(billingId)
-      : setShippingId(String(shippingAddresses[0]?.id ?? ""));
-  }, [useSame, billingId]);
+    if (useSame) setShippingId(billingId);
+    else setShippingId(String(shippingAddresses[0]?.id ?? ""));
+  }, [useSame, billingId, shippingAddresses]);
 
   useEffect(() => {
     if (!cart) return;
@@ -69,7 +72,7 @@ const AddressView = () => {
     } else if (shippingAddresses[0]) {
       setShippingId(String(shippingAddresses[0].id));
     }
-  }, [cart, addresses]);
+  }, [cart, addresses, billingAddresses, shippingAddresses]);
 
   const handleNext = async () => {
     if (!cart) return;

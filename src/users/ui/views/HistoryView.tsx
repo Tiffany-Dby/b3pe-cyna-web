@@ -8,7 +8,7 @@ import {
 import Loader from "@/shared/ui/components/Loader";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router";
-import HistoryList from "../components/HistoryList";
+import HistoryList from "@/users/ui/components/HistoryList";
 import useFetch from "@/shared/hooks/useFetch";
 import { API_ROUTES } from "@/shared/constants/routes";
 import { Payment } from "@/users/types/History";

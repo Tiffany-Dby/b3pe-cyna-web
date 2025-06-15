@@ -25,6 +25,8 @@ import { useTranslation } from "react-i18next";
 const SearchToggle = () => {
   const { t } = useTranslation("search");
   const { categories, getCategories } = useCategoriesStore();
+  const [open, setOpen] = useState(false);
+
   const { q, setQ, categoryId, setCategoryId, handleSubmit } = useSearchForm({
     onSuccess: () => {
       setOpen(false);
@@ -34,9 +36,7 @@ const SearchToggle = () => {
 
   useEffect(() => {
     getCategories();
-  }, []);
-
-  const [open, setOpen] = useState(false);
+  }, [getCategories]);
 
   const categoriesToOptions = categories
     .filter((category) => !!category.locales.length)

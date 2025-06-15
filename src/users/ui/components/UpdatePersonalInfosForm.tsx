@@ -11,7 +11,7 @@ import useCustomForm from "@/shared/hooks/useCustomForm";
 import { putRequest } from "@/shared/tools/api";
 import { Field } from "@/shared/types/Field";
 import BaseInputGroup from "@/shared/ui/components/BaseInputGroup";
-import { useAuth } from "@/users/context/AuthContext";
+import { useAuth } from "@/users/context/useAuth";
 import {
   UpdatePersonalInfoData,
   UpdatePersonInfosSchema,
@@ -74,7 +74,7 @@ const UpdatePersonalInfosForm = ({ onError }: Props) => {
 
   useEffect(() => {
     onError(serverError);
-  }, [serverError]);
+  }, [onError, serverError]);
 
   useEffect(() => {
     if (user)
@@ -83,7 +83,7 @@ const UpdatePersonalInfosForm = ({ onError }: Props) => {
         lastName: user.lastName,
         email: user.email,
       });
-  }, [user]);
+  }, [form, user]);
 
   return (
     <Form {...form}>

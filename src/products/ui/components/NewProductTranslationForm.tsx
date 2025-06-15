@@ -88,7 +88,7 @@ const NewProductTranslationForm = ({ onError }: Props) => {
 
   useEffect(() => {
     onError(serverError);
-  }, [serverError]);
+  }, [onError, serverError]);
 
   const fields: NewProductTranslationField[] = [
     {

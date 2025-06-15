@@ -1,6 +1,6 @@
 import { Card } from "@/lib/components/ui/card";
 import { APP_ROUTES } from "@/shared/constants/routes";
-import { useAuth } from "@/users/context/AuthContext";
+import { useAuth } from "@/users/context/useAuth";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router";
 

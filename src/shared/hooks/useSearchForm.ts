@@ -41,7 +41,7 @@ const useSearchForm = ({ onSuccess }: UseSearchForm) => {
 
       if (onSuccess) onSuccess();
     },
-    [q, categoryId, locale]
+    [q, locale, categoryId, navigate, onSuccess]
   );
 
   return { q, setQ, categoryId, setCategoryId, handleSubmit };

@@ -9,25 +9,25 @@ import Loader from "@/shared/ui/components/Loader";
 
 const ProductsView = () => {
   const { t, i18n } = useTranslation("products");
-  const locale = i18n.resolvedLanguage;
-
-  const STATUS_PRIORITY: Record<ProductStatus, number> = {
-    [ProductStatus.Available]: 0,
-    [ProductStatus.Maintenance]: 1,
-    [ProductStatus.Unavailable]: 2,
-  };
+  const locale = i18n.resolvedLanguage ?? "en";
 
   const {
     data: productsLocale,
     isLoading,
     error,
   } = useFetch<ProductLocale[]>(
-    `${API_ROUTES.PRODUCT_GET_ALL}/${locale ?? "en"}`,
+    `${API_ROUTES.PRODUCT_GET_ALL}/${locale}`,
     false
   );
 
   const sortedProducts = useMemo(() => {
     if (!productsLocale) return [];
+
+    const STATUS_PRIORITY: Record<ProductStatus, number> = {
+      [ProductStatus.Available]: 0,
+      [ProductStatus.Maintenance]: 1,
+      [ProductStatus.Unavailable]: 2,
+    };
 
     return [...productsLocale].sort((a, b) => {
       const productA = STATUS_PRIORITY[a.status] ?? 99;

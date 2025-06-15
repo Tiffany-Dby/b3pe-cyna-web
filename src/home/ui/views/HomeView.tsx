@@ -13,14 +13,14 @@ import Loader from "@/shared/ui/components/Loader";
 
 const HomeView = () => {
   const { t, i18n } = useTranslation("home");
-  const locale = i18n.resolvedLanguage;
+  const locale = i18n.resolvedLanguage ?? "en";
 
   const {
     data: bestSeller,
     isLoading: isBestSellerLoading,
     error: bestSellerError,
   } = useFetch<BestSeller>(
-    `${API_ROUTES.PRODUCT_GET_BEST_SELLER}?locale=${locale ?? "en"}`
+    `${API_ROUTES.PRODUCT_GET_BEST_SELLER}?locale=${locale}`
   );
 
   const {
@@ -28,7 +28,7 @@ const HomeView = () => {
     isLoading,
     error,
   } = useFetch<ProductLocale[]>(
-    `${API_ROUTES.PRODUCT_GET_ALL}/${locale ?? "en"}`,
+    `${API_ROUTES.PRODUCT_GET_ALL}/${locale}`,
     false
   );
 
@@ -55,7 +55,7 @@ const HomeView = () => {
             <div className="flex flex-col gap-6 md:w-1/2">
               <Trans i18nKey={"home:banner.title"}>
                 <h1 className="leading-11">
-                  <span className="bg-white px-1">
+                  <span className="bg-white px-1 pt-2">
                     <span className="bg-linear-90 from-primary-150 to-primary bg-clip-text text-transparent font-black" />
                   </span>
                   <span className="underline"></span>

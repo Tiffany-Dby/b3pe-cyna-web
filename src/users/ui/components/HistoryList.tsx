@@ -1,7 +1,7 @@
 import BaseCard from "@/shared/ui/components/BaseCard";
 import DataTable from "@/shared/ui/components/DataTable";
 import { useMemo } from "react";
-import HistoryColumns from "./HistoryColumns";
+import HistoryColumns from "@/users/ui/components/HistoryColumns";
 import { useTranslation } from "react-i18next";
 import { Payment } from "@/users/types/History";
 
@@ -13,7 +13,7 @@ type Props = {
 const HistoryList = ({ payments, error }: Props) => {
   const { t, i18n } = useTranslation("account");
 
-  const columns = useMemo(() => HistoryColumns(t, i18n), []);
+  const columns = useMemo(() => HistoryColumns(t, i18n), [t, i18n]);
 
   return (
     <BaseCard

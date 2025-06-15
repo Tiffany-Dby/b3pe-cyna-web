@@ -23,10 +23,10 @@ import {
   CollapsibleContent,
   CollapsibleTrigger,
 } from "@/lib/components/ui/collapsible";
-import { useResolvedTheme } from "@/lib/components/context/theme-provider";
 import { SIDEBAR_ITEMS } from "@/shared/constants/sidebar";
 import { useTranslation } from "react-i18next";
 import { useId } from "react";
+import { useResolvedTheme } from "@/lib/hooks/useResolvedTheme";
 
 const AdminSidebar = () => {
   const location = useLocation();

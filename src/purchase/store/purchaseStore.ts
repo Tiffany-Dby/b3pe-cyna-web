@@ -20,8 +20,7 @@ import { API_ROUTES } from "@/shared/constants/routes";
 import { toast } from "sonner";
 import { TOAST } from "@/shared/constants/toast";
 import { useProductsStore } from "@/products/store/productsStore";
-import { mergeCartItems } from "../utils/cart";
-import { useAuth } from "@/users/context/AuthContext";
+import { mergeCartItems } from "@/purchase/utils/cart";
 
 /*
 TODO:
@@ -323,8 +322,7 @@ const usePurchaseStore = create<PurchaseState>()(
         set({ isLoading: false });
       },
 
-      getDisplayedCart: () => {
-        const { isAuthenticated } = useAuth();
+      getDisplayedCart: (isAuthenticated) => {
         const { cart, guestCart } = get();
 
         if (isAuthenticated) {

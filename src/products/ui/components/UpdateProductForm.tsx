@@ -99,7 +99,7 @@ const UpdateProductForm = ({ onError }: Props) => {
 
   useEffect(() => {
     onError(serverError);
-  }, [serverError]);
+  }, [onError, serverError]);
 
   useEffect(() => {
     if (!selected) return;
@@ -114,7 +114,7 @@ const UpdateProductForm = ({ onError }: Props) => {
       discountOrder: selected.discountOrder,
       discountPercentage: selected.discountPercentage,
     });
-  }, [selected]);
+  }, [form, selected]);
 
   const fields: UpdateProductField[] = [
     {

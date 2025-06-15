@@ -16,7 +16,7 @@ const PromotionsTextList = () => {
 
   const columns = useMemo(
     () => Columns((item) => open("update", item), t),
-    [t]
+    [open, t]
   );
 
   return (

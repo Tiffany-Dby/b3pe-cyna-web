@@ -1,5 +1,5 @@
 import { Cart, PaymentMethod } from "@/purchase/types/Purchase";
-import { Subscription } from "./Subscriptions";
+import { Subscription } from "@/users/types/Subscriptions";
 
 enum PaymentStatus {
   pending = 0,

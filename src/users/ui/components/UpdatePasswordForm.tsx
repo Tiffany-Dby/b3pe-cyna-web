@@ -91,7 +91,7 @@ const UpdatePasswordForm = ({ onError }: Props) => {
 
   useEffect(() => {
     onError(serverError);
-  }, [serverError]);
+  }, [onError, serverError]);
 
   return (
     <Form {...form}>

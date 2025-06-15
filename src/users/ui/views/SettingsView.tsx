@@ -19,7 +19,7 @@ const SettingsView = () => {
 
   useEffect(() => {
     getUserAddresses();
-  }, []);
+  }, [getUserAddresses]);
 
   return (
     <section>
