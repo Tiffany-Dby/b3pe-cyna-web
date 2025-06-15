@@ -2,23 +2,25 @@ import { z } from "zod";
 
 const SignUpSchema = z
   .object({
-    firstName: z.string().min(2, "Le prénom est requis"),
-    lastName: z.string().min(2, "Le nom est requis"),
-    email: z.string().email("L'email est invalide"),
+    firstName: z.string().min(2, "common:inputs.firstName.validation.min"),
+    lastName: z.string().min(2, "common:inputs.lastName.validation.min"),
+    email: z.string().email("common:inputs.email.validation.email"),
     password: z
       .string()
-      .min(8, "Le mot de passe doit comporter 8 caractères minimum")
-      .regex(/[A-Z]/, "Le mot de passe doit comporter 1 majuscule minimum")
-      .regex(/[a-z]/, "Le mot de passe doit comporter 1 une minuscule minimum")
-      .regex(/\d/, "Le mot de passe doit comporter 1 un chiffre minimum")
+      .min(8, "common:inputs.password.validation.min")
+      .regex(/[A-Z]/, "common:inputs.password.validation.uppercase")
+      .regex(/[a-z]/, "common:inputs.password.validation.lowercase")
+      .regex(/\d/, "common:inputs.password.validation.number")
       .regex(
         /[!@#$%^&*(),.?":{}|<>]/,
-        "Le mot de passe doit comporter 1 caractère spécial minimum"
+        "common:inputs.password.validation.specialChar"
       ),
-    confirmPassword: z.string(),
+    confirmPassword: z
+      .string()
+      .min(8, { message: "common:inputs.confirmPassword.validation.min" }),
   })
   .refine((field) => field.password === field.confirmPassword, {
-    message: "Les mots de passe ne correspondent pas",
+    message: "common:inputs.confirmPassword.validation.match",
     path: ["confirmPassword"],
   });
 

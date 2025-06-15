@@ -2,21 +2,33 @@ import { useForm, UseFormProps, FieldValues } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { ZodSchema } from "zod";
 import { useState } from "react";
-import { postRequest } from "@/shared/tools/api";
+import { setFormData } from "@/shared/utils/form";
+import { RequestFn } from "@/shared/types/Api";
+import { toast } from "sonner";
+import { ToastMsgs } from "@/shared/types/Toast";
+import { TOAST } from "@/shared/constants/toast";
 
-type UseCustomFormProps<T extends FieldValues, R> = UseFormProps<T> & {
+type Props<T extends FieldValues, R> = UseFormProps<T> & {
   schema: ZodSchema<T>;
   apiUrl: string;
+  withAuth?: boolean;
+  requestFn: RequestFn;
   onSuccess?: (data: R) => void;
+  asFormData?: boolean;
+  toastMsgs?: ToastMsgs;
 };
 
 const useCustomForm = <T extends FieldValues, R>({
   schema,
   apiUrl,
+  withAuth,
   onSuccess,
   defaultValues,
+  requestFn,
+  asFormData = false,
+  toastMsgs = TOAST.DEFAULT_MSGS,
   ...formOptions
-}: UseCustomFormProps<T, R>) => {
+}: Props<T, R>) => {
   const [isLoading, setIsLoading] = useState(false);
   const [serverError, setServerError] = useState<string | null>(null);
 
@@ -26,19 +38,29 @@ const useCustomForm = <T extends FieldValues, R>({
     ...formOptions,
   });
 
+  const { loading, success, error } = toastMsgs;
+
   const handleSubmit = form.handleSubmit(async (data) => {
     setServerError(null);
 
     setIsLoading(true);
-    const { result, error } = await postRequest<R, T>(apiUrl, data);
+    const toastId = toast.loading(loading);
+    const payload = asFormData ? setFormData(data) : data;
+    const { result, error: reqError } = await requestFn<R, T>(
+      apiUrl,
+      payload,
+      withAuth
+    );
     setIsLoading(false);
 
-    if (error) {
-      setServerError(error);
+    if (reqError) {
+      setServerError(reqError);
+      toast.error(error, { id: toastId });
 
       return;
     }
 
+    toast.success(success, { id: toastId });
     form.reset();
 
     if (onSuccess && result) onSuccess(result);

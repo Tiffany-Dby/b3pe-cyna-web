@@ -1,0 +1,181 @@
+{
+  "product": "Produit : ",
+  "status": {
+    "unavailable": "Indisponible",
+    "available": "Disponible",
+    "maintenance": "Maintenance",
+    "outOfStock": "Rupture de stock"
+  },
+  "tabs": {
+    "benefits": {
+      "name": "Bénéfices",
+      "title": "Pourquoi"
+    },
+    "functionnalities": {
+      "name": "Fonctionnalités",
+      "title": "Fonctionnalités clés"
+    },
+    "specifications": {
+      "name": "Spécificités",
+      "title": "Spécificités technique",
+      "srOnly": "Tableau des spécificités technique",
+      "table": {
+        "criteria": "Critère",
+        "detail": "Détail"
+      }
+    }
+  },
+  "promotion": "promotion",
+  "tryNow": "Essayer maintenant",
+  "pricing": {
+    "title": "Tarification",
+    "monthly": {
+      "title": "Mensuel",
+      "bill": "Facturé mensuellement",
+      "cta": "S'abonner"
+    },
+    "yearly": {
+      "title": "Annuel",
+      "bill": "Facturé à l'année",
+      "cta": "S'abonner"
+    },
+    "trial": {
+      "title": "Essai",
+      "bill": "Gratuit pendant 14 jours",
+      "cta": "Essayer"
+    },
+    "keys": {
+      "availability": "Disponibilité immédiate",
+      "commitment": "Sans engagement"
+    },
+    "month": "mois"
+  },
+  "newBase": {
+    "title": "Nouveau produit",
+    "description": "Créez un nouveau produit avec ses informations de base",
+    "submit": {
+      "loading": "Création en cours...",
+      "action": "Créer"
+    }
+  },
+  "newTranslation": {
+    "title": "Nouvelle traduction",
+    "description": "Créez une nouvelle traduction pour un produit",
+    "benefits": {
+      "legend": "Bénéfices",
+      "title": "Titre",
+      "description": "Description"
+    },
+    "specifications": {
+      "legend": "Spécifications",
+      "criteria": "Critère",
+      "description": "Description"
+    },
+    "functionalities": {
+      "legend": "Fonctionnalités",
+      "functionality": "Fonctionnalité"
+    },
+    "actions": {
+      "add": "Ajouter",
+      "remove": "Supprimer"
+    },
+    "submit": {
+      "loading": "Création en cours...",
+      "action": "Créer"
+    }
+  },
+  "productList": {
+    "title": "Produits",
+    "description": "Recherchez, mettez à jour ou supprimez des produits",
+    "columns": {
+      "product": "Produit",
+      "details": "Traduction",
+      "name": "Nom",
+      "languages": "Langues",
+      "category": "Catégorie",
+      "price": "Prix",
+      "basePrice": "Prix de base",
+      "order": "Ordre",
+      "discountPercentage": "Réduction",
+      "actions": "Actions"
+    },
+    "filters": "Filtrer les produits..."
+  },
+  "updateProduct": {
+    "description": "Mettez à jour les informations du produit",
+    "formBaseInfos": {
+      "title": "Informations"
+    },
+    "formImage": {
+      "title": "Images",
+      "subTitle": "Image #",
+      "seeCurrentImage": "Voir l'image actuelle",
+      "label": "Nouvelle image"
+    },
+    "submit": {
+      "loading": "Modification en cours...",
+      "action": "Modifier"
+    }
+  },
+  "updateTranslation": {
+    "description": "Mettez à jour la traduction du produit",
+    "submit": {
+      "loading": "Modification en cours...",
+      "action": "Modifier"
+    },
+    "dialog": {
+      "description": "Choix de la traduction à modifier",
+      "message": "Traduction du produit <0>« {{name}} »</0> à mettre à jour :"
+    }
+  },
+  "deleteProduct": {
+    "dialog": {
+      "description": "Suppression d'un produit et ses traductions",
+      "descriptionWithTranslations": "Suppression d'un produit et ses traductions",
+      "message": "Supprimer le produit <0>« {{name}} »</0> ?",
+      "messageWithTranslations": "Supprimer le produit <0>« {{name}} »</0> et toutes les traductions qui lui sont associées ?"
+    }
+  },
+  "deleteTranslation": {
+    "dialog": {
+      "description": "Suppression d'une traduction de produit",
+      "label": "Traduction du produit <0>« {{name}} »</0> à supprimer :",
+      "message": "Supprimer la version <0>« {{locale}} »</0> définitivement ?"
+    }
+  },
+  "toast": {
+    "new": {
+      "success": "Produit créé !",
+      "loading": "Création en cours..."
+    },
+    "newTranslation": {
+      "success": "Traduction créée !",
+      "loading": "Création en cours..."
+    },
+    "update": {
+      "success": "Produit mis à jour !",
+      "loading": "Mise à jour en cours..."
+    },
+    "updateImage": {
+      "success": "Image mise à jour !",
+      "loading": "Mise à jour en cours..."
+    },
+    "updateTranslation": {
+      "success": "Traduction mise à jour !",
+      "loading": "Mise à jour en cours..."
+    },
+    "delete": {
+      "success": "Produit supprimé !",
+      "loading": "Suppression en cours..."
+    },
+    "deleteTranslation": {
+      "success": "Traduction du produit supprimée !",
+      "loading": "Suppression en cours..."
+    },
+    "addToCart": {
+      "success": "Produit ajouté à votre panier !",
+      "loading": "Ajout au panier en cours..."
+    },
+    "error": "Une erreur est survenue"
+  }
+}

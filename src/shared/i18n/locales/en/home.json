@@ -1,0 +1,15 @@
+{
+  "banner": {
+    "title": "<0>Your <0><0>security</0></0> is our <1>business</1></0>",
+    "description": "<0>A <0>360° protection</0> for your projects and your serenity.</0>",
+    "cta": "Discover the products",
+    "imgAlt": "Cybersecurity banner"
+  },
+  "currentPromotions": {
+    "title": "Current promotions !"
+  },
+  "topProduct": {
+    "title": "Best seller",
+    "description": "<0>Appreciated by our customers, this bestseller combines quality and reliability.</0> <1>To explore our other products, <0>visit our products page</0></1>"
+  }
+}

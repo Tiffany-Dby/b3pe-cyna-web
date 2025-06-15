@@ -1,62 +1,41 @@
+import { Outlet, ScrollRestoration } from "react-router";
 import BaseLayout from "@/shared/ui/components/BaseLayout";
-import { BrowserRouter, Route, Routes } from "react-router";
-import SignUp from "@/users/views/SignUp";
-import { AppRoutes } from "@/shared/types/Routes";
-import SignIn from "@/users/views/SignIn";
-import Home from "@/shared/views/Home";
-import { useAuth } from "@/users/context/AuthContext";
-import PrivateRoutes from "@/users/context/PrivateRoutes";
-import Dashboard from "@/users/views/Dashboard";
-import ResetPassword from "@/users/views/ResetPassword";
-import useScrollTrigger from "./shared/hooks/useScrollTrigger";
+import { Toaster } from "sonner";
+import { usePurchaseStore } from "@/purchase/store/purchaseStore";
+import { useEffect } from "react";
+import { useAuth } from "@/users/context/useAuth";
+import { useProductsStore } from "@/products/store/productsStore";
+import { useTranslation } from "react-i18next";
+// import { Crisp } from "crisp-sdk-web";
 
 const App = () => {
+  const { i18n } = useTranslation();
+  const locale = i18n.resolvedLanguage ?? "en";
+
+  const { getProductsLocale } = useProductsStore();
+  const { getCart } = usePurchaseStore();
   const { isAuthenticated } = useAuth();
-  const scrolled = useScrollTrigger(50);
+
+  useEffect(() => {
+    if (isAuthenticated) getCart();
+  }, [getCart, isAuthenticated]);
+
+  useEffect(() => {
+    getProductsLocale(locale);
+  }, [getProductsLocale, locale]);
+
+  /* useEffect(() => {
+    Crisp.configure(import.meta.env.VITE_CRISP_TOKEN);
+  }, []); */
 
   return (
-    <BrowserRouter>
-      <BaseLayout scrolled={scrolled}>
-        <Routes>
-          <Route path={AppRoutes.home} element={<Home />} />
-          <Route
-            path={AppRoutes.signUp}
-            element={
-              <div className="max-w-xl w-full mx-auto py-5 px-4">
-                <SignUp />
-              </div>
-            }
-          />
-          <Route
-            path={AppRoutes.signIn}
-            element={
-              <div className="max-w-xl w-full mx-auto py-5 px-4">
-                <SignIn />
-              </div>
-            }
-          />
-          <Route
-            path={AppRoutes.resetPassword}
-            element={
-              <div className="max-w-xl w-full mx-auto py-5 px-4">
-                <ResetPassword />
-              </div>
-            }
-          />
-
-          <Route
-            path={AppRoutes.account}
-            element={
-              <PrivateRoutes hasAccess={isAuthenticated}>
-                <div className="max-w-xl w-full mx-auto py-5 px-4">
-                  <Dashboard />
-                </div>
-              </PrivateRoutes>
-            }
-          />
-        </Routes>
+    <>
+      <ScrollRestoration />
+      <BaseLayout>
+        <Outlet />
+        <Toaster richColors position="top-center" closeButton />
       </BaseLayout>
-    </BrowserRouter>
+    </>
   );
 };
 

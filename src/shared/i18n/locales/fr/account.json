@@ -1,0 +1,102 @@
+{
+  "settings": {
+    "title": "Mes Paramètres",
+    "personalInformations": {
+      "caption": "Informations personnelles"
+    },
+    "changePassword": {
+      "caption": "Changer de mot de passe"
+    },
+    "submit": {
+      "loading": "Mise à jour en cours...",
+      "action": "Mettre à jour"
+    },
+    "address": {
+      "caption": "Adresse",
+      "newAddress": "Nouvelle adresse",
+      "delete": "Supprimer",
+      "dialog": {
+        "new": {
+          "description": "Enregistrer une nouvelle adresse sur mon compte"
+        },
+        "delete": {
+          "description": "Suppression d'une adresse",
+          "message": "Supprimer l'addresse définitivement ?"
+        }
+      },
+      "toast": {
+        "new": {
+          "success": "Adresse enregistrée !",
+          "loading": "Enregistrement en cours..."
+        },
+        "update": {
+          "success": "Adresse mise à jour !",
+          "loading": "Mise à jour en cours..."
+        },
+        "delete": {
+          "success": "Adresse supprimée !",
+          "loading": "Suppression en cours..."
+        },
+        "error": "Une erreur est survenue"
+      }
+    }
+  },
+  "subscriptions": {
+    "title": "Mes abonnements",
+    "noSubscription": "Aucun abonnement",
+    "start": "Début",
+    "nextInvoice": "Prochaine facture",
+    "cancel": "Résilier",
+    "update": "Modifier",
+    "upgrade": "Mise à niveau bientôt disponible",
+    "status": {
+      "title": "Status",
+      "active": "Actif",
+      "canceled": "Annulé",
+      "incomplete": "Incomplet",
+      "incompleteExpired": "Incomplet expiré",
+      "pastDue": "En retard de paiement",
+      "paused": "En pause",
+      "trialing": "En période d'essai",
+      "unpaid": "Impayé"
+    },
+    "dialog": {
+      "cancel": {
+        "description": "Résilier un abonnement",
+        "message": "Résilier l'abonnement sélectionné ?"
+      }
+    },
+    "toast": {
+      "cancel": {
+        "success": "Abonnement résilié !",
+        "loading": "Résiliation en cours..."
+      },
+      "error": "Une erreur est survenue"
+    }
+  },
+  "history": {
+    "title": "Mon historique de commandes",
+    "subTitle": "Commandes",
+    "description": "Historique détaillé et factures de toutes mes commandes",
+    "columns": {
+      "order": "Commande",
+      "date": "Date",
+      "status": "Status",
+      "products": "Produits",
+      "quantities": "Quantités",
+      "total": "Total",
+      "paymentMethod": "Moyen de paiement",
+      "invoice": "Facture"
+    },
+    "filters": "Filtrer par nom de produit...",
+    "yearlySubscription": "Abonnement annuel",
+    "monthlySubscription": "Abonnement mensuel",
+    "status": {
+      "pending": "En attente",
+      "failed": "Echoué",
+      "canceled": "Annulé",
+      "refunded": "Remboursé",
+      "succeeded": "Payé"
+    }
+  }
+}

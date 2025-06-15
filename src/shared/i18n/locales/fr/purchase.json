@@ -1,0 +1,41 @@
+{
+  "step": "Étape ",
+  "breadcrumb": {
+    "cart": "Panier",
+    "address": "Adresse"
+  },
+  "cart": {
+    "title": "Mon panier",
+    "subTitle": "Total",
+    "subTotal": "Sous-total",
+    "shipping": "Livraison",
+    "discount": "Promotion",
+    "proceedPayments": "Passer la commande",
+    "securedPayments": "Paiement sécurisé",
+    "empty": "Le panier est vide",
+    "signInToPay": "Me connecter et payer"
+  },
+  "success": {
+    "title": "Merci pour votre commande !",
+    "description": "Paiement effectué avec succès",
+    "orderSummary": "Récapitulatif de commande :",
+    "backToHome": "Revenir à l'accueil",
+    "manageSubscriptions": "Gérer mes abonnements"
+  },
+  "address": {
+    "description": "Choisissez l'adresse de facturation et de livraison",
+    "billingEmpty": "Veuillez renseigner une adresse de facturation",
+    "shippingEmpty": "Veuillez renseigner une adresse de livraison",
+    "useSame": "Utiliser la même adresse pour la livraison",
+    "backToCart": "Revenir au panier",
+    "nextStep": "Passer à l'étape suivante"
+  },
+  "checkout": {
+    "title": "Paiement",
+    "description": "Choisissez et indiquez votre moyen de paiement pour finaliser votre commande",
+    "cancel": "Annuler",
+    "canceling": "Annulation en cours...",
+    "pay": "Payer",
+    "loading": "Paiement en cours..."
+  }
+}

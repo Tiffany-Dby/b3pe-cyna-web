@@ -25,4 +25,13 @@ const areFormFieldsEmpty = <T>(
   return true;
 };
 
-export { handleInputChange, areFormFieldsEmpty };
+const setFormData = (form: Record<string, string | Blob>) => {
+  const fd = new FormData();
+  Object.entries(form).forEach(([key, value]) => {
+    fd.append(key, value);
+  });
+
+  return fd;
+};
+
+export { handleInputChange, areFormFieldsEmpty, setFormData };

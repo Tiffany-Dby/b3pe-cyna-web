@@ -1,0 +1,8 @@
+{
+  "title": "Your research: « {{q}} »",
+  "noResult": "No result matches your search",
+  "search": "Search",
+  "srTitle": "Search for a product",
+  "placeholder": "Categories",
+  "all": "All"
+}

@@ -1,0 +1,8 @@
+{
+  "title": "Votre recherche : « {{q}} »",
+  "noResult": "Aucun résultat ne correspond à votre recherche",
+  "search": "Rechercher",
+  "srTitle": "Rechercher un produit",
+  "placeholder": "Catégories",
+  "all": "Toutes"
+}

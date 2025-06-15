@@ -1,0 +1,314 @@
+{
+  "paymentMethod": {
+    "card": "Carte Bleu",
+    "sepa_debit": "Sepa"
+  },
+  "inProgress": "Actif",
+  "expireSoon": "Expire bientôt",
+  "expired": "Inactif",
+  "loading": "Chargement...",
+  "learnMore": "En savoir plus",
+  "soonAvailable": "Bientôt disponible",
+  "category": "Catégorie",
+  "inputs": {
+    "email": {
+      "label": "Email",
+      "placeholder": "Email",
+      "validation": {
+        "email": "Le format de l'email est invalide"
+      }
+    },
+    "currentPassword": {
+      "label": "Mot de passe actuel",
+      "placeholder": "Mot de passe actuel",
+      "validation": {
+        "min": "Veuillez renseigner votre mot de passe actuel"
+      }
+    },
+    "password": {
+      "label": "Mot de passe",
+      "placeholder": "Mot de passe",
+      "validation": {
+        "required": "Veuillez renseigner votre mot de passe",
+        "min": "Le mot de passe doit comporter 8 caractères minimum",
+        "uppercase": "Le mot de passe doit comporter 1 majuscule minimum",
+        "lowercase": "Le mot de passe doit comporter 1 minuscule minimum",
+        "number": "Le mot de passe doit comporter 1 chiffre minimum",
+        "specialChar": "Le mot de passe doit comporter 1 caractère spécial minimum"
+      }
+    },
+    "confirmPassword": {
+      "label": "Confirmer mot de passe",
+      "placeholder": "Confirmer mot de passe",
+      "validation": {
+        "min": "Veuillez confirmer votre mot de passe",
+        "match": "Les mots de passe ne correspondent pas"
+      }
+    },
+    "newPassword": {
+      "label": "Nouveau mot de passe",
+      "placeholder": "Nouveau mot de passe"
+    },
+    "confirmNewPassword": {
+      "label": "Confirmer nouveau mot de passe",
+      "placeholder": "Confirmer nouveau mot de passe",
+      "validation": {
+        "min": "Veuillez confirmer votre nouveau mot de passe",
+        "match": "Les mots de passe ne correspondent pas"
+      }
+    },
+    "firstName": {
+      "label": "Prénom",
+      "placeholder": "Prénom",
+      "validation": {
+        "min": "Veuillez renseigner votre prénom"
+      }
+    },
+    "lastName": {
+      "label": "Nom",
+      "placeholder": "Nom",
+      "validation": {
+        "min": "Veuillez renseigner votre nom"
+      }
+    },
+    "quantity": {
+      "label": "Quantité"
+    },
+    "category": {
+      "label": "Nom",
+      "placeholder": "Nom",
+      "validation": {
+        "min": "Veuillez renseigner un nom de catégorie"
+      }
+    },
+    "product": {
+      "label": "Nom",
+      "placeholder": "Nom",
+      "validation": {
+        "min": "Veuillez renseigner un nom de produit"
+      }
+    },
+    "price": {
+      "label": "Prix de base",
+      "validation": {
+        "required": "Le prix est requis",
+        "min": "Le prix doit être supérieur à 0"
+      }
+    },
+    "discountPercentage": {
+      "label": "Réduction (%)",
+      "validation": {
+        "required": "Le pourcentage est requis",
+        "int": "Le pourcentage doit être un entier",
+        "min": "Le pourcentage doit être au minimum 0",
+        "max": "Le pourcentage ne peut pas dépasser 100"
+      }
+    },
+    "productImage": {
+      "label": "Carrousel (3 images)",
+      "validation": {
+        "min": "Une image est requise",
+        "maxFiles": "Vous ne pouvez sélectionner que {{count}} images",
+        "maxSize": "{{size}}Mo maximum",
+        "mimeTypes": "Extensions acceptées: {{extensions}}"
+      }
+    },
+    "title": {
+      "label": "Titre",
+      "placeholder": "Titre",
+      "validation": {
+        "min": "Veuillez renseigner un titre"
+      }
+    },
+    "description": {
+      "label": "Description",
+      "placeholder": "Description",
+      "validation": {
+        "min": "Veuillez renseigner une description"
+      }
+    },
+    "criteria": {
+      "label": "Critère",
+      "placeholder": "Critère",
+      "validation": {
+        "min": "Veuillez renseigner un critère"
+      }
+    },
+    "functionality": {
+      "label": "Fonctionnalité",
+      "placeholder": "Fonctionnalité",
+      "validation": {
+        "min": "Veuillez renseigner une fonctionnalité"
+      }
+    },
+    "promotionsText": {
+      "label": "Texte",
+      "placeholder": "Texte",
+      "validation": {
+        "min": "Veuillez renseigner un texte promotionnel"
+      }
+    },
+    "street": {
+      "label": "Rue",
+      "placeholder": "Rue",
+      "validation": {
+        "min": "Veuillez renseigner une rue"
+      }
+    },
+    "number": {
+      "label": "Numéro",
+      "placeholder": "Numéro",
+      "validation": {
+        "min": "Veuillez renseigner un numéro de voie"
+      }
+    },
+    "complement": {
+      "label": "Complément d'adresse",
+      "placeholder": "Complément d'adresse"
+    },
+    "zipCode": {
+      "label": "Code postal",
+      "placeholder": "Code postal",
+      "validation": {
+        "min": "Veuillez renseigner un code postal"
+      }
+    },
+    "city": {
+      "label": "Ville",
+      "placeholder": "Ville",
+      "validation": {
+        "min": "Veuillez renseigner une ville"
+      }
+    },
+    "region": {
+      "label": "Région",
+      "placeholder": "Région",
+      "validation": {
+        "min": "Veuillez renseigner une région"
+      }
+    },
+    "country": {
+      "label": "Pays",
+      "placeholder": "Pays",
+      "validation": {
+        "min": "Veuillez renseigner un pays"
+      }
+    }
+  },
+  "selects": {
+    "subType": {
+      "label": "Abonnement",
+      "placeholder": "Choix du type",
+      "monthly": "Mensuel",
+      "yearly": "Annuel"
+    },
+    "category": {
+      "label": "Catégorie",
+      "placeholder": "Choisir une catégorie",
+      "validation": {
+        "min": "Veuillez sélectionner une option"
+      }
+    },
+    "locale": {
+      "label": "Langue",
+      "placeholder": "Choisir une langue",
+      "validation": {
+        "min": "Veuillez sélectionner une option"
+      }
+    },
+    "status": {
+      "label": "Status",
+      "placeholder": "Choisir un status",
+      "validation": {
+        "min": "Veuillez sélectionner une option"
+      }
+    },
+    "type": {
+      "label": "Type",
+      "placeholder": "Choisir le type",
+      "options": {
+        "digital": "Digital",
+        "physical": "Physique"
+      },
+      "validation": {
+        "min": "Veuillez sélectionner une option"
+      }
+    },
+    "discountOrder": {
+      "label": "Promotion carrousel",
+      "placeholder": "Choisir l'ordre",
+      "options": {
+        "noDiscount": "Pas en promotion",
+        "first": "1er",
+        "second": "2ème",
+        "third": "3ème"
+      },
+      "validation": {
+        "min": "Veuillez sélectionner une option"
+      }
+    },
+    "product": {
+      "label": "Produit",
+      "placeholder": "Choisir un produit",
+      "validation": {
+        "min": "Veuillez sélectionner un produit"
+      }
+    },
+    "translation": {
+      "placeholder": "Choisir une traduction"
+    },
+    "addressType": {
+      "label": "Type",
+      "placeholder": "Choisir le type",
+      "options": {
+        "billing": "Facturation",
+        "shipping": "Livraison"
+      }
+    }
+  },
+  "dataTable": {
+    "display": "Affichage",
+    "empty": "Aucun résultat",
+    "sort": {
+      "asc": "Asc",
+      "desc": "Desc",
+      "hide": "Masquer"
+    },
+    "pagination": {
+      "selected_one": "{{currectSelected}} sur {{totalSelected}} ligne sélectionnée",
+      "selected_other": "{{currectSelected}} sur {{totalSelected}} lignes sélectionnées",
+      "rows": "Lignes par page",
+      "page": "Page {{currentPage}} sur {{totalPage}}"
+    },
+    "actions": {
+      "delete": "Supprimer",
+      "update": "Modifier"
+    }
+  },
+  "dialog": {
+    "new": {
+      "title": "Création"
+    },
+    "delete": {
+      "title": "Confirmation"
+    },
+    "update": {
+      "title": "Mise à jour"
+    },
+    "cancel": {
+      "title": "Résiliation"
+    },
+    "actions": {
+      "confirm": "Confirmer",
+      "cancel": "Annuler",
+      "update": "Mettre à jour",
+      "delete": "Supprimer",
+      "loading": "En cours..."
+    }
+  },
+  "backToProducts": "Revenir aux produits",
+  "light": "Clair",
+  "dark": "Sombre",
+  "system": "Système",
+  "noFile": "Aucune image selectionée"
+}

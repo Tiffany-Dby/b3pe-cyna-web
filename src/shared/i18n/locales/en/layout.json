@@ -1,0 +1,120 @@
+{
+  "header": {
+    "logoAlt": "Cyna logo",
+    "navigation": {
+      "home": "Home",
+      "products": "Products",
+      "account": {
+        "auth": "My account",
+        "notAuth": "Sign in",
+        "settings": {
+          "title": "Settings",
+          "description": "Manage my personal information, password, payment methods, and more."
+        },
+        "subscriptions": {
+          "title": "Subscriptions",
+          "description": "Extend my subscriptions, upgrade, and more."
+        },
+        "history": {
+          "title": "Orders",
+          "description": "Retrieve my orders history, my invoices, etc."
+        },
+        "admin": {
+          "title": "Administrator",
+          "description": "Interface reserved for site administrators. Manage products, users, and more."
+        },
+        "signOut": "Sign out"
+      },
+      "cart": "Cart"
+    }
+  },
+  "footer": {
+    "rights": "All rights reserved",
+    "termsOfUse": "Terms of Use",
+    "legalNotice": "Legal notice"
+  },
+  "legal": {
+    "terms": {
+      "title": "Terms of Use",
+      "disclaimer": "⚠️ This is a fictitious set of Terms of Use provided for demonstration purposes only and does not constitute a valid legal document. Please consult a qualified jurist before publishing any terms of use.",
+      "lastUpdated": "Last updated on {{date}}",
+      "sections": {
+        "preamble": "These Terms of Use (\"Terms\") govern your access to and use of the Cyna platform (\"Service\"), operated by Cyna Inc., headquartered at 123 Innovation St., 75001 Paris, France.",
+        "definitions": {
+          "heading": "Definitions",
+          "user": "\"User\": any individual accessing the Service.",
+          "account": "\"Account\": the personalized space created during registration."
+        },
+        "access": {
+          "heading": "Access to the Service",
+          "p1": "The Service is available 24 hours a day, 7 days a week, subject to maintenance and technical interruptions.",
+          "p2": "Cyna Inc. reserves the right to modify, suspend, or discontinue all or part of the Service at any time without notice."
+        },
+        "account": {
+          "heading": "Account Creation and Management",
+          "p1": "To access full features, the User must create an Account by providing a valid email address.",
+          "p2": "The User is responsible for the confidentiality of their login credentials. All activity under the Account is attributable to the User."
+        },
+        "obligations": {
+          "heading": "User Obligations",
+          "p1": "The User agrees not to use the Service for unlawful purposes or contrary to public order.",
+          "p2": "Transmitting viruses, malware, or harmful code is strictly prohibited.",
+          "p3": "The User must comply with data protection laws and not collect or disseminate personal data without consent."
+        },
+        "intellectualProperty": {
+          "heading": "Intellectual Property",
+          "p1": "All elements of the Service (texts, logos, images, source code) are the exclusive property of Cyna Inc. or its partners.",
+          "p2": "Any reproduction or distribution, in whole or in part, without prior written permission is prohibited."
+        },
+        "liability": {
+          "heading": "Liability",
+          "p1": "Cyna Inc. uses reasonable means to ensure availability and security but is only bound by an obligation of means.",
+          "p2": "Under no circumstances shall Cyna Inc. be liable for indirect damages, data loss, or commercial loss resulting from use or inability to use the Service."
+        },
+        "data": {
+          "heading": "Personal Data",
+          "p1": "Collected data are processed in accordance with our Privacy Policy available on the site.",
+          "p2": "Users have rights of access, correction, and deletion of their data via email to privacy@cyna.example.com."
+        },
+        "cookies": {
+          "heading": "Cookies",
+          "p1": "The Service uses cookies necessary for operation and analytics. Users can configure or refuse cookies in their browser settings."
+        },
+        "modification": {
+          "heading": "Modification of the Terms",
+          "p1": "Cyna Inc. may modify these Terms at any time. New versions apply upon publication. Users are invited to review them regularly."
+        },
+        "duration": {
+          "heading": "Duration and Termination",
+          "p1": "These Terms are effective upon acceptance by the User.",
+          "p2": "Cyna Inc. may suspend or delete an Account for non-compliance. Users may delete their own Account at any time via support."
+        },
+        "jurisdiction": {
+          "heading": "Governing Law and Jurisdiction",
+          "p1": "These Terms are governed by French law. In case of dispute, the courts of Paris have exclusive jurisdiction, unless mandatory provisions dictate otherwise."
+        },
+        "contact": {
+          "heading": "Contact",
+          "p1": "For any questions regarding these Terms, contact us at support@cyna.example.com",
+          "p2": "Or by mail: Cyna Inc., 123 Innovation St., 75001 Paris, France."
+        }
+      }
+    },
+    "legalNotice": {
+      "title": "Legal Notice",
+      "disclaimer": "⚠️ This is a fictitious legal notice provided for demonstration purposes only. Please consult a legal advisor before publishing any content.",
+      "companyLabel": "Company",
+      "company": "Cyna Inc.",
+      "addressLabel": "Registered office",
+      "address": "123 Innovation St., 75001 Paris, France",
+      "siretLabel": "SIRET",
+      "siret": "000 000 000 00000",
+      "publisherLabel": "Publication Director",
+      "publisher": "John Doe",
+      "hostingLabel": "Hosting provider",
+      "hosting": "Example Hosting — 1 Host Lane, 75002 Paris, France",
+      "contactLabel": "Legal contact",
+      "contact": "legal@cyna.example.com"
+    }
+  }
+}

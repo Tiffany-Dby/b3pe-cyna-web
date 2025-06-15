@@ -1,0 +1,65 @@
+{
+  "newCategory": {
+    "title": "New category",
+    "description": "Create a parent category, its English translation will be generated automatically",
+    "submit": {
+      "loading": "Creating...",
+      "action": "Create"
+    }
+  },
+  "newLocale": {
+    "title": "New translation",
+    "description": "Add a translation for an existing category",
+    "submit": {
+      "loading": "Creating...",
+      "action": "Create"
+    }
+  },
+  "categoryList": {
+    "title": "Product categories",
+    "description": "Search, update or delete categories",
+    "columns": {
+      "category": "Category",
+      "language": "Language",
+      "name": "Name",
+      "actions": "Actions"
+    },
+    "filters": "Filter categories...",
+    "dialog": {
+      "delete": {
+        "description": "Delete a category translation",
+        "message": "Delete the translation <0>{{name}} ({{locale}})</0> permanently?"
+      },
+      "update": {
+        "description": "Update a category's translation"
+      }
+    }
+  },
+  "toast": {
+    "new": {
+      "success": "Category created !",
+      "loading": "Creating..."
+    },
+    "newLocale": {
+      "success": "Translation created !",
+      "loading": "Creating..."
+    },
+    "update": {
+      "success": "Category updated !",
+      "loading": "Updating..."
+    },
+    "updateLocale": {
+      "success": "Translation updated !",
+      "loading": "Updating..."
+    },
+    "delete": {
+      "success": "Category deleted !",
+      "loading": "Deleting..."
+    },
+    "deleteLocale": {
+      "success": "Translation deleted !",
+      "loading": "Deleting..."
+    },
+    "error": "An error occured"
+  }
+}

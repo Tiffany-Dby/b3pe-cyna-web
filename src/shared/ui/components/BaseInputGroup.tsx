@@ -1,3 +1,4 @@
+import { FormControl } from "@/lib/components/ui/form";
 import { Input } from "@/lib/components/ui/input";
 import { Label } from "@radix-ui/react-label";
 import * as React from "react";
@@ -32,14 +33,16 @@ const BaseInputGroup: React.FC<BaseInputGroupProps> = ({
         </Label>
       )}
       <div className="relative w-full">
-        <Input
-          {...props}
-          id={id}
-          type={type}
-          autoComplete={autoComplete}
-          placeholder={placeholder}
-          className={`w-full aria-invalid:placeholder:text-danger ${inputClassName}`}
-        />
+        <FormControl>
+          <Input
+            {...props}
+            id={id}
+            type={type}
+            autoComplete={autoComplete}
+            placeholder={placeholder}
+            className={`w-full aria-invalid:placeholder:text-danger ${inputClassName}`}
+          />
+        </FormControl>
         {Icon && (
           <Icon
             className={`size-5 absolute right-3 top-1/2 -translate-y-1/2 text-tertiary-75 ${

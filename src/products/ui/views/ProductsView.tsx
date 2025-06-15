@@ -1,0 +1,64 @@
+import { useTranslation } from "react-i18next";
+import ProductCard from "@/products/ui/components/ProductCard";
+import { ProductLocale } from "@/products/types/Products";
+import { API_ROUTES } from "@/shared/constants/routes";
+import useFetch from "@/shared/hooks/useFetch";
+import { ProductStatus } from "@/products/types/ProductStatus";
+import { useMemo } from "react";
+import Loader from "@/shared/ui/components/Loader";
+
+const ProductsView = () => {
+  const { t, i18n } = useTranslation("products");
+  const locale = i18n.resolvedLanguage ?? "en";
+
+  const {
+    data: productsLocale,
+    isLoading,
+    error,
+  } = useFetch<ProductLocale[]>(
+    `${API_ROUTES.PRODUCT_GET_ALL}/${locale}`,
+    false
+  );
+
+  const sortedProducts = useMemo(() => {
+    if (!productsLocale) return [];
+
+    const STATUS_PRIORITY: Record<ProductStatus, number> = {
+      [ProductStatus.Available]: 0,
+      [ProductStatus.Maintenance]: 1,
+      [ProductStatus.Unavailable]: 2,
+    };
+
+    return [...productsLocale].sort((a, b) => {
+      const productA = STATUS_PRIORITY[a.status] ?? 99;
+      const productB = STATUS_PRIORITY[b.status] ?? 99;
+
+      return productA - productB;
+    });
+  }, [productsLocale]);
+
+  return (
+    <>
+      {isLoading && <Loader />}
+      <section>
+        <div className="container mx-auto flex flex-col gap-5 pt-10 pb-24 px-4">
+          {error && <p>error</p>}
+          {!error && productsLocale && (
+            <>
+              <h1>{t("productList.title")}</h1>
+              <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-3">
+                {sortedProducts.map((product) => (
+                  <article key={product.id}>
+                    <ProductCard product={product} />
+                  </article>
+                ))}
+              </div>
+            </>
+          )}
+        </div>
+      </section>
+    </>
+  );
+};
+
+export default ProductsView;

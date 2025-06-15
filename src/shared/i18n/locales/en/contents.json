@@ -1,0 +1,38 @@
+{
+  "promotionsTextList": {
+    "title": "Promotional texts",
+    "description": "Search, update or delete promotional texts",
+    "dialog": {
+      "update": {
+        "description": "Update the promotional text"
+      }
+    },
+    "columns": {
+      "language": "Language",
+      "text": "Text",
+      "actions": "Actions"
+    },
+    "filters": "Filter texts..."
+  },
+  "newPromotionsText": {
+    "title": "New promotional text",
+    "description": "Create a new text by associating a language",
+    "submit": {
+      "loading": "Creating...",
+      "action": "Create"
+    }
+  },
+  "toast": {
+    "promotionsText": {
+      "new": {
+        "success": "Promotional text created !",
+        "loading": "Creating..."
+      },
+      "update": {
+        "success": "Promotional text updated !",
+        "loading": "Updating..."
+      }
+    },
+    "error": "An error occured"
+  }
+}

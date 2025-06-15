@@ -1,0 +1,65 @@
+{
+  "newCategory": {
+    "title": "Nouvelle catégorie",
+    "description": "Créez une catégorie parente, la traduction anglaise sera générée automatiquement",
+    "submit": {
+      "loading": "Création en cours...",
+      "action": "Créer"
+    }
+  },
+  "newLocale": {
+    "title": "Nouvelle traduction",
+    "description": "Ajoutez une traduction pour une catégorie existante",
+    "submit": {
+      "loading": "Création en cours...",
+      "action": "Créer"
+    }
+  },
+  "categoryList": {
+    "title": "Catégories de produit",
+    "description": "Recherchez, mettez à jour ou supprimez des catégories",
+    "columns": {
+      "category": "Catégorie",
+      "language": "Langue",
+      "name": "Nom",
+      "actions": "Actions"
+    },
+    "filters": "Filtrer les catégories...",
+    "dialog": {
+      "delete": {
+        "description": "Suppression d'une traduction de catégorie",
+        "message": "Supprimer la traduction <0>{{name}} ({{locale}})</0> définitivement ?"
+      },
+      "update": {
+        "description": "Mettez à jour une traduction de catégorie"
+      }
+    }
+  },
+  "toast": {
+    "new": {
+      "success": "Catégorie créée !",
+      "loading": "Création en cours..."
+    },
+    "newLocale": {
+      "success": "Traduction créée !",
+      "loading": "Création en cours..."
+    },
+    "update": {
+      "success": "Catégorie mise à jour !",
+      "loading": "Mise à jour en cours..."
+    },
+    "updateLocale": {
+      "success": "Traduction mise à jour!",
+      "loading": "Mise à jour en cours..."
+    },
+    "delete": {
+      "success": "Catégorie supprimée !",
+      "loading": "Suppression en cours..."
+    },
+    "deleteLocale": {
+      "success": "Traduction supprimée !",
+      "loading": "Suppression en cours..."
+    },
+    "error": "Une erreur est survenue"
+  }
+}

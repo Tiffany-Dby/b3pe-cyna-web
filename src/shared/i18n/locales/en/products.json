@@ -1,0 +1,181 @@
+{
+  "product": "Product: ",
+  "status": {
+    "unavailable": "Unavailable",
+    "available": "Available",
+    "maintenance": "Maintenance",
+    "outOfStock": "Out of stock"
+  },
+  "tabs": {
+    "benefits": {
+      "name": "Benefits",
+      "title": "Why"
+    },
+    "functionnalities": {
+      "name": "Functionnalities",
+      "title": "Key Functionnalities"
+    },
+    "specifications": {
+      "name": "Specifications",
+      "title": "Technical specifications",
+      "srOnly": "Technical specifications table",
+      "table": {
+        "criteria": "Criteria",
+        "detail": "Detail"
+      }
+    }
+  },
+  "promotion": "promotion",
+  "tryNow": "Try now",
+  "pricing": {
+    "title": "Pricing",
+    "monthly": {
+      "title": "Monthly",
+      "bill": "Billed monthly",
+      "cta": "Subscribe"
+    },
+    "yearly": {
+      "title": "Yearly",
+      "bill": "Billed yearly",
+      "cta": "Subscribe"
+    },
+    "trial": {
+      "title": "Trial",
+      "bill": "Free during 14 days",
+      "cta": "Try now"
+    },
+    "keys": {
+      "availability": "Available immediately",
+      "commitment": "Commitment-free"
+    },
+    "month": "month"
+  },
+  "newBase": {
+    "title": "New product",
+    "description": "Create a new product with its base informations",
+    "submit": {
+      "loading": "Creating...",
+      "action": "Create"
+    }
+  },
+  "newTranslation": {
+    "title": "New translation",
+    "description": "Create a new product's translation",
+    "benefits": {
+      "legend": "Benefits",
+      "title": "Title",
+      "description": "Description"
+    },
+    "specifications": {
+      "legend": "Specifications",
+      "criteria": "Criteria",
+      "description": "Description"
+    },
+    "functionalities": {
+      "legend": "Functionalities",
+      "functionality": "Functionality"
+    },
+    "actions": {
+      "add": "Add",
+      "remove": "Remove"
+    },
+    "submit": {
+      "loading": "Creating...",
+      "action": "Create"
+    }
+  },
+  "productList": {
+    "title": "Products",
+    "description": "Search, update or delete products",
+    "columns": {
+      "product": "Product",
+      "details": "Translation",
+      "name": "Name",
+      "languages": "Languages",
+      "category": "Category",
+      "price": "Price",
+      "basePrice": "Base price",
+      "order": "Order",
+      "discountPercentage": "Discount",
+      "actions": "Actions"
+    },
+    "filters": "Filter products..."
+  },
+  "updateProduct": {
+    "description": "Update the product's base informations",
+    "formBaseInfos": {
+      "title": "Informations"
+    },
+    "formImage": {
+      "title": "Images",
+      "subTitle": "Image #",
+      "seeCurrentImage": "See current image",
+      "label": "New image"
+    },
+    "submit": {
+      "loading": "Updating...",
+      "action": "Update"
+    }
+  },
+  "updateTranslation": {
+    "description": "Update the product's translation",
+    "submit": {
+      "loading": "Updating...",
+      "action": "Update"
+    },
+    "dialog": {
+      "description": "Choose the translation to update",
+      "message": "Product <0>« {{name}} »</0> translation to update:"
+    }
+  },
+  "deleteProduct": {
+    "dialog": {
+      "description": "Delete a product",
+      "descriptionWithTranslations": "Delete a product and its translations",
+      "message": "Permanently delete <0>« {{name}} »</0>?",
+      "messageWithTranslations": "Permanently delete <0>« {{name}} »</0> and all its associated translations?"
+    }
+  },
+  "deleteTranslation": {
+    "dialog": {
+      "description": "Delete a product translation",
+      "label": "Product <0>« {{name}} »</0> translation to delete:",
+      "message": "Permanently delete the <0>« {{locale}} »</0> version?"
+    }
+  },
+  "toast": {
+    "new": {
+      "success": "Product created !",
+      "loading": "Creating..."
+    },
+    "newTranslation": {
+      "success": "Translation created !",
+      "loading": "Creating..."
+    },
+    "update": {
+      "success": "Product updated !",
+      "loading": "Updating..."
+    },
+    "updateImage": {
+      "success": "Image updated !",
+      "loading": "Updating..."
+    },
+    "updateTranslation": {
+      "success": "Translation updated !",
+      "loading": "Updating..."
+    },
+    "delete": {
+      "success": "Product deleted !",
+      "loading": "Deleting..."
+    },
+    "deleteTranslation": {
+      "success": "Product's translation deleted !",
+      "loading": "Deleting..."
+    },
+    "addToCart": {
+      "success": "Product added to your cart !",
+      "loading": "Adding to your cart..."
+    },
+    "error": "An error occured"
+  }
+}

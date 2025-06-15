@@ -1,16 +1,6 @@
-export enum AppRoutes {
-  home = "/",
-  products = "/produits",
-  account = "/account",
-  signUp = "/sign-up",
-  signIn = "/sign-in",
-  checkout = "/checkout",
-  resetPassword = "/reset-password",
-}
+import { API_ROUTES, APP_ROUTES } from "@/shared/constants/routes";
 
-export enum ApiRoutes {
-  url = "http://localhost:8000",
-  signUp = "/api/auth/register",
-  signIn = "/api/auth/login",
-  me = "/api/auth/me",
-}
+type AppRoutes = (typeof APP_ROUTES)[keyof typeof APP_ROUTES];
+type ApiRoutes = (typeof API_ROUTES)[keyof typeof API_ROUTES];
+
+export type { AppRoutes, ApiRoutes };

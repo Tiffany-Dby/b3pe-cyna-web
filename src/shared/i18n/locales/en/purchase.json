@@ -1,0 +1,42 @@
+{
+  "step": "Step ",
+  "breadcrumb": {
+    "cart": "Cart",
+    "address": "Address",
+    "payment": "Payment"
+  },
+  "cart": {
+    "title": "My cart",
+    "subTitle": "Total",
+    "subTotal": "Sub-total",
+    "shipping": "Shipping",
+    "discount": "Discount",
+    "proceedPayments": "Proceed to checkout",
+    "securedPayments": "Secure payments",
+    "empty": "Cart is empty",
+    "signInToPay": "Sign in to proceed"
+  },
+  "success": {
+    "title": "Thank you for your order!",
+    "description": "Payment successful",
+    "orderSummary": "Order summary:",
+    "backToHome": "Return to home",
+    "manageSubscriptions": "Manage my subscriptions"
+  },
+  "address": {
+    "description": "Choose your billing and shipping addresses",
+    "billingEmpty": "Please provide a billing address",
+    "shippingEmpty": "Please provide a shipping address",
+    "useSame": "Use billing address as shipping address",
+    "backToCart": "Back to cart",
+    "nextStep": "Next step"
+  },
+  "checkout": {
+    "title": "Payment",
+    "description": "Choose and enter your payment method to complete your order",
+    "cancel": "Cancel",
+    "canceling": "Canceling...",
+    "pay": "Pay",
+    "loading": "Processing..."
+  }
+}

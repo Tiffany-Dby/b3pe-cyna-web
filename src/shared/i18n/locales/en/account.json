@@ -1,0 +1,102 @@
+{
+  "settings": {
+    "title": "My settings",
+    "personalInformations": {
+      "caption": "Personal informations"
+    },
+    "changePassword": {
+      "caption": "Change password"
+    },
+    "submit": {
+      "loading": "Updating...",
+      "action": "Update"
+    },
+    "address": {
+      "caption": "Address",
+      "newAddress": "New address",
+      "delete": "Delete",
+      "dialog": {
+        "new": {
+          "description": "Save a new address on my account"
+        },
+        "delete": {
+          "description": "Delete an address",
+          "message": "Delete the address permanently?"
+        }
+      },
+      "toast": {
+        "new": {
+          "success": "Address saved !",
+          "loading": "Saving..."
+        },
+        "update": {
+          "success": "Address updated !",
+          "loading": "Updating..."
+        },
+        "delete": {
+          "success": "Address deleted !",
+          "loading": "Deleting..."
+        },
+        "error": "An error occured"
+      }
+    }
+  },
+  "subscriptions": {
+    "title": "My subscriptions",
+    "noSubscription": "No subscription",
+    "start": "Start",
+    "nextInvoice": "Next invoice",
+    "cancel": "Cancel",
+    "update": "Update",
+    "upgrade": "Upgrade soon available",
+    "status": {
+      "title": "Status",
+      "active": "Active",
+      "canceled": "Canceled",
+      "incomplete": "Incomplete",
+      "incompleteExpired": "Incomplete Expired",
+      "pastDue": "Past Due",
+      "paused": "Paused",
+      "trialing": "Trialing",
+      "unpaid": "Unpaid"
+    },
+    "dialog": {
+      "cancel": {
+        "description": "Cancel a subscription",
+        "message": "Cancel the selected subscription?"
+      }
+    },
+    "toast": {
+      "cancel": {
+        "success": "Subscription canceled !",
+        "loading": "Canceling subscription..."
+      },
+      "error": "An error occured"
+    }
+  },
+  "history": {
+    "title": "My order history",
+    "subTitle": "Orders",
+    "description": "Detailed history and invoices of all my orders",
+    "columns": {
+      "order": "Order",
+      "date": "Date",
+      "status": "Status",
+      "products": "Products",
+      "quantities": "Quantities",
+      "total": "Total",
+      "paymentMethod": "Payment method",
+      "invoice": "Invoice"
+    },
+    "filters": "Filter by products name...",
+    "yearlySubscription": "Yearly subscription",
+    "monthlySubscription": "Monthly subscription",
+    "status": {
+      "pending": "Pending",
+      "failed": "Failed",
+      "canceled": "Canceled",
+      "refunded": "Refunded",
+      "succeeded": "Paid"
+    }
+  }
+}
