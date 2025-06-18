@@ -30,6 +30,7 @@ import SubscriptionsView from "@/users/ui/views/SubscriptionsView";
 import AccountView from "@/users/ui/views/AccountView";
 import HistoryView from "@/users/ui/views/HistoryView";
 import SearchResultView from "@/shared/ui/views/SearchResultView";
+import AdminAllClientsView from "@/users/ui/views/AminAllClientsView";
 
 const router = createBrowserRouter([
   {
@@ -160,7 +161,7 @@ const router = createBrowserRouter([
           },
           {
             path: APP_ROUTES.ADMIN_USERS_CLIENTS,
-            element: <p>Users/clients</p>,
+            Component: AdminAllClientsView,
           },
         ],
       },

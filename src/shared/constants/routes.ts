@@ -86,6 +86,7 @@ const API_ROUTES = {
   PURCHASE_INTENT_NEW: "/api/checking/create-setup-intent",
   METRICS_SALES: "/api/payments/metrics/sales",
   METRICS_SALES_BY_CATEGORY: "/api/payments/metrics/categories",
+  ADMIN_USERS: "/api/users",
 } as const;
 
 export { APP_ROUTES, API_ROUTES };

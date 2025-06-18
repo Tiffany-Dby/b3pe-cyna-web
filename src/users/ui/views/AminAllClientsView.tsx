@@ -1,22 +1,20 @@
 import { useAdminStore } from "@/users/store/adminStore";
-import NewAdminCard from "@/users/ui/components/NewAdminCard";
 import { useEffect } from "react";
-import AdminsList from "@/users/ui/components/AdminsList";
+import ClientsList from "@/users/ui/components/ClientsList";
 import { UserRole } from "@/users/types/UserRole";
 
-const AdminAllAdminsView = () => {
+const AdminAllClientsView = () => {
   const { getUsersByRole } = useAdminStore();
 
   useEffect(() => {
-    getUsersByRole(UserRole.admin);
+    getUsersByRole(UserRole.user);
   }, [getUsersByRole]);
 
   return (
     <div className="@container flex flex-wrap gap-4">
-      <NewAdminCard />
-      <AdminsList />
+      <ClientsList />
     </div>
   );
 };
 
-export default AdminAllAdminsView;
+export default AdminAllClientsView;
