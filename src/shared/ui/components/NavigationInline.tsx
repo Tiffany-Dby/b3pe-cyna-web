@@ -27,7 +27,7 @@ const NavigationInline = ({ items }: { items: MenuItem[] }) => {
         {items.map((item) => (
           <Fragment key={id + "-" + item.title}>
             {!item.subitems ? (
-              <NavigationMenuItem className=" [&_span]:text-white">
+              <NavigationMenuItem>
                 <NavLink
                   to={item.url}
                   className={`${navigationMenuTriggerStyle()} gap-1`}
